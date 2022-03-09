@@ -1,0 +1,153 @@
+% !TEX TS-program = pdflatexmk
+% Wer nicht TeXShop nutzt kann die ersten beiden Zeilen löschen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  Thema:  AGFA-Master.tex  
+% % Stand:	2022/03/08    
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[%	 -- siehe KOMA-Script 
+	,toc		= bib 		 
+	,parskip		= half-		 
+	,headings	= normal			 	 		 
+	,numbers		= noenddot		
+	,leqno
+	,version 	= last
+	,DIV 		= calc
+	,titlepage	= true
+	%% -- Arbeit auf English oder Deutsch 
+	%% entsprechend anpassen
+	,ngerman				% Deutscher Text; 
+%	,english				% oder Englischer Text	
+	]{scrartcl}			% KOMA Artikelmodus
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% -- Hierin sind alle weiteren Pakete enthalten
+%% -- Siehe agfa-readme.pdf für Details
+%% -- 
+ 
+\usepackage[%
+	,thmframed			% gerahmte Umgebungen
+	,numeric				% Nummeriertes LV
+	,urldoi				% URL bzw. DOI unter dem Titel der Referenz
+	%% -- Alternativer Zeichsatz
+	%% -- Siehe ReadMe.pdf
+%	,lmodern				% lmodern
+%	,libertinus			% libertinus
+	]{./preamble/agfa-art}  
+
+%% -- Was soll aktuell bearbeitet werden
+%% -- Mittels % entsprechend steuern
+%% --
+
+\includeonly{%
+	./content/AGFA-Section-1,
+	./content/AGFA-Section-2,
+	}
+
+%% -- Für den Druck % entfernen; 
+%% -- Notwendige Bindekorrektur
+%% --
+
+% \KOMAoptions{BCOR = 12mm}
+
+%% -- für die finale Version die folgenden Zeilen 
+%% -- mit % auskommentieren
+%% -- 
+
+\KOMAoptions{footsepline}
+\lofoot{Name}
+\cofoot{Stand der Arbeit:}
+\rofoot{\today}
+
+%% -- Datei mit den Referenzen für Literatur
+%% -- und Steuerung für url etc. 
+%% -- siehe AGFA-ReadMe.pdf
+%% --
+
+
+\addbibresource{./bib/agfa-bib.bib}	
+	
+\ExecuteBibliographyOptions{%
+	,backref		= true		% wo habe ich was referenziert, alles andere weg
+ 	,url		= false		% true	wenn online-Zitate separat gezeigt werden sollen
+ 	,doi		= false		% true  wenn DOI angezeigt werden sollen, sinnvoll bei Vorlesungen 
+	,eprint		= false		% true  - ” -
+	}
+
+%% -- Querverweise
+%% -- siehe agfa-readme.pdf
+%% --
+
+\hypersetup{
+	,colorlinks	= true    			%  Farbige Links false/true, für onlineversion true                                                           
+	,urlcolor	= blue       		%                                                              
+	,citecolor	= blue      		    %                                                          
+	,linkcolor	= blue			 	% oder black
+%  	,hidelinks 						% Vor dem Druck % entfernen
+	}
+%% -- 
+
+\begin{document}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+%% Frontmatter
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+%% -- kann man anfangs übergehen
+%% -- daher %% bei \begin{comment} und \end{comment} entfernen/hinzufügen
+%% --
+
+%%\begin{comment}
+\begingroup
+	\input{./content/0-AGFA-title}			% Titelseite
+	\pagestyle{empty}
+	\input{./content/0-AGFA-thanks}			% Danksagung
+	\tableofcontents 
+	\thispagestyle{empty}
+\endgroup
+
+%% -- Zusammenfassung des Inhaltes
+%% --
+\cleardoubleoddpage 
+	\pagenumbering{roman}
+	\input{./content/0-AGFA-summary}		% Zusammenfassung
+\cleardoubleoddpage 
+
+%%\end{comment}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mainmatter
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\setcounter{section}{0}
+\thispagestyle{empty}
+
+%% -- Die einzelnen Abschnitte
+%% -- Über \includeonly steuern, was aktuell bearbeitet wird
+%% --
+
+\include{./content/AGFA-Section-1}				% Erster Abschnitt
+\include{./content/AGFA-Section-2}				% Zweiter Abschnitt
+% \include{name}									% etc
+
+\cleardoubleoddpage 
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+%% Backmatter
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+
+\thispagestyle{empty}
+\pagenumbering{roman}
+\setcounter{page}{1}
+
+%% -- Literaturverzeichnis
+%%
+%\nocite{}		% für Literatur, die nicht zitiert wurde; 
+				% wenig sinnvoll dieses zu tun; siehe ReadMe.pdf
+				
+\RaggedRight		% Kein Blocksatz
+\printbibliography
+
+%% --
+
+\end{document}
