@@ -1,0 +1,35 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Abkürzungen 
+%% agfa-abkuerz.sty
+%% Muss nach agfa-hyperef.sty geladen werden
+%% Stand: 2022/03/01
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}	%
+\ProvidesPackage{agfa-abkuerz}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialisierungen
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ProcessOptions\relax
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Pakete
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xspace}
+
+%% -- Richtige Abkürzungen
+% --> Englisch
+	\newcommand{\eg}{e.g.\xspace}
+	\newcommand{\ie}{i.e.\xspace}
+	% weitere hier eintragen
+
+% --> Deutsch
+	\renewcommand{\dh}{d.\,h.\xspace}
+	\newcommand{\ua}{u.\,a.\xspace}
+	\newcommand{\zB}{z.\,B.\xspace}
+	\newcommand{\og}{o.\,g.\xspace}
+	\newcommand{\etc}{etc.\xspace}
+	\newcommand{\bzw}{bzw.\xspace}
+	\newcommand{\inkl}{inkl.\xspace}
+	\newcommand{\uae}{u.\,ä.\xspace}
+%% --
+
+\endinput

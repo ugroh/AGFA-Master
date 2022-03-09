@@ -1,0 +1,146 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package: Definitionen
+% Stand: 2022/03/01
+% agfa-defn.sty
+% Die üblichen einfachen Abkürzungen
+% TODO Auswahl von Fett oder BB-Stil
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}											
+\ProvidesClass{agfa-defn}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialisierungen
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{ifthen,iftex}
+
+%% -- var-Symbole für griechisches Alphabet
+\let\ORGvarepsilon=\varepsilon
+\let\varepsilon=\epsilon
+\let\epsilon=\ORGvarepsilon
+%
+\let\ORGvarrho=\varrho
+\let\varrho=\rho
+\let\rho=\ORGvarrho
+%
+\let\ORGvartheta=\vartheta
+\let\vartheta=\theta
+\let\theta=\ORGvartheta
+%
+\let\ORGvarphi=\varphi
+\let\varphi=\phi
+\let\phi=\ORGvarphi
+%
+\let\ORGvarleq=\leqslant
+\let\leqslant=\leq
+\let\leq=\ORGvarleq
+%
+\let\ORGvargeq=\geqslant
+\let\geqslant=\geq
+\let\geq=\ORGvargeq
+%
+\let\ORGvarpreccurlyeq=\preccurlyeq
+\let\preccurlyeq=\preceq
+\let\preceq=\ORGvarpreccurlyeq
+%
+\AtBeginDocument{
+\let\setminus\smallsetminus			% A - B fuer Mengen
+\renewcommand{\P}{\mathfrak{P}}		% Achtung: \P hat andere Bedeutung in LaTeX
+}
+
+%% -- Eins einer Algebra
+\RequirePackage{bbm}
+\newcommand{\1}{\mathbbm{1}}
+
+%% -- Zahlen
+\newcommand{\N}{\mathbb{N}}		% Natuerliche Zahlen
+\newcommand{\Z}{\mathbb{Z}}		% Ganze Zahlen
+\newcommand{\Q}{\mathbb{Q}}		% Rationale Zahlen
+\newcommand{\R}{\mathbb{R}}		% Reelle Zahlen
+\newcommand{\C}{\mathbb{C}}		% Komplexe Zahlen
+\newcommand{\K}{\mathbb{K}}		% Koerperzeichen
+\newcommand{\T}{\mathbb{T}}
+
+
+%% -- Differential Allgemeine Abkuerzungen
+\newcommand*{\diff}[1]{\mathop{}\!\mathrm{d}{#1}}	% \diff{s} = ds, 
+\renewcommand*{\d}[1]{\mathop{}\!\mathrm{d}{#1}}	% \d{\mu} = d.., 
+\newcommand*{\ds}{\mathop{}\!\mathrm{d}{s}}       	% \ds = ds, 
+\newcommand*{\dg}{\mathop{}\!\mathrm{d}{g}}       	% \dg = dg, 
+\newcommand*{\dt}{\mathop{}\!\mathrm{d}{t}}       	% \dt = dt, 
+\newcommand*{\dx}{\mathop{}\!\mathrm{d}{x}}       	% \dx = dx, 
+\newcommand*{\dy}{\mathop{}\!\mathrm{d}{y}}       	% \dy = dy, 
+\newcommand*{\dr}{\mathop{}\!\mathrm{d}{r}}       	% \dx = dr, 
+
+%% -- Inverse fuer Mengenfunktionen
+\newcommand{\finv}[1]{\stackrel{-1}{#1}}  % 
+
+%% -- Eulersche Zahl und imaginäre Einheit
+\newcommand{\im}{\ensuremath{\mathrm{i}}}
+\newcommand{\e}{\ensuremath{\mathrm{e\;\!}}}
+
+%% -- Bezeichnungen
+\newcommand*{\sig}{\mathop{}\!\mathrm{sign}\,}  % \sign
+\newcommand*{\lin}{\mathop{}\!\mathrm{lin}}		%  Linearer Aufspann
+\newcommand*{\conv}{\mathop{}\!\mathrm{conv}}	% Konvex
+
+%% -- Operatoren
+% ---------------------------------------------------------------------
+\newcommand*{\pr}{\mathop{}\!\mathrm{pr}}   		% Projektion
+\newcommand{\tr}[1]{\mathop{}\mathrm{Tr}(#1)}		% Spur
+\newcommand{\Kern}[1]{\mathop{}\mathrm{ker}(#1)\,}	
+\newcommand{\Bild}[1]{\mathop{}\mathrm{im}(#1)\,}	 % Bild
+\newcommand{\Fix}[1]{\mathop{}\mathrm{Fix}(#1)}
+%
+\DeclareMathOperator{\dom}{dom} 					% Definitionsbereich
+\DeclareMathOperator{\ran}{ran} 					% Bildbereich
+\DeclareMathOperator{\codim}{codim}
+\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\esssup}{ess\,sup}
+
+%% -- ulgr Spezifisch
+
+%% -- Spektrum
+\newcommand{\Sp}[1]{\mathop{}\mathrm{Sp}(#1)\,}			% Spektrum
+\newcommand{\Res}[1]{\mathop{}\mathrm{Res}(#1)\,}		% Resolventenmenge
+\newcommand{\Spv}[2]{\mathop{}\mathrm{Sp}_{#1}{(#2)}}
+\newcommand{\Spu}[2]{\mathop{}\mathrm{Sp}{#1}{(#2)}}
+\newcommand{\Resv}[2]{\mathop{}\mathrm{Res}_{#1}{(#2)}}	
+% --		
+% die einzelnen Teile des Spektrums
+% --
+\newcommand{\Spp}[1]{\mathop{}\mathrm{Sp}_{\mathrm{p}}{(#1)}} 	% Punktspektrum
+\newcommand{\Spd}[1]{\mathop{}\mathrm{Sp}_{\mathrm{d}}{(#1)}} 	% Defektspektrum
+\newcommand{\Spap}[1]{\mathop{}\mathrm{Sp}_{\mathrm{ap}}{(#1)}} % Appr. Punktspektrum
+\newcommand{\Spr}[1]{\mathop{}\mathrm{Sp}_{\mathrm{r}}{(#1)}} 	% Restspektrum
+\newcommand{\Spcp}[1]{\mathop{}\mathrm{Sp}_{\mathrm{comp}}{(#1)}} % Kompressionsspektrum
+	
+%% -- Algebren, Hilbertraum etc.
+\newcommand{\CA}{C$^{ \star }$}		% C*--Algebra 
+\newcommand{\WA}{W$^{ \star }$}		% W*--Algebra
+\newcommand{\GL}[1]{\mathbf{GL(#1)}} % GL(A) invertierbare Elemente
+%
+\newcommand{\BA}{\mathfrak{A}}	% Banachalgebra A
+\newcommand{\BB}{\mathfrak{B}}	% Banachalgebra B
+\newcommand{\BI}{\mathfrak{I}}	% Ideal
+\newcommand{\BM}{\mathfrak{M}}	% maximales Ideal
+
+\renewcommand{\L}[1]{\mathcal{L}(#1)}	% L(E) etwa; 
+\newcommand{\Kp}[1]{\mathcal{K}(#1)}	% K(E) etwa; kompakte Operatoren 
+\newcommand{\BE}[1]{#1}
+\newcommand{\LH}{\mathcal{L}(H)}					% L(H)
+\newcommand{\LE}{\mathcal{L}(E)} 					% L(E)
+\newcommand{\NA}{\mathfrak{M}}		% vNAlgebra
+\newcommand{\SA}{\mathbf{S}(\mathfrak{A})}		% Zustandsraum
+\newcommand{\HR}{\mathfrak{H}}		% Hilbertraum
+%
+\newcommand{\XA}{\textsf{X}(\BA)}	% Gelfandraum X(A)
+\newcommand{\XB}{\textsf{X}(\BB)}	% Gelfandraum X(B)
+\newcommand{\Ge}{\mathcal{G}}		% Gelfandabbildung
+\newcommand{\MA}{\textsf{M}(\BA)}	% Raum der maximalen Ideale
+\newcommand{\vN}{von Neumann}
+\newcommand{\PR}{\mathfrak{P}(\HR)}
+\newcommand{\PM}{\mathfrak{P}(\NA)}
+\newcommand{\MH}{\mathfrak{M}(\HR)}
+
+%% --
+
+\endinput

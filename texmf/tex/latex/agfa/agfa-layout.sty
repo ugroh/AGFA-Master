@@ -1,0 +1,84 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Layout
+%% agfa-layout.sty
+%% Status: 2022/03/01
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}	%
+\ProvidesPackage{agfa-layout}
+%% --
+\setkomafont{sectioning}{\rmfamily\bfseries} 
+\addtokomafont{titlehead}{\normalfont}
+\addtokomafont{title}{\let\huge\Large}
+\addtokomafont{author}{\Large}
+\addtokomafont{date}{\normalsize}
+\addtokomafont{publishers}{\large}
+
+%% -- 
+\addtocounter{tocdepth}{-1}% Keine \subsubsection im TOC
+%% -- section
+\renewcommand*{\thesection}{\arabic{section}} 
+
+%
+\RedeclareSectionCommand[tocnumwidth=2em]{section} % TOC
+\renewcommand*{\addsectiontocentry}[2]{% Eintrag in TOC
+  \addtocontents{toc}{\protect\addvspace{\protect.5\baselineskip}}% Halbe LZ
+  \Ifstr{#1}{}{%
+    \addtocentrydefault{section}{#1}{#2}%
+  }{%
+    \addtocentrydefault{section}{\kern1pt#1.}{\itshape #2}
+  }%
+}
+%% --  Seitenangabe unnötig 
+\addtokomafont{sectionentrypagenumber}{\color{white}}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Format \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{\subsubsectionnumdepth} 	% Anzeigen der subsub-nummer
+\renewcommand*{\thesubsubsection}{\arabic{subsubsection}.} % 1.
+\RedeclareSectionCommand[%
+  	,beforeskip	=  .25\baselineskip		% Skip vor dem Kommando + indent
+	,afterskip	= -0.1em				% Kein Skip aber Abstand
+	,font=\normalfont					%  
+	,tocnumwidth=1.25em					% Eintrag in TOC ist aber unterbunden
+	,tocindent	= 1em					%  
+	]{subsubsection} 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Nummerierung wechselt ** nicht** nach jedem neuen \subsection-Befehl
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter							
+\@removefromreset{subsubsection}{subsection}
+\@addtoreset{subsubsection}{section}
+\makeatother
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Kopf- und Fußzeile
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{scrlayer-scrpage}
+\automark[subsection]{section}
+\clearpairofpagestyles
+%% Kopfzeile 
+\KOMAoptions{headsepline=0.8pt}
+\renewcommand*{\sectionmarkformat}{}	% keine Abschnittsnummer
+\renewcommand*{\subsectionmarkformat}{}	% keine UnterAbschnittsnummer
+\chead{}
+\lohead{\scshape\headmark}	% Überschrift Abschnitt
+%\rohead{\pagemark}			% Seite
+\rohead{%					% Seite mit Balken
+  \makebox[0pt][l]{%
+    \makebox[\marginparsep][r]{%
+      \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
+    }%
+    \makebox[\marginparwidth][l]{\pagemark}%
+  }%
+}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fußnoten Nach KOMA 3.14 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\deffootnotemark{\kern1pt(\textsuperscript{\thefootnotemark})}
+%\deffootnote[1.5em]{1em}{2em}{(\textsuperscript{\thefootnotemark})\kern5pt}
+%\let\raggedfootnote\RaggedRight
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\deffootnotemark{\kern1pt(\raisebox{0.35ex}{\footnotesize\thefootnotemark})}
+\deffootnote[1.5em]{1em}{2em}{(\raisebox{0.35ex}{\footnotesize\thefootnotemark})\kern5pt}
+%\let\raggedfootnote\RaggedRight
+%\setkomafont{footnote}{\sffamily}
+\endinput

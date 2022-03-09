@@ -1,0 +1,99 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paket ug-mathtools.sty
+% Die Makros, wie \interval etc.
+% Stand: 2022/02/19
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Kenndaten
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}											
+\ProvidesPackage{agfa-mathtools}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialisierungen
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{%
+	,ifthen
+	,etoolbox
+	,amsmath
+	,amssymb}
+\RequirePackage[tbtags]{mathtools}
+\mathtoolsset{showonlyrefs,showmanualtags}
+\RequirePackage{mleftright}
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Deklaration von Optionen
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% -- mrightleft 
+\renewcommand{\right}{\mright}
+\renewcommand{\left}{\mleft}
+
+% -- Norm, Absolutbetrag, duales Paar siehe mathtools sec 3.6
+\DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{\ifblank{#1}{\:\cdot\:}{#1}}
+\DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{\ifblank{#1}{\:\cdot\:}{#1}}
+\DeclarePairedDelimiterX{\dualp}[2]{\langle}{\rangle}{\ifblank{#1#2}{\,\cdot\,,\cdot\,}{\,#1,#2\,}}
+
+%% -- Intervalle
+\newcommand{\interval}[1]{\left[ #1 \right]}	
+\newcommand{\ointerval}[1]{\left] #1 \right[}	
+\newcommand{\rointerval}[1]{\left[ #1 \right[}
+\newcommand{\lointerval}[1]{\left] #1 \right]} 
+
+%% -- Angepasstes E/F und 1/3
+%% -- 1/3
+%\newcommand*{\sfrac}[2]{\raisebox{-0.33ex}{${}^{#1}$\kern-0.2em}/\kern0.0em{{\raisebox{0.34ex}{$_{#2}$}}}}
+
+\newcommand*{\sfrac}[2]{\leavevmode\kern.1em%
+       \raise.5ex\hbox{\scriptsize #1}%
+       \kern-.1em/\kern-.15em%
+       \lower.25ex\hbox{\scriptsize #2}}
+       
+%% -- E/F
+\renewcommand{\tfrac}[2]{\raisebox{0.5ex}{#1}\big/\raisebox{-0.5ex}{#2}}
+%%
+\newcommand{\nfrac}[2]{\leavevmode\kern.1em%
+       \raise.5ex\hbox{\scriptsize #1}%
+       \kern-.1em/\kern-.15em%
+       \lower.25ex\hbox{\scriptsize #2}}
+%
+\RequirePackage{accents}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Topologisches
+%% \interior{A} -> gibt o ueber A
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\interior}[1]{%
+	\accentset{\smash{\raisebox{-0.12ex}{$\scriptstyle\circ$}}}{{#1}}\rule{0pt}{2.3ex}}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tippfaul DTK 1/2011 & Mail H Voss
+% Die Greosse der Klammern werden automatisch angepasst
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\gdef\resetMathstrut@{%
+ \setbox\z@\hbox{%
+   \mathchardef\@tempa\mathcode`\!\relax%
+   \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+   \expandafter\@tempb\meaning\@tempa \relax
+ }%
+\ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
+\makeatother
+%
+\begingroup
+ \catcode`(\active \xdef({\left\string(}
+ \catcode`)\active \xdef){\right\string)}
+ \catcode`[\active \xdef[{\left\string[}
+ \catcode`]\active \xdef]{\right\string]}
+% \catcode`|\active \xdef|{\middle\string|}
+\endgroup
+\mathcode`(="8000 \mathcode`)="8000
+\mathcode`[="8000 \mathcode`]="8000
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% sonst gehen Klammern nicht
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\DeclareRobustCommand{\{}{\ifmmode\left\lbrace\else\textbraceleft\fi}
+\DeclareRobustCommand{\}}{\ifmmode\right\rbrace\else\textbraceright\fi}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% siehe https://tex.stackexchange.com/questions/21290/how-to-make-left-right-pairs-of-delimiter-work-over-multiple-lines
+% fuer die Eingabe von Klammern; auch \vphantom beachten  \right.
+% Kenndaten
+\endinput

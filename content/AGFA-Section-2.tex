@@ -1,0 +1,91 @@
+% !TEX root = ../AGFA-Master.tex
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ./content/AGFA-Section-2.tex
+%% Stand: 2022/03/08
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\thispagestyle{empty}
+\section{Mein zweiter Abschnitt}
+\subsection{Test der Listen}\label{subsec:listen}
+%%
+\begin{myenumerate}
+\item
+Aufzählung
+\item
+Aufzählung
+\end{myenumerate}
+%%
+\begin{myequivalent}
+\item
+Äquivalent
+\item
+Äquivalent
+\end{myequivalent}
+%%
+\begin{myitemize}
+\item
+Punkte
+\item
+Punkte
+\end{myitemize}
+%%
+\begin{mynumber}
+\item
+Nummeriert
+\item
+Nummeriert
+\end{mynumber}
+%%
+\subsection{Test der mathematischen Umgebungen}\label{subsec:mumgebungen}
+Schon seit vielen hundert Jahren eines der schönsten Ergebnisse der Mathematik.
+%
+\begin{theorem}\label{thm:theorem1}
+In einem rechtwinkligen Dreiecke mit den Seiten $ a $, $ b $ und der Hypothenuse $ c $ gilt stets
+
+\begin{equation}\label{eq:pythagoras}
+	a^{ 2 } + b^{ 2 } = c^{ 2 } \, .
+\end{equation}
+\end{theorem}
+%
+\begin{proof}
+Für den Beweis verweisen wir auf die Literatur, etwa \textcite{efhn:2016}
+\end{proof}
+%%
+\begin{corollary}\label{cor:folgerung}
+Hieraus folgt dann 
+\begin{equation}
+	a^{ 2 } + b^{ 2 } = c^{ 2 } \, .
+\end{equation}
+\end{corollary}
+%
+\begin{proposition}\label{prop:prop}
+Und nun ein kleiner Satz als Ergänzung 
+\end{proposition}
+%
+\begin{lemma}
+Zuvor aber ein Lemma
+\end{lemma}
+%
+\begin{remark}
+Eine Anmerkung
+\end{remark}
+%%
+Mal sehen, wie die Eulersche Zahl und die imaginäre Einheit aussehen.
+%%
+\begin{theorem}\label{thm:eim}
+$ \e^{ 2 \pi \im } = -1 $
+\end{theorem}
+%%
+Alles andere kann jeder selbst mal testen.
+%
+\newpage
+%%
+\subsection{Querverweise}\label{subsec:referenzen}
+\myquestion{Funktionieren alle Querverweise?}
+%
+Zunächst auf die Eulersche Zahl \vref{thm:eim} und dann auf Gleichung~\eqref{eq:pythagoras} in \vref{thm:theorem1}.
+%
+\subsection{Sinnvolle Literatur zu \LaTeX}
+%
+Mal ansehen: \textcite{l2tabu} und \textcite{lshort-german} \bzw \textcite{latex-refsheet} für all die Befehle und Möglichkeiten.
+Wie man sieht, sind die Links auf die Dokumente hinterlegt.
+

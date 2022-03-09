@@ -1,0 +1,57 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% pakete.sty
+% Stand: 2022/03/01
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}	%
+\ProvidesPackage{agfa-pakete}
+%%
+
+\RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
+	
+%% -- Tabellen
+\RequirePackage{% Voss, LaTeX - 6.3 - Seite 227ff	& Seite 240				
+	,array 			% \begin{tabular} .. \end{tabular}   	
+	,booktabs}		% 
+\RequirePackage{longtable}
+
+%% -- Beschriftungen
+\RequirePackage{% Voss, LaTeX - 8.6 - Seite 340ff					
+	,caption 			   	
+	,floatrow
+	,subcaption}
+%\floatsetup[subtable]{style=Boxed}
+
+%% -- Mehrspaltiger Satz
+\RequirePackage{% 						
+	,multicol	% Voss, LaTeX - 5.15.1 - Seite 215	
+	,parallel	% Voss, LaTeX - 5.15.2 - Seite 216
+	}
+
+%% -- Für Bilder etc.	 	   	
+\RequirePackage{%
+	,graphicx	% Voss, LaTeX - 5.10.2 - Seite 174
+	,wrapfig		% Voss, LaTeX - 5.10.3 - Seite 177
+	,cutwin		% Voss, LaTeX - 5.10.3 - Seite 178
+	}
+
+%% -- gegen alleinstehende Zeilen
+\RequirePackage[all]{nowidow}			
+
+%% -- Farbe
+\RequirePackage[x11names,svgnames]{xcolor}	
+\providecolor{myblue}{rgb}{0,0,1.0}
+\definecolor{myred}{named}{Red}
+\providecolor{mydarkblue}{named}{DarkBlue}
+\providecolor{mygrey}{named}{Grey} 
+\providecolor{LGrey}{gray}{.89} 
+
+%% -- Kennzeichnung von Änderungen
+%% -- \cbstart[balkenbreite] .. \cbend; \nochangebars
+\RequirePackage{changebar}
+
+%% -- Verbesserung der Darstellung
+\RequirePackage[%
+	,babel = true
+	]{microtype}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

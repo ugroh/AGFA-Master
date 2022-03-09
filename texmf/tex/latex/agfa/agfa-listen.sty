@@ -1,0 +1,116 @@
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% agfa-listen.sty
+% Stand: 2022/03/01
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}	%
+\ProvidesPackage{agfa-listen}
+
+\RequirePackage[inline,shortlabels]{enumitem}
+%%---------------------------------------------------------------------	
+
+%
+% Enumerate
+
+\newlist{myenumerate}{enumerate}{2}
+\setlist[myenumerate,1]{%	
+	,label=(\kern1pt\roman*\kern1pt)
+	,labelsep=0.75em
+	,leftmargin=1em
+	,itemindent=2em
+	,labelwidth=10pt	
+	,itemsep=0.15ex
+	,parsep=.75ex}
+\setlist[myenumerate,2]{%
+	,label=\textrm{--}\kern1pt 
+	,labelsep=0.75em
+	,leftmargin=1.5em
+	,itemindent=1.5em
+	,labelwidth=10pt	
+	,itemsep=0.15ex
+	,parsep=.75ex}
+
+%		
+% Äquivalent
+
+\newlist{myequivalent}{enumerate}{2}
+\setlist[myequivalent,1]{%
+	,label=(\kern1pt\alph*\kern1pt)
+	,labelsep=0.75em
+	,leftmargin=1em
+	,itemindent=2em
+	,labelwidth=10pt
+	,itemsep=0.15ex
+	,parsep=.75ex}
+	
+\setlist[myequivalent,2]{%
+	,label=\textrm{--}\kern1pt 
+	,labelsep=0.75em
+	,leftmargin=1.5em
+	,itemindent=1.5em
+	,labelwidth=10pt
+	,itemsep=0.15ex
+	,parsep=.75ex}
+
+%
+% Itemize
+
+\newlist{myitemize}{itemize}{2}
+\setlist[myitemize,1]{
+	,label=$ \bullet $ 
+	,labelsep=0.75em
+	,leftmargin=1em
+	,itemindent=1.5em
+	,labelwidth=10pt
+	,itemsep=0.15ex
+	,parsep=.75ex}
+\setlist[myitemize,2]{
+	,label=$ \circ $\kern1pt
+	,labelsep=0.75em
+	,leftmargin=1.5em
+	,itemindent=1em
+	,labelwidth=10pt
+	,itemsep=0.15ex
+	,parsep=.75ex}
+	
+%
+% Number
+
+\newlist{mynumber}{enumerate}{2}
+\setlist[mynumber,1]{
+	,label=(\kern1pt\arabic*\kern1pt)
+	,labelsep=0.75em
+	,leftmargin=1em
+	,itemindent=2em
+	,labelwidth=10pt
+	,itemsep=0.15ex
+	,parsep=.75ex}
+\setlist[mynumber,2]{
+	,label=\textrm{--}\kern1pt 
+	,labelsep=0.75em
+	,leftmargin=1.5em
+	,itemindent=1.5em
+	,labelwidth=10pt
+	,itemsep=0.15ex
+	,parsep=.75ex}
+
+%%%
+\newlist{myinliner}{enumerate*}{1}
+\setlist[myinliner,1]{%
+	,label=(\kern1pt\roman*\kern1pt)}
+
+\newlist{myinlinea}{enumerate*}{1}
+\setlist[myinlinea,1]{%
+	,label=(\kern1pt\alph*\kern1pt)}
+	
+%%% Als Beispiele eventuelle aufnehmen ind AGFA-ReadMe
+
+%\newenvironment{synopsis}{%
+%\begin{framed}
+%\textit{Wiederholung: }  
+%\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}{\end{enumerate*}\end{framed}}
+%%
+%\newenvironment{content}{%
+%\begin{framed}
+%\textit{Inhalt: }  
+%\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}{\end{enumerate*}\end{framed}}
+%

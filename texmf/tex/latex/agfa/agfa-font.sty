@@ -1,0 +1,48 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Font
+%% agfa-font.sty
+%% Stand: 2022/03/01
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}	%
+\ProvidesPackage{agfa-font}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Initialisierungen
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{ifthen}
+ 	\provideboolean{lmodern}
+	\provideboolean{libertinus}
+\DeclareOption{lmodern}{\setboolean{lmodern}{true}} %% Auswahl agfa-art.sty
+\DeclareOption{libertinus}{\setboolean{libertinus}{true}}
+%% -- Abarbeiten
+\ProcessOptions\relax
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% -- Für die, die immer noch kein UTF8 nutzen
+\RequirePackage{selinput} 				 
+	\SelectInputMappings{%	 		 
+             adieresis={ä},
+             germandbls={ß}}
+\RequirePackage[T1]{fontenc}	
+\RequirePackage{textcomp} 		% Zusätzliche Symbole
+
+%% --
+\ifthenelse{\boolean{lmodern}}{% - Latin Modern (LaTeX Standard)
+\RequirePackage{lmodern}
+	\DeclareMathVersion{sans}
+	\SetSymbolFont{letters}{sans}{OML}{cmbr}{m}{it} % Math letters from Latin Modern Sans
+	\SetSymbolFont{operators}{sans}{OT1}{lmss}{m}{n} % Math operators
+	\SetSymbolFont{symbols}{sans}{OMS}{lmsy}{m}{n} % Math symbols
+	\SetMathAlphabet{\mathrm}{sans}{OT1}{lmr}{m}{n} % Large symbols
+	\SetMathAlphabet{\mathsf}{sans}{OT1}{lmss}{m}{n}
+	\SetMathAlphabet{\mathit}{sans}{OT1}{lmr}{m}{it}
+}
+{\ifthenelse{\boolean{libertinus}}{\RequirePackage{libertinus}}
+{% - Times New Roman
+\RequirePackage{mathptmx}			
+	\RequirePackage[scaled=.90]{helvet}
+	\RequirePackage{courier} 
+}}
+%% 
+
+\endinput
