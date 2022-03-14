@@ -21,10 +21,10 @@ Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzu
 </p>
 <p>
 Bitte unbedingt die Datei <tt>AGFA-ReadMe.pdf</tt> lesen und beherzigen, was dort steht. 
-Diese findet sich im <tt>./AGFA-ReadMe</tt> Ordner bzw. über den Link [AGFA-ReadMe.pdf](https://github.com/ugroh/AGFA-Master/blob/main/ReadMe/AGFA-ReadMe.pdf)
+Diese findet sich im <tt>./AGFA-ReadMe</tt> Ordner.
 </p>
 <p>
-Fragen. Wünsche etc. bitte an <em><b>ulgr@math.uni-tuebingen.de</b></em>
+Fragen, Wünsche etc. bitte an <em><b>ulgr@math.uni-tuebingen.de</b></em>
 </p>
 
 
