@@ -21,7 +21,7 @@ Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzu
 </p>
 <p>
 Bitte unbedingt die Datei <tt>AGFA-ReadMe.pdf</tt> lesen und beherzigen, was dort steht. 
-Diese findet sich im <tt>./AGFA-ReadMe</tt> Ordner.
+Diese findet sich im <tt>./ReadMe</tt> Ordner und dort findet man auch das <tt>AGFA-Master.pdf</tt> nochmals.
 </p>
 <p>
 Fragen, Wünsche etc. bitte an <em><b>ulgr@math.uni-tuebingen.de</b></em>
