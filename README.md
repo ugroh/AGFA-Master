@@ -17,6 +17,8 @@ Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzu
 	Dies kann man als Beispiel für eine eigen verwenden oder pflegt in diese siene eigenen Referenzen ein.</li>
 	<li>Zur Vereinfachung der Installation habe ich eine <tt>AGFA-Master.zip</tt> Datei beigefügt, in der alles enthalten ist.
 	Vor allem für Overleaf-Nutzer erleichtert dieses datei die Installation auf Overleaf.</li>
+	<li>In dem <tt>./texmf</tt>-Unterverzeichnis enthält die Include-Dateien und bib-Dateien und ich empfehle diese in das eigen <tt>~/texmf</tt>-Verzeichnis zu kopieren.
+	Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im AGFA-ReadMe zu lesen.</li>
 </ul>
 </p>
 <p>
@@ -29,6 +31,4 @@ Fragen, Wünsche etc. bitte an <em><b>ulgr@math.uni-tuebingen.de</b></em>
 
 
 
-<blockquote cite="https://github.com/ugroh/AGFA-Master/blob/main/ReadMe/AGFA-ReadMe.pdf">
-AGFA-ReadMe.pdf
-</blockquote>
+
