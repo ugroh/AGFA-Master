@@ -1,5 +1,5 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Stand: 2022/03/01
+%% Stand: 2022/03/15
 %% agfa-biblio.sty
 %% Für die Darstellung des Literaturverzeicnisses
 %% Eingabe von URL etc. möglich
@@ -237,12 +237,13 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{urldoi}}
 	{\ExecuteBibliographyOptions{doi=false}
-	 \ExecuteBibliographyOptions{url=false}
-		\DeclareFieldFormat[article,manual]{title}{%
-  			\iffieldundef{doi}{%
-    			\iffieldundef{url}{#1}{\href{\thefield{url}}{\mkbibemph{#1.\isdot\addspace}}}}%
-  				{\href{http://dx.doi.org/\thefield{doi}}{\mkbibemph{#1.\isdot\addspace}}}}%
+	\ExecuteBibliographyOptions{url=false}
+	\DeclareFieldFormat[article,manual]{title}{%
+  		\iffieldundef{doi}{%
+    		\iffieldundef{url}{\mkbibemph{#1.\isdot\addspace}}{\href{\thefield{url}}{\mkbibemph{#1.\isdot\addspace}}}}%
+  		{\href{http://dx.doi.org/\thefield{doi}}{\mkbibemph{#1.\isdot\addspace}}}}%
 	}
 	{}
-	
+
+%%	
 \endinput

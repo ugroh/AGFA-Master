@@ -1,9 +1,34 @@
-####  AGFA-Templates
+<?xml version="1.0" encoding="utf-8"?>
+### AGFA-Templates
+<p>
+Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. 
+Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
+</p>
+<p>
+<h4>Aufbau:</h4>
+<ul>
+	<li>Im Stammverzeichnis befinden sich die Datei AGFA-Master.tex als die Vorlage für die Erstellung einer eigenen Arbeit.</li>	
+	<li>In <tt>./preamble</tt> findet sich die Dateien für die Formatierung, dem Layout, den mathematischen Definitione etc. 
+	Dies alles ist in der <tt>AGFA-ReadMe.pdf</tt> Datei im Detail beschrieben. 
+	 </li>
+	 <li>In <tt>./content</tt> findet sich die Dateien für Titelseite, die einzelnen Abschnitte etc.
+	 Diese werden dann entsprechend in die Hauptdatei eingebunden.</li>
+	<li>In <tt>./bib</tt> habe ich eine Musterdatei mit Literaturreferenzen eingestellt.
+	Dies kann man als Beispiel für eine eigen verwenden oder pflegt in diese siene eigenen Referenzen ein.</li>
+	<li>Zur Vereinfachung der Installation habe ich eine <tt>AGFA-Master.zip</tt> Datei beigefügt, in der alles enthalten ist.
+	Vor allem für Overleaf-Nutzer erleichtert dieses datei die Installation auf Overleaf.</li>
+	<li>In dem <tt>./texmf</tt>-Unterverzeichnis enthält die Include-Dateien und bib-Dateien und ich empfehle diese in das eigen <tt>~/texmf</tt>-Verzeichnis zu kopieren.
+	Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im AGFA-ReadMe zu lesen.</li>
+</ul>
+</p>
+<p>
+Bitte unbedingt die Datei <tt>AGFA-ReadMe.pdf</tt> lesen und beherzigen, was dort steht. 
+Diese findet sich im <tt>./ReadMe</tt> Ordner und dort findet man auch das <tt>AGFA-Master.pdf</tt> nochmals.
+</p>
+<p>
+Fragen, Wünsche etc. bitte an <em><b>ulgr@math.uni-tuebingen.de</b></em>
+</p>
 
-Hier finden sich die LaTeX-Templates für Bachelor/Masterarbeiten bei der AGFA Tübingen.
-Alle weiteren Informationen finden sich im 
-[AGFA-ReadMe.pdf](https://github.com/ugroh/AGFA-Master/blob/main/ReadMe/AGFA-ReadMe.pdf)
 
-Fragen, Wünsche, Fehlermeldungen und sonstige Probleme bitte an
-mailto:ulgr@math.uni-tuebingen.de
+
 
