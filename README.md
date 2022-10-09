@@ -2,8 +2,8 @@
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
-Die aktuelle Version bekommt man, indem man auf `Releases`geht (findet man auf der rechten Seite) und das dort befindliche zip-File herunterlädt.
-Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen.
+Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `zip`-File herunterlädt.
+Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen dateien sichern!!
 
 #### Aufbau
 
@@ -24,7 +24,10 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 ### Änderungen
 
-* 2022/10/10: Kleinere Korrekturen in den `sty`-Files
+* 2022/10/10: 
+  - Komplette Überarbeitung und Bereinigung einiger kleinere Fehler
+  - Eigenständigkeitserklräung dazu
+  - Einleitung dazu
 
 
 
