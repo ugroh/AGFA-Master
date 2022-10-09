@@ -55,24 +55,52 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kopf- und Fußzeile
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{scrlayer-scrpage}
-\automark[subsection]{section}
+\RequirePackage[automark]{scrlayer-scrpage}
+%\automark[subsection]{section}
 \clearpairofpagestyles
 %% Kopfzeile 
 \KOMAoptions{headsepline=0.8pt}
 \renewcommand*{\sectionmarkformat}{}	% keine Abschnittsnummer
 \renewcommand*{\subsectionmarkformat}{}	% keine UnterAbschnittsnummer
-\chead{}
+
+%% ---------------------------
+%% Zweiseitig und Einseitig nach Abfrage
+%% ---------------------------
+\ifthenelse{\boolean{@twoside}} % 
+{%% --> Zweiseitig
+
+\ihead{\headmark} 	%% -- innen
+
+\rohead{%% außen gerade
+  \makebox[0pt][l]{%
+    \makebox[\marginparsep][r]{%
+      \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
+    }%
+    \makebox[\marginparwidth][l]{\pagemark}%
+  }}
+
+\lehead{%% außen ungerade
+  \makebox[0pt][r]{%
+    \makebox[\marginparwidth][r]{\pagemark}%
+    \makebox[\marginparsep][l]{%
+      \nobreakspace\rule[-\dp\strutbox]{1pt}{\normalbaselineskip}%
+    }}}
+
+}%% <-- Ende Zweiseitig
+%% 
+{%% --> Einseitig
 \lohead{\scshape\headmark}	% Überschrift Abschnitt
-%\rohead{\pagemark}			% Seite
+\chead{}
 \rohead{%					% Seite mit Balken
   \makebox[0pt][l]{%
     \makebox[\marginparsep][r]{%
       \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
     }%
     \makebox[\marginparwidth][l]{\pagemark}%
-  }%
-}
+  }}
+}%% <-- Ende Zweiseitig
+%%
+\pagestyle{scrheadings}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fußnoten Nach KOMA 3.14 
