@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Layout
 %% agfa-layout.sty
-%% Status: 2022/03/01
+%% Status: 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-layout}
@@ -42,13 +42,16 @@
 	,tocnumwidth=1.25em					% Eintrag in TOC ist aber unterbunden
 	,tocindent	= 1em					%  
 	]{subsubsection} 
+	
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Nummerierung wechselt ** nicht** nach jedem neuen \subsection-Befehl
+%% Nummerierung wechselt (**nicht**) **nach** jedem neuen \subsection-Befehl
+%% Geändert 2020/10/10 da nicht sinnvoll wie ursprünglich
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\makeatletter							
-\@removefromreset{subsubsection}{subsection}
-\@addtoreset{subsubsection}{section}
-\makeatother
+%%\makeatletter							
+%%\@removefromreset{subsubsection}{subsection}
+%%\@addtoreset{subsubsection}{section}
+%%\makeatother
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kopf- und Fußzeile
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -70,15 +73,14 @@
     \makebox[\marginparwidth][l]{\pagemark}%
   }%
 }
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fußnoten Nach KOMA 3.14 
+%% Geändert 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\deffootnotemark{\kern1pt(\textsuperscript{\thefootnotemark})}
-%\deffootnote[1.5em]{1em}{2em}{(\textsuperscript{\thefootnotemark})\kern5pt}
-%\let\raggedfootnote\RaggedRight
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
 \deffootnotemark{\kern1pt(\raisebox{0.35ex}{\footnotesize\thefootnotemark})}
 \deffootnote[1.5em]{1em}{2em}{(\raisebox{0.35ex}{\footnotesize\thefootnotemark})\kern5pt}
-%\let\raggedfootnote\RaggedRight
-%\setkomafont{footnote}{\sffamily}
+\let\raggedfootnote\RaggedRight
+
 \endinput
