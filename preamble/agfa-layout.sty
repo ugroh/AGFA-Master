@@ -58,13 +58,16 @@
 \RequirePackage{scrlayer-scrpage}
 \automark[subsection]{section}
 \clearpairofpagestyles
-%% Kopfzeile 
+
+%% ---------
+%% Kopfzeile
+%% --------- 
 \KOMAoptions{headsepline=0.8pt}
 \renewcommand*{\sectionmarkformat}{}	% keine Abschnittsnummer
 \renewcommand*{\subsectionmarkformat}{}	% keine UnterAbschnittsnummer
+%
 \chead{}
 \lohead{\scshape\headmark}	% Überschrift Abschnitt
-%\rohead{\pagemark}			% Seite
 \rohead{%					% Seite mit Balken
   \makebox[0pt][l]{%
     \makebox[\marginparsep][r]{%
