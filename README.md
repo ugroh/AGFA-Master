@@ -28,6 +28,10 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
   - Komplette Überarbeitung und Bereinigung einiger kleinere Fehler
   - Eigenständigkeitserklräung dazu
   - Einleitung dazu
+  - Etwas Bereinigung des Masterefiles
+  
+* Wesentliche Änderung:
+	- Doppelseitig ist jetzt unterstützt via `twoside = true`; siehe Masterfile
 
 
 
