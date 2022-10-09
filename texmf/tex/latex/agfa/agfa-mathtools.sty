@@ -16,7 +16,7 @@
 	,amsmath
 	,amssymb}
 \RequirePackage[tbtags]{mathtools}
-%\mathtoolsset{showonlyrefs,showmanualtags} %% wegen cleveref
+%\mathtoolsset{showonlyrefs,showmanualtags} % wegen clevref
 \RequirePackage{mleftright}
 
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -24,8 +24,8 @@
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% -- mrightleft 
-\renewcommand{\right}{\mright}
-\renewcommand{\left}{\mleft}
+%\renewcommand{\right}{\mright}
+%\renewcommand{\left}{\mleft}
 
 % -- Norm, Absolutbetrag, duales Paar siehe mathtools sec 3.6
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{\ifblank{#1}{\:\cdot\:}{#1}}
