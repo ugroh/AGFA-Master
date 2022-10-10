@@ -3,7 +3,7 @@
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
 Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `zip`-File herunterlädt.
-Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen dateien sichern!!
+Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen Dateien sichern!!
 
 #### Aufbau
 
@@ -29,9 +29,15 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
   - Eigenständigkeitserklräung dazu
   - Einleitung dazu
   - Etwas Bereinigung des Masterefiles
+  - `texmf` Verzeichnis ergäzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
   
 * Wesentliche Änderung:
 	- Doppelseitig ist jetzt unterstützt via `twoside = true`; siehe Masterfile
+	- Bereinigung der gerahmten Umgebungen: Nur noch Theorem, Satz, Lemma und Korollar
+	- Englische Variante überprüft
+	- Die `sty` Files in `~/texmf/tex/latex/agfa` können mit dem Msterfile genutzt werden. Bitte den Hinweis dort beachten.
+
+
 
 
 
