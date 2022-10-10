@@ -36,6 +36,7 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 	- Bereinigung der gerahmten Umgebungen: Nur noch Theorem, Satz, Lemma und Korollar
 	- Englische Variante überprüft
 	- Die `sty` Files in `~/texmf/tex/latex/agfa` können mit dem Msterfile genutzt werden. Bitte den Hinweis dort beachten.
+	- Agfa-ReadMe.pdf ist für den doppelseitigen Druck formatiert `twoside=true`
 
 
 
