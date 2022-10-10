@@ -1,14 +1,13 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Font
+%% Der Font; kann entsprechend angepasst werden
 %% agfa-font.sty
-%% Stand: 2022/03/01
+%% Stand: 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-font}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialisierungen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Initialisierungen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
  	\provideboolean{lmodern}
 	\provideboolean{libertinus}
@@ -24,13 +23,13 @@
              adieresis={ä},
              germandbls={ß}}
 \RequirePackage[T1]{fontenc}	
-\RequirePackage{textcomp} 		% Zusätzliche Symbole
+\RequirePackage{textcomp} 		%Richtiger Zeichnsatz inkl. ä etc
 
 %% --
 \ifthenelse{\boolean{lmodern}}{% - Latin Modern (LaTeX Standard)
 \RequirePackage{lmodern}
 	\DeclareMathVersion{sans}
-	\SetSymbolFont{letters}{sans}{OML}{cmbr}{m}{it} % Math letters from Latin Modern Sans
+	\SetSymbolFont{letters}{sans}{OML}{cmbr}{m}{it} % Math letters Latin Modern Sans
 	\SetSymbolFont{operators}{sans}{OT1}{lmss}{m}{n} % Math operators
 	\SetSymbolFont{symbols}{sans}{OMS}{lmsy}{m}{n} % Math symbols
 	\SetMathAlphabet{\mathrm}{sans}{OT1}{lmr}{m}{n} % Large symbols

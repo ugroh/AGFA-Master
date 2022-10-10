@@ -1,26 +1,29 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Deutsche/Englische Unterstützung, 
+%% Unterstützung Deutsch bzw. Englisch
 %% mytodo/myquestion
 %% agfa-babel.sty
-%% Stand: 2022/03/08
+%% Stand: 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-babel}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialisierungen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Initialisierungen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
  	\provideboolean{english}
-	\DeclareOption{english}{\setboolean{english}{true}} %% Auswahl über \documentclass[..]
+	\DeclareOption{english}{\setboolean{english}{true}} 
+	%% Auswahl über \documentclass[..]; siehe Master-File
 %% -- Abarbeiten
 \ProcessOptions\relax
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Pakete
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{xspace}
+%% Pakete
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% keine weiteren Pakete erforderlich
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Ausführung
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Ausführung
+%% Dies kann bei Bedarf 1:1 gegen plyglossia ausgetauscht werden, wenn man auf
+%% LuaLaTeX umsteigt
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{english}}
 {% --> Englisch
 	\RequirePackage[ngerman,main=english]{babel}

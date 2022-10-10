@@ -1,15 +1,15 @@
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Paket ug-mathtools.sty
-% Die Makros, wie \interval etc.
-% Stand: 2022/03/10
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Kenndaten
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Paket ug-mathtools.sty
+%% Die Makros, wie \interval etc.
+%% Stand: 2022/10/10
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Kenndaten
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
 \ProvidesPackage{agfa-mathtools}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialisierungen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Initialisierungen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{%
 	,ifthen
 	,etoolbox
@@ -19,20 +19,16 @@
 %\mathtoolsset{showonlyrefs,showmanualtags} % wegen clevref
 \RequirePackage{mleftright}
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deklaration von Optionen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deklaration von Optionen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% -- mrightleft 
-%\renewcommand{\right}{\mright}
-%\renewcommand{\left}{\mleft}
-
-% -- Norm, Absolutbetrag, duales Paar siehe mathtools sec 3.6
+%% -- Norm, Absolutbetrag, duales Paar siehe mathtools sec 3.6
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{\ifblank{#1}{\:\cdot\:}{#1}}
 \DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{\ifblank{#1}{\:\cdot\:}{#1}}
 \DeclarePairedDelimiterX{\dualp}[2]{\langle}{\rangle}{\ifblank{#1#2}{\,\cdot\,,\cdot\,}{\,#1,#2\,}}
 
-%% -- Intervalle
+%%% -- Intervalle
 \newcommand{\interval}[1]{\left[ #1 \right]}	
 \newcommand{\ointerval}[1]{\left] #1 \right[}	
 \newcommand{\rointerval}[1]{\left[ #1 \right[}
@@ -54,18 +50,19 @@
        \raise.5ex\hbox{\scriptsize #1}%
        \kern-.1em/\kern-.15em%
        \lower.25ex\hbox{\scriptsize #2}}
-%
-\RequirePackage{accents}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Topologisches
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Topologisches
 %% \interior{A} -> gibt o ueber A
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{accents}
 \newcommand{\interior}[1]{%
 	\accentset{\smash{\raisebox{-0.12ex}{$\scriptstyle\circ$}}}{{#1}}\rule{0pt}{2.3ex}}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Tippfaul DTK 1/2011 & Mail H Voss
-% Die Greosse der Klammern werden automatisch angepasst
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Tippfaul DTK 1/2011 & Mail H Voss
+%% Die Greosse der Klammern werden automatisch angepasst
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \gdef\resetMathstrut@{%
  \setbox\z@\hbox{%
@@ -85,15 +82,17 @@
 \endgroup
 \mathcode`(="8000 \mathcode`)="8000
 \mathcode`[="8000 \mathcode`]="8000
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% sonst gehen Klammern nicht
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% sonst gehen Klammern nicht
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareRobustCommand{\{}{\ifmmode\left\lbrace\else\textbraceleft\fi}
 \DeclareRobustCommand{\}}{\ifmmode\right\rbrace\else\textbraceright\fi}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% siehe https://tex.stackexchange.com/questions/21290/how-to-make-left-right-pairs-of-delimiter-work-over-multiple-lines
-% fuer die Eingabe von Klammern; auch \vphantom beachten  \right.
-% Kenndaten
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% siehe https://tex.stackexchange.com/questions/21290/how-to-make-left-right-pairs-of-delimiter-work-over-multiple-lines
+%% fuer die Eingabe von Klammern; auch \vphantom beachten  \right.
+%% 
+Kenndaten
 \endinput
