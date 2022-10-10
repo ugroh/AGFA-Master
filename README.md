@@ -20,6 +20,10 @@ Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im A
 Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. 
 Diese findet sich im `./ReadMe` Ordner und dort findet man auch das 'AGFA-Master.pdf' nochmals.
 
+* `AGFA-ReadMe-Print.pdf`: Bitte doppelseitig drucken, falls es wirklich erforderlich ist
+
+* `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat
+
 Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 ### Änderungen
