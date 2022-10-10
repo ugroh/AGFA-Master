@@ -1,9 +1,9 @@
 % !TEX TS-program = pdflatexmk
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% AGFA-Master.tex  
-%% Das Masterfile
+%% -------------------------------------------------
+%% Das Masterefile: AGFA-Master.tex  
 %% Stand:	2022/10/10   
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -------------------------------------------------
+
 \documentclass[%	 -- siehe KOMA-Script 
 	,toc		= bib 		 
 	,parskip		= half-		 
@@ -13,28 +13,26 @@
 	,version 	= last
 	,DIV 		= calc
 	,titlepage	= true
-	%% -- Arbeit auf English oder Deutsch 
-	%% entsprechend anpassen
-	,ngerman				% Deutscher Text; 
-%	,english				% oder Englischer Text	
+	,ngerman				% Arbeit auf Deutsch
+%	,english				% Arbeit auf Englisch	
 	]{scrartcl}			% KOMA Artikelmodus
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %% -------------------------------------------------
-%% Alles findet sich in ./preamble/agfa-art
-%% AGFA-readme.pdf für Details
+%% Alle benötigten sty-Files befinden sich in ./preamble/agfa-art; siehe AGFA-readme.pdf 
+%% für Details hierzu.
+%% Wer das Verzeichnis texmf nutzen will, bitte {./preamble/agfa-art} duch {agfa-art} ersetzen.
 %% -------------------------------------------------
  
 \usepackage[%
 	,thmframed			% gerahmte Umgebungen
 	,numeric				% Nummeriertes LV
 	,urldoi				% URL bzw. DOI unter dem Titel der Referenz
-	%% -- Alternativer Zeichsatz
-	%% -- Siehe ReadMe.pdf
-%	,lmodern				% lmodern
+%	,lmodern				% lmodern Standardzeichensatz
 	,libertinus			% libertinus
-	]{./preamble/agfa-art}  
-
+	]
+	{./preamble/agfa-art}  %{agfa-art}
+	
 %% -------------------------------------------------
 %%  Was soll aktuell bearbeitet werden
 %%  Mittels % entsprechend steuern
@@ -56,7 +54,6 @@
 %% für die finale Version die folgenden Zeilen 
 %% mit % auskommentieren
 %% -----------------
-
 \KOMAoptions{footsepline}
 \lofoot{Name}
 \cofoot{Stand der Arbeit:}
@@ -70,9 +67,9 @@
 \addbibresource{./bib/agfa-bib.bib}	
 %	
 \ExecuteBibliographyOptions{%
-	,backref		= true		% wo habe ich was referenziert, alles andere weg
+	,backref		= true		% wo habe ich was referenziert, alles andere muss weg
  	,url		= false		% true	wenn online-Zitate separat gezeigt werden sollen
- 	,doi		= false		% true  wenn DOI angezeigt werden sollen, sinnvoll bei Vorlesungen 
+ 	,doi		= false		% true  wenn DOI angezeigt werden sollen, sinnvoll bei HandOuts 
 	,eprint		= false		% true  - ” -
 	}
 
