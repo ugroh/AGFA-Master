@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Layout
 %% agfa-layout.sty
-%% Status: 2022/10/30
+%% Status: 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-layout}
@@ -15,65 +15,33 @@
 
 %% -- 
 \addtocounter{tocdepth}{-1}% Keine \subsubsection im TOC
-
 %% -- section
-%% --
 \renewcommand*{\thesection}{\arabic{section}} 
 
+%
 \RedeclareSectionCommand[tocnumwidth=2em]{section} % TOC
 \renewcommand*{\addsectiontocentry}[2]{% Eintrag in TOC
   \addtocontents{toc}{\protect\addvspace{\protect.5\baselineskip}}% Halbe LZ
   \Ifstr{#1}{}{%
     \addtocentrydefault{section}{#1}{#2}%
   }{%
-    \addtocentrydefault{section}{#1.}{\itshape #2}
+    \addtocentrydefault{section}{\kern1pt#1.}{\itshape #2}
   }%
 }
-
-%% -- subsection
-%% --
-\renewcommand*{\thesubsection}{\arabic{subsection}}
-\renewcommand*{\subsectionformat}{\thesubsection.\enskip}% Nummer in der Überschrift
-\RedeclareSectionCommand[%
-  ,beforeskip	= -1.75\baselineskip
-  ,afterskip		= 0.25\baselineskip
-  ,font			= \itshape
-  ,tocnumwidth	= 1em
-]{subsection}
-%% -- Eintrag in das TOC
-\renewcommand*{\addsubsectiontocentry}[2]{%
-  \Ifstr{#1}{}{%
-    \addtocentrydefault{subsection}{#1}{#2}%
-  }{%
-    \addtocentrydefault{subsection}{#1.}{#2}% Mit Punkt hinter der Nummer in TOC
-  }%
-}
-
-%% -- \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
-%% --
+%% --  Seitenangabe unnötig 
+\addtokomafont{sectionentrypagenumber}{\color{white}}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Format \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{secnumdepth}{\subsubsectionnumdepth} 	% Anzeigen der subsub-nummer
 \renewcommand*{\thesubsubsection}{\arabic{subsubsection}.} % 1.
 \RedeclareSectionCommand[%
   	,beforeskip	=  .25\baselineskip		% Skip vor dem Kommando + indent
-	,afterskip	= -0.1em					% Kein Skip aber Abstand
+	,afterskip	= -0.1em				% Kein Skip aber Abstand
 	,font=\normalfont					%  
 	,tocnumwidth=1.25em					% Eintrag in TOC ist aber unterbunden
 	,tocindent	= 1em					%  
 	]{subsubsection} 
-
-	
-%% -- Nummerierung wechselt ** nicht** nach jedem neuen \subsection-Befehl
-%% --
-\makeatletter							
-\@removefromreset{subsubsection}{subsection}
-\@addtoreset{subsubsection}{section}
-\makeatother
-
-
-%% -- Kopf- und Fußzeile
-%% --
-\RequirePackage{scrlayer-scrpage}
-\automark[subsection]{section}
 	
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Nummerierung wechselt (**nicht**) **nach** jedem neuen \subsection-Befehl
@@ -89,7 +57,6 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[automark]{scrlayer-scrpage}
 %\automark[subsection]{section}
->>>>>>> fe94c67dc91b25f42701621e7d2d6d85923d9ed4
 \clearpairofpagestyles
 %% Kopfzeile 
 \KOMAoptions{headsepline=0.8pt}
@@ -130,18 +97,6 @@
       \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
     }%
     \makebox[\marginparwidth][l]{\pagemark}%
-<<<<<<< HEAD
-  }%
-}
-
-
-%% -- Fußnoten Nach KOMA 3.14 
-%% --
-%\deffootnotemark{\kern1pt(\textsuperscript{\thefootnotemark})}
-%\deffootnote[1.5em]{1em}{2em}{(\textsuperscript{\thefootnotemark})\kern5pt}
-%\let\raggedfootnote\RaggedRight
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-=======
   }}
 }%% <-- Ende Zweiseitig
 %%
@@ -152,7 +107,6 @@
 %% Geändert 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
->>>>>>> fe94c67dc91b25f42701621e7d2d6d85923d9ed4
 \deffootnotemark{\kern1pt(\raisebox{0.35ex}{\footnotesize\thefootnotemark})}
 \deffootnote[1.5em]{1em}{2em}{(\raisebox{0.35ex}{\footnotesize\thefootnotemark})\kern5pt}
 \let\raggedfootnote\RaggedRight
