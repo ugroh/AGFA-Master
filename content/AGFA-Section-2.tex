@@ -1,7 +1,9 @@
 % !TEX root = ../AGFA-Master.tex
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ./content/AGFA-Section-2.tex
-%% Stand: 2022/03/08
+%% Abschnitt 2 der Arbeit
+%% Stand: 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \thispagestyle{empty}
 \section{Mein zweiter Abschnitt}
@@ -40,6 +42,10 @@ Schon seit vielen hundert Jahren eines der schönsten Ergebnisse der Mathematik.
 %
 \begin{theorem}\label{thm:theorem1}
 In einem rechtwinkligen Dreiecke mit den Seiten $ a $, $ b $ und der Hypothenuse $ c $ gilt stets
+\begin{equation}\label{eq:pythagoras}
+a^{ 2 } +b^{ 2 } = c^{ 2 }
+\end{equation}
+
 $	a^{ 2 } +b^{ 2 } = c^{ 2 } $.
 \end{theorem}
 %
@@ -82,6 +88,10 @@ Alles andere kann jeder selbst mal testen.
 \myquestion{Funktionieren alle Querverweise?}
 %
 Zunächst auf die Eulersche Zahl \vref{thm:eim} und dann auf Gleichung~\eqref{eq:pythagoras} in \vref{thm:theorem1}.
+
+Oder auch möglich: \ldots \cref{thm:theorem1}, \vref{eq:pythagoras} \ldots.
+
+Bitte in das \LaTeX-File reinsehen, wie dies gemacht ist.
 %
 \subsection{Sinnvolle Literatur zu \LaTeX}
 %

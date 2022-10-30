@@ -1,8 +1,9 @@
-### AGFA-Templates
-Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. 
-Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
-Die Aktuelle Version bekommt man, indem man auf `Releases`geht (findet man auf der rechten Seite) und das dort befindliche zip-File herunterlädt.
-Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen.
+### AGFA-Templates (Stand: 2022/10/10)
+
+Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
+
+Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `zip`-File herunterlädt.
+Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen Dateien sichern!!
 
 #### Aufbau
 
@@ -19,7 +20,29 @@ Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im A
 Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. 
 Diese findet sich im `./ReadMe` Ordner und dort findet man auch das 'AGFA-Master.pdf' nochmals.
 
+* `AGFA-ReadMe-Print.pdf`: Bitte doppelseitig drucken, falls es wirklich erforderlich ist
+
+* `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat
+
 Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
+
+### Änderungen
+
+* 2022/10/10: 
+  - Komplette Überarbeitung und Bereinigung einiger kleinere Fehler
+  - Eigenständigkeitserklräung dazu
+  - Einleitung dazu
+  - Etwas Bereinigung des Masterefiles
+  - `texmf` Verzeichnis ergäzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
+  
+* Wesentliche Änderung:
+	- Doppelseitig ist jetzt unterstützt via `twoside = true`; siehe Masterfile
+	- Bereinigung der gerahmten Umgebungen: Nur noch Theorem, Satz, Lemma und Korollar
+	- Englische Variante überprüft
+	- Die `sty` Files in `~/texmf/tex/latex/agfa` können mit dem Msterfile genutzt werden. Bitte den Hinweis dort beachten.
+	- Agfa-ReadMe.pdf ist für den doppelseitigen Druck formatiert `twoside=true`
+
+
 
 
 

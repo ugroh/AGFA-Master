@@ -1,16 +1,16 @@
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Main Package für AGFA Layout
-% agfa-art.sty
-% Stand: 2022/03/01
-% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Kenndaten
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Hauptpaket für AGFA Layout: agfa-art.sty
+% Version für texmf Unterverzeichnis
+%% Stand: 2022/10/10
+%% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Kenndaten
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
 \ProvidesPackage{agfa-art}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialisierungen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Initialisierungen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
 	\provideboolean{numeric}
  	\provideboolean{english}
@@ -20,9 +20,9 @@
 	\provideboolean{thmframed}
 	\provideboolean{framed}
 %
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deklaration von Optionen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deklaration von Optionen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption*{\expandafter\PassOptionsToClass\expandafter{\CurrentOption}{scrartcl}}
 \DeclareOption{english}{\setboolean{refenglish}{true}}
 \DeclareOption{english}{\setboolean{english}{true}}
@@ -46,9 +46,9 @@
 %% -- Abarbeiten
 \ProcessOptions\relax
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Laden von Paketen 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Laden von Paketen 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage[all]{onlyamsmath}			% Fehler bei Eingabe Mathematik
 \RequirePackage[l2tabu,orthodox]{nag}
@@ -60,16 +60,17 @@
 \RequirePackage{agfa-pakete}
 \RequirePackage{agfa-babel}
 \RequirePackage{agfa-listen}
-\RequirePackage{agfa-theorem}
+%% --
 \RequirePackage{agfa-mathtools}
 \RequirePackage{agfa-defn}
 \RequirePackage{agfa-biblio}
-
-
 %% --
-\RequirePackage{agfa-hyperef}	
+\RequirePackage{agfa-hyperef}
 
-%% -- wegen \dh Problematik
+%% -- wegen \vref muss agfa-tehorem.sty nach agfa-hyperref
+\RequirePackage{agfa-theorem}
+
+%% -- wegen \dh Konflikt mit hyperref am Ende
 \RequirePackage{agfa-abkuerz}	
 
 \endinput

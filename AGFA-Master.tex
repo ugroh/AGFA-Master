@@ -1,9 +1,9 @@
 % !TEX TS-program = pdflatexmk
-% Wer nicht TeXShop nutzt kann die ersten beiden Zeilen löschen
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%  Thema:  AGFA-Master.tex  
-% % Stand:	2022/03/08    
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -------------------------------------------------
+%% Das Masterefile: AGFA-Master.tex  
+%% Stand:	2022/10/10   
+%% -------------------------------------------------
+
 \documentclass[%	 -- siehe KOMA-Script 
 	,toc		= bib 		 
 	,parskip		= half-		 
@@ -13,70 +13,70 @@
 	,version 	= last
 	,DIV 		= calc
 	,titlepage	= true
-	%% -- Arbeit auf English oder Deutsch 
-	%% entsprechend anpassen
-	,ngerman				% Deutscher Text; 
-%	,english				% oder Englischer Text	
+	,ngerman				% Arbeit auf Deutsch
+%	,english				% Arbeit auf Englisch	
 	]{scrartcl}			% KOMA Artikelmodus
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% -- Hierin sind alle weiteren Pakete enthalten
-%% -- Siehe agfa-readme.pdf für Details
-%% -- 
+
+%% -------------------------------------------------
+%% Alle benötigten sty-Files befinden sich in ./preamble/agfa-art; siehe AGFA-readme.pdf 
+%% für Details hierzu.
+%% Wer das Verzeichnis texmf nutzen will, bitte {./preamble/agfa-art} duch {agfa-art} ersetzen.
+%% -------------------------------------------------
  
 \usepackage[%
 	,thmframed			% gerahmte Umgebungen
 	,numeric				% Nummeriertes LV
 	,urldoi				% URL bzw. DOI unter dem Titel der Referenz
-	%% -- Alternativer Zeichsatz
-	%% -- Siehe ReadMe.pdf
-%	,lmodern				% lmodern
+%	,lmodern				% lmodern Standardzeichensatz
 	,libertinus			% libertinus
-	]{./preamble/agfa-art}  
-
-%% -- Was soll aktuell bearbeitet werden
-%% -- Mittels % entsprechend steuern
-%% --
+	]
+	{./preamble/agfa-art}  %{agfa-art}
+	
+%% -------------------------------------------------
+%%  Was soll aktuell bearbeitet werden
+%%  Mittels % entsprechend steuern
+%% -------------------------------------------------
 
 \includeonly{%
+	./content/AGFA-Einleitung,
 	./content/AGFA-Section-1,
 	./content/AGFA-Section-2,
 	}
 
-%% -- Für den Druck % entfernen; 
-%% -- Notwendige Bindekorrektur
-%% --
-
+%% -----------------
+%% Für den Druck % entfernen; 
+%% Notwendige Bindekorrektur
+%% -----------------
 % \KOMAoptions{BCOR = 12mm}
 
-%% -- für die finale Version die folgenden Zeilen 
-%% -- mit % auskommentieren
-%% -- 
-
+%% -----------------
+%% für die finale Version die folgenden Zeilen 
+%% mit % auskommentieren
+%% -----------------
 \KOMAoptions{footsepline}
 \lofoot{Name}
 \cofoot{Stand der Arbeit:}
 \rofoot{\today}
 
-%% -- Datei mit den Referenzen für Literatur
-%% -- und Steuerung für url etc. 
-%% -- siehe AGFA-ReadMe.pdf
-%% --
-
-
+%% -----------------
+%% Datei mit den Referenzen für Literatur
+%% und Steuerung für url etc. 
+%% siehe AGFA-ReadMe.pdf
+%% -----------------
 \addbibresource{./bib/agfa-bib.bib}	
-	
+%	
 \ExecuteBibliographyOptions{%
-	,backref		= true		% wo habe ich was referenziert, alles andere weg
+	,backref		= true		% wo habe ich was referenziert, alles andere muss weg
  	,url		= false		% true	wenn online-Zitate separat gezeigt werden sollen
- 	,doi		= false		% true  wenn DOI angezeigt werden sollen, sinnvoll bei Vorlesungen 
+ 	,doi		= false		% true  wenn DOI angezeigt werden sollen, sinnvoll bei HandOuts 
 	,eprint		= false		% true  - ” -
 	}
 
-%% -- Querverweise
-%% -- siehe agfa-readme.pdf
-%% --
-
+%% -----------------
+%%  Querverweise
+%%  siehe AGFA-readme.pdf
+%% -----------------
 \hypersetup{
 	,colorlinks	= true    			%  Farbige Links false/true, für onlineversion true                                                           
 	,urlcolor	= blue       		%                                                              
@@ -84,32 +84,30 @@
 	,linkcolor	= blue			 	% oder black
 %  	,hidelinks 						% Vor dem Druck % entfernen
 	}
-%% -- 
+%% -----------------
 
 \begin{document}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%
 %% Frontmatter
 %% %%%%%%%%%%%%%%%%%%%%%%%%
-%% -- kann man anfangs übergehen
+
+%% -----------------
+%% kann man anfangs übergehen
 %% -- daher %% bei \begin{comment} und \end{comment} entfernen/hinzufügen
-%% --
+%% -----------------
 
 %%\begin{comment}
+
 \begingroup
 	\input{./content/0-AGFA-title}			% Titelseite
 	\pagestyle{empty}
+	\input{./content/0-AGFA-EigenErkl}		% Eigenständigkeitserklärung
 	\input{./content/0-AGFA-thanks}			% Danksagung
+	\input{./content/0-AGFA-summary}		% Zusammenfassung
 	\tableofcontents 
 	\thispagestyle{empty}
 \endgroup
-
-%% -- Zusammenfassung des Inhaltes
-%% --
-\cleardoubleoddpage 
-	\pagenumbering{roman}
-	\input{./content/0-AGFA-summary}		% Zusammenfassung
-\cleardoubleoddpage 
 
 %%\end{comment}
 
@@ -118,17 +116,18 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagenumbering{arabic}
-\setcounter{page}{1}
+\setcounter{page}{0}
 \setcounter{section}{0}
-\thispagestyle{empty}
 
-%% -- Die einzelnen Abschnitte
-%% -- Über \includeonly steuern, was aktuell bearbeitet wird
-%% --
+%% ----------------------
+%% Die einzelnen Abschnitte werden über \includeonly eingebaut oder auch nicht (siehe oben)
+%% Dies bewirkt zwar einen Seitenvorschub, was aber gewollt ist.
+%% -----------------------
 
+\include{./content/AGFA-Einleitung}				% Die Einleitung=Vorwort
 \include{./content/AGFA-Section-1}				% Erster Abschnitt
 \include{./content/AGFA-Section-2}				% Zweiter Abschnitt
-% \include{name}									% etc
+% \include{name}									% etc; bitte den Aufbau beachten
 
 \cleardoubleoddpage 
 

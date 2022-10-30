@@ -1,30 +1,30 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Stand: 2022/03/15
+%% Stand: 2022/10/10
 %% agfa-biblio.sty
 %% Für die Darstellung des Literaturverzeicnisses
 %% Eingabe von URL etc. möglich
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-biblio}
-%
+%%
 \RequirePackage{ifthen}
- 	\provideboolean{numeric} 	% wenn in Optionsliste
+ 	\provideboolean{numeric} 		% wenn in Optionsliste
 	\provideboolean{urldoi} 		% wenn in Optionsliste
-% urldoi = bindet die Links an den Titel; siehe https://bit.ly/2YghEHH
+	% urldoi = bindet die Links an den Titel; siehe https://bit.ly/2YghEHH
 	\DeclareOption{numeric}{\setboolean{numeric}{true}}	
 	\DeclareOption{urldoi}{\setboolean{urldoi}{true}}	
 \ProcessOptions\relax
-%
+%%
 \ifthenelse{\boolean{numeric}}
-{% style = numeric
+{% --> style = numeric
 \RequirePackage[%
   	,style 		= numeric	
-   	,sorting		= nyt
-	,hyperref	= true %auto
+   	,sorting	= nyt
+	,hyperref	= true 		%auto
  	,maxnames	= 4
    	,minnames	= 3
    	,giveninits	= true		% Vornamen als Initiale Ulrich -> U.
-	,backend		= biber
+	,backend	= biber
  	,uniquename	= false
 ]{biblatex}    
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,14 +72,15 @@
     \mkbibbrackets{#1}\hskip\yeartitle}}\nopunct}
 
 } % Ende Alternative philosphy  
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Gilt für alle Formate 
+%% Weiteres gilt für alle Formate 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% backref
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DefineBibliographyStrings{ngerman}{% 		
-     backrefpage  = {zitiert auf Seite }, 	% for single page number
-     backrefpages = {zitiert auf den Seiten } % for multiple page numbers
+     backrefpage  = {zitiert auf Seite } 		% for single page number
+     backrefpages = {zitiert auf den Seiten } 	% for multiple page numbers
 }
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Shorthand
@@ -94,6 +95,7 @@
   \setunit{\bibpagerefpunct}\newblock% NEW
   \usebibmacro{pageref}% NEW
   \finentry}
+  
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Unnötige Felder
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -102,6 +104,7 @@
 \AtEveryBibitem{\clearlist{location}}%
 \AtEveryBibitem{\clearfield{pagetotal}}%
 \AtEveryBibitem{\clearfield{month}}%
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kein Komma nach Verlag bei Büchern
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -113,6 +116,7 @@
   \usebibmacro{date}%
   \newunit%
 	} % ende makro
+	
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Ausgabe Journal-Band(Nummer)-Jahr-Seiten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%	
@@ -135,6 +139,7 @@
   \setunit{\addcolon\space}% 
   \usebibmacro{issue}% 
   \newunit}
+  
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Felder bei Typ -- article --
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,6 +148,7 @@
 \DeclareFieldFormat[article]{pages}{#1.}
 \DeclareFieldFormat[article]{title}{\mkbibemph{#1.\isdot}\addspace}
 \DeclareFieldFormat{journaltitle}{#1}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Felder bei Typ -- book --
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -157,6 +163,7 @@
 \DeclareFieldFormat[book]{number}{} 
 \DeclareFieldFormat[book]{edition}{} 
 \DeclareFieldFormat[book]{address}{} 
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Felder bei Typ -- manual --
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -165,29 +172,36 @@
 \DeclareFieldFormat[manual]{version}{}
 \DeclareFieldFormat[manual]{subtitle}{}
 %\DeclareFieldFormat[manual]{urldate}{}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareFieldFormat{postnote}{#1}
 \DeclareFieldFormat{multipostnote}{#1}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Punkt, Komma etc.
+%% Punkt, Komma, Format Namen etc.
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\renewcommand*{\labelnamepunct}{\addcolon\space} 		% : nach Namen oder \addcomma
-\renewcommand*{\finalnamedelim}{\addspace\&\addspace} 	% kein "und" bei Doppelname
-\renewcommand*{\bibpagespunct}{\addspace} % : vor Seiten oder \addcomma
-\renewcommand*{\newunitpunct}{\addspace}
-\renewcommand*{\finentrypunct}{}
-\renewcommand{\mkbibnamegiven}{\textsc}
-\renewcommand{\mkbibnamefamily}{\textsc}
-\renewcommand*{\intitlepunct}{}
+\renewcommand*{\labelnamepunct}{\addcolon\space}% : nach Namen oder \addcomma
+\renewcommand*{\finalnamedelim}{\addspace\&\addspace}% kein "und" bei Doppelname
+\renewcommand*{\bibpagespunct}{\addspace}% : vor Seiten oder \addcomma
+\renewcommand*{\newunitpunct}{\addspace}%
+\renewcommand*{\finentrypunct}{}%
+\renewcommand{\mkbibnamegiven}{\textsc}%
+\renewcommand{\mkbibnamefamily}{\textsc}%
+\renewcommand*{\intitlepunct}{}%
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% kein in:
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewbibmacro{in:}{}
-%	\DefineBibliographyStrings{german}{in={}}
-%	\DefineBibliographyStrings{english}{in={}}
+%	\DefineBibliographyStrings{german}{in={}}%
+%	\DefineBibliographyStrings{english}{in={}}%
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % names delimiter ';' instead of ','
-%\renewcommand*{\multinamedelim}{\addsemicolon\space}
+%\renewcommand*{\multinamedelim}{\addsemicolon\space}%
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% URL 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DefineBibliographyStrings{german}{%
 	andothers = {et al. },
@@ -195,11 +209,12 @@
   	urlseen = {aufgerufen am },
   	urlfrom = {online unter },
 	}
-	
+%
 \DefineBibliographyStrings{english}{%
 	urlfrom = {online },
 	andothers = {et al. },
 	}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% URL auf neuer Zeile
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

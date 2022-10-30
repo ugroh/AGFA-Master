@@ -1,16 +1,15 @@
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% agfa-listen.sty
-% Stand: 2022/03/01
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Für Aufzählungen
+%% agfa-listen.sty
+%% Stand: 2022/10/10
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-listen}
+\RequirePackage[inline,shortlabels]{enumitem}	
 
-\RequirePackage[inline,shortlabels]{enumitem}
-%%---------------------------------------------------------------------	
-
-%
-% Enumerate
-
+%% -------------------
+%% Enumerate
+%% -------------------
 \newlist{myenumerate}{enumerate}{2}
 \setlist[myenumerate,1]{%	
 	,label=(\kern1pt\roman*\kern1pt)
@@ -29,9 +28,9 @@
 	,itemsep=0.15ex
 	,parsep=.75ex}
 
-%		
-% Äquivalent
-
+%% -------------------		
+%% Äquivalent
+%% -------------------
 \newlist{myequivalent}{enumerate}{2}
 \setlist[myequivalent,1]{%
 	,label=(\kern1pt\alph*\kern1pt)
@@ -51,9 +50,9 @@
 	,itemsep=0.15ex
 	,parsep=.75ex}
 
-%
-% Itemize
-
+%% -------------------
+%% Itemize
+%% -------------------
 \newlist{myitemize}{itemize}{2}
 \setlist[myitemize,1]{
 	,label=$ \bullet $ 
@@ -72,9 +71,9 @@
 	,itemsep=0.15ex
 	,parsep=.75ex}
 	
-%
-% Number
-
+%% -------------------
+%% Number
+%% -------------------
 \newlist{mynumber}{enumerate}{2}
 \setlist[mynumber,1]{
 	,label=(\kern1pt\arabic*\kern1pt)
@@ -93,7 +92,9 @@
 	,itemsep=0.15ex
 	,parsep=.75ex}
 
-%%%
+%% -------------------
+%% Inline-Listen
+%% -------------------
 \newlist{myinliner}{enumerate*}{1}
 \setlist[myinliner,1]{%
 	,label=(\kern1pt\roman*\kern1pt)}
@@ -101,9 +102,11 @@
 \newlist{myinlinea}{enumerate*}{1}
 \setlist[myinlinea,1]{%
 	,label=(\kern1pt\alph*\kern1pt)}
-	
-%%% Als Beispiele eventuelle aufnehmen ind AGFA-ReadMe
 
+%% -------------------	
+%% TODO: 
+%% Als Beispiele aufnehmen in AGFA-ReadMe
+%% -------------------
 %\newenvironment{synopsis}{%
 %\begin{framed}
 %\textit{Wiederholung: }  

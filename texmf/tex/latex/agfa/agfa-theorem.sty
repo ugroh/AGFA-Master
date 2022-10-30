@@ -2,21 +2,21 @@
 %% agfa-theorem.sty
 %% Englisch/Deutsch/Framed Variante
 %% Auswahl der THM-Umgebungen mit Rahmen = option thmframed
-% Stand: 2022/03/01
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Kenndaten
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Stand: 2022/10/10
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Kenndaten
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
 \ProvidesPackage{agfa-theorem}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialisierungen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Initialisierungen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen,etoolbox}
 	\provideboolean{framed}	
 	\provideboolean{english}	
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deklaration von Optionen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deklaration von Optionen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption{framed}{\setboolean{framed}{true}}	
 \DeclareOption{english}{\setboolean{english}{true}}
 \ProcessOptions\relax
@@ -43,8 +43,8 @@
 		\newmdtheoremenv{proposition}[theorem]{Proposition}
 		\newmdtheoremenv{lemma}[theorem]{Lemma}
 		\newmdtheoremenv{corollary}[theorem]{Corollary}
-		\newmdtheoremenv{example}[theorem]{Example} 
-		\newmdtheoremenv{examples}[theorem]{Examples}
+%		\newmdtheoremenv{example}[theorem]{Example} 
+%		\newmdtheoremenv{examples}[theorem]{Examples}
 		%% -------------------------------------------------	
 		\newmdtheoremenv{thm}[theorem]{Theorem}
 		\newmdtheoremenv{lem}[theorem]{Lemma}
@@ -59,8 +59,8 @@
 		\newmdtheoremenv{proposition}[theorem]{Satz}
 		\newmdtheoremenv{lemma}[theorem]{Lemma}
 		\newmdtheoremenv{corollary}[theorem]{Korollar}
-		\newmdtheoremenv{example}[theorem]{Beispiel} 
-		\newmdtheoremenv{examples}[theorem]{Beispiele}
+%		\newmdtheoremenv{example}[theorem]{Beispiel} 
+%		\newmdtheoremenv{examples}[theorem]{Beispiele}
 		%% -------------------------------------------------	
 		\newmdtheoremenv{thm}[theorem]{Theorem}
 		\newmdtheoremenv{lem}[theorem]{Lemma}
@@ -76,8 +76,8 @@
 		\newtheorem{proposition}[theorem]{Proposition}
 		\newtheorem{lemma}[theorem]{Lemma}
 		\newtheorem{corollary}[theorem]{Corollary}
-		\newtheorem{example}[theorem]{Example} 
-		\newtheorem{examples}[theorem]{Examples}
+%		\newtheorem{example}[theorem]{Example} 
+%		\newtheorem{examples}[theorem]{Examples}
 		%% -------------------------------------------------	
 		\newtheorem{thm}[theorem]{Theorem}
 		\newtheorem{lem}[theorem]{Lemma}
@@ -91,8 +91,8 @@
 		\newtheorem{proposition}[theorem]{Satz}
 		\newtheorem{lemma}[theorem]{Lemma}
 		\newtheorem{corollary}[theorem]{Korollar}
-		\newtheorem{example}[theorem]{Beispiel} 
-		\newtheorem{examples}[theorem]{Beispiele}
+%		\newtheorem{example}[theorem]{Beispiel} 
+%		\newtheorem{examples}[theorem]{Beispiele}
 		%% -------------------------------------------------	
 		\newtheorem{thm}[theorem]{Theorem}
 		\newtheorem{lem}[theorem]{Lemma}
@@ -103,22 +103,38 @@
 %% Gilt für alle Variationen
 %% -------------------------------------------------
 \theorembodyfont{\upshape}
-\theoremindent20pt
+\theoremindent10pt
+\ifthenelse{\boolean{english}}
+{% -- if
+	\newtheorem{example}[theorem]{Example} 
+	\newtheorem{examples}[theorem]{Examples}
 	\newtheorem{definition}[theorem]{Definition}
 	\newtheorem{defn}[theorem]{Definition}
+}
+{% -- else
+	\newtheorem{example}[theorem]{Beispiel} 
+	\newtheorem{examples}[theorem]{Beispiele}
+	\newtheorem{definition}[theorem]{Definition}
+	\newtheorem{defn}[theorem]{Definition}
+}
+	
 %% -------------------------------------------------
 \theoremindent0em
 \ifthenelse{\boolean{english}}
-{\newtheorem{exercise}{Exercise}[section]
+{% -- if
+	\newtheorem{exercise}{Exercise}[section]
 	\newtheorem{aufgabe}[exercise]{Exercise}
 }
-{\newtheorem{exercise}{Aufgabe}[section]
-	\newtheorem{aufgabe}[exercise]{Aufgabe}}
+{% -- else
+	\newtheorem{exercise}{Aufgabe}[section]
+	\newtheorem{aufgabe}[exercise]{Aufgabe}
+}
 %% -------------------------------------------------	
 \theorembodyfont{\small}
-\theoremindent20pt
+\theoremindent10pt
 \ifthenelse{\boolean{english}}
-{\newtheorem{remark}{Remark}[section] 
+{% -- if
+	\newtheorem{remark}{Remark}[section] 
 	\newtheorem{remarks}[remark]{Remarks}	
 	\newtheorem{anmerkung}[remark]{Remark}
 	\newtheorem{anmerkungen}[remark]{Remarks}
@@ -126,24 +142,28 @@
 	\newtheorem{frage}{Question}
 	\newtheorem{rem}[remark]{Remark}
 }
-{\newtheorem{remark}{Anmerkung}[section] 
+{% -- else
+	\newtheorem{remark}{Anmerkung}[section] 
 	\newtheorem{remarks}[remark]{Anmerkungen}	
 	\newtheorem{anmerkung}[remark]{Anmerkung}
 	\newtheorem{anmerkungen}[remark]{Anmerkungen}
 	\newtheorem{question}{Frage}
 	\newtheorem{frage}{Frage}
-	\newtheorem{rem}[remark]{Anmerkung}}
+	\newtheorem{rem}[remark]{Anmerkung}
+}
 %% -------------------------------------------------
 \theoremstyle{nonumberplain}  
-	\theoremindent20pt
+	\theoremindent10pt
 	\theoremheaderfont{\scshape}
 	\theoremseparator{.}
 	\theorembodyfont{\upshape}  
 \ifthenelse{\boolean{english}}
-{\newtheorem{summary}{Summary}	
+{% -- if
+	\newtheorem{summary}{Summary}	
 	\newtheorem{zusammenfassung}{Summary}
 }
-{\newtheorem{summary}{Zusammenfassung}	
+{% -- else 
+	\newtheorem{summary}{Zusammenfassung}	
 	\newtheorem{zusammenfassung}{Zusammenfassung}}
 %% -------------------------------------------------
 %\theoremsymbol{\fbox}

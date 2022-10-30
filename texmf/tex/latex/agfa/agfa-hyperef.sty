@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Querverweise und hyperref
 %% agfa-hypref.sty
-%% Status: 2022/02/19
+%% Status: 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-hyperef}
@@ -15,7 +15,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{english}}
 {%
-	\RequirePackage[english]{varioref}	
+	\RequirePackage[english,nospace]{varioref}	
 	\RequirePackage[breaklinks = true]{hyperref}   
 	\RequirePackage{cleveref}
 	\crefname{exercise}{Exercise}{Exercises}
@@ -24,7 +24,7 @@
 }
 %%
 {%	
-	\RequirePackage[ngerman]{varioref}			
+	\RequirePackage[ngerman,nospace]{varioref}			
 	\RequirePackage[breaklinks = true]{hyperref}   
 	\RequirePackage{cleveref}	
 	\crefname{exercise}{Aufgabe}{Aufgaben}

@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Layout
 %% agfa-layout.sty
-%% Status: 2022/03/01
+%% Status: 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-layout}
@@ -42,43 +42,73 @@
 	,tocnumwidth=1.25em					% Eintrag in TOC ist aber unterbunden
 	,tocindent	= 1em					%  
 	]{subsubsection} 
+	
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Nummerierung wechselt ** nicht** nach jedem neuen \subsection-Befehl
+%% Nummerierung wechselt (**nicht**) **nach** jedem neuen \subsection-Befehl
+%% Geändert 2020/10/10 da nicht sinnvoll wie ursprünglich
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\makeatletter							
-\@removefromreset{subsubsection}{subsection}
-\@addtoreset{subsubsection}{section}
-\makeatother
+%%\makeatletter							
+%%\@removefromreset{subsubsection}{subsection}
+%%\@addtoreset{subsubsection}{section}
+%%\makeatother
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kopf- und Fußzeile
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage{scrlayer-scrpage}
-\automark[subsection]{section}
+\RequirePackage[automark]{scrlayer-scrpage}
+%\automark[subsection]{section}
 \clearpairofpagestyles
 %% Kopfzeile 
 \KOMAoptions{headsepline=0.8pt}
 \renewcommand*{\sectionmarkformat}{}	% keine Abschnittsnummer
 \renewcommand*{\subsectionmarkformat}{}	% keine UnterAbschnittsnummer
-\chead{}
+
+%% ---------------------------
+%% Zweiseitig und Einseitig nach Abfrage
+%% ---------------------------
+\ifthenelse{\boolean{@twoside}} % 
+{%% --> Zweiseitig
+
+\ihead{\headmark} 	%% -- innen
+
+\rohead{%% außen gerade
+  \makebox[0pt][l]{%
+    \makebox[\marginparsep][r]{%
+      \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
+    }%
+    \makebox[\marginparwidth][l]{\pagemark}%
+  }}
+
+\lehead{%% außen ungerade
+  \makebox[0pt][r]{%
+    \makebox[\marginparwidth][r]{\pagemark}%
+    \makebox[\marginparsep][l]{%
+      \nobreakspace\rule[-\dp\strutbox]{1pt}{\normalbaselineskip}%
+    }}}
+
+}%% <-- Ende Zweiseitig
+%% 
+{%% --> Einseitig
 \lohead{\scshape\headmark}	% Überschrift Abschnitt
-%\rohead{\pagemark}			% Seite
+\chead{}
 \rohead{%					% Seite mit Balken
   \makebox[0pt][l]{%
     \makebox[\marginparsep][r]{%
       \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
     }%
     \makebox[\marginparwidth][l]{\pagemark}%
-  }%
-}
+  }}
+}%% <-- Ende Zweiseitig
+%%
+\pagestyle{scrheadings}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Fußnoten Nach KOMA 3.14 
+%% Geändert 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\deffootnotemark{\kern1pt(\textsuperscript{\thefootnotemark})}
-%\deffootnote[1.5em]{1em}{2em}{(\textsuperscript{\thefootnotemark})\kern5pt}
-%\let\raggedfootnote\RaggedRight
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
 \deffootnotemark{\kern1pt(\raisebox{0.35ex}{\footnotesize\thefootnotemark})}
 \deffootnote[1.5em]{1em}{2em}{(\raisebox{0.35ex}{\footnotesize\thefootnotemark})\kern5pt}
-%\let\raggedfootnote\RaggedRight
-%\setkomafont{footnote}{\sffamily}
+\let\raggedfootnote\RaggedRight
+
 \endinput
