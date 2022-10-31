@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2022/10/10)
+### AGFA-Templates (Stand: 2022/10/31)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
@@ -42,6 +42,11 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 	- Die `sty` Files in `~/texmf/tex/latex/agfa` können mit dem Msterfile genutzt werden. Bitte den Hinweis dort beachten.
 	- Agfa-ReadMe.pdf ist für den doppelseitigen Druck formatiert `twoside=true`
 
+* 2022/10/31
+  - Fehlerbereinigung bzgl. backref (jetzt konform zu den üblichen Vorgaben)
+  - Englische Unterstützung jetzt auch bei BibLaTeX
+  - Kleinere Korrekturen
+  
 
 
 
