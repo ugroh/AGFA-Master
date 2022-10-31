@@ -8,9 +8,11 @@
 \ProvidesPackage{agfa-biblio}
 %%
 \RequirePackage{ifthen}
+	\provideboolean{english} 		% wenn in Optionsliste
  	\provideboolean{numeric} 		% wenn in Optionsliste
 	\provideboolean{urldoi} 		% wenn in Optionsliste
 	% urldoi = bindet die Links an den Titel; siehe https://bit.ly/2YghEHH
+	\DeclareOption{english}{\setboolean{english}{true}}	
 	\DeclareOption{numeric}{\setboolean{numeric}{true}}	
 	\DeclareOption{urldoi}{\setboolean{urldoi}{true}}	
 \ProcessOptions\relax
@@ -78,9 +80,12 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% backref
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DefineBibliographyStrings{ngerman}{
-  backrefpage  = {Zitiert auf S\adddot},
-  backrefpages = {Zitiert auf S\adddot},
+\ifthenelse{\boolean{english}}
+{}
+{%
+	\DefineBibliographyStrings{ngerman}{%
+  	backrefpage  = {Zitiert auf S\adddot},
+  	backrefpages = {Zitiert auf S\adddot},}
 }
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Shorthand
