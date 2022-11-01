@@ -39,7 +39,7 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 	- Doppelseitig ist jetzt unterstützt via `twoside = true`; siehe Masterfile
 	- Bereinigung der gerahmten Umgebungen: Nur noch Theorem, Satz, Lemma und Korollar
 	- Englische Variante überprüft
-	- Die `sty` Files in `~/texmf/tex/latex/agfa` können mit dem Msterfile genutzt werden. Bitte den Hinweis dort beachten.
+	- Die `sty` Files in `~/texmf/tex/latex/agfa` können mit dem Masterfile genutzt werden. Bitte den Hinweis dort beachten.
 	- Agfa-ReadMe.pdf ist für den doppelseitigen Druck formatiert `twoside=true`
 
 * 2022/10/31
