@@ -15,10 +15,13 @@
 
 %% -- 
 \addtocounter{tocdepth}{-1}% Keine \subsubsection im TOC
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- section
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\thesection}{\arabic{section}} 
 
-%
+%% -- TOC
 \RedeclareSectionCommand[tocnumwidth=2em]{section} % TOC
 \renewcommand*{\addsectiontocentry}[2]{% Eintrag in TOC
   \addtocontents{toc}{\protect\addvspace{\protect.5\baselineskip}}% Halbe LZ
@@ -30,8 +33,31 @@
 }
 %% --  Seitenangabe unnötig 
 \addtokomafont{sectionentrypagenumber}{\color{white}}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Format \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
+%% -- subsection
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand*{\thesubsection}{\arabic{subsection}}
+\renewcommand*{\subsectionformat}{\thesubsection.\enskip}% Nr. in Überschrift
+% 
+\RedeclareSectionCommand[%
+  ,beforeskip	= -1.75\baselineskip
+  ,afterskip		= 0.25\baselineskip
+  ,font			= \itshape
+  ,tocnumwidth	= 1em
+]{subsection}
+%% -- Eintrag in das TOC
+\renewcommand*{\addsubsectiontocentry}[2]{%
+  \Ifstr{#1}{}{%
+    \addtocentrydefault{subsection}{#1}{#2}%
+  }{%
+    \addtocentrydefault{subsection}{#1.}{#2}% Mit Punkt hinter der Nummer in TOC
+  }%
+}
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{secnumdepth}{\subsubsectionnumdepth} 	% Anzeigen der subsub-nummer
 \renewcommand*{\thesubsubsection}{\arabic{subsubsection}.} % 1.
