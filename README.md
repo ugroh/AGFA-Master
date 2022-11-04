@@ -22,9 +22,19 @@ Diese findet sich im `./ReadMe` Ordner und dort findet man auch das 'AGFA-Master
 
 * `AGFA-ReadMe-Print.pdf`: Bitte doppelseitig drucken, falls es wirklich erforderlich ist
 
-* `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat
+* `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat.
 
 Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
+
+### Erläuterungen zu Begriffen ...
+
+#### ... in `agfa-font.sty`
+
+* `fontencoding` und `inpuencoding`: Eine Erläuterung hierzu findet man auf \href{https://tex.stackexchange.com/questions/6448/what-is-the-difference-between-font-encoding-and-input-encoding} und \href{https://tug.org/TUGboat/tb39-1/tb121ltnews28.pdf}. Da ich nicht weiß, ob jeder Nutzer der Vorlage schon `utf-8` als Default bei seinem Editor eingestellt hat, wird in der Datei `agfa-font.sty` noch das Paket `selinput` aufgerufen, was eigentlich entbehrlich ist.
+* Das Paket `textcomp` ist auch entbehrlich, wenn man ein aktuelles `TeXLive` System hat. Ursprüngliche Sinn des Paketes war es, Zeichen wie `copyright`, `bullet` etc. zur Verfügung zu stellen. Es schadet aber nicht, es stehen zu lassen. 
+* Schriften: `lmodern`, `libertinus` oder als Default `Times`
+
+
 
 ### Änderungen
 
