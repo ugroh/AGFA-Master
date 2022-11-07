@@ -46,6 +46,8 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
 
 __Hinweis:__ Ich habe angefangen eine entsprechende Datei `latexmkrc` anzulegen. Diese ist nur für Overleaf-Nutzer erforderlich und kann daher in allen anderen Fällen gelöscht werden.
 
+**Anmerkung:** Dies funktioniert nicht, wie es in der Anleitung beschrieben ist. Eine Anfrage beim Overleaf-Support ist gestellt (2022/11/07).
+
 ### Änderungen
 
 * 2022/10/10: 
