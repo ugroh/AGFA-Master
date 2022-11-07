@@ -51,7 +51,7 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
   	- Eigenständigkeitserklräung dazu
   	- Einleitung dazu
   	- Etwas Bereinigung des Masterefiles
-  	- `texmf` Verzeichnis ergäzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
+  	- `texmf` Verzeichnis ergänzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
   
 * Wesentliche Änderung:
 	- Doppelseitig ist jetzt unterstützt via `twoside = true`; siehe Masterfile
