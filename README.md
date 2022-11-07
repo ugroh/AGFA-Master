@@ -30,7 +30,7 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 #### ... in `agfa-font.sty`
 
-* `fontencoding` und `inpuencoding`: Eine Erläuterung hierzu [findet man hier]( \href{https://tex.stackexchange.com/questions/6448/what-is-the-difference-between-font-encoding-and-input-encoding}) und [hier für weitere Details](\href{https://tug.org/TUGboat/tb39-1/tb121ltnews28.pdf}). 
+* `fontencoding` und `inpuencoding`: Eine Erläuterung hierzu [findet man hier]( https://tex.stackexchange.com/questions/6448/what-is-the-difference-between-font-encoding-and-input-encoding) und [hier für weitere Details](https://tug.org/TUGboat/tb39-1/tb121ltnews28.pdf). 
 
 Da ich nicht weiß, ob jeder Nutzer der Vorlage schon `utf-8` als Default bei seinem Editor eingestellt hat, wird in der Datei `agfa-font.sty` noch das Paket `selinput` aufgerufen, was eigentlich entbehrlich ist.
 * Das Paket `textcomp` ist auch entbehrlich, wenn man ein aktuelles `TeXLive` System hat. Ursprüngliche Sinn des Paketes war es, Zeichen wie `copyright`, `bullet` etc. zur Verfügung zu stellen. Es schadet aber nicht, es stehen zu lassen. 
