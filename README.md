@@ -42,11 +42,7 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 ### [Overleaf](\href{http://overleaf.com})
 
-Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen. Man kann auch das `texmf` Unterverzeichnis nutzen. Dies Bedarf aber etwas zusätzlicher Arbeit, die [hier in Overleaf](https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F) beschrieben ist. 
-
-__Hinweis:__ Ich habe angefangen eine entsprechende Datei `latexmkrc` anzulegen. Diese ist nur für Overleaf-Nutzer erforderlich und kann daher in allen anderen Fällen gelöscht werden.
-
-**Anmerkung:** Dies funktioniert nicht, wie es in der Anleitung beschrieben ist. Eine Anfrage beim Overleaf-Support ist gestellt (2022/11/07).
+Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
 ### Änderungen
 
@@ -71,8 +67,7 @@ __Hinweis:__ Ich habe angefangen eine entsprechende Datei `latexmkrc` anzulegen.
   
 * 2022/11/07
 	- Links bei `agfa-font.sty` Beschreibung korrigiert
-	- `latexmkrc` angelegt und richtige Zeitzone eingestellt
-	- Problem: geht so nicht
+
   
 
 
