@@ -15,12 +15,13 @@ Diese werden dann entsprechend in die Hauptdatei eingebunden.
 * In `./bib` habe ich eine Musterdatei mit Literaturreferenzen eingestellt.
 Dies kann man als Beispiel für eine eigen verwenden oder pflegt in diese siene eigenen Referenzen ein.</li>
 * In dem `./texmf`-Unterverzeichnis enthält die Include-Dateien und bib-Dateien und ich empfehle diese in das eigen `~/texmf`-Verzeichnis zu kopieren.
-Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im AGFA-ReadMe zu lesen oder nachfragen.
+Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im AGFA-ReadMe zu lesen oder nachfragen. 
 
-Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. 
-Diese findet sich im `./ReadMe` Ordner und dort findet man auch das 'AGFA-Master.pdf' nochmals.
+	Weiteres zur Struktur von `texmf` etc. findet man [in diesem Artikel auf Overleaf](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files%23Table_listing_Kpathsea_.E2.80.9Cconfig_variables.E2.80.9D).
 
-* `AGFA-ReadMe-Print.pdf`: Bitte doppelseitig drucken, falls es wirklich erforderlich ist
+* Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. Diese findet sich im `./ReadMe` Ordner und dort findet man auch das 'AGFA-Master.pdf' nochmals.
+
+* `AGFA-ReadMe-Print.pdf`: Bitte doppelseitig drucken, falls es wirklich erforderlich ist.
 
 * `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat.
 
@@ -32,18 +33,18 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 * `fontencoding` und `inpuencoding`: Eine Erläuterung hierzu [findet man hier]( https://tex.stackexchange.com/questions/6448/what-is-the-difference-between-font-encoding-and-input-encoding) und [hier für weitere Details](https://tug.org/TUGboat/tb39-1/tb121ltnews28.pdf). 
 
-Da ich nicht weiß, ob jeder Nutzer der Vorlage schon `utf-8` als Default bei seinem Editor eingestellt hat, wird in der Datei `agfa-font.sty` noch das Paket `selinput` aufgerufen, was eigentlich entbehrlich ist.
+* Da ich nicht weiß, ob jeder Nutzer der Vorlage schon `utf-8` als Default bei seinem Editor eingestellt hat, wird in der Datei `agfa-font.sty` noch das Paket `selinput` aufgerufen, was eigentlich entbehrlich ist.
+	
 * Das Paket `textcomp` ist auch entbehrlich, wenn man ein aktuelles `TeXLive` System hat. Ursprüngliche Sinn des Paketes war es, Zeichen wie `copyright`, `bullet` etc. zur Verfügung zu stellen. Es schadet aber nicht, es stehen zu lassen. 
+
 * Schriften: `lmodern`, `libertinus` oder als Default `Times`
 
 
-### [Overleaf]( \href{http://overleaf.com})
+### [Overleaf](\href{http://overleaf.com})
 
-Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen. Man kann auch das `texmf` Unterverzeichnis nutzen. Dies Bedarf aber etwas zusätzlicher Arbeit, die [hier in Overleaf](https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F) beschrieben ist. Dies ist dann noch ein TODO für mich, dieses einzubauen.
+Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen. Man kann auch das `texmf` Unterverzeichnis nutzen. Dies Bedarf aber etwas zusätzlicher Arbeit, die [hier in Overleaf](https://www.overleaf.com/learn/latex/Questions/I_have_a_custom_font_I%27d_like_to_load_to_my_document._How_can_I_do_this%3F) beschrieben ist. 
 
-Weiteres zur Struktur von `texmf` etc. findet man [in diesem Artikel auf Overleaf](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files%23Table_listing_Kpathsea_.E2.80.9Cconfig_variables.E2.80.9D).
-
-
+__Hinweis:__ Ich habe angefangen eine entsprechende Datei `latexmkrc` anzulegen. Diese ist nur für Overleaf-Nutzer erforderlich und kann daher in allen anderen Fällen gelöscht werden.
 
 ### Änderungen
 
