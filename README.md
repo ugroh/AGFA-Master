@@ -72,6 +72,7 @@ __Hinweis:__ Ich habe angefangen eine entsprechende Datei `latexmkrc` anzulegen.
 * 2022/11/07
 	- Links bei `agfa-font.sty` Beschreibung korrigiert
 	- `latexmkrc` angelegt und richtige Zeitzone eingestellt
+	- Problem: geht so nicht
   
 
 
