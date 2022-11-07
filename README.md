@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2022/10/31)
+### AGFA-Templates (Stand: 2022/11/07)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
@@ -48,11 +48,11 @@ Weiteres zur Struktur von `texmf` etc. findet man [in diesem Artikel auf Overlea
 ### Änderungen
 
 * 2022/10/10: 
-  - Komplette Überarbeitung und Bereinigung einiger kleinere Fehler
-  - Eigenständigkeitserklräung dazu
-  - Einleitung dazu
-  - Etwas Bereinigung des Masterefiles
-  - `texmf` Verzeichnis ergäzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
+	- Komplette Überarbeitung und Bereinigung einiger kleinere Fehler
+  	- Eigenständigkeitserklräung dazu
+  	- Einleitung dazu
+  	- Etwas Bereinigung des Masterefiles
+  	- `texmf` Verzeichnis ergäzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
   
 * Wesentliche Änderung:
 	- Doppelseitig ist jetzt unterstützt via `twoside = true`; siehe Masterfile
@@ -62,9 +62,13 @@ Weiteres zur Struktur von `texmf` etc. findet man [in diesem Artikel auf Overlea
 	- Agfa-ReadMe.pdf ist für den doppelseitigen Druck formatiert `twoside=true`
 
 * 2022/10/31
-  - Fehlerbereinigung bzgl. backref (jetzt konform zu den üblichen Vorgaben)
-  - Englische Unterstützung jetzt auch bei BibLaTeX
-  - Kleinere Korrekturen
+  	- Fehlerbereinigung bzgl. backref (jetzt konform zu den üblichen Vorgaben)
+  	- Englische Unterstützung jetzt auch bei BibLaTeX
+  	- Kleinere Korrekturen
+  
+* 2022/11/07
+	- Links bei `agfa-font.sty` Beschreibung korrigiert
+	- `latexmkrc` angelegt und richtige Zeitzone eingestellt
   
 
 
