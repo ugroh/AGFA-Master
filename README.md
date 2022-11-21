@@ -69,7 +69,7 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
 	- Links bei `agfa-font.sty` Beschreibung korrigiert
 
 * 2022/11/21
-	- Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit mit `\vref` zu arbeiten nicht ging. Nun ist ./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
+	- Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
 
   
 
