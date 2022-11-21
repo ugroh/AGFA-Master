@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2022/11/07)
+### AGFA-Templates (Stand: 2022/11/21)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
@@ -67,6 +67,9 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
   
 * 2022/11/07
 	- Links bei `agfa-font.sty` Beschreibung korrigiert
+
+* 2022/11/21
+	- Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit mit `\vref` zu arbeiten nicht ging. Nun ist ./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
 
   
 
