@@ -18,12 +18,12 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% -- Für die, die immer noch kein UTF8 nutzen
-\RequirePackage{selinput} 				 
+\RequirePackage{selinput} 		% entbehrlich		 
 	\SelectInputMappings{%	 		 
              adieresis={ä},
              germandbls={ß}}
-\RequirePackage[T1]{fontenc}	
-\RequirePackage{textcomp} 		%Richtiger Zeichnsatz inkl. ä etc
+\RequirePackage[T1]{fontenc}	% entbehrlich
+\RequirePackage{textcomp} 		% entbehrlich
 
 %% --
 \ifthenelse{\boolean{lmodern}}{% - Latin Modern (LaTeX Standard)
@@ -37,7 +37,7 @@
 	\SetMathAlphabet{\mathit}{sans}{OT1}{lmr}{m}{it}
 }
 {\ifthenelse{\boolean{libertinus}}{\RequirePackage{libertinus}}
-{% - Times New Roman
+{% - Times New Roman Default, wenn nichts angegeben ist
 \RequirePackage{mathptmx}			
 	\RequirePackage[scaled=.90]{helvet}
 	\RequirePackage{courier} 
