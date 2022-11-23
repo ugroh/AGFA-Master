@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2022/11/21)
+### AGFA-Templates (Stand: 2022/11/23)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
@@ -24,6 +24,10 @@ Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im A
 * `AGFA-ReadMe-Print.pdf`: Bitte doppelseitig drucken, falls es wirklich erforderlich ist.
 
 * `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat.
+
+#### Wichtig
+
+Bitte eigene Definitionen in eine **separate** Datei eintragen und dann via `\input` einbinden und **nicht** die originalen Dateien ändern. Dies erschwert sonst im Fall der Fälle die Fehlersuche. 
 
 Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
@@ -70,6 +74,11 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
 
 * 2022/11/21
 	- Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
+	
+* 2022/11/23
+	- Korrektur in `agfa-hyperef.sty` : Dort war nicht berücksichtigt, dass etwa die Abkürzung `thm` in der Theorem-Umgebung nicht definiert ist. Dies habe ich für alle Abkürzungen wie etwa `prop`, `lem`etc. nachgeholt. Wenn man also eigene Theorem-Umgebungen definiert hat, bitte diese dann entsprechend eintragen. 
+	
+
 
   
 
