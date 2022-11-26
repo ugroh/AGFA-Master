@@ -1,16 +1,16 @@
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Main Package für AGFA Layout
-% agfa-art.sty
-% Stand: 2022/10/10
-% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Kenndaten
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Main Package für AGFA Layout
+%% agfa-art.sty
+%% Stand: 2022/11/26
+%% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Kenndaten
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
 \ProvidesPackage{agfa-art}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Initialisierungen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Initialisierungen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
 	\provideboolean{numeric}
  	\provideboolean{english}
@@ -19,10 +19,10 @@
 	\provideboolean{libertinus}
 	\provideboolean{thmframed}
 	\provideboolean{framed}
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Deklaration von Optionen
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deklaration von Optionen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareOption*{\expandafter\PassOptionsToClass\expandafter{\CurrentOption}{scrartcl}}
 \DeclareOption{english}{\setboolean{refenglish}{true}}
 \DeclareOption{english}{\setboolean{english}{true}}
@@ -46,15 +46,15 @@
 %% -- Abarbeiten
 \ProcessOptions\relax
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Laden von Paketen 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Laden von Paketen 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \RequirePackage[all]{onlyamsmath}			% Fehler bei Eingabe Mathematik
 \RequirePackage[l2tabu,orthodox]{nag}
 \RequirePackage{etex,etoolbox,letltxmacro,metalogo}
 
-%%-- 
+%% -- 
 \RequirePackage{./preamble/agfa-font}
 \RequirePackage{./preamble/agfa-layout}
 \RequirePackage{./preamble/agfa-pakete}
@@ -68,7 +68,7 @@
 \RequirePackage{./preamble/agfa-defn}
 \RequirePackage{./preamble/agfa-biblio}
 %% --
-\RequirePackage{./preamble/agfa-hyperef
+\RequirePackage{./preamble/agfa-hyperef}
 %% -- wegen \dh Problematik am Ende
 \RequirePackage{./preamble/agfa-abkuerz}	
 

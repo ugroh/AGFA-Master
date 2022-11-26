@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Layout
 %% agfa-layout.sty
-%% Status: 2022/10/10
+%% Stand: 2022/11/26
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-layout}
@@ -60,7 +60,7 @@
 %% -- \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{secnumdepth}{\subsubsectionnumdepth} 	% Anzeigen der subsub-nummer
-\renewcommand*{\thesubsubsection}{\arabic{subsubsection}.} % 1.
+\renewcommand*{\thesubsubsection}{\arabic{subsubsection}.\kern5pt} % 1.
 \RedeclareSectionCommand[%
   	,beforeskip	=  .25\baselineskip		% Skip vor dem Kommando + indent
 	,afterskip	= -0.1em				% Kein Skip aber Abstand
