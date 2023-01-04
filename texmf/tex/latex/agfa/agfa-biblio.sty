@@ -150,7 +150,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareFieldFormat[article]{number}{#1} 
 \DeclareFieldFormat[article]{volume}{\textbf{#1}} 
-\DeclareFieldFormat[article]{pages}{#1\addot}
+\DeclareFieldFormat[article]{pages}{#1\adddot}
 \DeclareFieldFormat[article]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat{journaltitle}{#1}
 
@@ -197,8 +197,6 @@
 %% kein in:
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewbibmacro{in:}{}
-%	\DefineBibliographyStrings{german}{in={}}%
-%	\DefineBibliographyStrings{english}{in={}}%
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % names delimiter ';' instead of ','
@@ -218,6 +216,8 @@
 	urlfrom = {online },
 	andothers = {et al. },
 	}
+%
+\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\space\url{#1}}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% URL auf neuer Zeile
@@ -248,7 +248,7 @@
     {\printfield{eprint}}
     {\printfield[eprint:\strfield{eprinttype}]{eprint}}}
     
-\DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\space\url{#1}}
+
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Url und DOI an Titel binden Voss 4.10.10, S. 200
