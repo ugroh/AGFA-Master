@@ -1,5 +1,5 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Stand: 2022/11/26
+%% Stand: 2023/01/04
 %% agfa-biblio.sty
 %% Für die Darstellung des Literaturverzeicnisses
 %% Eingabe von URL etc. möglich
@@ -150,14 +150,14 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareFieldFormat[article]{number}{#1} 
 \DeclareFieldFormat[article]{volume}{\textbf{#1}} 
-\DeclareFieldFormat[article]{pages}{#1.}
-\DeclareFieldFormat[article]{title}{\mkbibemph{#1.\isdot}\addspace}
+\DeclareFieldFormat[article]{pages}{#1\addot}
+\DeclareFieldFormat[article]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat{journaltitle}{#1}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Felder bei Typ -- book --
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareFieldFormat[book]{title}{\mkbibemph{#1.\isdot}\addspace}
+\DeclareFieldFormat[book]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat[book]{date}{\mkbibparens{#1}}
 \DeclareFieldFormat[book]{pages}{} 
 \DeclareFieldFormat[book]{pagetotal}{} 
@@ -172,7 +172,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Felder bei Typ -- manual --
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareFieldFormat[manual]{title}{\mkbibemph{#1.\isdot}\addspace}
+\DeclareFieldFormat[manual]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat[manual]{date}{}
 \DeclareFieldFormat[manual]{version}{}
 \DeclareFieldFormat[manual]{subtitle}{}
@@ -188,7 +188,6 @@
 \renewcommand*{\labelnamepunct}{\addcolon\space}% : nach Namen oder \addcomma
 \renewcommand*{\finalnamedelim}{\addspace\&\addspace}% kein "und" bei Doppelname
 \renewcommand*{\bibpagespunct}{\addspace}% : vor Seiten oder \addcomma
-\renewcommand*{\newunitpunct}{\addspace}%
 \renewcommand*{\finentrypunct}{}%
 \renewcommand{\mkbibnamegiven}{\textsc}%
 \renewcommand{\mkbibnamefamily}{\textsc}%
@@ -252,18 +251,16 @@
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\space\url{#1}}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Url und DOI an Titel binden Voss 3.11.7, S. 138
+%% Url und DOI an Titel binden Voss 4.10.10, S. 200
 %% und https://bit.ly/2YghEHH
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifthenelse{\boolean{urldoi}}
-	{\ExecuteBibliographyOptions{doi=false}
-	\ExecuteBibliographyOptions{url=false}
-	\DeclareFieldFormat[article,manual]{title}{%
-  		\iffieldundef{doi}{%
-    		\iffieldundef{url}{\mkbibemph{#1.\isdot\addspace}}{\href{\thefield{url}}{\mkbibemph{#1.\isdot\addspace}}}}%
-  		{\href{http://dx.doi.org/\thefield{doi}}{\mkbibemph{#1.\isdot\addspace}}}}%
-	}
-	{}
+
+\newbibmacro{string+doi}[1]{%
+  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat{title}{% Titel+Formatierung an das Makro weiterreichen
+  \usebibmacro{string+doi}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article,manual]{title}{\usebibmacro{string+doi}%
+	{\mkbibemph{#1}}}
 
 %%	
 \endinput

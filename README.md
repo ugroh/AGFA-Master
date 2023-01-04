@@ -82,6 +82,9 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
 	- Korrekturen wegen einer vergessenen }-Klammer
 	- Die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft. Dies macht das Auffinden einfacher.
 	
+* 2023/01/04
+	- Korrektur für Literaturverzeichnis
+	
 
 
   
