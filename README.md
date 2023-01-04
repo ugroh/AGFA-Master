@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2022/11/26)
+### AGFA-Templates (Stand: 2023/01/04)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
@@ -83,7 +83,7 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
 	- Die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft. Dies macht das Auffinden einfacher.
 	
 * 2023/01/04
-	- Korrektur für Literaturverzeichnis
+	- Korrekturen und Ergänzung um `AGFA-ReadMe`, in dem sich weitere Details zum Aufbau etc. befinden. Bitte dieses auch lesen!
 	
 
 
