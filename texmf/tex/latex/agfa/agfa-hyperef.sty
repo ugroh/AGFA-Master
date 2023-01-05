@@ -1,10 +1,10 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Querverweise und hyperref
 %% agfa-hypref.sty
-%% Stand: 2022/11/26
+%% Stand: 2023/01/05
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-hyperef}
+\ProvidesPackage{agfa-hyperef}
 
 \RequirePackage{ifthen}
  	\provideboolean{english}
@@ -14,35 +14,22 @@
 %% Pakete
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{english}}
-{%% -- if
+{%
 	\RequirePackage[english,nospace]{varioref}	
 	\RequirePackage[breaklinks = true]{hyperref}   
 	\RequirePackage{cleveref}
-		\crefname{exercise}{Exercise}{Exercises}
-		\crefname{exercise}{Exercise}{Exercises}
-		\crefname{item}{item}{item}
-		\crefname{thm}{Theorem}{Theorem}
-		\crefname{lem}{Lemma}{Lemmata}
-		\crefname{cor}{Corollary}{Corollary}
-		\crefname{prop}{Proposition}{Proposition}
-		\crefname{defn}{Definition}{Definitionen}
-		\crefname{rem}{Remark}{Remarks}
+	\crefname{exercise}{Exercise}{Exercises}
+	\crefname{exercise}{Exercise}{Exercises}
+	\crefname{item}{item}{item}
 }
 %%
-{%% -- else
+{%	
 	\RequirePackage[ngerman,nospace]{varioref}			
 	\RequirePackage[breaklinks = true]{hyperref}   
 	\RequirePackage{cleveref}	
-		\crefname{exercise}{Aufgabe}{Aufgaben}
-		\crefname{aufgabe}{Aufgabe}{Aufgaben}
-		\crefname{item}{Punkt}{Punkte}
-		\crefname{thm}{Theorem}{Theorem}
-		\crefname{lemma}{Lemma}{Lemmata}
-		\crefname{lem}{Lemma}{Lemmata}
-		\crefname{cor}{Korollar}{Korollare}
-		\crefname{prop}{Satz}{Sätze}
-		\crefname{defn}{Definition}{Definitionen}
-		\crefname{rem}{Anmerkung}{Anmerkungen}
+	\crefname{exercise}{Aufgabe}{Aufgaben}
+	\crefname{aufgabe}{Aufgabe}{Aufgaben}
+	\crefname{item}{Punkt}{Punkt}
 }
 
 \endinput

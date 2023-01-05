@@ -2,10 +2,10 @@
 %% Abkürzungen 
 %% agfa-abkuerz.sty
 %% Muss nach agfa-hyperef.sty geladen werden
-%% Stand: 2023/01/04
+%% Stand: 2023/01/05
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-abkuerz}
+\ProvidesPackage{agfa-abkuerz}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,22 +21,20 @@
 	\newcommand{\ie}{i.e.\xspace}
 %% weitere hier eintragen
 
-% --> Deutsch
+%% --> Deutsch
 \newcommand{\zB}{\mbox{z.\,B.}\xspace}
 \newcommand{\iA}{\mbox{i.\,A.}\xspace}
 \newcommand{\iAllg}{\mbox{i.\,Allg.}\xspace}
-\newcommand{\di}{\mbox{d.\,i.}\xspace}
 \renewcommand{\dh}{\mbox{d.\,h.}\xspace}
-\newcommand{\oae}{\mbox{o.\,ä.}\xspace}
-\newcommand{\uae}{\mbox{u.\,ä.}\xspace}
+\newcommand{\oAe}{\mbox{o.\,Ä.}\xspace}
+\newcommand{\uAe}{\mbox{u.\,Ä.}\xspace}
 \newcommand{\og}{\mbox{o.\,g.}\xspace}
 \newcommand{\ua}{\mbox{u.\,a.}\xspace} 
-\newcommand{\lc}{\mbox{l.\,c.}\xspace} 
-\newcommand{\fue}{\mbox{f.\,ü.}\xspace}
 %%
 \newcommand{\inkl}{inkl.\xspace} 
 \newcommand{\sog}{sog.\xspace} 
 \newcommand{\bzgl}{bzgl.\xspace} 
+\newcommand{\fue}{\mbox{f.\,ü.}\xspace}
 \newcommand{\vs}{vs.\xspace} 
 \newcommand{\ca}{ca.\xspace}
 \newcommand{\bzw}{bzw.\xspace}
@@ -44,8 +42,6 @@
 \newcommand{\usw}{usw.\xspace}
 \newcommand{\ggf}{ggf.\xspace}
 \newcommand{\evtl}{evtl.\xspace}
-\newcommand{\oBdA}{o.B.d.A.\xspace}
-%% --
 %%
 \renewcommand{\L}[1]{\mathcal{{L}(#1)} }	% L(E,F) nach hyperref sonst Fehler
 

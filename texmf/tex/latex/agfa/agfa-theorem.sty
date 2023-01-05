@@ -2,12 +2,12 @@
 %% agfa-theorem.sty
 %% Englisch/Deutsch/Framed Variante
 %% Auswahl der THM-Umgebungen mit Rahmen = option thmframed
-%% Stand: 2022/11/26
+%% Stand: 2023/01/05
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kenndaten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{./preamble/agfa-theorem}
+\ProvidesPackage{agfa-theorem}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -28,7 +28,7 @@
 \RequirePackage{mdframed}	% wegen Rahmen
 \mdfsetup{%
 	,ntheorem 		= true
-	,leftmargin 		= 10pt
+	,leftmargin 	= 10pt
 	,everyline 		= true
 	,splittopskip 	= 15pt
 	,splitbottomskip = 10pt
@@ -59,7 +59,6 @@
 		\newmdtheoremenv{proposition}[theorem]{Satz}
 		\newmdtheoremenv{lemma}[theorem]{Lemma}
 		\newmdtheoremenv{corollary}[theorem]{Korollar}
-		\newmdtheoremenv{conjecture}[theorem]{Vermutung}	
 %		\newmdtheoremenv{example}[theorem]{Beispiel} 
 %		\newmdtheoremenv{examples}[theorem]{Beispiele}
 		%% -------------------------------------------------	
@@ -67,7 +66,6 @@
 		\newmdtheoremenv{lem}[theorem]{Lemma}
 		\newmdtheoremenv{cor}[theorem]{Korollar}
 		\newmdtheoremenv{prop}[theorem]{Satz}
-		\newmdtheoremenv{conj}[theorem]{Vermutung}
 	 }
 	 {% -- else
 	 \ifthenelse{\boolean{english}\AND\NOT\boolean{framed}}
@@ -136,18 +134,22 @@
 \theoremindent10pt
 \ifthenelse{\boolean{english}}
 {% -- if
-	\newtheorem{remark}[theorem]{Remark}%[section] 
-	\newtheorem{remarks}[theorem]{Remarks}	
-	\newtheorem{anmerkung}[theorem]{Remark}
-	\newtheorem{anmerkungen}[theorem]{Remarks}
-	\newtheorem{rem}[theorem]{Remark}
+	\newtheorem{remark}{Remark}[section] 
+	\newtheorem{remarks}[remark]{Remarks}	
+	\newtheorem{anmerkung}[remark]{Remark}
+	\newtheorem{anmerkungen}[remark]{Remarks}
+	\newtheorem{question}{Question}
+	\newtheorem{frage}{Question}
+	\newtheorem{rem}[remark]{Remark}
 }
 {% -- else
-	\newtheorem{remark}[theorem]{Anmerkung}%[section] 
-	\newtheorem{remarks}[theorem]{Anmerkungen}	
-	\newtheorem{anmerkung}[theorem]{Anmerkung}
-	\newtheorem{anmerkungen}[theorem]{Anmerkungen}
-	\newtheorem{rem}[theorem]{Anmerkung}
+	\newtheorem{remark}{Anmerkung}[section] 
+	\newtheorem{remarks}[remark]{Anmerkungen}	
+	\newtheorem{anmerkung}[remark]{Anmerkung}
+	\newtheorem{anmerkungen}[remark]{Anmerkungen}
+	\newtheorem{question}{Frage}
+	\newtheorem{frage}{Frage}
+	\newtheorem{rem}[remark]{Anmerkung}
 }
 %% -------------------------------------------------
 \theoremstyle{nonumberplain}  
@@ -159,15 +161,10 @@
 {% -- if
 	\newtheorem{summary}{Summary}	
 	\newtheorem{zusammenfassung}{Summary}
-	\newtheorem{question}{Question}
-	\newtheorem{frage}{Question}
 }
 {% -- else 
 	\newtheorem{summary}{Zusammenfassung}	
-	\newtheorem{zusammenfassung}{Zusammenfassung}
-	\newtheorem{question}{Frage}
-	\newtheorem{frage}{Frage}
-}
+	\newtheorem{zusammenfassung}{Zusammenfassung}}
 %% -------------------------------------------------
 %\theoremsymbol{\fbox}
 %\theoremsymbol{\rule{1ex}{1ex}} 
