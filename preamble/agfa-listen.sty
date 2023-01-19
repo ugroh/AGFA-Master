@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Für Aufzählungen
 %% agfa-listen.sty
-%% Stand: 2022/11/26
+%% Stand: 2023/01/12
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{./preamble/agfa-listen}
@@ -103,17 +103,19 @@
 \setlist[myinlinea,1]{%
 	,label=(\kern1pt\alph*\kern1pt)}
 
+
 %% -------------------	
-%% TODO: 
-%% Als Beispiele aufnehmen in AGFA-ReadMe
+%% Spezielles; noch aufnehmen in ReadMe
 %% -------------------
-%\newenvironment{synopsis}{%
-%\begin{framed}
-%\textit{Wiederholung: }  
-%\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}{\end{enumerate*}\end{framed}}
+\newenvironment{synopsis}%
+{\begin{mdframed}
+\emph{Hinweise: }\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}
+{\end{enumerate*}\end{mdframed}}
 %%
-%\newenvironment{content}{%
-%\begin{framed}
-%\textit{Inhalt: }  
-%\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}{\end{enumerate*}\end{framed}}
+\newenvironment{content}%
+{\begin{mdframed}
+\emph{Inhalt: }\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}
+{\end{enumerate*}\end{mdframed}}
+%%
+%
 %
