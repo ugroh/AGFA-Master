@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2023/01/04)
+### AGFA-Templates (Stand: 2023/01/20)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
@@ -84,6 +84,9 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
 	
 * 2023/01/04
 	- Korrekturen und Ergänzung um `AGFA-ReadMe`, in dem sich weitere Details zum Aufbau etc. befinden. Bitte dieses auch lesen!
+	
+* 2023/01/20 
+	- Bitte für die Eingabe von Mathematik die kurze, aber prägnante Übersicht [AMS: Short Math Guide](https://ctan.org/pkg/short-math-guide) nutzen. Aus meiner Sicht eine der besten Kurzeinführungen in den Formelsatz. 
 	
 
 
