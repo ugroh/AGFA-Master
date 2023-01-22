@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2023/01/20)
+### AGFA-Templates (Stand: 2023/01/22)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
@@ -46,7 +46,7 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 ### __Overleaf__
 
-Wer [Overleaf](\href{http://overleaf.com}) nutzt bitte alles mit Hilfe des  `zip`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
+Wer [Overleaf](http://overleaf.com) nutzt bitte alles mit Hilfe des  `zip`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
 ### Änderungen
 
