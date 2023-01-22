@@ -44,9 +44,9 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 * Schriften: `lmodern`, `libertinus` oder als Default `Times`
 
 
-### [Overleaf](\href{http://overleaf.com})
+### __Overleaf__
 
-Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
+Wer [Overleaf](\href{http://overleaf.com}) nutzt bitte alles mit Hilfe des  `zip`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
 ### Änderungen
 
@@ -87,6 +87,10 @@ Wer `Overleaf` nutzt bitte alles via dem `zip`-file als neues Projekt hochladen.
 	
 * 2023/01/20 
 	- Bitte für die Eingabe von Mathematik die kurze, aber prägnante Übersicht [AMS: Short Math Guide](https://ctan.org/pkg/short-math-guide) nutzen. Aus meiner Sicht eine der besten Kurzeinführungen in den Formelsatz. 
+	
+* 2023/01/22
+	- Neugestaltung der Titelseite
+	- Beseitigung von Tippfehlern
 	
 
 

@@ -1,29 +1,36 @@
 % !TEX root = ../AGFA-Master.tex
-
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ./0-AGFA-title.tex
 %% Titelseite
-%% Stand: 2022/10/10
+%% Stand: 2023/01/22
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{titlepage}
-\titlehead{Universität Tübingen \\ 
-	Mathematisch-Naturwissenschaftliche Fakultät \\ 
-	Fachbereich Mathematik}
-	
-\subject{Bachelor/Masterarbeit\\[1cm]}
-
-\title{Der Titel der Arbeit\\[3cm]}
-
-%\subtitle{Ein entsprechender Untertitel}
-
-\author{Name\\[2cm]}
-\date{Abgabedatum\\[2cm]}				% Abgabedatum
-
-\publishers{Betreuer: \\
-			Name}
-%\dedication{Eventuelle Widmung}		% wenn keine, dann auskommentieren
+%%
+\parbox{.75\linewidth}{%
+Universität Tübingen \\ 
+Mathematisch-Naturwissenschaftliche Fakultät \\ 
+Fachbereich Mathematik} 
+\par\vspace{3cm}
+%%
+\begin{center}\Large\bfseries
+	\begin{tabular}{c}
+		Bachelor/Masterarbeit \\[1cm]
+		Der Titel der Arbeit \\
+		-- Untertitel -- \\
+	\end{tabular}\par\normalsize\normalfont
+	\vspace*{2cm}%
+%%
+	\begin{tabular}{c}
+		\large\textbf{Vorname Name} \\[20pt]
+		Datum der Abgabe 		
+	\end{tabular}\par\vspace*{\fill}
+%%	
+	\begin{tabular}[t]{l}
+	Betreuer: \\[1ex]
+	Prof.\,Dr. Vorname Name \\
+	Prof.\,Dr. Vorname Name		
+	\end{tabular}
+\end{center}
+%%
 \end{titlepage}
-\maketitle
-%
-
 \cleardoublepage
