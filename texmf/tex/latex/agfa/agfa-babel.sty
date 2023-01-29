@@ -2,10 +2,10 @@
 %% Unterstützung Deutsch bzw. Englisch
 %% mytodo/myquestion
 %% agfa-babel.sty
-%% Stand: 2023/01/05
+%% Stand: 2022/11/26
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{agfa-babel}
+\ProvidesPackage{./preamble/agfa-babel}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -39,11 +39,13 @@
 	\RequirePackage[english,backgroundcolor=white]{todonotes}
 		\newcommand{\mytodo}[1]{\todo[inline,size=\small]{ToDo: #1}}
 		\newcommand{\myquestion}[1]{\todo[inline,size=\small]{Question: #1}}
+		\newcommand{\myanswer}[1]{\todo[inline,size=\small]{Answer: #1}}
 }
 {% --> Deutsch
 	\RequirePackage[ngerman,backgroundcolor=white]{todonotes}
 		\newcommand{\mytodo}[1]{\todo[inline,size=\small]{ToDo: #1}}
 		\newcommand{\myquestion}[1]{\todo[inline,size=\small]{Frage: #1}}
+		\newcommand{\myanswer}[1]{\todo[inline,size=\small]{Antwort: #1}}
 }
 %% -- Anführungszeichen
 \RequirePackage[autostyle,german=guillemets,english=american]{csquotes}
