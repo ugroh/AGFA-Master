@@ -1,22 +1,22 @@
 % !TEX TS-program = pdflatexmk
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Das Masterefile: AGFA-Master.tex  
-%% Stand:	2023/01/19  
+%% Stand:	2023/01/30  
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[%	 -- siehe KOMA-Script 
 	,toc		= bib 		 
 	,parskip	= half-		 
-	,headings	= normal			 	 		 
+	,headings	= normal	% oder = small		 	 		 
 	,numbers	= noenddot		
 	,leqno
 	,version 	= last
-	,DIV 		= calc
-%	,titlepage	= true
+%	,DIV 		= calc  % 
+%	,titlepage	= true  % Für eine separate Titelseite entfernen
 	,ngerman			% Arbeit auf Deutsch
 %	,english			% Arbeit auf Englisch	
 	]{scrartcl}			% KOMA Artikelmodus; ausreichend
 
-%% --  Alle benötigten sty-Files befinden sich in ./preamble/agfa-art; 
+%% -- Alle benötigten sty-Files befinden sich in ./preamble/agfa-art; 
 %% -- siehe AGFA-readme.pdf für Details hierzu.
 %% -- Wer das Verzeichnis texmf nutzen will, 
 %% -- bitte {./preamble/agfa-art} duch {agfa-art} ersetzen.
@@ -93,12 +93,12 @@
 %% Frontmatter
 %% %%%%%%%%%%%%%%%%%%%%%%%%
 
-%% -- kann man anfangs übergehen
-%% -- daher %% bei \begin{comment} und \end{comment} entfernen/hinzufügen
+%% -- Bei einer Arbeit zum Schluss bei \begin{comment} und \end{comment}
+%% -- ein % hinzufügen und nicht vergessen, titlepage = true setzen
 %% --
 
-%%\begin{comment}
-
+\begin{comment}
+%%
 \begingroup
 	\input{./content/0-AGFA-title}			% Titelseite
 	\pagestyle{empty}
@@ -108,8 +108,8 @@
 	\tableofcontents 
 	\thispagestyle{empty}
 \endgroup
-
-%%\end{comment}
+%%
+\end{comment}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%
 %% Mainmatter
@@ -120,7 +120,10 @@
 \setcounter{section}{0}
 
 %% -- Die einzelnen Abschnitte werden über \includeonly eingebaut 
-%% -- Dies bewirkt zwar einen Seitenvorschub, was aber gewollt ist.
+%% -- Dies bewirkt einen Seitenvorschub  und man muss zum Schluss
+%% -- sehen, was dieser bewirkt hat. Im Zweifel dann das 
+%% -- \include in ein \input abändern. Es ist aber bei der Erstellung
+%% -- so bequemer, da die Querverweise etc. erhalten bleiben.
 %% --
 
 \include{./content/AGFA-Einleitung}		% Die Einleitung=Vorwort

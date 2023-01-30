@@ -92,6 +92,9 @@ Wer [Overleaf](http://overleaf.com) nutzt bitte alles mit Hilfe des  `zip`-Files
 	- Neugestaltung der Titelseite
 	- Beseitigung von Tippfehlern
 	
+* 2023/01/30
+	- Hinweis auf \include vs. \input
+	
 
 
   
