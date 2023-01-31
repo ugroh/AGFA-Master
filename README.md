@@ -1,9 +1,11 @@
-### AGFA-Templates (Stand: 2023/01/22)
+### AGFA-Templates (Stand: 2023/01/31)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
 Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `zip`-File herunterlädt.
 Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen Dateien sichern!!
+
+**Wichtig** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `Abcd Efgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist). Einsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. 
 
 #### Aufbau
 
