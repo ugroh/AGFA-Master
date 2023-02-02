@@ -1,0 +1,46 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Titelseite, Inhaltsverzeicnis und laufende Kopfzeile
+%% agfa-ablatt-titelei.sty
+%% Titelei bei kleineren Arbeiten
+%% Stand: 2023/01/08
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}											
+\ProvidesClass{agfa-ablatt-titelei}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Initialisierungen
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+\addtokomafont{titlehead}{\normalfont}
+\addtokomafont{subject}{\normalfont}
+\setkomafont{title}{\let\huge\Large\normalfont\scshape}
+\setkomafont{subtitle}{\large\normalfont\scshape}
+\addtokomafont{author}{\large}
+\addtokomafont{date}{\normalsize}
+\addtokomafont{publishers}{\normalsize}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% -- Inhaltsverzeichnis kompremiert
+%% --
+
+%% -- mit dotted line
+\RedeclareSectionCommands[tocraggedpagenumber]{section,subsection} %% mit dotted line
+%% -- ohne dotted line
+%%\RedeclareSectionCommands[tocraggedpagenumber,toclinefill={}]{section,subsection}
+\BeforeStartingTOC[toc]{\begin{multicols}{2}}
+\AfterStartingTOC[toc]{\end{multicols}}
+
+%% -- Laufende Kopfzeile
+%% --
+\lohead{\scshape\headmark}	% Überschrift Abschnitt
+\chead{}
+\rohead{%					% Seite mit Balken
+  \makebox[0pt][l]{%
+    \makebox[\marginparsep][r]{%
+      \rule[-\dp\strutbox]{1pt}{\normalbaselineskip}\nobreakspace
+    }%
+    \makebox[\marginparwidth][l]{\pagemark}%
+  }}
+  
+ %% -- Keine Nummerierung in der Fußzeile
+ %% -- 
+ \ifoot{} \ofoot{} \cfoot{}
