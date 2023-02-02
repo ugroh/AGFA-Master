@@ -1,21 +1,21 @@
-### AGFA-Templates (Stand: 2023/01/31)
+### AGFA-Templates (Stand: 2023/02/02)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
-Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `zip`-File herunterlädt.
-Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen Dateien sichern!!
+Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `ZIP`-File herunterlädt.
+Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen Dateien sichern!
 
-**Wichtig** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `Abcd Efgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist). Einsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. 
+**Wichtig** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `Abcd Efgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist).  Entsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. 
 
 #### Aufbau
 
 * Im Stammverzeichnis befinden sich die Datei `AGFA-Master.tex` als die Vorlage für die Erstellung einer eigenen Arbeit.
-* `./preamble` findet sich die Dateien für die Formatierung, dem Layout, den mathematischen Definitione etc. 
+* `./preamble` findet sich die Dateien für die Formatierung, dem Layout, den mathematischen Definition etc. 
 Dies alles ist in der `AGFA-ReadMe.pdf` Datei im Detail beschrieben. 
 * In`./content` findet sich die Dateien für Titelseite, die einzelnen Abschnitte etc.
 Diese werden dann entsprechend in die Hauptdatei eingebunden.
 * In `./bib` habe ich eine Musterdatei mit Literaturreferenzen eingestellt.
-Dies kann man als Beispiel für eine eigen verwenden oder pflegt in diese siene eigenen Referenzen ein.</li>
+Dies kann man als Beispiel für eine eigene Datei  verwenden oder pflegt in diese seine eigenen Referenzen ein.</li>
 * In dem `./texmf`-Unterverzeichnis enthält die Include-Dateien und bib-Dateien und ich empfehle diese in das eigen `~/texmf`-Verzeichnis zu kopieren.
 Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im AGFA-ReadMe zu lesen oder nachfragen. 
 
@@ -41,22 +41,22 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 * Da ich nicht weiß, ob jeder Nutzer der Vorlage schon `utf-8` als Default bei seinem Editor eingestellt hat, wird in der Datei `agfa-font.sty` noch das Paket `selinput` aufgerufen, was eigentlich entbehrlich ist.
 	
-* Das Paket `textcomp` ist auch entbehrlich, wenn man ein aktuelles `TeXLive` System hat. Ursprüngliche Sinn des Paketes war es, Zeichen wie `copyright`, `bullet` etc. zur Verfügung zu stellen. Es schadet aber nicht, es stehen zu lassen. 
+* Das Paket `textcomp` ist auch entbehrlich, wenn man ein aktuelles `TeXLive` System hat. Ursprünglicher Sinn des Paketes war es, Zeichen wie `copyright`, `bullet` etc. zur Verfügung zu stellen. Es schadet aber nicht, es stehenzulassen. 
 
 * Schriften: `lmodern`, `libertinus` oder als Default `Times`
 
 
 ### __Overleaf__
 
-Wer [Overleaf](http://overleaf.com) nutzt bitte alles mit Hilfe des  `zip`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
+Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
 ### Änderungen
 
 * 2022/10/10: 
 	- Komplette Überarbeitung und Bereinigung einiger kleinere Fehler
-  	- Eigenständigkeitserklräung dazu
+  	- Eigenständigkeitserklärung dazu
   	- Einleitung dazu
-  	- Etwas Bereinigung des Masterefiles
+  	- Etwas Bereinigung des Masterfiles
   	- `texmf` Verzeichnis ergänzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
   
 * Wesentliche Änderung:
@@ -75,14 +75,14 @@ Wer [Overleaf](http://overleaf.com) nutzt bitte alles mit Hilfe des  `zip`-Files
 	- Links bei `agfa-font.sty` Beschreibung korrigiert
 
 * 2022/11/21
-	- Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
+	- Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit, mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
 	
 * 2022/11/23
 	- Korrektur in `agfa-hyperef.sty` : Dort war nicht berücksichtigt, dass etwa die Abkürzung `thm` in der Theorem-Umgebung nicht definiert ist. Dies habe ich für alle Abkürzungen wie etwa `prop`, `lem`etc. nachgeholt. Wenn man also eigene Theorem-Umgebungen definiert hat, bitte diese dann entsprechend eintragen. 
 	
 * 2022/11/26
-	- Korrekturen wegen einer vergessenen }-Klammer
-	- Die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft. Dies macht das Auffinden einfacher.
+	- Korrekturen wegen einer vergessenen}-Klammer
+	- Die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft. Dies erleichtert das Auffinden.
 	
 * 2023/01/04
 	- Korrekturen und Ergänzung um `AGFA-ReadMe`, in dem sich weitere Details zum Aufbau etc. befinden. Bitte dieses auch lesen!
@@ -96,6 +96,9 @@ Wer [Overleaf](http://overleaf.com) nutzt bitte alles mit Hilfe des  `zip`-Files
 	
 * 2023/01/30
 	- Hinweis auf \include vs. \input
+	
+* 2023/02/02
+	- `AGFA-Light.tex` für kleinere Artikel wie Hausarbeiten etc. 
 	
 
 
