@@ -52,54 +52,23 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 ### Änderungen
 
-* 2022/10/10: 
-	- Komplette Überarbeitung und Bereinigung einiger kleinere Fehler
-  	- Eigenständigkeitserklärung dazu
-  	- Einleitung dazu
-  	- Etwas Bereinigung des Masterfiles
-  	- `texmf` Verzeichnis ergänzt. Bitte diese Möglichkeit für eigene Erweiterungen nutzen.
-  
-* Wesentliche Änderung:
-	- Doppelseitig ist jetzt unterstützt via `twoside = true`; siehe Masterfile
-	- Bereinigung der gerahmten Umgebungen: Nur noch Theorem, Satz, Lemma und Korollar
-	- Englische Variante überprüft
-	- Die `sty` Files in `~/texmf/tex/latex/agfa` können mit dem Masterfile genutzt werden. Bitte den Hinweis dort beachten.
-	- Agfa-ReadMe.pdf ist für den doppelseitigen Druck formatiert `twoside=true`
+* 2023/02/02 - Vorlage `AGFA-Light.tex` für kleinere Artikel wie Hausarbeiten etc. 
+ 
+* 2023/01/30 - Hinweis auf \include vs. \input
 
-* 2022/10/31
-  	- Fehlerbereinigung bzgl. backref (jetzt konform zu den üblichen Vorgaben)
-  	- Englische Unterstützung jetzt auch bei BibLaTeX
-  	- Kleinere Korrekturen
-  
-* 2022/11/07
-	- Links bei `agfa-font.sty` Beschreibung korrigiert
+* 2023/01/22 - Neugestaltung der Titelseite und Beseitigung von Tippfehlern
+	
+* 2023/01/04 - Korrekturen und Ergänzung um `AGFA-ReadMe`, in dem sich weitere Details zum Aufbau etc. befinden. Bitte dieses auch lesen!
+		
+* 2023/01/20 - Bitte für die Eingabe von Mathematik die kurze, aber prägnante Übersicht [AMS: Short Math Guide](https://ctan.org/pkg/short-math-guide) nutzen. Aus meiner Sicht eine der besten Kurzeinführungen in den Formelsatz. 
+	
+* 2022/11/26 - Korrekturen wegen einer vergessenen}-Klammer und die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft – erleichtert das Auffinden.
+	
+* 2022/11/23 - Korrektur in `agfa-hyperef.sty` : Dort war nicht berücksichtigt, dass etwa die Abkürzung `thm` in der Theorem-Umgebung nicht definiert ist. Dies habe ich für alle Abkürzungen wie etwa `prop`, `lem`etc. nachgeholt. Wenn man also eigene Theorem-Umgebungen definiert hat, bitte diese dann entsprechend eintragen. 
+	
+* 2022/11/21 - Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit, mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
 
-* 2022/11/21
-	- Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit, mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
-	
-* 2022/11/23
-	- Korrektur in `agfa-hyperef.sty` : Dort war nicht berücksichtigt, dass etwa die Abkürzung `thm` in der Theorem-Umgebung nicht definiert ist. Dies habe ich für alle Abkürzungen wie etwa `prop`, `lem`etc. nachgeholt. Wenn man also eigene Theorem-Umgebungen definiert hat, bitte diese dann entsprechend eintragen. 
-	
-* 2022/11/26
-	- Korrekturen wegen einer vergessenen}-Klammer
-	- Die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft. Dies erleichtert das Auffinden.
-	
-* 2023/01/04
-	- Korrekturen und Ergänzung um `AGFA-ReadMe`, in dem sich weitere Details zum Aufbau etc. befinden. Bitte dieses auch lesen!
-	
-* 2023/01/20 
-	- Bitte für die Eingabe von Mathematik die kurze, aber prägnante Übersicht [AMS: Short Math Guide](https://ctan.org/pkg/short-math-guide) nutzen. Aus meiner Sicht eine der besten Kurzeinführungen in den Formelsatz. 
-	
-* 2023/01/22
-	- Neugestaltung der Titelseite
-	- Beseitigung von Tippfehlern
-	
-* 2023/01/30
-	- Hinweis auf \include vs. \input
-	
-* 2023/02/02
-	- `AGFA-Light.tex` für kleinere Artikel wie Hausarbeiten etc. 
-	
+* 2022/11/07 - Links bei `agfa-font.sty` Beschreibung korrigiert
 
 
   
