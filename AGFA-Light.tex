@@ -8,17 +8,16 @@
 %	,fontsize		= 12pt
 %	,DIV			= calc 
 	,toc			= bib
-	,abstract		= true
+	,abstract		= true	% oder auskommentieren
 	,parskip			= half+
-	,abstract 		= true
-%	,BCOR 			= 10mm
+%	,BCOR 			= 10mm	% Bindekorrektur
 	]{scrartcl}
 
 %% -- Nutze die AGFA-Pakete
 %% --
 \usepackage[numeric]{./preamble/agfa-art}
 
-%% -- Literatur; bitte ergänzen 
+%% -- Literatur - durch eigene erstezen 
 %% --
 \addbibresource{./bib/agfa-bib.bib}
 
@@ -43,28 +42,39 @@
 	
 %% -- Titelseite
 %% --
-\title{Die Vorlage \texttt{AGFA-Light.tex}}
+\title{Die Vorlage \textsc{AGFA-Light.tex}}
 \subtitle{-- Erläuterungen --}
 \date{\today}
 \author{U. Groh}
 
 %% -- Inhaltsverzeichnis komprimiert
 %% -- 
-\usepackage{agfa-ablatt-titelei}
+
+%% -- mit dotted line
+\RedeclareSectionCommands[tocraggedpagenumber]{section,subsection} %% dotted line
+%\RedeclareSectionCommands[tocraggedpagenumber,toclinefill={}]{section,subsection}
+\BeforeStartingTOC[toc]{\begin{multicols}{2}}
+\AfterStartingTOC[toc]{\end{multicols}}
 
 %% -- Start des Dokuments
 %% --	
 \begin{document}
 
-%% -- Titel inkl. Abstract und Dictum
+%% -- Titel  
+%% --
 
+%% \begin{comment}
 \maketitle
 \tableofcontents
+%% \end{comment}
+
 \thispagestyle{empty}
 
+%% -- Dictum
 %% -- 
 \dictum[\href{https://de.wikipedia.org/wiki/Friedrich_Dürrenmatt}{F. Dürrenmatt}]{Das Rationale am Menschen sind seine Einsichten, das Irrationale, dass er nicht danach handelt.}
 
+%% -- Zusammenfassung
 %% --
 \begin{abstract}
 Dies ist eine kleine Übersicht zu \TeX{}, der Nutzung von \LaTeX{} und Erläuterungen zu den Vorlagen.
@@ -72,7 +82,8 @@ Dies ist \enquote{keine} fehlerfreie Ausarbeitung und sie kann nur für einen er
 Gern helfe ich aber, wenn es Probleme damit oder es Fragen zur Nutzung von \LaTeX{} gibt.
 \end{abstract}
 
-%% -- 
+%% -- Die Abschnitte
+%% --
 \input{./content/AGFA-Section-1}
 \input{./content/AGFA-Section-2}
 
