@@ -8,6 +8,7 @@
 %	,fontsize		= 12pt
 %	,DIV			= calc 
 	,toc			= bib
+ 	,toc 			= numberline
 	,abstract		= true	% oder auskommentieren
 	,parskip			= half+
 %	,BCOR 			= 10mm	% Bindekorrektur
@@ -17,18 +18,16 @@
 %% --
 \usepackage[numeric]{./preamble/agfa-art}
 
-%% -- Literatur - durch eigene erstezen 
+%% -- Literatur - durch eigene ersetzen 
 %% --
 \addbibresource{./bib/agfa-bib.bib}
-
-%
 \ExecuteBibliographyOptions{%
 	,backref		= true	%
  	,url		= true		% online-Zitate separat 
- 	,doi		= true		% true  DOI wird angezeigt
+ 	,doi		= false		% true  DOI wird angezeigt und hinterlegt
 	,eprint		= false		% 
 	}
-
+\AfterBibliographyPreamble{\raggedright}
 %% -- Links farbig
 %% --
 
@@ -47,12 +46,8 @@
 \date{\today}
 \author{U. Groh}
 
-%% -- Inhaltsverzeichnis komprimiert
-%% -- 
-
-%% -- mit dotted line
-\RedeclareSectionCommands[tocraggedpagenumber]{section,subsection} %% dotted line
-%\RedeclareSectionCommands[tocraggedpagenumber,toclinefill={}]{section,subsection}
+%% -- TOC zweispaltig
+%% --
 \BeforeStartingTOC[toc]{\begin{multicols}{2}}
 \AfterStartingTOC[toc]{\end{multicols}}
 
@@ -89,9 +84,9 @@ Gern helfe ich aber, wenn es Probleme damit oder es Fragen zur Nutzung von \LaTe
 
 %% -- Literatur
 %% --
-\RaggedRight
+
 % \setcounter{unbalance}{5}		
-\nocite{voss:2012a,lamport:1986}
+\nocite{voss:2012a,lamport:1986,urysohn:1925a}
 \printbibliography
 %
 \end{document}
