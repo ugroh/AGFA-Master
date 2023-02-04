@@ -4,24 +4,12 @@
 	,paper=a4
 	,pagesize]{scrartcl} 
 %% --
+\usepackage[utf8]{inputenc}
+
 \usepackage{markdown} 
 %% -- 
-\usepackage{hyperref}
-\hypersetup{
-	,colorlinks	= true    			%   onlineversion true                                                           
-	,urlcolor	= blue       		%                                                              
-	,citecolor	= blue      			%                                                          
-	,linkcolor	= blue			 	% oder black
-%  	,hidelinks 						% Vor dem Druck % entfernen
-	}
-\usepackage[english,main=ngerman]{babel}	
-	\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
-\usepackage{libertinus}
-\RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
-\deffootnotemark{\kern1pt(\raisebox{0.35ex}{\footnotesize\thefootnotemark})}
-\deffootnote[1.5em]{1em}{2em}{(\raisebox{0.35ex}{\footnotesize\thefootnotemark})\kern5pt}
-\let\raggedfootnote\RaggedRight
 
+%%
 \begin{document}
 % --
 \setcounter{section}{1}

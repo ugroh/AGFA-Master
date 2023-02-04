@@ -52,6 +52,8 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 ### Änderungen
 
+* 2023/02/04 - `ReadMe.tex` für das Umwandeln von `ReadMe.md` in ein PDF-Format.
+
 * 2023/02/02 - Vorlage `AGFA-Light.tex` für kleinere Artikel wie Hausarbeiten etc. 
  
 * 2023/01/30 - Hinweis auf \include vs. \input
