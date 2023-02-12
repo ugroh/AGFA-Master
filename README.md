@@ -1,13 +1,13 @@
-### AGFA-Templates (Stand: 2023/02/02)
+# AGFA-Templates (Stand: 2023/02/12)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. 
 
 Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `ZIP`-File herunterlädt.
 Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen Dateien sichern!
 
-**Wichtig** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `Abcd Efgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist).  Entsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. Und natürlich den Inhalt der Vorlagen löschen (bzw. als Muster nehmen).
+**Wichtige** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `Abcd Efgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist).  Entsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. Und natürlich den Inhalt der Vorlagen löschen (bzw. als Muster nehmen).
 
-#### Aufbau
+## Aufbau
 
 * Im Stammverzeichnis befinden sich die Datei `AGFA-Master.tex` als die Vorlage für die Erstellung einer eigenen Arbeit.
 * `./preamble` findet sich die Dateien für die Formatierung, dem Layout, den mathematischen Definition etc. 
@@ -27,13 +27,13 @@ Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im A
 
 * `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat.
 
-#### Wichtig
+## Wichtig
 
 Bitte eigene Definitionen in eine **separate** Datei eintragen und dann via `\input` einbinden und **nicht** die originalen Dateien ändern. Dies erschwert sonst im Fall der Fälle die Fehlersuche. 
 
 Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
-### Erläuterungen zu Begriffen ...
+## Erläuterungen zu Begriffen 
 
 #### ... in `agfa-font.sty`
 
@@ -46,11 +46,11 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 * Schriften: `lmodern`, `libertinus` oder als Default `Times`
 
 
-### __Overleaf__
+## __Overleaf__
 
 Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
-### Änderungen
+## Änderungen
 
 * 2023/02/04 - `ReadMe.tex` für das Umwandeln von `ReadMe.md` in ein PDF-Format.
 
@@ -64,13 +64,17 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 		
 * 2023/01/20 - Bitte für die Eingabe von Mathematik die kurze, aber prägnante Übersicht [AMS: Short Math Guide](https://ctan.org/pkg/short-math-guide) nutzen. Aus meiner Sicht eine der besten Kurzeinführungen in den Formelsatz. 
 	
-* 2022/11/26 - Korrekturen wegen einer vergessenen}-Klammer und die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft – erleichtert das Auffinden.
+* 2022/11/26 - Korrekturen wegen einer vergessenen Klammer und die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft – erleichtert das Auffinden.
 	
 * 2022/11/23 - Korrektur in `agfa-hyperef.sty` : Dort war nicht berücksichtigt, dass etwa die Abkürzung `thm` in der Theorem-Umgebung nicht definiert ist. Dies habe ich für alle Abkürzungen wie etwa `prop`, `lem`etc. nachgeholt. Wenn man also eigene Theorem-Umgebungen definiert hat, bitte diese dann entsprechend eintragen. 
 	
 * 2022/11/21 - Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit, mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
 
 * 2022/11/07 - Links bei `agfa-font.sty` Beschreibung korrigiert
+
+
+
+<ulgr@math.uni-tuebingen.de>
 
 
   

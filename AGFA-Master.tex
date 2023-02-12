@@ -5,13 +5,12 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[%	 -- siehe KOMA-Script 
 	,toc		= bib 		 
-	,parskip	= half-		 
+	,parskip		= half-		 
 	,headings	= normal	% oder = small		 	 		 
-	,numbers	= noenddot		
-	,leqno
+	,numbers		= noenddot		
+%	,leqno
 	,version 	= last
-%	,DIV 		= calc  % 
-%	,titlepage	= true  % Für eine separate Titelseite entfernen
+ 	,titlepage	= true  % Für eine separate Titelseite entfernen
 	,ngerman			% Arbeit auf Deutsch
 %	,english			% Arbeit auf Englisch	
 	]{scrartcl}			% KOMA Artikelmodus; ausreichend
@@ -65,7 +64,7 @@
 %% -- Eventuell alles auf false setzen bei der Druckversion
 %% --	
 \ExecuteBibliographyOptions{%
-	,backref	= true	% Auf was ist verwiesen; Rest weg
+	,backref		= true	% Auf was ist verwiesen; Rest weg
  	,url		= true	% true: URL wird angezeigt 
  						% false: URL wird nicht angezeigt
  	,doi		= false	% DOI werden im Titel hinterlegt 
@@ -84,6 +83,7 @@
 %  	,hidelinks 				% Vor dem Druck % entfernen
 	}
 
+\usepackage{comment}
 
 %% -- Start
 %% --
@@ -97,7 +97,7 @@
 %% -- ein % hinzufügen und nicht vergessen, titlepage = true setzen
 %% --
 
-\begin{comment}
+%\begin{comment}
 %%
 \begingroup
 	\input{./content/0-AGFA-title}			% Titelseite
@@ -109,7 +109,7 @@
 	\thispagestyle{empty}
 \endgroup
 %%
-\end{comment}
+%\end{comment}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%
 %% Mainmatter

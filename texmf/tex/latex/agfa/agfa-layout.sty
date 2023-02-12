@@ -1,24 +1,27 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Layout
 %% agfa-layout.sty
-%% Stand: 2023/01/05
+%% Stand: 2023/01/12
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{agfa-layout}
+\ProvidesPackage{./preamble/agfa-layout}
 %% --
 \setkomafont{sectioning}{\rmfamily\bfseries} 
 \addtokomafont{titlehead}{\normalfont}
 \addtokomafont{title}{\let\huge\Large}
-\addtokomafont{author}{\large}
+\addtokomafont{author}{\Large}
 \addtokomafont{date}{\normalsize}
 \addtokomafont{publishers}{\large}
 
 %% -- 
 \addtocounter{tocdepth}{-1}% Keine \subsubsection im TOC
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- section
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\thesection}{\arabic{section}} 
 
-%
+%% -- TOC
 \RedeclareSectionCommand[tocnumwidth=2em]{section} % TOC
 \renewcommand*{\addsectiontocentry}[2]{% Eintrag in TOC
   \addtocontents{toc}{\protect\addvspace{\protect.5\baselineskip}}% Halbe LZ
@@ -30,14 +33,37 @@
 }
 %% --  Seitenangabe unnötig 
 \addtokomafont{sectionentrypagenumber}{\color{white}}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Format \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
+%% -- subsection
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand*{\thesubsection}{\arabic{subsection}}
+\renewcommand*{\subsectionformat}{\thesubsection.\enskip}% Nr. in Überschrift
+% 
+\RedeclareSectionCommand[%
+  ,beforeskip	= -1.75\baselineskip
+  ,afterskip		= 0.25\baselineskip
+  ,font			= \itshape
+  ,tocnumwidth	= 1em
+]{subsection}
+%% -- Eintrag in das TOC
+\renewcommand*{\addsubsectiontocentry}[2]{%
+  \Ifstr{#1}{}{%
+    \addtocentrydefault{subsection}{#1}{#2}%
+  }{%
+    \addtocentrydefault{subsection}{#1.}{#2}% Mit Punkt hinter der Nummer in TOC
+  }%
+}
+
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- \subsubsection: Nur Nummer 1. etc; i.a. keine Überschrift
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{secnumdepth}{\subsubsectionnumdepth} 	% Anzeigen der subsub-nummer
 \renewcommand*{\thesubsubsection}{\arabic{subsubsection}.} % 1.
 \RedeclareSectionCommand[%
   	,beforeskip	=  .25\baselineskip		% Skip vor dem Kommando + indent
-	,afterskip	= -0.2em				% Kein Skip aber Abstand
+	,afterskip	= -0.1em				% Kein Skip aber Abstand
 	,font=\normalfont					%  
 	,tocnumwidth=1.25em					% Eintrag in TOC ist aber unterbunden
 	,tocindent	= 1em					%  
@@ -107,7 +133,7 @@
 %% Geändert 2022/10/10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
-\deffootnotemark{\kern1pt(\raisebox{0.35ex}{\footnotesize\thefootnotemark})}
+\deffootnotemark{\kern1pt\raisebox{0.35ex}{\footnotesize\thefootnotemark)}}
 \deffootnote[1.5em]{1em}{2em}{(\raisebox{0.35ex}{\footnotesize\thefootnotemark})\kern5pt}
 \let\raggedfootnote\RaggedRight
 

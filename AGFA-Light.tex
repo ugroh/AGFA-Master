@@ -1,12 +1,14 @@
- % !TEX TS-program = pdflatexmk
+% !TEX TS-program = pdflatexmk
+% !TEX useTabsWithFiles
+% !TEX tabbedFile{./content/AGFA-Section-1-Light.tex}(Abschnitt 1)
+% !TEX tabbedFile{./content/AGFA-Section-2-Light.tex}(Abschnitt 2)
 %% -------------------------- 
 %% --  AGFA-Light
-%% -- Stand:	2023/02/03   
+%% -- Stand:	2023/02/13   
 %% -------------------------- 
 \documentclass[%
 	,ngerman
 %	,fontsize		= 12pt
-%	,DIV			= calc 
 	,toc			= bib
  	,toc 			= numberline
 	,abstract		= true	% oder auskommentieren
@@ -24,7 +26,7 @@
 \ExecuteBibliographyOptions{%
 	,backref		= true	%
  	,url		= true		% online-Zitate separat 
- 	,doi		= false		% true  DOI wird angezeigt und hinterlegt
+ 	,doi		= false		% true  DOI wird angezeigt; hier hinterlegt
 	,eprint		= false		% 
 	}
 \AfterBibliographyPreamble{\raggedright}
@@ -79,8 +81,10 @@ Gern helfe ich aber, wenn es Probleme damit oder es Fragen zur Nutzung von \LaTe
 
 %% -- Die Abschnitte
 %% --
-\input{./content/AGFA-Section-1}
-\input{./content/AGFA-Section-2}
+\input{./content/AGFA-Section-1-Light}
+\input{./content/AGFA-Section-2-Light% !TEX useTabsWithFiles
+% !TEX useTabsWithFiles
+}
 
 %% -- Literatur
 %% --
