@@ -1,4 +1,4 @@
-# AGFA-Templates (Stand: 2023/03/10)
+# AGFA-Templates (Stand: 2023/03/14)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
