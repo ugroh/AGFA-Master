@@ -1,10 +1,8 @@
 % !TEX TS-program = pdflatexmk
-% !TEX useTabsWithFiles
-% !TEX tabbedFile{./content/AGFA-Section-1-Light.tex}(Abschnitt 1)
-% !TEX tabbedFile{./content/AGFA-Section-2-Light.tex}(Abschnitt 2)
+
 %% -------------------------- 
-%% --  AGFA-Light
-%% -- Stand:	2023/02/13   
+%% -- AGFA-Light
+%% -- Stand:	2024-04-24  
 %% -------------------------- 
 \documentclass[%
 	,ngerman
@@ -13,7 +11,7 @@
  	,toc 			= numberline
 	,abstract		= true	% oder auskommentieren
 	,parskip		= half+
-%	,BCOR 			= 10mm	% Bindekorrektur
+%	,BCOR 			= 12mm	% Bindekorrektur
 	]{scrartcl}
 
 %% -- Nutze die AGFA-Pakete
@@ -82,9 +80,8 @@ Gern helfe ich aber, wenn es Probleme damit oder es Fragen zur Nutzung von \LaTe
 %% -- Die Abschnitte
 %% --
 \input{./content/AGFA-Section-1-Light}
-\input{./content/AGFA-Section-2-Light% !TEX useTabsWithFiles
-% !TEX useTabsWithFiles
-}
+\input{./content/AGFA-Section-2-Light}
+
 
 %% -- Literatur
 %% --
