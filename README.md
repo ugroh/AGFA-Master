@@ -1,4 +1,4 @@
-# AGFA-Templates (Stand: 2023/08/18)
+# AGFA-Templates (Stand: 2024-04-24)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
@@ -53,6 +53,8 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
 ## Änderungen
+
+* 2024/04/14 - Aufnahme von `twoside=true` und `BCOR=12mm`. Dies kann bei Bedarf genutzt werden. Auf jeden Fall **muss** `BCOR` gesetzt werden, bevor das finale Dokument zum Drucken geht (wegen der Bindung). Bei dicken Arbeiten entsprechend anpassen.  
 
 * 2023/08/21 - Änderung in `agfa-theorem.sty`: Die Querverweise auf Gleichungen habe nicht richtig funktioniert. Wie in der Beschreibung des Pakets angegeben folgendes eingefügt bzw. geändert: 
 
