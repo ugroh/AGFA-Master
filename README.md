@@ -1,4 +1,4 @@
-# AGFA-Templates (Stand: 2024-04-24)
+# AGFA-Templates (Stand: 2024-04-28)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
@@ -46,6 +46,8 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 * Das Paket `textcomp` ist auch entbehrlich, wenn man ein aktuelles `TeXLive` System hat. Ursprünglicher Sinn des Paketes war es, Zeichen wie `copyright`, `bullet` etc. zur Verfügung zu stellen. Es schadet aber nicht, es stehenzulassen. 
 
 * Schriften: `lmodern`, `libertinus` oder als Default `Times`
+
+* `LuaLaTeX`: Wer dies nutzen will, bitte Info an mich, damit ich die Vorlage entsprechend abändere (TODO)
 
 
 ## __Overleaf__
