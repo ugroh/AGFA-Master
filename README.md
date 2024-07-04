@@ -56,7 +56,7 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 ## Änderungen
 
-* 2024/07/04 - `review` eingefügt. Bitte Masterfile ansehen und für das Korrekturlesen auskommentieren.
+* 2024/07/04 - `review` eingefügt. Bitte Masterfile ansehen und für das Korrekturlesen auskommentieren. Es langt, die Datei `agfa-art.sty` herunter zu laden (im Abschnitt `preamble`).
 
 * 2024/06/12 - Aufnahme von `maxcitenames` und `maxbibnames` damit nicht alle Autoren beim zitieren erscheinen, aber im Literaturverzeichnis angezeigt wird.
 
