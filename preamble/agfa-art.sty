@@ -19,6 +19,7 @@
 	\provideboolean{libertinus}
 	\provideboolean{thmframed}
 	\provideboolean{framed}
+	\provideboolean{review}
 %%
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Deklaration von Optionen
@@ -70,6 +71,15 @@
 \RequirePackage{./preamble/agfa-hyperef}
 %% -- wegen \dh Problematik am Ende
 \RequirePackage{./preamble/agfa-abkuerz}	
+
+%% -- Zeilenabstand für review
+%% --
+\ifthenelse{\boolean{review}}
+{%% -- if
+	\RequirePackage[doublespacing]{setspace}
+ }
+ {%% -- else
+ }
 
 \endinput
 

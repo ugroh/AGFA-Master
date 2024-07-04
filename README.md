@@ -1,4 +1,4 @@
-# AGFA-Templates (Stand: 2024-06-12)
+# AGFA-Templates (Stand: 2024/07/04; siehe *Änderungen*)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
@@ -56,6 +56,8 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 ## Änderungen
 
+* 2024/07/04 - `review` eingefügt. Bitte Masterfile ansehen und für das Korrekturlesen auskommentieren.
+
 * 2024/06/12 - Aufnahme von `maxcitenames` und `maxbibnames` damit nicht alle Autoren beim zitieren erscheinen, aber im Literaturverzeichnis angezeigt wird.
 
 * 2024/04/14 - Aufnahme von `twoside=true` und `BCOR=12mm`. Dies kann bei Bedarf genutzt werden. Auf jeden Fall **muss** `BCOR` gesetzt werden, bevor das finale Dokument zum Drucken geht (wegen der Bindung). Bei dicken Arbeiten entsprechend anpassen.  
@@ -64,17 +66,17 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 	- `\RequirePackage[ntheorem]{empheq}`
 	- `\RequirePackage[thmmarks,amsmath]{ntheorem}`	
- 	
+
 * 2023/03/14 - Änderung in `agfa-theorem.sty`: Nummerierung der Theoreme, Lemma etc in der Form `Abschnitt.Thm-Nummer`, d.h. etwa `Theorem 2.1` für das erste Theorem im zweiten Abschnitt. Bitte einfach des `sty-`File ersetzen. 
 
 * 2023/02/02 - Vorlage `AGFA-Light.tex` für kleinere Artikel wie Hausarbeiten etc. 
- 
+
 * 2023/01/30 - Hinweis auf \include vs. \input
 
 * 2023/01/22 - Neugestaltung der Titelseite und Beseitigung von Tippfehlern
 	
 * 2023/01/04 - Korrekturen und Ergänzung um `AGFA-ReadMe`, in dem sich weitere Details zum Aufbau etc. befinden. Bitte dieses auch lesen!
-		
+	
 * 2023/01/20 - Bitte für die Eingabe von Mathematik die kurze, aber prägnante Übersicht [AMS: Short Math Guide](https://ctan.org/pkg/short-math-guide) nutzen. Aus meiner Sicht eine der besten Kurzeinführungen in den Formelsatz. 
 	
 * 2022/11/26 - Korrekturen wegen einer vergessenen Klammer und die Nummerierung von __Anmerkungen__ ist jetzt mit der Nummerierung der __Theoreme__ etc. verknüpft – erleichtert das Auffinden.
@@ -90,7 +92,7 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 <ulgr@math.uni-tuebingen.de>
 
 
-  
+
 
 
 
