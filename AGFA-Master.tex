@@ -13,7 +13,7 @@
 	,version 	= last
  	,titlepage	= true   
 	,ngerman		
-%	,review					% für das Korrekturlesen % wegmachen	 
+% 	,review					% für das Korrekturlesen % wegmachen	 
 	]{scrartcl}			 
 
 %% -- Alle benötigten sty-Files befinden sich in ./preamble/agfa-art; 
@@ -65,14 +65,15 @@
 %% -- Eventuell alles auf false setzen bei der Druckversion
 %% --	
 \ExecuteBibliographyOptions{%
-	,backref		= true	% Auf was ist verwiesen; Rest weg
+	,backref	= true	% Auf was ist verwiesen; Rest weg
  	,url		= true	% true: URL wird angezeigt 
  						% false: URL wird nicht angezeigt
  	,doi		= false	% DOI werden im Titel hinterlegt 
  						% true: wird noch separat angezeigt
 	,eprint		= false	% true: wird separat angezeigt
-	,maxcitenames  = 1 % viele Autoren -> nur der erste erscheint 
-   	,maxbibnames   = 10 % im Verzeichnis tauchen alles auf
+ 	,maxcitenames  = 1 	% viele Autoren -> nur der erste erscheint  
+    ,maxbibnames   = 10 % im Verzeichnis tauchen alles auf
+    ,mincitenames	=1
 	}
 
 %% --  Querverweise
