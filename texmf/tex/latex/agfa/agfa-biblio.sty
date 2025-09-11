@@ -1,11 +1,11 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Stand: 2023/01/05
+%% -- Stand: 2024/09/03
 %% agfa-biblio.sty
 %% Für die Darstellung des Literaturverzeicnisses
 %% Eingabe von URL etc. möglich
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{agfa-biblio}
+\ProvidesPackage{./preamble/agfa-biblio}
 %%
 \RequirePackage{ifthen}
 	\provideboolean{english} 		% wenn in Optionsliste
@@ -20,15 +20,13 @@
 \ifthenelse{\boolean{numeric}}
 {% --> style = numeric
 \RequirePackage[%
-  	,style 		= numeric	
-   	,sorting	= nyt
-	,hyperref	= true 		%auto
- 	,maxnames	= 4
-   	,minnames	= 3
-   	,giveninits	= true		% Vornamen als Initiale Ulrich -> U.
-	,backend	= biber
+  	,style 			= numeric	
+   	,sorting		= nyt
+	,hyperref		= true  
+   	,giveninits		= true	% Vornamen als Initiale Ulrich -> U.
+	,backend		= biber
  	,uniquename	= false
-]{biblatex}    
+]{biblatex}     
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\bibhang}{1em} 
 \setlength{\bibnamesep}{.5\normalbaselineskip}
@@ -41,8 +39,8 @@
 	,style		= philosophy-modern
    	,sorting	= nyt
 	,hyperref	= true %auto
- 	,maxnames	= 4
-   	,minnames	= 3
+% 	,maxnames	= 1
+%   ,minnames	= 1
    	,giveninits	= true		% Vornamen als Initiale Ulrich -> U.
 	,backend	= biber
  	,uniquename	= false
@@ -73,8 +71,7 @@
   \printtext{\makebox[\bibhang][r]{%
     \mkbibbrackets{#1}\hskip\yeartitle}}\nopunct}
 
-} 
-%% -- Ende Alternative philosphy  
+} % Ende Alternative philosphy  
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Weiteres gilt für alle Formate 
@@ -109,7 +106,7 @@
 \AtEveryBibitem{\clearlist{language}}%
 \AtEveryBibitem{\clearlist{location}}%
 \AtEveryBibitem{\clearfield{pagetotal}}%
-\AtEveryBibitem{\clearfield{month}}%
+%%\AtEveryBibitem{\clearfield{month}}%
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kein Komma nach Verlag bei Büchern
@@ -151,7 +148,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareFieldFormat[article]{number}{#1} 
 \DeclareFieldFormat[article]{volume}{\textbf{#1}} 
-\DeclareFieldFormat[article]{pages}{#1.}
+\DeclareFieldFormat[article]{pages}{#1\adddot}
 \DeclareFieldFormat[article]{title}{\mkbibemph{#1}}
 \DeclareFieldFormat{journaltitle}{#1}
 
@@ -189,7 +186,6 @@
 \renewcommand*{\labelnamepunct}{\addcolon\space}% : nach Namen oder \addcomma
 \renewcommand*{\finalnamedelim}{\addspace\&\addspace}% kein "und" bei Doppelname
 \renewcommand*{\bibpagespunct}{\addspace}% : vor Seiten oder \addcomma
-%%\renewcommand*{\newunitpunct}{\addspace}%
 \renewcommand*{\finentrypunct}{}%
 \renewcommand{\mkbibnamegiven}{\textsc}%
 \renewcommand{\mkbibnamefamily}{\textsc}%
@@ -199,8 +195,6 @@
 %% kein in:
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewbibmacro{in:}{}
-%	\DefineBibliographyStrings{german}{in={}}%
-%	\DefineBibliographyStrings{english}{in={}}%
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % names delimiter ';' instead of ','
@@ -213,15 +207,16 @@
 	andothers = {et al. },
 	and     = {u\adddot},
   	urlseen = {aufgerufen am },
-  	urlfrom = {online unter },
+  	urlfrom = {URL },
 	}
 %
 \DefineBibliographyStrings{english}{%
 	urlfrom = {online },
 	andothers = {et al. },
 	}
-	
+%
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\space\url{#1}}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% URL auf neuer Zeile
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -251,18 +246,19 @@
     {\printfield{eprint}}
     {\printfield[eprint:\strfield{eprinttype}]{eprint}}}
     
+
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Url und DOI an Titel binden Voss 3.11.7, S. 138
+%% Url und DOI an Titel binden Voss 4.10.10, S. 200
 %% und https://bit.ly/2YghEHH
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifthenelse{\boolean{urldoi}}
-	{\ExecuteBibliographyOptions{doi=false}
-	\ExecuteBibliographyOptions{url=false}
-	\DeclareFieldFormat[article,manual]{title}{%
-  		\iffieldundef{doi}{%		\iffieldundef{url}{\mkbibemph{#1}}{\href{\thefield{url}}{\mkbibemph{#1}}}}%
-  		{\href{http://dx.doi.org/\thefield{doi}}{\mkbibemph{#1}}}}%
-	}
-	{}
+
+\newbibmacro{string+doi}[1]{%
+  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
+\DeclareFieldFormat{title}{% Titel+Formatierung an das Makro weiterreichen
+  \usebibmacro{string+doi}{\mkbibemph{#1}}}
+\DeclareFieldFormat[article,manual]{title}{\usebibmacro{string+doi}%
+	{\mkbibemph{#1}}}
 
 %%	
 \endinput

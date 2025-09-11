@@ -11,6 +11,8 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% -- var-Symbole für griechisches Alphabet
+%% --
+\AtBeginDocument{%
 \let\ORGvarepsilon=\varepsilon
 \let\varepsilon=\epsilon
 \let\epsilon=\ORGvarepsilon
@@ -39,7 +41,6 @@
 \let\preccurlyeq=\preceq
 \let\preceq=\ORGvarpreccurlyeq
 %
-\AtBeginDocument{
 \let\setminus\smallsetminus			% A - B fuer Mengen
 \renewcommand{\P}{\mathfrak{P}}		% Achtung: \P hat andere Bedeutung in LaTeX
 }

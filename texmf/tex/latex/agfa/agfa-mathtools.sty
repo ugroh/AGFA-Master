@@ -1,12 +1,12 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Paket ug-mathtools.sty
 %% Die Makros, wie \interval etc.
-%% Stand: 2023/01/05
+%% Stand: 2022/11/26
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kenndaten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{agfa-mathtools}
+\ProvidesPackage{./preamble/agfa-mathtools}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -16,7 +16,6 @@
 	,amsmath
 	,amssymb}
 \RequirePackage[tbtags]{mathtools}
-%\mathtoolsset{showonlyrefs,showmanualtags} % wegen clevref
 \RequirePackage{mleftright}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,7 +26,7 @@
 %\renewcommand{\right}{\mright}
 %\renewcommand{\left}{\mleft}
 
-%% -- Norm, Absolutbetrag, duales Paar siehe mathtools sec 3.6
+% -- Norm, Absolutbetrag, duales Paar siehe mathtools sec 3.6
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{\ifblank{#1}{\:\cdot\:}{#1}}
 \DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{\ifblank{#1}{\:\cdot\:}{#1}}
 \DeclarePairedDelimiterX{\dualp}[2]{\langle}{\rangle}{\ifblank{#1#2}{\,\cdot\,,\cdot\,}{\,#1,#2\,}}
@@ -59,7 +58,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Topologisches
 %% \interior{A} -> gibt o ueber A
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\interior}[1]{%
 	\accentset{\smash{\raisebox{-0.12ex}{$\scriptstyle\circ$}}}{{#1}}\rule{0pt}{2.3ex}}
 	
@@ -86,16 +85,15 @@
 \endgroup
 \mathcode`(="8000 \mathcode`)="8000
 \mathcode`[="8000 \mathcode`]="8000
-
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% sonst gehen Klammern nicht
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \DeclareRobustCommand{\{}{\ifmmode\left\lbrace\else\textbraceleft\fi}
 \DeclareRobustCommand{\}}{\ifmmode\right\rbrace\else\textbraceright\fi}
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% siehe https://tex.stackexchange.com/questions/21290/how-to-make-left-right-pairs-of-delimiter-work-over-multiple-lines
+%% siehe https://tex.stackexchange.com/questions/21290/how-to-make-left-right-pairs-of-delimiter-work-over-multiple-lines
 %% fuer die Eingabe von Klammern; auch \vphantom beachten  \right.
 
 \endinput

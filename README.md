@@ -56,7 +56,7 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 ### Änderungen
 
-* 2025/09/11 - Kleine Korrekturen im ReadMe und in der Vorlage.
+* 2025/09/11 - Kleine Korrekturen im ReadMe und in der Vorlage. Und die Datei `AGFA-ulgr.pdf` mit weiteren Informationen beigefügt. Man sollte da mal reinsehen – auch wenn dies von mir ist.
 
 * 2024/07/04 - `review` eingefügt. Bitte Masterfile ansehen und für das Korrekturlesen auskommentieren. Es reicht, die Datei `agfa-art.sty` herunterzuladen (im Abschnitt `preamble`).
 

@@ -1,10 +1,10 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% agfa-pakete.sty
-%% Stand: 2023/01/05
+%% Stand: 2022/11/26
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{agfa-pakete}
+\ProvidesPackage{./preamble/agfa-pakete}
 %%
 
 \RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
@@ -37,6 +37,10 @@
 
 %% -- gegen alleinstehende Zeilen
 \RequirePackage[all]{nowidow}		
+
+%% -- was wurde geändert
+%% --
+\RequirePackage{changebar}	% -- 
 
 %% -- Farbe
 \RequirePackage[x11names,svgnames]{xcolor}	

@@ -23,10 +23,15 @@
 %% --
 \addbibresource{./bib/agfa-bib.bib}
 \ExecuteBibliographyOptions{%
-	,backref	= true		% kann man final auskommentieren
- 	,url		= true		% online-Zitate separat 
- 	,doi		= false		% true  DOI wird angezeigt; hier hinterlegt
-	,eprint		= false		% 
+	,backref	= true	% Auf was ist verwiesen; Rest weg
+ 	,url		= true	% true: URL wird angezeigt 
+ 						% false: URL wird nicht angezeigt
+ 	,doi		= false	% DOI werden im Titel hinterlegt 
+ 						% true: wird noch separat angezeigt
+	,eprint		= false	% true: wird separat angezeigt
+ 	,maxcitenames  = 1 	% viele Autoren -> nur der erste erscheint  
+    ,maxbibnames   = 10 % im Verzeichnis tauchen alles auf
+    ,mincitenames  = 1	% Muss sein
 	}
 \AfterBibliographyPreamble{\raggedright}
 
