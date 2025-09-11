@@ -1,4 +1,4 @@
-## AGFA-Templates (Stand: 2025-09-11; siehe *Änderungen*)
+## AGFA-Templates (Stand: 2025-09-11; siehe _Änderungen_)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
@@ -60,7 +60,7 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 * 2024/07/04 - `review` eingefügt. Bitte Masterfile ansehen und für das Korrekturlesen auskommentieren. Es reicht, die Datei `agfa-art.sty` herunterzuladen (im Abschnitt `preamble`).
 
-* 2024/06/12 - Aufnahme von `maxcitenames` und `maxbibnames` damit nicht alle Autoren beim Zitieren erscheinen, aber im Literaturverzeichnis angezeigt werden.
+* 2024/06/12 - Aufnahme von `maxcitenames=1` und `maxbibnames=4` damit nicht alle Autoren beim Zitieren erscheinen, aber im Literaturverzeichnis vier davon angezeigt werden.
 
 * 2024/04/14 - Aufnahme von `twoside=true` und `BCOR=12mm`. Dies kann bei Bedarf genutzt werden. Auf jeden Fall **muss** `BCOR` gesetzt werden, bevor das finale Dokument zum Drucken geht (wegen der Bindung). Bei dicken Arbeiten entsprechend anpassen.  
 
@@ -69,7 +69,7 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 	- `\RequirePackage[ntheorem]{empheq}`
 	- `\RequirePackage[thmmarks,amsmath]{ntheorem}`	
 
-* 2023/03/14 - Änderung in `agfa-theorem.sty`: Nummerierung der Theoreme, Lemma etc in der Form `Abschnitt.Thm-Nummer`, d.h. etwa `Theorem 2.1` für das erste Theorem im zweiten Abschnitt. Bitte einfach das `sty-`File ersetzen. 
+* 2023/03/14 - Änderung in `agfa-theorem.sty`: Nummerierung der Theoreme, Lemma etc in der Form `Abschnitt.Thm-Nummer`, d.h. etwa `Theorem 2.1` für das erste Theorem im zweiten Abschnitt.  
 
 * 2023/02/02 - Vorlage `AGFA-Light.tex` für kleinere Artikel wie Hausarbeiten etc. 
 
@@ -92,7 +92,6 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 
 
 <ulgr@math.uni-tuebingen.de>
-
 
 
 

@@ -20,15 +20,16 @@
 \ifthenelse{\boolean{numeric}}
 {% --> style = numeric
 \RequirePackage[%
-  	,style 		= numeric	
-   	,sorting	= nyt
-	,hyperref	= true 		%auto
-% 	,maxnames	= 4
-%   ,minnames	= 3
-   	,giveninits	= true		% Vornamen als Initiale Ulrich -> U.
-	,backend	= biber
+  	,style 			= numeric	
+   	,sorting		= nyt
+	,hyperref		= true  
+	,maxcitenames  	= 1 	% viele Autoren -> nur der erste erscheint  
+	,mincitenames  	= 1		% Muss sein
+    ,maxbibnames   	= 4 	% im Verzeichnis tauchen max 4 auf
+   	,giveninits		= true	% Vornamen als Initiale Ulrich -> U.
+	,backend		= biber
  	,uniquename	= false
-]{biblatex}    
+]{biblatex}     
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \setlength{\bibhang}{1em} 
 \setlength{\bibnamesep}{.5\normalbaselineskip}
