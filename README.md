@@ -18,7 +18,7 @@ Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochla
 * In`./content` finden sich die Dateien für Titelseite, die einzelnen Abschnitte etc. Diese werden dann in die Hauptdatei eingebunden. Dabei die Namensgebung beachten.
 
 * In `./bib` habe ich eine Musterdatei mit Literaturreferenzen eingestellt.
-Dies kann man als Beispiel für eine eigene Datei verwenden oder seine eigenen Referenzen darin pflegen. Meine Empfehlung: Die Datenbank [zbMath](https://zbmath.org) nutzen und mithilfe dieser einen korrekten `BibTeX`-Eintrag erzeugen und in die eigene `bib`-Datei kopieren. Mit dem Tool [bibtool](https://ctan.org/pkg/bibtool) kann man diese dann geeignet bearbeiten.
+Dies kann man als Beispiel für eine eigene Datei verwenden oder seine eigenen Referenzen darin pflegen. Meine Empfehlung: Die Datenbank [zbMath](https://zbmath.org) nutzen und mithilfe dieser einen korrekten `BibTeX`-Eintrag erzeugen und in die eigene `bib`-Datei kopieren. Mit dem Tool [bibtool](https://ctan.org/pkg/bibtool) kann man diese dann geeignet bearbeiten. Siehe hierzu auch die Übersicht `BibTeX-DB-Uebersicht.pdf`.
 
 * In dem `./texmf`-Unterverzeichnis enthält Include-Dateien und bib-Dateien und ich empfehle diese in ein eigenes `~/texmf`-Verzeichnis zu kopieren.
 Wer noch nie dieses genutzt hat, den bitte ich, den entsprechenden Abschnitt im AGFA-ReadMe zu lesen oder nachzufragen. Nutzt man als Mac-Nutzer das Programm [TeXShop](https://pages.uoregon.edu/koch/texshop/), so ist dieses bereits vorhanden.
