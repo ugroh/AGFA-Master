@@ -1,45 +1,45 @@
-# AGFA-Templates (Stand: 2024/07/04; siehe *Änderungen*)
+## AGFA-Templates (Stand: 2025-09-11; siehe *Änderungen*)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
 Die aktuelle Version bekommt man, indem man auf `Code`geht (findet man oben grün hinterlegt) und dort sich das `ZIP`-File herunterlädt.
 Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochladen (als neues Projekt). Vorher aber alle seine eigenen Dateien sichern!
 
-**Wichtige** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `ABcd EFgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist).  Entsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. Und natürlich den Inhalt der Vorlagen löschen (bzw. als Muster nehmen).
+**Wichtige** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `Abcd Efgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist).  Entsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. Und natürlich den Inhalt der Vorlagen löschen (bzw. als Muster nehmen).
 
-**Wichtig** Bitte auch `AGFA-ReadMe.pdf` lesen. Dort finden sich die Details für die Vorlage. Dies ist auch für die `Light`-Version gültig. 
+**Wichtig** Bitte **unbedingt** `AGFA-ReadMe.pdf` lesen. Dort finden sich die Details für die Vorlage, da dies auch für die `Light`-Version gültig ist.
 
-## Aufbau
+### Aufbau
 
 * Im Stammverzeichnis befinden sich die Datei `AGFA-Master.tex` als die Vorlage für die Erstellung einer eigenen Arbeit.
-* `./preamble` findet sich die Dateien für die Formatierung, dem Layout, den mathematischen Definition etc. 
-Dies alles ist in der `AGFA-ReadMe.pdf` Datei im Detail beschrieben. 
-* In`./content` findet sich die Dateien für Titelseite, die einzelnen Abschnitte etc.
-Diese werden dann entsprechend in die Hauptdatei eingebunden.
+
+* `./preamble` findet sich die Dateien für die Formatierung, dem Layout, den mathematischen Definition etc. Dies alles ist in der `AGFA-ReadMe.pdf` Datei im Detail beschrieben. 
+
+* In`./content` finden sich die Dateien für Titelseite, die einzelnen Abschnitte etc. Diese werden dann in die Hauptdatei eingebunden. Dabei die Namensgebung beachten.
+
 * In `./bib` habe ich eine Musterdatei mit Literaturreferenzen eingestellt.
-Dies kann man als Beispiel für eine eigene Datei  verwenden oder pflegt in diese seine eigenen Referenzen ein.</li>
-* In dem `./texmf`-Unterverzeichnis enthält die Include-Dateien und bib-Dateien und ich empfehle diese in das eigen `~/texmf`-Verzeichnis zu kopieren.
-Wer noch nie dieses genutzt hat, den bitte ich den entsprechenden Abschnitt im AGFA-ReadMe zu lesen oder nachfragen. 
+Dies kann man als Beispiel für eine eigene Datei verwenden oder seine eigenen Referenzen darin pflegen. Meine Empfehlung: Die Datenbank [zbMath](https://zbmath.org) nutzen und mithilfe dieser einen korrekten `BibTeX`-Eintrag erzeugen und in die eigene `bib`-Datei kopieren. Mit dem Tool [bibtool](https://ctan.org/pkg/bibtool) kann man diese dann geeignet bearbeiten.
 
-	Weiteres zur Struktur von `texmf` etc. findet man [in diesem Artikel auf Overleaf](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files%23Table_listing_Kpathsea_.E2.80.9Cconfig_variables.E2.80.9D).
+* In dem `./texmf`-Unterverzeichnis enthält Include-Dateien und bib-Dateien und ich empfehle diese in ein eigenes `~/texmf`-Verzeichnis zu kopieren.
+Wer noch nie dieses genutzt hat, den bitte ich, den entsprechenden Abschnitt im AGFA-ReadMe zu lesen oder nachzufragen. Nutzt man als Mac-Nutzer das Programm [TeXShop](https://pages.uoregon.edu/koch/texshop/), so ist dieses bereits vorhanden.
 
-* Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. Diese findet sich im `./ReadMe` Ordner und dort findet man auch das 'AGFA-Master.pdf' nochmals.
+Weiteres zur Struktur von `texmf` etc. findet man [in diesem Artikel auf Overleaf](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files%23Table_listing_Kpathsea_.E2.80.9Cconfig_variables.E2.80.9D).
 
-* `AGFA-ReadMe-Print.pdf`: Bitte doppelseitig drucken, falls es wirklich erforderlich ist.
+* Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. Diese findet sich im `./ReadMe` Ordner und dort findet man auch das `AGFA-Master.pdf` nochmals. 
 
-* `AGFA-ReadMe-Online.pdf`: Besser dieses online nutzen, da man dann auch noch die Links hat.
+Diese Datei steht zur Verfügung als  `AGFA-ReadMe-Print.pdf` zum Drucken, aber dann bitte doppelseitig drucken, falls es wirklich erforderlich ist. Besser ist es diese Version zu nutzen: `AGFA-ReadMe-Online.pdf`, da man dann die Links nutzen kann.
 
-## Wichtig
+#### Wichtig
 
 Bitte eigene Definitionen in eine **separate** Datei eintragen und dann via `\input` einbinden und **nicht** die originalen Dateien ändern. Dies erschwert sonst im Fall der Fälle die Fehlersuche. 
 
 Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
-## Erläuterungen zu Begriffen 
+### Erläuterungen zu Begriffen 
 
 #### ... in `agfa-font.sty`
 
-* `fontencoding` und `inpuencoding`: Eine Erläuterung hierzu [findet man hier]( https://tex.stackexchange.com/questions/6448/what-is-the-difference-between-font-encoding-and-input-encoding) und [hier für weitere Details](https://tug.org/TUGboat/tb39-1/tb121ltnews28.pdf). 
+* `fontencoding` und `inputencoding`: Eine Erläuterung hierzu [findet man hier]( https://tex.stackexchange.com/questions/6448/what-is-the-difference-between-font-encoding-and-input-encoding) und [hier für weitere Details](https://tug.org/TUGboat/tb39-1/tb121ltnews28.pdf). 
 
 * Da ich nicht weiß, ob jeder Nutzer der Vorlage schon `utf-8` als Default bei seinem Editor eingestellt hat, wird in der Datei `agfa-font.sty` noch das Paket `selinput` aufgerufen, was eigentlich entbehrlich ist.
 	
@@ -50,24 +50,26 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 * `LuaLaTeX`: Wer dies nutzen will, bitte Info an mich, damit ich die Vorlage entsprechend abändere (TODO)
 
 
-## __Overleaf__
+### __Overleaf__
 
 Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
-## Änderungen
+### Änderungen
 
-* 2024/07/04 - `review` eingefügt. Bitte Masterfile ansehen und für das Korrekturlesen auskommentieren. Es langt, die Datei `agfa-art.sty` herunter zu laden (im Abschnitt `preamble`).
+* 2025/09/11 - Kleine Korrekturen im ReadMe und in der Vorlage.
 
-* 2024/06/12 - Aufnahme von `maxcitenames` und `maxbibnames` damit nicht alle Autoren beim zitieren erscheinen, aber im Literaturverzeichnis angezeigt wird.
+* 2024/07/04 - `review` eingefügt. Bitte Masterfile ansehen und für das Korrekturlesen auskommentieren. Es reicht, die Datei `agfa-art.sty` herunterzuladen (im Abschnitt `preamble`).
+
+* 2024/06/12 - Aufnahme von `maxcitenames` und `maxbibnames` damit nicht alle Autoren beim Zitieren erscheinen, aber im Literaturverzeichnis angezeigt werden.
 
 * 2024/04/14 - Aufnahme von `twoside=true` und `BCOR=12mm`. Dies kann bei Bedarf genutzt werden. Auf jeden Fall **muss** `BCOR` gesetzt werden, bevor das finale Dokument zum Drucken geht (wegen der Bindung). Bei dicken Arbeiten entsprechend anpassen.  
 
-* 2023/08/21 - Änderung in `agfa-theorem.sty`: Die Querverweise auf Gleichungen habe nicht richtig funktioniert. Wie in der Beschreibung des Pakets angegeben folgendes eingefügt bzw. geändert: 
+* 2023/08/21 - Änderung in `agfa-theorem.sty`: Die Querverweise auf Gleichungen haben nicht richtig funktioniert. Wie in der Beschreibung des Pakets angegeben, ist folgendes eingefügt bzw. geändert worden: 
 
 	- `\RequirePackage[ntheorem]{empheq}`
 	- `\RequirePackage[thmmarks,amsmath]{ntheorem}`	
 
-* 2023/03/14 - Änderung in `agfa-theorem.sty`: Nummerierung der Theoreme, Lemma etc in der Form `Abschnitt.Thm-Nummer`, d.h. etwa `Theorem 2.1` für das erste Theorem im zweiten Abschnitt. Bitte einfach des `sty-`File ersetzen. 
+* 2023/03/14 - Änderung in `agfa-theorem.sty`: Nummerierung der Theoreme, Lemma etc in der Form `Abschnitt.Thm-Nummer`, d.h. etwa `Theorem 2.1` für das erste Theorem im zweiten Abschnitt. Bitte einfach das `sty-`File ersetzen. 
 
 * 2023/02/02 - Vorlage `AGFA-Light.tex` für kleinere Artikel wie Hausarbeiten etc. 
 
@@ -83,18 +85,13 @@ Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files
 	
 * 2022/11/23 - Korrektur in `agfa-hyperef.sty` : Dort war nicht berücksichtigt, dass etwa die Abkürzung `thm` in der Theorem-Umgebung nicht definiert ist. Dies habe ich für alle Abkürzungen wie etwa `prop`, `lem`etc. nachgeholt. Wenn man also eigene Theorem-Umgebungen definiert hat, bitte diese dann entsprechend eintragen. 
 	
-* 2022/11/21 - Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit, mit `\vref` zu arbeiten nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
+* 2022/11/21 - Korrektur der Reihenfolge der benutzten `sty`-Dateien, da sonst die Möglichkeit, mit `\vref` zu arbeiten, nicht ging. Nun ist `./preamble/agfa-theorem` an der richtigen Stelle in `./preamble/agfa-art.sty`.
 
 * 2022/11/07 - Links bei `agfa-font.sty` Beschreibung korrigiert
 
 
 
 <ulgr@math.uni-tuebingen.de>
-
-
-
-
-
 
 
 
