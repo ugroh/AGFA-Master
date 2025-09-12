@@ -11,23 +11,22 @@ Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochla
 
 ### Aufbau
 
-* Im Stammverzeichnis befinden sich die Datei `AGFA-Master.tex` als die Vorlage für die Erstellung einer eigenen Arbeit.
+* Im Stammverzeichnis befinden sich die Dateien `AGFA-Master.tex` und `AGFA-Light.tex`als Vorlagen für die Erstellung einer eigenen Arbeit (`Light` etwa für die Bachelorarbeit oder kleinere Ausarbeitungen)
+
+* `./ReadMe` enthält weitere Informationen, etwa zum Auffinden von Literatur oder die Nutzung des _Zentralblatts für Mathematik_ (TODO für die Details)
 
 * `./preamble` findet sich die Dateien für die Formatierung, dem Layout, den mathematischen Definition etc. Dies alles ist in der `AGFA-ReadMe.pdf` Datei im Detail beschrieben. 
 
 * In`./content` finden sich die Dateien für Titelseite, die einzelnen Abschnitte etc. Diese werden dann in die Hauptdatei eingebunden. Dabei die Namensgebung beachten.
 
 * In `./bib` habe ich eine Musterdatei mit Literaturreferenzen eingestellt.
-Dies kann man als Beispiel für eine eigene Datei verwenden oder seine eigenen Referenzen darin pflegen. Meine Empfehlung: Die Datenbank [zbMath](https://zbmath.org) nutzen und mithilfe dieser einen korrekten `BibTeX`-Eintrag erzeugen und in die eigene `bib`-Datei kopieren. Mit dem Tool [bibtool](https://ctan.org/pkg/bibtool) kann man diese dann geeignet bearbeiten. Siehe hierzu auch die Übersicht `BibTeX-DB-Uebersicht.pdf`.
+Dies kann man als Beispiel für eine eigene Datei verwenden oder seine eigenen Referenzen darin pflegen. Meine Empfehlung: Die Datenbank [zbMath](https://zbmath.org) nutzen und mithilfe dieser einen korrekten `BibTeX`-Eintrag erzeugen und in die eigene `bib`-Datei kopieren. Mit dem Tool [bibtool](https://ctan.org/pkg/bibtool) kann man diese dann geeignet bearbeiten. Siehe hierzu auch die Übersicht `./01-sonstiges/BibTeX-DB-Uebersicht.pdf`.
 
-* In dem `./texmf`-Unterverzeichnis enthält Include-Dateien und bib-Dateien und ich empfehle diese in ein eigenes `~/texmf`-Verzeichnis zu kopieren.
-Wer noch nie dieses genutzt hat, den bitte ich, den entsprechenden Abschnitt im AGFA-ReadMe zu lesen oder nachzufragen. Nutzt man als Mac-Nutzer das Programm [TeXShop](https://pages.uoregon.edu/koch/texshop/), so ist dieses bereits vorhanden.
+* In dem `./texmf`-Unterverzeichnis enthält Include-Dateien und bib-Dateien und ich empfehle diese in ein eigenes `~/texmf`-Verzeichnis zu kopieren. Wer dieses noch nie  genutzt hat, den bitte ich, den entsprechenden Abschnitt im `AGFA-ReadMe zu lesen oder nachzufragen. Nutzt man als Mac-Nutzer das Programm [TeXShop](https://pages.uoregon.edu/koch/texshop/), so ist dieses bereits vorhanden.
 
 Weiteres zur Struktur von `texmf` etc. findet man [in diesem Artikel auf Overleaf](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files%23Table_listing_Kpathsea_.E2.80.9Cconfig_variables.E2.80.9D).
 
-* Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. Diese findet sich im `./ReadMe` Ordner und dort findet man auch das `AGFA-Master.pdf` nochmals. 
-
-Diese Datei steht zur Verfügung als  `AGFA-ReadMe-Print.pdf` zum Drucken, aber dann bitte doppelseitig drucken, falls es wirklich erforderlich ist. Besser ist es diese Version zu nutzen: `AGFA-ReadMe-Online.pdf`, da man dann die Links nutzen kann.
+* Bitte unbedingt die Datei `AGFA-ReadMe.pdf` lesen und beherzigen, was dort steht. Diese findet sich im `./ReadMe` Ordner. Dort findet man auch das `AGFA-Master.pdf` und das `AGFA-Light.pdf` als Muster. 
 
 #### Wichtig
 
