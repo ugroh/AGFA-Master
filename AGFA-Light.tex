@@ -2,7 +2,7 @@
 
 %% -------------------------- 
 %% -- AGFA-Light
-%% -- Stand: 2025-09-11
+%% -- Stand: 2025-09-13
 %% -------------------------- 
 \documentclass[%
 	,ngerman
@@ -16,8 +16,11 @@
 	]{scrartcl}
 
 %% -- Nutze die AGFA-Pakete
+%% -- Für das Literaturverzechnis kann genutzt werden
+%% -- numeric/alphabetic/philosophy + doiurl. numeric ist der Default, wenn
+%% -- nichts anderes angegeben wird
 %% --
-\usepackage[numeric]{./preamble/agfa-art}
+\usepackage[numeric, doiurl]{./preamble/agfa-art}
 
 %% -- Literatur - durch eigene ersetzen 
 %% --
@@ -30,7 +33,7 @@
  						% true: wird noch separat angezeigt
 	,eprint		= false	% true: wird separat angezeigt
  	,maxcitenames  = 1 	% viele Autoren -> nur der erste erscheint  
-    ,maxbibnames   = 10 % im Verzeichnis tauchen alles auf
+    ,maxbibnames   = 10 % im Verzeichnis tauchen alle auf
     ,mincitenames  = 1	% Muss sein
 	}
 \AfterBibliographyPreamble{\raggedright}

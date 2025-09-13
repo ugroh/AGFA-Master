@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Main Package für AGFA Layout
 %% agfa-art.sty
-%% Stand: 2022/11/26
+%% Stand: 2025/09/13
 %% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kenndaten
@@ -13,6 +13,8 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
 	\provideboolean{numeric}
+	\provideboolean{alphabetic}     
+	\provideboolean{philosophy}      
  	\provideboolean{english}
 	\provideboolean{refenglish}
 	\provideboolean{lmodern}
@@ -21,34 +23,46 @@
 	\provideboolean{framed}
 	\provideboolean{review}
 %%
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Deklaration von Optionen
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareOption*{\expandafter\PassOptionsToClass\expandafter{\CurrentOption}{scrartcl}}
-\DeclareOption{english}{\setboolean{refenglish}{true}}
-\DeclareOption{english}{\setboolean{english}{true}}
 
-%% -- mathematische Umgebungen mit / ohne Rahmen / englisch
+%% -- Deklaration von Optionen
+%% --
+
+\DeclareOption*{\expandafter\PassOptionsToClass\expandafter{\CurrentOption}{scrartcl}}
+
+%% -- Sprache (alle english-bezogenen Aktionen zusammen)
+%% --
+
+\DeclareOption{english}{%
+	\setboolean{english}{true}%
+	\setboolean{refenglish}{true}%
+	\PassOptionsToPackage{english}{./preamble/agfa-babel}%
+	\PassOptionsToPackage{english}{./preamble/agfa-hyperef}%
+	\PassOptionsToPackage{english}{./preamble/agfa-theorem}%
+}
+
+%% -- mathematische Umgebungen mit/ohne Rahmen
+%% --
+
 \DeclareOption{thmframed}{\PassOptionsToPackage{framed}{./preamble/agfa-theorem}}
-\DeclareOption{english}{\PassOptionsToPackage{english}{./preamble/agfa-theorem}}
-	 
+
 %% -- Schrift
+%% --
+
 \DeclareOption{lmodern}{\PassOptionsToPackage{lmodern}{./preamble/agfa-font}}
 \DeclareOption{libertinus}{\PassOptionsToPackage{libertinus}{./preamble/agfa-font}}
 
-%% -- Referenzen
+%% -- Bibliographie-Stile
+%% --
+
 \DeclareOption{numeric}{\PassOptionsToPackage{numeric}{./preamble/agfa-biblio}}
+\DeclareOption{alphabetic}{\PassOptionsToPackage{alphabetic}{./preamble/agfa-biblio}}
+\DeclareOption{philosophy}{\PassOptionsToPackage{philosophy}{./preamble/agfa-biblio}}
 \DeclareOption{urldoi}{\PassOptionsToPackage{urldoi}{./preamble/agfa-biblio}}
-\DeclareOption{english}
-	{\PassOptionsToPackage{english}{./preamble/agfa-babel}
-	 \PassOptionsToPackage{english}{./preamble/agfa-hyperef}
-	} 
-%	
 
 %% -- Zeilenabstand verdoppelt
+%% --
 \DeclareOption{review}{\setboolean{review}{true}} 
 
-%% -- Abarbeiten
 \ProcessOptions\relax
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

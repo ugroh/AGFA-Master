@@ -1,55 +1,87 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% -- Stand: 2024/09/03
-%% agfa-biblio.sty
-%% Für die Darstellung des Literaturverzeicnisses
-%% Eingabe von URL etc. möglich
+%% -- Stand: 2025/09/13
+%% -- agfa-biblio.sty
+%% -- Für die Darstellung des Literaturverzeicnisses
+%% -- Eingabe von URL etc. möglich
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\NeedsTeXFormat{LaTeX2e}	%
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{./preamble/agfa-biblio}
-%%
+
 \RequirePackage{ifthen}
-	\provideboolean{english} 		% wenn in Optionsliste
- 	\provideboolean{numeric} 		% wenn in Optionsliste
-	\provideboolean{urldoi} 		% wenn in Optionsliste
-	% urldoi = bindet die Links an den Titel; siehe https://bit.ly/2YghEHH
-	\DeclareOption{english}{\setboolean{english}{true}}	
-	\DeclareOption{numeric}{\setboolean{numeric}{true}}	
-	\DeclareOption{urldoi}{\setboolean{urldoi}{true}}	
+\provideboolean{english}
+\provideboolean{numeric}
+\provideboolean{alphabetic}        
+\provideboolean{philosophy}        
+\provideboolean{urldoi}
+
+%% -- default
+\setboolean{numeric}{true}
+
+%% --
+\DeclareOption{english}{\setboolean{english}{true}}
+\DeclareOption{numeric}{%
+  \setboolean{numeric}{true}%
+  \setboolean{alphabetic}{false}%
+  \setboolean{philosophy}{false}}
+\DeclareOption{alphabetic}{%
+  \setboolean{alphabetic}{true}%
+  \setboolean{numeric}{false}%
+  \setboolean{philosophy}{false}}   
+\DeclareOption{philosophy}{%
+  \setboolean{philosophy}{true}%
+  \setboolean{numeric}{false}%
+  \setboolean{alphabetic}{false}}
+\DeclareOption{urldoi}{\setboolean{urldoi}{true}}
 \ProcessOptions\relax
-%%
+
+%% Style: numeric
 \ifthenelse{\boolean{numeric}}
-{% --> style = numeric
+{
 \RequirePackage[%
-  	,style 			= numeric	
-   	,sorting		= nyt
-	,hyperref		= true  
-   	,giveninits		= true	% Vornamen als Initiale Ulrich -> U.
-	,backend		= biber
- 	,uniquename	= false
-]{biblatex}     
-%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setlength{\bibhang}{1em} 
+    style=numeric,
+    sorting=nyt,
+    hyperref=true,
+    giveninits=true,
+    backend=biber,
+    uniquename=false
+]{biblatex}
+\setlength{\bibhang}{1em}
 \setlength{\bibnamesep}{.5\normalbaselineskip}
 \setlength{\biblabelsep}{.75em}
-%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-}%
-%% style philosophy
-{ % Alternative: Eckige Klammern + Sortierung nach Jahren
+}{}
+
+%% Style: alphabetic
+\ifthenelse{\boolean{alphabetic}}
+{
 \RequirePackage[%
-	,style		= philosophy-modern
-   	,sorting	= nyt
-	,hyperref	= true %auto
-   	,giveninits	= true		% Vornamen als Initiale Ulrich -> U.
-	,backend	= biber
- 	,uniquename	= false
-]{biblatex}  
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setlength{\bibhang}{4.5em} 
+    style=alphabetic,
+    sorting=nyt,
+    hyperref=true,
+    giveninits=true,
+    backend=biber,
+    uniquename=false
+]{biblatex}
+\setlength{\bibhang}{1em}
 \setlength{\bibnamesep}{.5\normalbaselineskip}
 \setlength{\biblabelsep}{.75em}
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Anpassungen für dieses Format
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+}{}
+
+%% Style: philosophy
+\ifthenelse{\boolean{philosophy}}
+{
+\RequirePackage[%
+    style=philosophy-modern,
+    sorting=nyt,
+    hyperref=true,
+    giveninits=true,
+    backend=biber,
+    uniquename=false
+]{biblatex}
+\setlength{\bibhang}{4.5em}
+\setlength{\bibnamesep}{.5\normalbaselineskip}
+\setlength{\biblabelsep}{.75em}
+
+% Anpassungen für philosophy-Format
 \makeatletter
 \newrobustcmd*{\parentexttrack}[1]{%
   \begingroup
@@ -64,12 +96,10 @@
   \let\bibcloseparen=\bibclosebracket}
 \makeatother
 
-%% -- Eckige Klammern um Jahreszahl
 \renewcommand*{\postsepyear}[1]{%
   \printtext{\makebox[\bibhang][r]{%
     \mkbibbrackets{#1}\hskip\yeartitle}}\nopunct}
-
-} % Ende Alternative philosphy  
+}{}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Weiteres gilt für alle Formate 
@@ -251,13 +281,16 @@
 %% Url und DOI an Titel binden Voss 4.10.10, S. 200
 %% und https://bit.ly/2YghEHH
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\newbibmacro{string+doi}[1]{%
-  \iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}}
-\DeclareFieldFormat{title}{% Titel+Formatierung an das Makro weiterreichen
-  \usebibmacro{string+doi}{\mkbibemph{#1}}}
-\DeclareFieldFormat[article,manual]{title}{\usebibmacro{string+doi}%
+\ifthenelse{\boolean{urldoi}}
+{
+	\newbibmacro{string+doi}[1]{%
+  	\iffieldundef{doi}{#1}{\href{https://doi.org/\thefield{doi}}{#1}}}
+	\DeclareFieldFormat{title}{% Titel+Formatierung an das Makro weiterreichen
+  	\usebibmacro{string+doi}{\mkbibemph{#1}}}
+	\DeclareFieldFormat[article,manual]{title}{\usebibmacro{string+doi}%
 	{\mkbibemph{#1}}}
+}{}
+	
 
 %%	
 \endinput

@@ -1,4 +1,4 @@
-## AGFA-Templates (Stand: 2025-09-11; siehe _Änderungen_)
+## AGFA-Templates (Stand: 2025-09-13; siehe _Änderungen_)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
@@ -8,6 +8,11 @@ Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochla
 **Wichtige** Bitte die Datei `AGFA-Master.tex` umbenennen. Mein Vorschlag: Wenn der Name lautet `Abcd Efgh` dann in `abef-master.tex` (sollte klar sein, wie es gemeint ist).  Entsprechend auch die eigenen `include` Dateien umbenennen, etwa in `abef-Abschnitt1.tex` etc. Und natürlich den Inhalt der Vorlagen löschen (bzw. als Muster nehmen).
 
 **Wichtig** Bitte **unbedingt** `AGFA-ReadMe.pdf` lesen. Dort finden sich die Details für die Vorlage, da dies auch für die `Light`-Version gültig ist.
+
+
+### Wichtige Änderung
+
+Es kann jetzt ausgewählt werden, welchen Zitierstil man haben will – `numeric` (Default),`alphabetic` oder `philosophy` (mal ausprobiere, lohnt sich) und ob man `doi+ul` haben will  – oder nicht. Ist in den beiden Masterdateien angegeben und einfach testen.
 
 ### Aufbau
 
@@ -20,7 +25,7 @@ Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochla
 * In`./content` finden sich die Dateien für Titelseite, die einzelnen Abschnitte etc. Diese werden dann in die Hauptdatei eingebunden. Dabei die Namensgebung beachten.
 
 * In `./bib` habe ich eine Musterdatei mit Literaturreferenzen eingestellt.
-Dies kann man als Beispiel für eine eigene Datei verwenden oder seine eigenen Referenzen darin pflegen. Meine Empfehlung: Die Datenbank [zbMath](https://zbmath.org) nutzen und mithilfe dieser einen korrekten `BibTeX`-Eintrag erzeugen und in die eigene `bib`-Datei kopieren. Mit dem Tool [bibtool](https://ctan.org/pkg/bibtool) kann man diese dann geeignet bearbeiten. Siehe hierzu auch die Übersicht `./01-sonstiges/BibTeX-DB-Uebersicht.pdf`.
+Dies kann man als Beispiel für eine eigene Datei verwenden oder seine eigenen Referenzen darin pflegen. Meine Empfehlung: Die Datenbank [zbMath](https://zbmath.org) nutzen und mithilfe dieser einen korrekten `BibTeX`-Eintrag erzeugen und in die eigene `bib`-Datei kopieren. Mit dem Tool [bibtool](https://ctan.org/pkg/bibtool) kann man diese dann geeignet bearbeiten. Siehe hierzu auch die Übersicht `./ReadMe/BibTeX-DB-Uebersicht.pdf`.
 
 * In dem `./texmf`-Unterverzeichnis enthält Include-Dateien und bib-Dateien und ich empfehle diese in ein eigenes `~/texmf`-Verzeichnis zu kopieren. Wer dieses noch nie  genutzt hat, den bitte ich, den entsprechenden Abschnitt im `AGFA-ReadMe zu lesen oder nachzufragen. Nutzt man als Mac-Nutzer das Programm [TeXShop](https://pages.uoregon.edu/koch/texshop/), so ist dieses bereits vorhanden.
 
