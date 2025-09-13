@@ -12,7 +12,8 @@
 %% -------------------
 \newlist{myenumerate}{enumerate}{2}
 \setlist[myenumerate,1]{%	
-	,label=(\kern1pt\roman*\kern1pt)
+%	,label=\upshape(\kern1pt\roman*\kern1pt)
+	,label=\upshape(\roman*)
 	,labelsep=0.75em
 	,leftmargin=1em
 	,itemindent=2em
@@ -33,7 +34,8 @@
 %% -------------------
 \newlist{myequivalent}{enumerate}{2}
 \setlist[myequivalent,1]{%
-	,label=(\kern1pt\alph*\kern1pt)
+%	,label=\upshape(\kern1pt\alph*\kern1pt)
+	,label=\upshape(\alph*)
 	,labelsep=0.75em
 	,leftmargin=1em
 	,itemindent=2em
@@ -76,7 +78,8 @@
 %% -------------------
 \newlist{mynumber}{enumerate}{2}
 \setlist[mynumber,1]{
-	,label=(\kern1pt\arabic*\kern1pt)
+%	,label=(\kern1pt\arabic*\kern1pt)
+	,label=(\arabic*)
 	,labelsep=0.75em
 	,leftmargin=1em
 	,itemindent=2em
@@ -97,12 +100,13 @@
 %% -------------------
 \newlist{myinliner}{enumerate*}{1}
 \setlist[myinliner,1]{%
-	,label=(\kern1pt\roman*\kern1pt)}
+%	,label=\upshape(\kern1pt\roman*\kern1pt)}
+	,label=\upshape(\roman*)}
 
 \newlist{myinlinea}{enumerate*}{1}
 \setlist[myinlinea,1]{%
-	,label=(\kern1pt\alph*\kern1pt)}
-
+%	,label=\upshape(\kern1pt\alph*\kern1pt)}
+	,label=\upshape(\alph*)}
 
 %% -------------------	
 %% Spezielles; noch aufnehmen in ReadMe

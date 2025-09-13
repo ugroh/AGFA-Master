@@ -39,8 +39,6 @@
 	,style		= philosophy-modern
    	,sorting	= nyt
 	,hyperref	= true %auto
-% 	,maxnames	= 1
-%   ,minnames	= 1
    	,giveninits	= true		% Vornamen als Initiale Ulrich -> U.
 	,backend	= biber
  	,uniquename	= false
@@ -106,6 +104,7 @@
 \AtEveryBibitem{\clearlist{language}}%
 \AtEveryBibitem{\clearlist{location}}%
 \AtEveryBibitem{\clearfield{pagetotal}}%
+\AtEveryBibitem{\clearfield{note}}%
 %%\AtEveryBibitem{\clearfield{month}}%
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

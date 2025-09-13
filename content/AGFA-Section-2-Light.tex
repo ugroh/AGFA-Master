@@ -3,7 +3,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- ./content/AGFA-Section-2.tex
 %% -- Abschnitt 2 der Arbeit
-%% -- Stand: 2025-09-11
+%% -- Stand: 2025-09-13
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 \thispagestyle{empty}
 \section{Mein zweiter Abschnitt}\label{sec:zweiter-abschnitt}
@@ -37,6 +37,15 @@ Nummeriert
 Nummeriert
 \end{mynumber}
 %%
+Und im laufenden Text auch möglich, 
+\begin{myinlinea}
+\item
+Äquivalent \verb|myinlinea|, 
+\item
+Äquivalent, 
+\end{myinlinea}
+wie dieses Beispiel zeigt.
+%% --
 \subsection{Test der mathematischen Umgebungen}\label{subsec:mumgebungen}
 Schon seit vielen hundert Jahren eines der schönsten Ergebnisse der Mathematik.
 %
@@ -90,7 +99,7 @@ Alles andere kann jeder selbst mal testen.
 \subsection{Querverweise}\label{subsec:referenzen}
 \myquestion{Funktionieren alle Querverweise?}
 %
-Zunächst auf die Eulersche Zahl \vref{thm:eim} und dann auf Gleichung~\eqref{eq:pythagoras} in \vref{thm:theorem1}.
+Zunächst auf die Eulersche Zahl \vref{thm:eim} \verb|\vref{thm:eim}| und dann auf Gleichung~\eqref{eq:pythagoras} in \vref{thm:theorem1}.
 
 Oder auch möglich: \ldots \cref{thm:theorem1}, \vref{eq:pythagoras} \ldots.
 
