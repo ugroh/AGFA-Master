@@ -1,9 +1,9 @@
 % !TEX TS-program = pdflatexmk
 
-%% -------------------------- 
-%% -- AGFA-Light
+%% --
+%% -- Vorlage AGFA-Light
 %% -- Stand: 2025-09-14
-%% -------------------------- 
+%% -- 
 \documentclass[%
 	,ngerman
 %	,english
@@ -20,30 +20,29 @@
 %% -- numeric/alphabetic/philosophy + doiurl. numeric ist der Default, wenn
 %% -- nichts anderes angegeben wird. Ansosnten siehe ReadMe-Dokumentationen
 %% --
+
 \usepackage[%
-	, numeric			% Default
-	, doiurl			% Wer es angezeigt haben will
-	%, libertinus		% Andere Font
-	%, lmodern			% Mehr wie das Original von Knuth
-	%, thmframed		% Wer es gerahmt haben will
+%	, numeric			% Default
+%	, alphabetic		% [GR80]
+%	, philosophy		% wie im Buch "Banach Lattices of Positive Operators"
+  	, urldoi			% Wer doi im Titel hinterlegt haben will, sonst auskommentieren
+%	, libertinus		% font libertinus
+%	, lmodern			% font lmodern, das Original von Knuth
+%	, thmframed		% wer es gerahmt haben will
 	]{./preamble/agfa-art}
 
-%% -- Literatur - durch eigene ersetzen 
+%% -- Literatur-DB durch eigene ersetzen 
 %% --
 \addbibresource{./bib/agfa-bib.bib}		% agfa-bib.bib -> abcd-bib.bib
 
 \ExecuteBibliographyOptions{%
-	,backref	= true	% Auf was ist verwiesen; Rest weg
- 	,url		= true	% true: URL wird angezeigt 
- 						% false: URL wird nicht angezeigt
- 	,doi		= false	% DOI werden im Titel hinterlegt 
- 						% true: wird noch separat angezeigt
-	,eprint		= false	% true: wird separat angezeigt
- 	,maxcitenames  = 1 	% viele Autoren -> nur der erste erscheint  
-    ,maxbibnames   = 10 % im Verzeichnis tauchen alle auf
-    ,mincitenames  = 1	% Muss sein
+	,backref		= true	% Auf was ist verwiesen; Rest muss weg
+  	,url			= true	% false: URL wird nicht angezeigt 
+  	,doi			= true	% true: URLDOI wird separat angezeigt
+	,eprint			= false	% true: wird separat angezeigt
+	,maxcitenames  	= 1 	% viele Autoren -> nur der erste erscheint  
+    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf; Auskommentieren für philosphy 
 	}
-
 
 %% -- Links farbig
 %% --
@@ -51,7 +50,7 @@
 \hypersetup{
 	,colorlinks	= true    			%   onlineversion true                                                           
 	,urlcolor	= blue       		%                                                              
-	,citecolor	= blue      			%                                                          
+	,citecolor	= blue      		%                                                          
 	,linkcolor	= blue			 	% oder black
 %  	,hidelinks 						% Vor dem Druck % entfernen
 	}
@@ -107,7 +106,7 @@ Gern helfe ich aber, wenn es Probleme damit oder es Fragen zur Nutzung von \LaTe
 %% --
 
 % \setcounter{unbalance}{5}		
-\AfterBibliographyPreamble{\raggedright}
+\RaggedRight
 \nocite{voss:2012a,lamport:1986,urysohn:1925a}
 \printbibliography
 %

@@ -20,19 +20,44 @@
 %% -- Nutze die AGFA-Pakete
 %% -- Für das Literaturverzechnis kann genutzt werden
 %% -- numeric/alphabetic/philosophy + doiurl. numeric ist der Default, wenn
-%% -- nichts anderes angegeben wird
-%% --
- 
-%% -- Aufruf von Optionen
+%% -- nichts anderes angegeben wird. Ansosnten siehe ReadMe-Dokumentationen
 %% --
 \usepackage[%
-	,thmframed			% gerahmte Umgebungen
-	,numeric			% Nummeriertes LitVerz.
-%	,lmodern			% lmodern Standardzeichensatz
-	,libertinus			% libertinus
-	,doiurl
-	]
-	{./preamble/agfa-art}   % agfa-art
+%	, numeric			% Default
+%	, alphabetic		% [GR80]
+%	, philosophy		% wie im Buch "Banach Lattices of Positive Operators"
+  	, urldoi			% Wer doi im Titel hinterlegt haben will, sonst auskommentieren
+%	, libertinus		% font libertinus
+%	, lmodern			% font lmodern, das Original von Knuth
+%	, thmframed		% wer es gerahmt haben will
+	]{./preamble/agfa-art}
+	
+%% -- Literatur-DB durch eigene ersetzen 
+%% --
+\addbibresource{./bib/agfa-bib.bib}		% agfa-bib.bib -> abcd-bib.bib	
+
+\ExecuteBibliographyOptions{%
+	,backref		= true	% Auf was ist verwiesen; Rest muss weg
+  	,url			= true	% false: URL wird nicht angezeigt 
+  	,doi			= false	% true: URLDOI wird separat angezeigt
+	,eprint			= false	% true: wird separat angezeigt
+	,maxcitenames  	= 1 	% viele Autoren -> nur der erste erscheint  
+    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf; Auskommentieren für philosphy 
+	}
+
+%% -- Links farbig
+%% --
+
+\hypersetup{
+	,colorlinks	= true    			%   onlineversion true                                                           
+	,urlcolor	= blue       		%                                                              
+	,citecolor	= blue      		%                                                          
+	,linkcolor	= blue			 	% oder black
+%  	,hidelinks 						% Vor dem Druck % entfernen
+	}
+	
+
+%% == Ab hier eigene Angaben ==
 	
 %% -- Was soll aktuell bearbeitet werden
 %% -- Mittels % entsprechend steuern
@@ -45,44 +70,16 @@
 	}
 
 
-%% -- für die finale Version die folgenden Zeilen 
-%% -- mit % auskommentieren
+%% -- Ausfüllen aber für die finale Version mit % auskommentieren
 %% --
 \KOMAoptions{footsepline}
 \lofoot{Name}
 \cofoot{Stand der Arbeit:}
 \rofoot{\today}
 
-%% -- Datei mit den Referenzen für Literatur
-%% -- und Steuerung für url etc. 
-%% -- siehe AGFA-ReadMe.pdf
+%% -- Paket comment
+%% -- siehe Literaturverzeichnis
 %% --
-\addbibresource{./bib/agfa-bib.bib}	
-
-%% -- Eventuell alles auf false setzen bei der Druckversion
-%% --	
-\ExecuteBibliographyOptions{%
-	,backref	= true	% Auf was ist verwiesen; Rest weg
- 	,url		= true	% true: URL wird angezeigt 
- 						% false: URL wird nicht angezeigt
- 	,doi		= false	% DOI werden im Titel hinterlegt 
- 						% true: wird noch separat angezeigt
-	,eprint		= false	% true: wird separat angezeigt
- 	,maxcitenames  = 1 	% viele Autoren -> nur der erste erscheint  
-    ,maxbibnames   = 10 % im Verzeichnis tauchen alles auf
-    ,mincitenames  = 1	% Muss sein
-	}
-
-%% --  Querverweise
-%% --  siehe AGFA-readme.pdf bzw. LaTeX-Tipps dazu
-%% --
-\hypersetup{
-	,colorlinks	= true    	%  Für PDF-Version true                                                           
-	,urlcolor	= blue      %                                                              
-	,citecolor	= blue      %                                                          
-	,linkcolor	= blue		% oder black
-%  	,hidelinks 				% Vor dem Druck % entfernen
-	}
 
 \usepackage{comment}
 
@@ -151,7 +148,7 @@
 
 %% -- Beispiele für hinterlegte DOI
 %% --
-\nocite{kahle:2018,zabreiko:1969}
+\nocite{kahle:2018,zabreiko:1969,comment}
 \printbibliography
 
 %% --

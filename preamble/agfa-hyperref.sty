@@ -1,10 +1,10 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Querverweise und hyperref
-%% agfa-hypref.sty
-%% Stand: 2022/11/26
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Querverweise und hyperref für AGFA-Master
+%% agfa-hypererf.sty
+%% Stand: 2025/09/14
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-hyperef}
+\ProvidesPackage{./preamble/agfa-hyperref}
 
 \RequirePackage{ifthen}
  	\provideboolean{english}
@@ -19,13 +19,12 @@
 	\RequirePackage[breaklinks = true]{hyperref}   
 	\RequirePackage{cleveref}
 		\crefname{exercise}{Exercise}{Exercises}
-		\crefname{exercise}{Exercise}{Exercises}
 		\crefname{item}{item}{item}
 		\crefname{thm}{Theorem}{Theorem}
-		\crefname{lem}{Lemma}{Lemmata}
 		\crefname{cor}{Corollary}{Corollary}
 		\crefname{prop}{Proposition}{Proposition}
-		\crefname{defn}{Definition}{Definitionen}
+		\crefname{defn}{Definition}{Definitions}  
+		\crefname{lemma}{Lemma}{Lemmas}         
 		\crefname{rem}{Remark}{Remarks}
 }
 %%

@@ -1,23 +1,38 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Unterstützung Deutsch bzw. Englisch
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Englisch/Deutsch für AGFA-Master
 %% agfa-babel.sty
 %% Stand: 2025/09/14
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{agfa-babel}
+\ProvidesPackage{./preambel/agfa-babel}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
  	\provideboolean{english}
+ 	\provideboolean{ngerman}
 	\DeclareOption{english}{\setboolean{english}{true}} 
-	%% Auswahl über \documentclass[..]; siehe Master-File
+	\DeclareOption{ngerman}{%
+		\setboolean{english}{false}
+		\setboolean{ngerman}{true}} 
 %% -- Abarbeiten
 \ProcessOptions\relax
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Pakete
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% keine weiteren Pakete erforderlich
+\ifthenelse{\boolean{english}}
+{% --> Englisch
+	\RequirePackage[ngerman,main=english]{babel}
+}{}
+\ifthenelse{\boolean{ngerman}}
+{% --> Deutsch
+	\RequirePackage[english,main=ngerman]{babel}
+%	\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
+}
+
+%% -- Anführungszeichen
+\RequirePackage[autostyle,german=guillemets,english=american]{csquotes}
+
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Ausführung
 %% Dies kann bei Bedarf 1:1 gegen polyglossia ausgetauscht werden, 
@@ -42,8 +57,7 @@
 \newcommand{\myquestion}[1]{\todo[inline,size=\small]{\myquestiontext #1}}
 \newcommand{\myanswer}[1]{\todo[inline,size=\small]{\myanswertext #1}}
 
-%% -- Anführungszeichen
-\RequirePackage[autostyle,german=guillemets,english=american]{csquotes}
+
 
 %% 
 \endinput

@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Main Package für AGFA Layout
+%% Startpaket für AGFA-Master
 %% agfa-art.sty
-%% Stand: 2025/09/13
+%% Stand: 2025/09/14
 %% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kenndaten
@@ -22,6 +22,7 @@
 	\provideboolean{thmframed}
 	\provideboolean{framed}
 	\provideboolean{review}
+	\provideboolean{urldoi}
 %%
 
 %% -- Deklaration von Optionen
@@ -38,6 +39,7 @@
 	\PassOptionsToPackage{english}{./preamble/agfa-babel}%
 	\PassOptionsToPackage{english}{./preamble/agfa-hyperef}%
 	\PassOptionsToPackage{english}{./preamble/agfa-theorem}%
+	\PassOptionsToPackage{english}{./preamble/agfa-biblio}%  
 }
 
 %% -- mathematische Umgebungen mit/ohne Rahmen
@@ -86,8 +88,8 @@
 \RequirePackage{./preamble/agfa-defn}
 \RequirePackage{./preamble/agfa-biblio}
 %% --
-\RequirePackage{./preamble/agfa-hyperef}
-%% -- wegen \dh Problematik am Ende
+\RequirePackage{./preamble/agfa-hyperref}
+%% --
 \RequirePackage{./preamble/agfa-abkuerz}	
 
 %% -- Zeilenabstand für review

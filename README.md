@@ -1,4 +1,4 @@
-## AGFA-Templates (Stand: 2025-09-13; siehe _Änderungen_)
+## AGFA-Templates (Stand: 2025-09-14 - siehe _Änderungen_)
 
 Dies sind die Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Die `AGFA-Light`-Variante unterscheidet sich dabei nur durch deren Aufbau: Es wird auf den __Vorspann__ verzichtet und nur das Inhaltsverzeichnis ausgegeben. 
 
@@ -12,11 +12,11 @@ Dieses kann man entweder direkt auf seinen PC entpacken oder auf Overleaf hochla
 
 ### Wichtige Änderung
 
-Es kann jetzt ausgewählt werden, welchen Zitierstil man haben will – `numeric` (Default),`alphabetic` oder `philosophy` (mal ausprobiere, lohnt sich) und ob man `doi+ul` haben will  – oder nicht. Ist in den beiden Masterdateien angegeben und einfach testen.
+Es kann jetzt ausgewählt werden, welchen Zitierstil man haben will – `numeric` (Default), `alphabetic` oder `philosophy` (mal ausprobiere, lohnt sich) und ob man `doi URL` haben will  – oder nicht. Wie man es macht, ist in den beiden Masterdateien angegeben. Bitte mit den verschiedenen Möglichkeiten mal _spielen_.
 
 ### Aufbau
 
-* Im Stammverzeichnis befinden sich die Dateien `AGFA-Master.tex` und `AGFA-Light.tex`als Vorlagen für die Erstellung einer eigenen Arbeit (`Light` etwa für die Bachelorarbeit oder kleinere Ausarbeitungen)
+* Im Stammverzeichnis befinden sich die Dateien `AGFA-Master.tex` und `AGFA-Light.tex`als Vorlagen für die Erstellung einer eigenen Arbeit (`Light` etwa für die Bachelorarbeit oder kleinere Ausarbeitungen). Die kompilierten Versionen befinden sich im Unterverzeichnis `ReadMe`. Man kann daher einfach seinen `TeX`-Installation testen.
 
 * `./ReadMe` enthält weitere Informationen, etwa zum Auffinden von Literatur oder die Nutzung des _Zentralblatts für Mathematik_ (TODO für die Details)
 
@@ -43,10 +43,8 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 
 #### ... in `agfa-font.sty`
 
-* `fontencoding` und `inputencoding`: Eine Erläuterung hierzu [findet man hier]( https://tex.stackexchange.com/questions/6448/what-is-the-difference-between-font-encoding-and-input-encoding) und [hier für weitere Details](https://tug.org/TUGboat/tb39-1/tb121ltnews28.pdf). 
-
 * Da ich nicht weiß, ob jeder Nutzer der Vorlage schon `utf-8` als Default bei seinem Editor eingestellt hat, wird in der Datei `agfa-font.sty` noch das Paket `selinput` aufgerufen, was eigentlich entbehrlich ist.
-	
+
 * Das Paket `textcomp` ist auch entbehrlich, wenn man ein aktuelles `TeXLive` System hat. Ursprünglicher Sinn des Paketes war es, Zeichen wie `copyright`, `bullet` etc. zur Verfügung zu stellen. Es schadet aber nicht, es stehenzulassen. 
 
 * Schriften: `lmodern`, `libertinus` oder als Default `Times`
@@ -59,6 +57,8 @@ Fragen, Wünsche etc. bitte an ulgr@math.uni-tuebingen.de
 Wer [Overleaf](http://overleaf.com) nutzt, bitte alles mithilfe des  `ZIP`-Files als neues Projekt hochladen. Auf Overleaf wird alles entpackt und es steht dann in den korrekten Unterverzeichnissen und kann __out-of-the-box__ genutzt werden.
 
 ### Änderungen
+
+* 2025/09/14 - Komplette Überarbeitung der Masterdateien `AGFA-light.tex` und `AGFA-Master.tex`und der Pakete in `./preamble`.
 
 * 2025/09/11 - Kleine Korrekturen im ReadMe und in der Vorlage. Und die Datei `AGFA-ulgr.pdf` mit weiteren Informationen beigefügt. Man sollte da mal reinsehen – auch wenn dies von mir ist.
 

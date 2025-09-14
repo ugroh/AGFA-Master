@@ -1,116 +1,101 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Für Aufzählungen
+%% Listen für AGFA-Master
 %% agfa-listen.sty
-%% Stand: 2023/01/12
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Stand: 2025/09/14
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{./preamble/agfa-listen}
 \RequirePackage[inline,shortlabels]{enumitem}	
+
+% gemeinsame Definitionen
+\setlist{%
+  labelsep=0.75em,
+  itemsep=0.15ex,
+  parsep=.75ex,
+  labelwidth=10pt
+}
 
 %% -------------------
 %% Enumerate
 %% -------------------
 \newlist{myenumerate}{enumerate}{2}
-\setlist[myenumerate,1]{%	
-%	,label=\upshape(\kern1pt\roman*\kern1pt)
-	,label=\upshape(\roman*)
-	,labelsep=0.75em
-	,leftmargin=1em
-	,itemindent=2em
-	,labelwidth=10pt	
-	,itemsep=0.15ex
-	,parsep=.75ex}
+\setlist[myenumerate,1]{%
+	label=\upshape(\roman*),
+  	leftmargin=1em,
+  	itemindent=2em
+}
+
 \setlist[myenumerate,2]{%
-	,label=\textrm{--}\kern1pt 
-	,labelsep=0.75em
-	,leftmargin=1.5em
-	,itemindent=1.5em
-	,labelwidth=10pt	
-	,itemsep=0.15ex
-	,parsep=.75ex}
+	label=\textrm{--}\kern1pt, 
+	leftmargin=1.5em,
+	itemindent=1.5em
+}
 
 %% -------------------		
 %% Äquivalent
 %% -------------------
 \newlist{myequivalent}{enumerate}{2}
 \setlist[myequivalent,1]{%
-%	,label=\upshape(\kern1pt\alph*\kern1pt)
-	,label=\upshape(\alph*)
-	,labelsep=0.75em
-	,leftmargin=1em
-	,itemindent=2em
-	,labelwidth=10pt
-	,itemsep=0.15ex
-	,parsep=.75ex}
+	label=\upshape(\alph*),
+	leftmargin=1em,
+	itemindent=2em
+}
 	
 \setlist[myequivalent,2]{%
-	,label=\textrm{--}\kern1pt 
-	,labelsep=0.75em
-	,leftmargin=1.5em
-	,itemindent=1.5em
-	,labelwidth=10pt
-	,itemsep=0.15ex
-	,parsep=.75ex}
+	label=\textrm{--}\kern1pt,
+	leftmargin=1.5em,
+	itemindent=1.5em
+}
 
 %% -------------------
 %% Itemize
 %% -------------------
 \newlist{myitemize}{itemize}{2}
 \setlist[myitemize,1]{
-	,label=$ \bullet $ 
-	,labelsep=0.75em
-	,leftmargin=1em
-	,itemindent=1.5em
-	,labelwidth=10pt
-	,itemsep=0.15ex
-	,parsep=.75ex}
+	label=$\bullet$,
+	leftmargin=1em,
+	itemindent=1.5em
+}
+
 \setlist[myitemize,2]{
-	,label=$ \circ $\kern1pt
-	,labelsep=0.75em
-	,leftmargin=1.5em
-	,itemindent=1em
-	,labelwidth=10pt
-	,itemsep=0.15ex
-	,parsep=.75ex}
+	label=$\circ$\kern1pt,
+	leftmargin=1.5em,
+	itemindent=1em
+}
 	
 %% -------------------
 %% Number
 %% -------------------
 \newlist{mynumber}{enumerate}{2}
 \setlist[mynumber,1]{
-%	,label=(\kern1pt\arabic*\kern1pt)
-	,label=(\arabic*)
-	,labelsep=0.75em
-	,leftmargin=1em
-	,itemindent=2em
-	,labelwidth=10pt
-	,itemsep=0.15ex
-	,parsep=.75ex}
+	label=(\arabic*),
+	leftmargin=1em,
+	itemindent=2em
+}
+	
 \setlist[mynumber,2]{
-	,label=\textrm{--}\kern1pt 
-	,labelsep=0.75em
-	,leftmargin=1.5em
-	,itemindent=1.5em
-	,labelwidth=10pt
-	,itemsep=0.15ex
-	,parsep=.75ex}
+	label=\textrm{--}\kern1pt, 
+	leftmargin=1.5em,
+	itemindent=1.5em
+}
 
 %% -------------------
 %% Inline-Listen
 %% -------------------
 \newlist{myinliner}{enumerate*}{1}
 \setlist[myinliner,1]{%
-%	,label=\upshape(\kern1pt\roman*\kern1pt)}
-	,label=\upshape(\roman*)}
+	label=\upshape(\roman*)}
 
 \newlist{myinlinea}{enumerate*}{1}
 \setlist[myinlinea,1]{%
-%	,label=\upshape(\kern1pt\alph*\kern1pt)}
-	,label=\upshape(\alph*)}
+	label=\upshape(\alph*)}
 
 %% -------------------	
 %% Spezielles; noch aufnehmen in ReadMe
 %% -------------------
+\RequirePackage{mdframed}
+
 \newenvironment{synopsis}%
 {\begin{mdframed}
 \emph{Hinweise: }\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}
@@ -121,5 +106,5 @@
 \emph{Inhalt: }\begin{enumerate*}[label={$\cdot$},before=\unskip{\quad}]}
 {\end{enumerate*}\end{mdframed}}
 %%
-%
-%
+
+\endinput

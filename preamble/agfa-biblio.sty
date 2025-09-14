@@ -1,14 +1,17 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% -- Stand: 2025/09/13
-%% -- agfa-biblio.sty
-%% -- Für die Darstellung des Literaturverzeicnisses
-%% -- Eingabe von URL etc. möglich
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Bibliographie-Konfiguration für AGFA-Master
+%% agfa-biblio.sty
+%% Stand: 2025/09/14
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{./preamble/agfa-biblio}
 
 \RequirePackage{ifthen}
-\provideboolean{english}
+
+\provideboolean{english} 		
+\provideboolean{ngerman} 	
+
 \provideboolean{numeric}
 \provideboolean{alphabetic}        
 \provideboolean{philosophy}        
@@ -16,22 +19,31 @@
 
 %% -- default
 \setboolean{numeric}{true}
+\setboolean{english}{false}  	
+\setboolean{ngerman}{true} 
 
 %% --
 \DeclareOption{english}{\setboolean{english}{true}}
+\DeclareOption{ngerman}{\setboolean{ngerman}{true}\setboolean{english}{false}} 
+
+%% --
 \DeclareOption{numeric}{%
   \setboolean{numeric}{true}%
   \setboolean{alphabetic}{false}%
   \setboolean{philosophy}{false}}
+  
 \DeclareOption{alphabetic}{%
   \setboolean{alphabetic}{true}%
   \setboolean{numeric}{false}%
   \setboolean{philosophy}{false}}   
+
 \DeclareOption{philosophy}{%
   \setboolean{philosophy}{true}%
   \setboolean{numeric}{false}%
   \setboolean{alphabetic}{false}}
+
 \DeclareOption{urldoi}{\setboolean{urldoi}{true}}
+
 \ProcessOptions\relax
 
 %% Style: numeric
@@ -104,15 +116,26 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Weiteres gilt für alle Formate 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% backref
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifthenelse{\boolean{english}}
-{}
-{%
-	\DefineBibliographyStrings{ngerman}{%
+%% Literaturverzeichnis-Überschrift und weitere Strings
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{english}}%
+{\DefineBibliographyStrings{english}{%
+	backrefpage  = {Cited on p\adddot},
+	backrefpages = {Cited on pp\adddot},
+	bibliography = {References},
+	references = {References}
+	}}{}
+%% --
+\ifthenelse{\boolean{ngerman}}%
+{\DefineBibliographyStrings{ngerman}{%
   	backrefpage  = {Zitiert auf S\adddot},
-  	backrefpages = {Zitiert auf S\adddot},}
-}
+  	backrefpages = {Zitiert auf S\adddot},
+  	bibliography = {Literaturverzeichnis},
+  	references = {Literaturverzeichnis}}
+}{}
+%}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Shorthand
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -232,17 +255,22 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% URL 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DefineBibliographyStrings{german}{%
-	andothers = {et al. },
-	and     = {u\adddot},
-  	urlseen = {aufgerufen am },
-  	urlfrom = {URL },
-	}
-%
-\DefineBibliographyStrings{english}{%
-	urlfrom = {online },
-	andothers = {et al. },
-	}
+\ifthenelse{\boolean{english}}
+{%
+	\DefineBibliographyStrings{english}{%
+		urlfrom = {online },
+		andothers = {et al\adddot},
+		urlseen = {visited on }}
+}{}
+
+\ifthenelse{\boolean{ngerman}}
+{%
+	\DefineBibliographyStrings{ngerman}{%
+		andothers = {et al\adddot},
+		and = {u\adddot},
+		urlseen = {aufgerufen am },
+		urlfrom = {URL }}
+}{}
 %
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\space\url{#1}}
 
@@ -282,8 +310,7 @@
 %% und https://bit.ly/2YghEHH
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{urldoi}}
-{
-	\newbibmacro{string+doi}[1]{%
+{\newbibmacro{string+doi}[1]{%
   	\iffieldundef{doi}{#1}{\href{https://doi.org/\thefield{doi}}{#1}}}
 	\DeclareFieldFormat{title}{% Titel+Formatierung an das Makro weiterreichen
   	\usebibmacro{string+doi}{\mkbibemph{#1}}}
@@ -291,6 +318,8 @@
 	{\mkbibemph{#1}}}
 }{}
 	
+
+
 
 %%	
 \endinput
