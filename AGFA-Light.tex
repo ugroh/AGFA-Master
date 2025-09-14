@@ -2,7 +2,7 @@
 
 %% -------------------------- 
 %% -- AGFA-Light
-%% -- Stand: 2025-09-13
+%% -- Stand: 2025-09-14
 %% -------------------------- 
 \documentclass[%
 	,ngerman
@@ -18,13 +18,20 @@
 %% -- Nutze die AGFA-Pakete
 %% -- Für das Literaturverzechnis kann genutzt werden
 %% -- numeric/alphabetic/philosophy + doiurl. numeric ist der Default, wenn
-%% -- nichts anderes angegeben wird
+%% -- nichts anderes angegeben wird. Ansosnten siehe ReadMe-Dokumentationen
 %% --
-\usepackage[numeric, doiurl]{./preamble/agfa-art}
+\usepackage[%
+	, numeric			% Default
+	, doiurl			% Wer es angezeigt haben will
+	%, libertinus		% Andere Font
+	%, lmodern			% Mehr wie das Original von Knuth
+	%, thmframed		% Wer es gerahmt haben will
+	]{./preamble/agfa-art}
 
 %% -- Literatur - durch eigene ersetzen 
 %% --
-\addbibresource{./bib/agfa-bib.bib}
+\addbibresource{./bib/agfa-bib.bib}		% agfa-bib.bib -> abcd-bib.bib
+
 \ExecuteBibliographyOptions{%
 	,backref	= true	% Auf was ist verwiesen; Rest weg
  	,url		= true	% true: URL wird angezeigt 
@@ -36,7 +43,7 @@
     ,maxbibnames   = 10 % im Verzeichnis tauchen alle auf
     ,mincitenames  = 1	% Muss sein
 	}
-\AfterBibliographyPreamble{\raggedright}
+
 
 %% -- Links farbig
 %% --
@@ -60,6 +67,10 @@
 %% --
 \BeforeStartingTOC[toc]{\begin{multicols}{2}}
 \AfterStartingTOC[toc]{\end{multicols}}
+
+\let\ORGvarphi=\varphi
+\let\varphi=\phi
+\let\phi=\ORGvarphi
 
 %% -- Start des Dokuments
 %% --	
@@ -92,11 +103,11 @@ Gern helfe ich aber, wenn es Probleme damit oder es Fragen zur Nutzung von \LaTe
 \input{./content/AGFA-Section-1-Light}
 \input{./content/AGFA-Section-2-Light}
 
-
 %% -- Literatur
 %% --
 
 % \setcounter{unbalance}{5}		
+\AfterBibliographyPreamble{\raggedright}
 \nocite{voss:2012a,lamport:1986,urysohn:1925a}
 \printbibliography
 %

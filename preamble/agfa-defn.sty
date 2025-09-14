@@ -5,7 +5,7 @@
 %% Die üblichen einfachen Abkürzungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesClass{agfa-defn}
+\ProvidesClass{./preamble/agfa-defn}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -13,20 +13,20 @@
 %% -- var-Symbole für griechisches Alphabet
 %% --
 \AtBeginDocument{%
-\let\ORGvarepsilon=\epsilon
-\let\epsilon=\epsilon
-\let\epsilon=\ORGvarepsilon
+\let\ORGvarepsilon=\varepsilon
+\let\varepsilon=\epsilon
+\let\phi=\ORGvarepsilon
 %
-\let\ORGvarrho=\rho
-\let\rho=\rho
+\let\ORGvarrho=\varrho
+\let\varrho=\rho
 \let\rho=\ORGvarrho
 %
-\let\ORGvartheta=\theta
-\let\theta=\theta
+\let\ORGvartheta=\vartheta
+\let\vartheta=\theta
 \let\theta=\ORGvartheta
 %
-\let\ORGvarphi=\phi
-\let\phi=\phi
+\let\ORGvarphi=\varphi
+\let\varphi=\phi
 \let\phi=\ORGvarphi
 %
 \let\ORGvarleq=\leqslant

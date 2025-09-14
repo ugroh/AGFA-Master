@@ -1,11 +1,10 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Unterstützung Deutsch bzw. Englisch
-%% mytodo/myquestion
 %% agfa-babel.sty
-%% Stand: 2022/11/26
+%% Stand: 2025/09/14
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-babel}
+\ProvidesPackage{agfa-babel}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -21,32 +20,28 @@
 %% keine weiteren Pakete erforderlich
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Ausführung
-%% Dies kann bei Bedarf 1:1 gegen plyglossia ausgetauscht werden, wenn man auf
-%% LuaLaTeX umsteigt
+%% Dies kann bei Bedarf 1:1 gegen polyglossia ausgetauscht werden, 
+%% wenn man auf LuaLaTeX umsteigt
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \ifthenelse{\boolean{english}}
-{% --> Englisch
-	\RequirePackage[ngerman,main=english]{babel}
-}
-{% --> Deutsch
-	\RequirePackage[english,main=ngerman]{babel}
-	\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
+{%
+    \RequirePackage[english,backgroundcolor=white]{todonotes}
+    \newcommand{\mytodotext}{ToDo: }
+    \newcommand{\myquestiontext}{Question: }
+    \newcommand{\myanswertext}{Answer: }
+}{%
+    \RequirePackage[ngerman,backgroundcolor=white]{todonotes}  
+    \newcommand{\mytodotext}{ToDo: }
+    \newcommand{\myquestiontext}{Frage: }
+    \newcommand{\myanswertext}{Antwort: }
 }
 
-%% -- mytodo 
-\ifthenelse{\boolean{english}}
-{% --> Englisch
-	\RequirePackage[english,backgroundcolor=white]{todonotes}
-		\newcommand{\mytodo}[1]{\todo[inline,size=\small]{ToDo: #1}}
-		\newcommand{\myquestion}[1]{\todo[inline,size=\small]{Question: #1}}
-		\newcommand{\myanswer}[1]{\todo[inline,size=\small]{Answer: #1}}
-}
-{% --> Deutsch
-	\RequirePackage[ngerman,backgroundcolor=white]{todonotes}
-		\newcommand{\mytodo}[1]{\todo[inline,size=\small]{ToDo: #1}}
-		\newcommand{\myquestion}[1]{\todo[inline,size=\small]{Frage: #1}}
-		\newcommand{\myanswer}[1]{\todo[inline,size=\small]{Antwort: #1}}
-}
+% -- einheitlich
+\newcommand{\mytodo}[1]{\todo[inline,size=\small]{\mytodotext #1}}
+\newcommand{\myquestion}[1]{\todo[inline,size=\small]{\myquestiontext #1}}
+\newcommand{\myanswer}[1]{\todo[inline,size=\small]{\myanswertext #1}}
+
 %% -- Anführungszeichen
 \RequirePackage[autostyle,german=guillemets,english=american]{csquotes}
 
