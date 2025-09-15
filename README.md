@@ -32,30 +32,31 @@ Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und 
 #### Verzeichnisstruktur
 
 ```
-├── AGFA-Master.tex        # Hauptvorlage
-├── AGFA-Light.tex         # Minimale Variante
-├── preamble/              # Paket-Definitionen
-│   ├── agfa-art.sty      # Hauptpaket
-│   ├── agfa-font.sty     # Schriftarten (lmodern, libertinus, times)
-│   ├── agfa-layout.sty   # Layout und Kopf-/Fußzeilen
-│   ├── agfa-biblio.sty   # Bibliographie-Stile
-│   ├── agfa-theorem.sty  # Mathematische Umgebungen
-│   ├── agfa-mathtools.sty # Mathematische Hilfsmittel
-│   ├── agfa-defn.sty     # Mathematische Definitionen
-│   ├── agfa-listen.sty   # Listen-Umgebungen
-│   ├── agfa-babel.sty    # Deutsch/Englisch
-│   ├── agfa-hyperref.sty # Querverweise
-│   └── agfa-abkuerz.sty  # Abkürzungen
-├── content/               # Inhalts-Dateien
-│   ├── 0-AGFA-title.tex  # Titelseite
-│   ├── AGFA-Einleitung.tex
+├── AGFA-Master.tex        	# Hauptvorlage
+├── AGFA-Light.tex         	# Minimale Variante
+├── preamble/              	# Paket-Definitionen
+│   ├── agfa-art.sty      	# Hauptpaket
+│   ├── agfa-font.sty     	# Schriftarten (lmodern, libertinus, times)
+│   ├── agfa-layout.sty   	# Layout und Kopf-/Fußzeilen
+│   ├── agfa-biblio.sty   	# Bibliographie-Stile
+│   ├── agfa-theorem.sty  	# Mathematische Umgebungen
+│   ├── agfa-mathtools.sty 	# Mathematische Hilfsmittel
+│   ├── agfa-defn.sty     	# Mathematische Definitionen
+│   ├── agfa-listen.sty   	# Listen-Umgebungen
+│   ├── agfa-babel.sty    	# Deutsch/Englisch
+│   ├── agfa-hyperref.sty 	# Querverweise
+│   └── agfa-abkuerz.sty  	# Abkürzungen
+├── content/               	# Inhalts-Dateien
+│   ├── 0-AGFA-title.tex  	# Titelseite
+│   ├── AGFA-Einleitung.tex	# etc
 │   └── AGFA-Section-*.tex
 ├── ReadMe
-│	├── Verschiede Dateien, die man lesen sollte
+│	├── AGFA-Master.pdf, AGFA-Light.pdf
+│	├── zbMATH-Nutzung.pdf / BibTeX-DB-Uebersicht.pdf (TODO für mich)
 │	└── AGFA-Readme.pdf
 ├── bib/                   # Literaturverzeichnis
 │   └── agfa-bib.bib
-└── texmf/                 # Zusätzliche Includes
+└── texmf/                 # texmf-Unterverzeichnis für bib- und sty-Dateien
 ```
 
 ### Wichtige Features
