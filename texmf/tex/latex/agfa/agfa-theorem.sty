@@ -1,13 +1,12 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Theoremumgebungen für AGFA-Master
 %% agfa-theorem.sty
-%% Englisch/Deutsch/Framed Variante
-%% Auswahl der THM-Umgebungen mit Rahmen = option thmframed
-%% Stand: 2023/03/14
+%% Stand: 2025/09/14
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kenndaten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{./preamble/agfa-theorem}
+\ProvidesPackage{agfa-theorem}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -27,80 +26,141 @@
 \RequirePackage[thmmarks,amsmath]{ntheorem}
 \RequirePackage{mdframed}	% wegen Rahmen
 \mdfsetup{%
-	,ntheorem 		= true
-	,leftmargin 	= 10pt
-	,everyline 		= true
-	,splittopskip 	= 15pt
-	,splitbottomskip = 10pt
-	}
+	ntheorem		= true,
+	leftmargin		= 10pt,
+	everyline		= true,
+	splittopskip	= 15pt,
+	splitbottomskip	= 10pt
+}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Hauptteil
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifthenelse{\boolean{english}\AND\boolean{framed}}
-	{% -- if english and framed
-	  \theoremstyle{plain}
-		\newmdtheoremenv{theorem}{Theorem}[section]
-		\newmdtheoremenv{proposition}[theorem]{Proposition}
-		\newmdtheoremenv{lemma}[theorem]{Lemma}
-		\newmdtheoremenv{corollary}[theorem]{Corollary}
-%		\newmdtheoremenv{example}[theorem]{Example} 
-%		\newmdtheoremenv{examples}[theorem]{Examples}
-		%% -------------------------------------------------	
-		\newmdtheoremenv{thm}[theorem]{Theorem}
-		\newmdtheoremenv{lem}[theorem]{Lemma}
-		\newmdtheoremenv{cor}[theorem]{Corollary}
-		\newmdtheoremenv{prop}[theorem]{Proposition}
-	 }
-	 {% -- else 
-	 \ifthenelse{\NOT\boolean{english}\AND\boolean{framed}}
-	 {% -- if not english aber framed
-	 \theoremstyle{plain}
-		\newmdtheoremenv{theorem}{Theorem}[section]
-		\newmdtheoremenv{proposition}[theorem]{Satz}
-		\newmdtheoremenv{lemma}[theorem]{Lemma}
-		\newmdtheoremenv{corollary}[theorem]{Korollar}
-		\newmdtheoremenv{conjecture}[theorem]{Vermutung}	
-%		\newmdtheoremenv{example}[theorem]{Beispiel} 
-%		\newmdtheoremenv{examples}[theorem]{Beispiele}
-		%% -------------------------------------------------	
-		\newmdtheoremenv{thm}[theorem]{Theorem}
-		\newmdtheoremenv{lem}[theorem]{Lemma}
-		\newmdtheoremenv{cor}[theorem]{Korollar}
-		\newmdtheoremenv{prop}[theorem]{Satz}
-		\newmdtheoremenv{conj}[theorem]{Vermutung}
-	 }
-	 {% -- else
-	 \ifthenelse{\boolean{english}\AND\NOT\boolean{framed}}
-	 {% -- if english and not framed
-	 \theoremstyle{plain}
-	 \theoremindent10pt
-		\newtheorem{theorem}{Theorem}[section]
-		\newtheorem{proposition}[theorem]{Proposition}
-		\newtheorem{lemma}[theorem]{Lemma}
-		\newtheorem{corollary}[theorem]{Corollary}
-%		\newtheorem{example}[theorem]{Example} 
-%		\newtheorem{examples}[theorem]{Examples}
-		%% -------------------------------------------------	
-		\newtheorem{thm}[theorem]{Theorem}
-		\newtheorem{lem}[theorem]{Lemma}
-		\newtheorem{cor}[theorem]{Corollary}
-		\newtheorem{prop}[theorem]{Proposition}
-	 }
-	 {% -- else
-	 \theoremstyle{plain}
-		\theoremindent10pt
-		\newtheorem{theorem}{Theorem}[section]
-		\newtheorem{proposition}[theorem]{Satz}
-		\newtheorem{lemma}[theorem]{Lemma}
-		\newtheorem{corollary}[theorem]{Korollar}
-%		\newtheorem{example}[theorem]{Beispiel} 
-%		\newtheorem{examples}[theorem]{Beispiele}
-		%% -------------------------------------------------	
-		\newtheorem{thm}[theorem]{Theorem}
-		\newtheorem{lem}[theorem]{Lemma}
-		\newtheorem{cor}[theorem]{Korollar}
-		\newtheorem{prop}[theorem]{Satz}
-	 }}}
+%% -- \ifthenelse{\boolean{english}\AND\boolean{framed}}
+%% -- 	{% -- if english and framed
+%% -- 	  \theoremstyle{plain}
+%% -- 		\newmdtheoremenv{theorem}{Theorem}[section]
+%% -- 		\newmdtheoremenv{proposition}[theorem]{Proposition}
+%% -- 		\newmdtheoremenv{lemma}[theorem]{Lemma}
+%% -- 		\newmdtheoremenv{corollary}[theorem]{Corollary}
+%% -- %		\newmdtheoremenv{example}[theorem]{Example} 
+%% -- %		\newmdtheoremenv{examples}[theorem]{Examples}
+%% -- 		%% -------------------------------------------------	
+%% -- 		\newmdtheoremenv{thm}[theorem]{Theorem}
+%% -- 		\newmdtheoremenv{lem}[theorem]{Lemma}
+%% -- 		\newmdtheoremenv{cor}[theorem]{Corollary}
+%% -- 		\newmdtheoremenv{prop}[theorem]{Proposition}
+%% -- 	 }
+%% -- 	 {% -- else 
+%% -- 	 \ifthenelse{\NOT\boolean{english}\AND\boolean{framed}}
+%% -- 	 {% -- if not english aber framed
+%% -- 	 \theoremstyle{plain}
+%% -- 		\newmdtheoremenv{theorem}{Theorem}[section]
+%% -- 		\newmdtheoremenv{proposition}[theorem]{Satz}
+%% -- 		\newmdtheoremenv{lemma}[theorem]{Lemma}
+%% -- 		\newmdtheoremenv{corollary}[theorem]{Korollar}
+%% -- 		\newmdtheoremenv{conjecture}[theorem]{Vermutung}	
+%% -- %		\newmdtheoremenv{example}[theorem]{Beispiel} 
+%% -- %		\newmdtheoremenv{examples}[theorem]{Beispiele}
+%% -- 		%% -------------------------------------------------	
+%% -- 		\newmdtheoremenv{thm}[theorem]{Theorem}
+%% -- 		\newmdtheoremenv{lem}[theorem]{Lemma}
+%% -- 		\newmdtheoremenv{cor}[theorem]{Korollar}
+%% -- 		\newmdtheoremenv{prop}[theorem]{Satz}
+%% -- 		\newmdtheoremenv{conj}[theorem]{Vermutung}
+%% -- 	 }
+%% -- 	 {% -- else
+%% -- 	 \ifthenelse{\boolean{english}\AND\NOT\boolean{framed}}
+%% -- 	 {% -- if english and not framed
+%% -- 	 \theoremstyle{plain}
+%% -- 	 \theoremindent10pt
+%% -- 		\newtheorem{theorem}{Theorem}[section]
+%% -- 		\newtheorem{proposition}[theorem]{Proposition}
+%% -- 		\newtheorem{lemma}[theorem]{Lemma}
+%% -- 		\newtheorem{corollary}[theorem]{Corollary}
+%% -- %		\newtheorem{example}[theorem]{Example} 
+%% -- %		\newtheorem{examples}[theorem]{Examples}
+%% -- 		%% -------------------------------------------------	
+%% -- 		\newtheorem{thm}[theorem]{Theorem}
+%% -- 		\newtheorem{lem}[theorem]{Lemma}
+%% -- 		\newtheorem{cor}[theorem]{Corollary}
+%% -- 		\newtheorem{prop}[theorem]{Proposition}
+%% -- 	 }
+%% -- 	 {% -- else
+%% -- 	 \theoremstyle{plain}
+%% -- 		\theoremindent10pt
+%% -- 		\newtheorem{theorem}{Theorem}[section]
+%% -- 		\newtheorem{proposition}[theorem]{Satz}
+%% -- 		\newtheorem{lemma}[theorem]{Lemma}
+%% -- 		\newtheorem{corollary}[theorem]{Korollar}
+%% -- %		\newtheorem{example}[theorem]{Beispiel} 
+%% -- %		\newtheorem{examples}[theorem]{Beispiele}
+%% -- 		%% -------------------------------------------------	
+%% -- 		\newtheorem{thm}[theorem]{Theorem}
+%% -- 		\newtheorem{lem}[theorem]{Lemma}
+%% -- 		\newtheorem{cor}[theorem]{Korollar}
+%% -- 		\newtheorem{prop}[theorem]{Satz}
+%% -- 	 }}}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Hauptteil - Vereinfachte Struktur
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ifthenelse{\boolean{framed}}{%
+  %% ===== FRAMED VERSIONS =====
+  \theoremstyle{plain}
+  \ifthenelse{\boolean{english}}{%
+    %% English framed
+    \newmdtheoremenv{theorem}{Theorem}[section]
+    \newmdtheoremenv{proposition}[theorem]{Proposition}
+    \newmdtheoremenv{lemma}[theorem]{Lemma}
+    \newmdtheoremenv{corollary}[theorem]{Corollary}
+    %% Short versions
+    \newmdtheoremenv{thm}[theorem]{Theorem}
+    \newmdtheoremenv{lem}[theorem]{Lemma}
+    \newmdtheoremenv{cor}[theorem]{Corollary}
+    \newmdtheoremenv{prop}[theorem]{Proposition}
+  }{%
+    %% German framed
+    \newmdtheoremenv{theorem}{Theorem}[section]
+    \newmdtheoremenv{proposition}[theorem]{Satz}
+    \newmdtheoremenv{lemma}[theorem]{Lemma}
+    \newmdtheoremenv{corollary}[theorem]{Korollar}
+    \newmdtheoremenv{conjecture}[theorem]{Vermutung}
+    %% Short versions
+    \newmdtheoremenv{thm}[theorem]{Theorem}
+    \newmdtheoremenv{lem}[theorem]{Lemma}
+    \newmdtheoremenv{cor}[theorem]{Korollar}
+    \newmdtheoremenv{prop}[theorem]{Satz}
+    \newmdtheoremenv{conj}[theorem]{Vermutung}
+  }
+}{%
+  %% ===== NON-FRAMED VERSIONS =====
+  \theoremstyle{plain}
+  \theoremindent10pt
+  \ifthenelse{\boolean{english}}{%
+    %% English non-framed
+    \newtheorem{theorem}{Theorem}[section]
+    \newtheorem{proposition}[theorem]{Proposition}
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{corollary}[theorem]{Corollary}
+    %% Short versions
+    \newtheorem{thm}[theorem]{Theorem}
+    \newtheorem{lem}[theorem]{Lemma}
+    \newtheorem{cor}[theorem]{Corollary}
+    \newtheorem{prop}[theorem]{Proposition}
+  }{%
+    %% German non-framed
+    \newtheorem{theorem}{Theorem}[section]
+    \newtheorem{proposition}[theorem]{Satz}
+    \newtheorem{lemma}[theorem]{Lemma}
+    \newtheorem{corollary}[theorem]{Korollar}
+    %% Short versions
+    \newtheorem{thm}[theorem]{Theorem}
+    \newtheorem{lem}[theorem]{Lemma}
+    \newtheorem{cor}[theorem]{Korollar}
+    \newtheorem{prop}[theorem]{Satz}
+  }
+}
 %% -------------------------------------------------	
 %% Gilt für alle Variationen
 %% -------------------------------------------------
@@ -168,11 +228,16 @@
 	\newtheorem{question}{Frage}
 	\newtheorem{frage}{Frage}
 }
+
 %% -------------------------------------------------
-%\theoremsymbol{\fbox}
-%\theoremsymbol{\rule{1ex}{1ex}} 
-%\newtheorem{proof}{Beweis}
+%% Proof environment
+%% -------------------------------------------------
+\theoremstyle{nonumberplain} 
 \theoremsymbol{\ensuremath{\square}}
-\newtheorem{proof}{Beweis}
+\ifthenelse{\boolean{english}}{%
+  \newtheorem{proof}{Proof}
+}{%
+  \newtheorem{proof}{Beweis}
+}
 %% -------------------------------------------------
 \endinput	

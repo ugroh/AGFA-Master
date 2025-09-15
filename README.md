@@ -1,6 +1,6 @@
 ### AGFA-Templates (Stand: 2025-09-14)
 
-LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten.
+LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setzte ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
 #### Schnellstart
 
@@ -161,8 +161,12 @@ Für das Korrekturlesen aktiviere den doppelten Zeilenabstand:
 
 #### Wichtige Hinweise
 
-- **Eigene Definitionen** in separate Datei auslagern und per `\input` einbinden. Der Namen dieses solle `abef-defn.tex` sein. 
+- **Eigene Definitionen** in separate Datei auslagern und per `\input` einbinden. Der Namen dieses solle `abef-defn.tex` sein.
+
+- **texmf-Verzeichnis nutzen:** Für systemweite Verfügbarkeit die Pakete aus `./texmf/` in dein lokales texmf-Verzeichnis kopieren. Details siehe [TUG texmf Guide](https://tug.org/texlive/doc/texlive-en/texlive-en.html#x1-110002.3) und [Overleaf Kpathsea Guide](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files) sowie `AGFA-ReadMe.pdf`. 
+
 - **Originaldateien nicht ändern** - erschwert Fehlersuche
+
 - Bei Problemen: alle eigenen Änderungen sichern vor Updates
 
 #### Erweiterte Features

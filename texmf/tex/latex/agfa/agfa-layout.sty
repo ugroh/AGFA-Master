@@ -1,11 +1,14 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Layout
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Layout und Überschriften für AGFA-Master
 %% agfa-layout.sty
-%% Stand: 2023/01/12
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Stand: 2025/09/14
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-layout}
+\ProvidesPackage{agfa-layout}
 %% --
+\RequirePackage{ifthen} 
+
 \setkomafont{sectioning}{\rmfamily\bfseries} 
 \addtokomafont{titlehead}{\normalfont}
 \addtokomafont{title}{\let\huge\Large}
@@ -41,10 +44,10 @@
 \renewcommand*{\subsectionformat}{\thesubsection.\enskip}% Nr. in Überschrift
 % 
 \RedeclareSectionCommand[%
-  ,beforeskip	= -1.75\baselineskip
-  ,afterskip		= 0.25\baselineskip
-  ,font			= \itshape
-  ,tocnumwidth	= 1em
+	beforeskip	= -1.75\baselineskip,
+	afterskip	= 0.25\baselineskip,
+	font		= \itshape,
+	tocnumwidth	= 1em
 ]{subsection}
 %% -- Eintrag in das TOC
 \renewcommand*{\addsubsectiontocentry}[2]{%
@@ -62,21 +65,13 @@
 \setcounter{secnumdepth}{\subsubsectionnumdepth} 	% Anzeigen der subsub-nummer
 \renewcommand*{\thesubsubsection}{\arabic{subsubsection}.\kern.5em} % 1.
 \RedeclareSectionCommand[%
-  	,beforeskip	=  .25\baselineskip		% Skip vor dem Kommando + indent
-	,afterskip	= -0.1em				% Kein Skip aber Abstand
-	,font=\normalfont					%  
-	,tocnumwidth=1.25em					% Eintrag in TOC ist aber unterbunden
-	,tocindent	= 1em					%  
+  	beforeskip	=  .25\baselineskip,	% Skip vor dem Kommando + indent
+	afterskip	= -0.1em,				% Kein Skip aber Abstand
+	font=\normalfont,					%  
+	tocnumwidth=1.25em,					% Eintrag in TOC ist aber unterbunden
+	tocindent	= 1em					%  
 	]{subsubsection} 
 	
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Nummerierung wechselt (**nicht**) **nach** jedem neuen \subsection-Befehl
-%% Geändert 2020/10/10 da nicht sinnvoll wie ursprünglich
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%\makeatletter							
-%%\@removefromreset{subsubsection}{subsection}
-%%\@addtoreset{subsubsection}{section}
-%%\makeatother
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kopf- und Fußzeile
@@ -143,6 +138,4 @@
 \let\raggedfootnote\raggedright
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\endinput
-
 \endinput

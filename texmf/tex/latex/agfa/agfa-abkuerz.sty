@@ -1,9 +1,8 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Abkürzungen 
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Abkürzungen für AGFA-Master
 %% agfa-abkuerz.sty
-%% Muss nach agfa-hyperef.sty geladen werden
-%% Stand: 2025-09-13
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Stand: 2025/09/14
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{agfa-abkuerz}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -15,6 +14,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{xspace}
 %%
+\AtBeginDocument{%
 %% -- Richtige Abkürzungen
 %% --> Englisch
 	\newcommand{\eg}{e.g.\xspace}
@@ -44,6 +44,7 @@
 \newcommand{\evtl}{evtl.\xspace}
 \newcommand{\vgl}{vgl.\xspace}
 %%
-\renewcommand{\L}[1]{\mathcal{{L}(#1)} }	% L(E,F) nach hyperref sonst Fehler
-
+\renewcommand{\L}[1]{\mathcal{L}(#1)}	% L(E,F) sonst Fehler
+%
+} %% Ende \AtBeginDocument
 \endinput
