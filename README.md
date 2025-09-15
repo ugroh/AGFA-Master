@@ -15,20 +15,6 @@ LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Dies
 
 - **AGFA-Light.tex** - Minimale Variante für kleinere Arbeiten, etwa Bachelorarbeit, Seminarausarbeitungen etc. (nur Inhaltsverzeichnis)
 
-#### Zitierstile
-
-Wähle den bevorzugten Bibliographie-Stil in der Hauptdatei:
-
-```latex
-\usepackage[%
-    , numeric      % Standard: [1], [2], [3]
-%   , alphabetic   % [GR80], [Knu84]  
-%   , philosophy   % Spezieller Stil für Philosophie
-%   , urldoi       % DOI-Links in Titeln
-]{./preamble/agfa-art}
-```
-Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und `textcite[]{}`.
-
 #### Verzeichnisstruktur
 
 ```
@@ -60,6 +46,20 @@ Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und 
 ```
 
 ### Wichtige Features
+
+#### Zitierstile
+
+Wähle den bevorzugten Bibliographie-Stil in der Hauptdatei:
+
+```latex
+\usepackage[%
+    , numeric      % Standard: [1], [2], [3]
+%   , alphabetic   % [GR80], [Knu84]  
+%   , philosophy   % Spezieller Stil für Philosophie
+%   , urldoi       % DOI-Links in Titeln
+]{./preamble/agfa-art}
+```
+Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und `textcite[]{}`.
 
 #### Mathematische Umgebungen
 Das Template bietet umfassende mathematische Umgebungen:
