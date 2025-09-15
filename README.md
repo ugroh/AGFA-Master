@@ -228,7 +228,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 
 #### Typografische Hinweise
 
-**Mathematische Texte:** Beachte die Regeln in Nadler's "Formelsatz mit LaTeX" und dem AMS Style Guide.
+**Mathematische Texte:** Beachte die Regeln in [Voss-Mathmode](https://www.ctan.org/pkg/voss-mathmode).
 
 **Deutsche Texte:** 
 - Nutze `\enquote{}` für korrekte Anführungszeichen
