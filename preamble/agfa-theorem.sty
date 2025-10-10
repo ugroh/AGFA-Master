@@ -1,174 +1,179 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Theoremumgebungen für AGFA-Master
+%% Mit amsthm + thmtools (modern und cleveref-kompatibel)
 %% agfa-theorem.sty
-%% Stand: 2025/09/14
+%% Stand: 2025-10-10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Kenndaten
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{./preamble/agfa-theorem}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{./preamble/agfa-theorem}[2025-10-10 v2.0 AGFA theorem environments with amsthm]
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen,etoolbox}
-	\provideboolean{framed}	
-	\provideboolean{english}	
+\provideboolean{framed}
+\provideboolean{english}
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Deklaration von Optionen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareOption{framed}{\setboolean{framed}{true}}	
+\DeclareOption{framed}{\setboolean{framed}{true}}
 \DeclareOption{english}{\setboolean{english}{true}}
 \ProcessOptions\relax
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Notwendige Pakete
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\RequirePackage[ntheorem]{empheq}  
-\RequirePackage[thmmarks,amsmath]{ntheorem}
-\RequirePackage{mdframed}	% wegen Rahmen
-\mdfsetup{%
-	ntheorem		= true,
-	leftmargin		= 10pt,
-	everyline		= true,
-	splittopskip	= 15pt,
-	splitbottomskip	= 10pt
-}
-
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Hauptteil 
+%% Notwendige Pakete
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{amsthm}
+\RequirePackage{thmtools}
+\RequirePackage{empheq}
+
+%% Für gerahmte Varianten
+\ifthenelse{\boolean{framed}}{%
+    \RequirePackage{mdframed}
+    \mdfsetup{%
+        leftmargin      = 10pt,
+        everyline       = true,
+        splittopskip    = 15pt,
+        splitbottomskip = 10pt
+    }
+}{}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Theorem-Stile vorbereiten
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\theoremstyle{plain}      % Für Theoreme, Lemmata
+\theoremstyle{definition} % Für Definitionen
+\theoremstyle{remark}     % Für Bemerkungen
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Hauptteil - Theorem-Definitionen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifthenelse{\boolean{framed}}{%
-  %% ===== FRAMED VERSIONS =====
+  %% ===== MIT RAHMEN =====
   \theoremstyle{plain}
   \ifthenelse{\boolean{english}}{%
-    %% English framed
-    \newmdtheoremenv{theorem}{Theorem}[section]
-    \newmdtheoremenv{proposition}[theorem]{Proposition}
-    \newmdtheoremenv{lemma}[theorem]{Lemma}
-    \newmdtheoremenv{corollary}[theorem]{Corollary}
-    %% Short versions
-    \newmdtheoremenv{thm}[theorem]{Theorem}
-    \newmdtheoremenv{lem}[theorem]{Lemma}
-    \newmdtheoremenv{cor}[theorem]{Corollary}
-    \newmdtheoremenv{prop}[theorem]{Proposition}
+    %% Englisch mit Rahmen
+    \declaretheorem[name=Theorem, numberwithin=section, mdframed={style=mdfstyle}]{theorem}
+    \declaretheorem[name=Proposition, sharenumber=theorem, mdframed={style=mdfstyle}]{proposition}
+    \declaretheorem[name=Lemma, sharenumber=theorem, mdframed={style=mdfstyle}]{lemma}
+    \declaretheorem[name=Corollary, sharenumber=theorem, mdframed={style=mdfstyle}]{corollary}
+    %% Kurzformen
+    \declaretheorem[name=Theorem, sharenumber=theorem, mdframed={style=mdfstyle}]{thm}
+    \declaretheorem[name=Lemma, sharenumber=theorem, mdframed={style=mdfstyle}]{lem}
+    \declaretheorem[name=Corollary, sharenumber=theorem, mdframed={style=mdfstyle}]{cor}
+    \declaretheorem[name=Proposition, sharenumber=theorem, mdframed={style=mdfstyle}]{prop}
   }{%
-    %% German framed
-    \newmdtheoremenv{theorem}{Theorem}[section]
-    \newmdtheoremenv{proposition}[theorem]{Satz}
-    \newmdtheoremenv{lemma}[theorem]{Lemma}
-    \newmdtheoremenv{corollary}[theorem]{Korollar}
-    \newmdtheoremenv{conjecture}[theorem]{Vermutung}
-    %% Short versions
-    \newmdtheoremenv{thm}[theorem]{Theorem}
-    \newmdtheoremenv{lem}[theorem]{Lemma}
-    \newmdtheoremenv{cor}[theorem]{Korollar}
-    \newmdtheoremenv{prop}[theorem]{Satz}
-    \newmdtheoremenv{conj}[theorem]{Vermutung}
+    %% Deutsch mit Rahmen
+    \declaretheorem[name=Theorem, numberwithin=section, mdframed={style=mdfstyle}]{theorem}
+    \declaretheorem[name=Satz, sharenumber=theorem, mdframed={style=mdfstyle}]{proposition}
+    \declaretheorem[name=Lemma, sharenumber=theorem, mdframed={style=mdfstyle}]{lemma}
+    \declaretheorem[name=Korollar, sharenumber=theorem, mdframed={style=mdfstyle}]{corollary}
+    \declaretheorem[name=Vermutung, sharenumber=theorem, mdframed={style=mdfstyle}]{conjecture}
+    %% Kurzformen
+    \declaretheorem[name=Theorem, sharenumber=theorem, mdframed={style=mdfstyle}]{thm}
+    \declaretheorem[name=Lemma, sharenumber=theorem, mdframed={style=mdfstyle}]{lem}
+    \declaretheorem[name=Korollar, sharenumber=theorem, mdframed={style=mdfstyle}]{cor}
+    \declaretheorem[name=Satz, sharenumber=theorem, mdframed={style=mdfstyle}]{prop}
+    \declaretheorem[name=Vermutung, sharenumber=theorem, mdframed={style=mdfstyle}]{conj}
   }
 }{%
-  %% ===== NON-FRAMED VERSIONS =====
+  %% ===== OHNE RAHMEN =====
   \theoremstyle{plain}
-  \theoremindent10pt
   \ifthenelse{\boolean{english}}{%
-    %% English non-framed
-    \newtheorem{theorem}{Theorem}[section]
-    \newtheorem{proposition}[theorem]{Proposition}
-    \newtheorem{lemma}[theorem]{Lemma}
-    \newtheorem{corollary}[theorem]{Corollary}
-    %% Short versions
-    \newtheorem{thm}[theorem]{Theorem}
-    \newtheorem{lem}[theorem]{Lemma}
-    \newtheorem{cor}[theorem]{Corollary}
-    \newtheorem{prop}[theorem]{Proposition}
+    %% Englisch ohne Rahmen
+    \declaretheorem[name=Theorem, numberwithin=section]{theorem}
+    \declaretheorem[name=Proposition, sharenumber=theorem]{proposition}
+    \declaretheorem[name=Lemma, sharenumber=theorem]{lemma}
+    \declaretheorem[name=Corollary, sharenumber=theorem]{corollary}
+    %% Kurzformen
+    \declaretheorem[name=Theorem, sharenumber=theorem]{thm}
+    \declaretheorem[name=Lemma, sharenumber=theorem]{lem}
+    \declaretheorem[name=Corollary, sharenumber=theorem]{cor}
+    \declaretheorem[name=Proposition, sharenumber=theorem]{prop}
   }{%
-    %% German non-framed
-    \newtheorem{theorem}{Theorem}[section]
-    \newtheorem{proposition}[theorem]{Satz}
-    \newtheorem{lemma}[theorem]{Lemma}
-    \newtheorem{corollary}[theorem]{Korollar}
-    %% Short versions
-    \newtheorem{thm}[theorem]{Theorem}
-    \newtheorem{lem}[theorem]{Lemma}
-    \newtheorem{cor}[theorem]{Korollar}
-    \newtheorem{prop}[theorem]{Satz}
+    %% Deutsch ohne Rahmen
+    \declaretheorem[name=Theorem, numberwithin=section]{theorem}
+    \declaretheorem[name=Satz, sharenumber=theorem]{proposition}
+    \declaretheorem[name=Lemma, sharenumber=theorem]{lemma}
+    \declaretheorem[name=Korollar, sharenumber=theorem]{corollary}
+    \declaretheorem[name=Vermutung, sharenumber=theorem]{conjecture}
+    %% Kurzformen
+    \declaretheorem[name=Theorem, sharenumber=theorem]{thm}
+    \declaretheorem[name=Lemma, sharenumber=theorem]{lem}
+    \declaretheorem[name=Korollar, sharenumber=theorem]{cor}
+    \declaretheorem[name=Satz, sharenumber=theorem]{prop}
+    \declaretheorem[name=Vermutung, sharenumber=theorem]{conj}
   }
-}
-%% -------------------------------------------------	
-%% Gilt für alle Variationen
-%% -------------------------------------------------
-\theorembodyfont{\upshape}
-\theoremindent10pt
-\ifthenelse{\boolean{english}}
-{% -- if
-	\newtheorem{example}[theorem]{Example} 
-	\newtheorem{examples}[theorem]{Examples}
-	\newtheorem{definition}[theorem]{Definition}
-	\newtheorem{defn}[theorem]{Definition}
-}
-{% -- else
-	\newtheorem{example}[theorem]{Beispiel} 
-	\newtheorem{examples}[theorem]{Beispiele}
-	\newtheorem{definition}[theorem]{Definition}
-	\newtheorem{defn}[theorem]{Definition}
-}
-	
-%% -------------------------------------------------
-\theoremindent0em
-\ifthenelse{\boolean{english}}
-{% -- if
-	\newtheorem{exercise}{Exercise}[section]
-	\newtheorem{aufgabe}[exercise]{Exercise}
-}
-{% -- else
-	\newtheorem{exercise}{Aufgabe}[section]
-	\newtheorem{aufgabe}[exercise]{Aufgabe}
-}
-%% -------------------------------------------------	
-\theorembodyfont{\small}
-\theoremindent10pt
-\ifthenelse{\boolean{english}}
-{% -- if
-	\newtheorem{remark}[theorem]{Remark}%[section] 
-	\newtheorem{remarks}[theorem]{Remarks}	
-	\newtheorem{rem}[theorem]{Remark}
-}
-{% -- else
-	\newtheorem{remark}[theorem]{Anmerkung}%[section] 
-	\newtheorem{remarks}[theorem]{Anmerkungen}	
-	\newtheorem{anmerkung}[theorem]{Anmerkung}
-	\newtheorem{anmerkungen}[theorem]{Anmerkungen}
-	\newtheorem{rem}[theorem]{Anmerkung}
-}
-%% -------------------------------------------------
-\theoremstyle{nonumberplain}  
-	\theoremindent10pt
-	\theoremheaderfont{\scshape}
-	\theoremseparator{.}
-	\theorembodyfont{\upshape}  
-\ifthenelse{\boolean{english}}
-{% -- if
-	\newtheorem{summary}{Summary}	
-	\newtheorem{zusammenfassung}{Summary}
-	\newtheorem{question}{Question}
-	\newtheorem{frage}{Question}
-}
-{% -- else 
-	\newtheorem{summary}{Zusammenfassung}	
-	\newtheorem{zusammenfassung}{Zusammenfassung}
-	\newtheorem{question}{Frage}
-	\newtheorem{frage}{Frage}
 }
 
 %% -------------------------------------------------
-%% Proof environment
+%% Definitionen und Beispiele (definition style)
 %% -------------------------------------------------
-\theoremstyle{nonumberplain} 
-\theoremsymbol{\ensuremath{\square}}
+\theoremstyle{definition}
 \ifthenelse{\boolean{english}}{%
-  \newtheorem{proof}{Proof}
+    \declaretheorem[name=Example, sharenumber=theorem]{example}
+    \declaretheorem[name=Examples, sharenumber=theorem]{examples}
+    \declaretheorem[name=Definition, sharenumber=theorem]{definition}
+    \declaretheorem[name=Definition, sharenumber=theorem]{defn}
 }{%
-  \newtheorem{proof}{Beweis}
+    \declaretheorem[name=Beispiel, sharenumber=theorem]{example}
+    \declaretheorem[name=Beispiele, sharenumber=theorem]{examples}
+    \declaretheorem[name=Definition, sharenumber=theorem]{definition}
+    \declaretheorem[name=Definition, sharenumber=theorem]{defn}
 }
+
 %% -------------------------------------------------
-\endinput	
+%% Aufgaben (eigener Counter mit Section)
+%% -------------------------------------------------
+\ifthenelse{\boolean{english}}{%
+    \declaretheorem[name=Exercise, numberwithin=section]{exercise}
+    \declaretheorem[name=Exercise, sharenumber=exercise]{aufgabe}
+}{%
+    \declaretheorem[name=Aufgabe, numberwithin=section]{exercise}
+    \declaretheorem[name=Aufgabe, sharenumber=exercise]{aufgabe}
+}
+
+%% -------------------------------------------------
+%% Bemerkungen (remark style, kleiner Text)
+%% -------------------------------------------------
+\theoremstyle{remark}
+\ifthenelse{\boolean{english}}{%
+    \declaretheorem[name=Remark, sharenumber=theorem]{remark}
+    \declaretheorem[name=Remarks, sharenumber=theorem]{remarks}
+    \declaretheorem[name=Remark, sharenumber=theorem]{rem}
+}{%
+    \declaretheorem[name=Anmerkung, sharenumber=theorem]{remark}
+    \declaretheorem[name=Anmerkungen, sharenumber=theorem]{remarks}
+    \declaretheorem[name=Anmerkung, sharenumber=theorem]{anmerkung}
+    \declaretheorem[name=Anmerkungen, sharenumber=theorem]{anmerkungen}
+    \declaretheorem[name=Anmerkung, sharenumber=theorem]{rem}
+}
+
+%% -------------------------------------------------
+%% Unnummerierte Umgebungen
+%% -------------------------------------------------
+\ifthenelse{\boolean{english}}{%
+    \declaretheorem[name=Summary, numbered=no]{summary}
+    \declaretheorem[name=Summary, numbered=no]{zusammenfassung}
+    \declaretheorem[name=Question, numbered=no]{question}
+    \declaretheorem[name=Question, numbered=no]{frage}
+}{%
+    \declaretheorem[name=Zusammenfassung, numbered=no]{summary}
+    \declaretheorem[name=Zusammenfassung, numbered=no]{zusammenfassung}
+    \declaretheorem[name=Frage, numbered=no]{question}
+    \declaretheorem[name=Frage, numbered=no]{frage}
+}
+
+%% -------------------------------------------------
+%% Beweis-Umgebung
+%% -------------------------------------------------
+\ifthenelse{\boolean{english}}{%
+    \renewcommand{\proofname}{Proof}
+}{%
+    \renewcommand{\proofname}{Beweis}
+    \renewcommand{\qedsymbol}{$\square$}
+}
+
+\endinput

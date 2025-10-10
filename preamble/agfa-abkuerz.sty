@@ -14,14 +14,15 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{xspace}
 %%
+\RequirePackage{xspace}
+%%
 \AtBeginDocument{%
-%% -- Richtige Abkürzungen
-%% --> Englisch
-	\newcommand{\eg}{e.g.\xspace}
-	\newcommand{\ie}{i.e.\xspace}
-%% weitere hier eintragen
+%% -- Abkürzungen
+%% -- Englisch
+\newcommand{\eg}{\mbox{e.\,g.}\xspace}
+\newcommand{\ie}{\mbox{i.\,e.}\xspace}
 
-%% --> Deutsch
+%% -- Deutsch
 \newcommand{\zB}{\mbox{z.\,B.}\xspace}
 \newcommand{\iA}{\mbox{i.\,A.}\xspace}
 \newcommand{\iAllg}{\mbox{i.\,Allg.}\xspace}
@@ -29,13 +30,12 @@
 \newcommand{\oAe}{\mbox{o.\,Ä.}\xspace}
 \newcommand{\uAe}{\mbox{u.\,Ä.}\xspace}
 \newcommand{\og}{\mbox{o.\,g.}\xspace}
-\newcommand{\ua}{\mbox{u.\,a.}\xspace} 
-%%
-\newcommand{\inkl}{inkl.\xspace} 
-\newcommand{\sog}{sog.\xspace} 
-\newcommand{\bzgl}{bzgl.\xspace} 
+\newcommand{\ua}{\mbox{u.\,a.}\xspace}
+\newcommand{\inkl}{inkl.\xspace}
+\newcommand{\sog}{sog.\xspace}
+\newcommand{\bzgl}{bzgl.\xspace}
 \newcommand{\fue}{\mbox{f.\,ü.}\xspace}
-\newcommand{\vs}{vs.\xspace} 
+\newcommand{\vs}{vs.\xspace}
 \newcommand{\ca}{ca.\xspace}
 \newcommand{\bzw}{bzw.\xspace}
 \newcommand{\etc}{etc.\xspace}
@@ -43,8 +43,5 @@
 \newcommand{\ggf}{ggf.\xspace}
 \newcommand{\evtl}{evtl.\xspace}
 \newcommand{\vgl}{vgl.\xspace}
-%%
-\renewcommand{\L}[1]{\mathcal{L}(#1)}	% L(E,F)  
-%
 } %% Ende \AtBeginDocument
 \endinput

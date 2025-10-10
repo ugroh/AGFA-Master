@@ -1,9 +1,8 @@
 % !TEX TS-program = pdflatexmk
-
 %% --
 %% -- Vorlage AGFA-Light
-%% -- Stand: 2025-09-14
-%% -- 
+%% -- Stand:	2025-20-10
+%% --
 \documentclass[%
 	,ngerman
 %	,english
@@ -16,19 +15,11 @@
 	]{scrartcl}
 
 %% -- Nutze die AGFA-Pakete
-%% -- Für das Literaturverzechnis kann genutzt werden
-%% -- numeric/alphabetic/philosophy + doiurl. numeric ist der Default, wenn
-%% -- nichts anderes angegeben wird. Ansosnten siehe ReadMe-Dokumentationen
-%% --
 
 \usepackage[%
-%	, numeric			% Default
-%	, alphabetic		% [GR80]
-%	, philosophy		% wie im Buch "Banach Lattices of Positive Operators"
-  	, urldoi			% Wer doi im Titel hinterlegt haben will, sonst auskommentieren
 %	, libertinus		% font libertinus
 %	, lmodern			% font lmodern, das Original von Knuth
-%	, thmframed		% wer es gerahmt haben will
+%	, thmframed			% wer Theoreme etc. gerahmt haben will
 	]{./preamble/agfa-art}
 
 %% -- Literatur-DB durch eigene ersetzen 
@@ -38,10 +29,10 @@
 \ExecuteBibliographyOptions{%
 	,backref		= true	% Auf was ist verwiesen; Rest muss weg
   	,url			= true	% false: URL wird nicht angezeigt 
-  	,doi			= true	% true: URLDOI wird separat angezeigt
+  	,doi			= false	% true: URLDOI wird separat angezeigt
 	,eprint			= false	% true: wird separat angezeigt
-	,maxcitenames  	= 1 	% viele Autoren -> nur der erste erscheint  
-    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf; Auskommentieren für philosphy 
+	,maxcitenames  	= 2 	% viele Autoren -> nur die ersten beiden   
+    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf
 	}
 
 %% -- Links farbig
@@ -66,10 +57,6 @@
 %% --
 \BeforeStartingTOC[toc]{\begin{multicols}{2}}
 \AfterStartingTOC[toc]{\end{multicols}}
-
-\let\ORGvarphi=\varphi
-\let\varphi=\phi
-\let\phi=\ORGvarphi
 
 %% -- Start des Dokuments
 %% --	
@@ -103,9 +90,7 @@ Gern helfe ich aber, wenn es Probleme damit oder es Fragen zur Nutzung von \LaTe
 \input{./content/AGFA-Section-2-Light}
 
 %% -- Literatur
-%% --
-
-% \setcounter{unbalance}{5}		
+%% --	
 \RaggedRight
 \nocite{voss:2012a,lamport:1986,urysohn:1925a}
 \printbibliography

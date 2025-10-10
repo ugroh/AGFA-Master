@@ -1,7 +1,7 @@
 % !TEX TS-program = pdflatexmk
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Das Masterefile: AGFA-Master.tex  
-%% Stand:	2024/07/19 
+%% Stand:	2025-20-10
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[%	 -- siehe KOMA-Script 
 	,toc		= bib 		 
@@ -18,18 +18,11 @@
 	]{scrartcl}			 
 
 %% -- Nutze die AGFA-Pakete
-%% -- Für das Literaturverzechnis kann genutzt werden
-%% -- numeric/alphabetic/philosophy + doiurl. numeric ist der Default, wenn
-%% -- nichts anderes angegeben wird. Ansosnten siehe ReadMe-Dokumentationen
 %% --
 \usepackage[%
-%	, numeric			% Default
-%	, alphabetic		% [GR80]
-%	, philosophy		% wie im Buch "Banach Lattices of Positive Operators"
-  	, urldoi			% Wer doi im Titel hinterlegt haben will, sonst auskommentieren
 %	, libertinus		% font libertinus
 %	, lmodern			% font lmodern, das Original von Knuth
-%	, thmframed		% wer es gerahmt haben will
+%	, thmframed			% wer es gerahmt haben will
 	]{./preamble/agfa-art}
 	
 %% -- Literatur-DB durch eigene ersetzen 
@@ -145,10 +138,7 @@
 				% wenig sinnvoll dieses zu tun; siehe ReadMe.pdf
 				
 \RaggedRight		% Kein Blocksatz
-
-%% -- Beispiele für hinterlegte DOI
-%% --
-\nocite{kahle:2018,zabreiko:1969,comment}
+\nocite{kahle:2018,zabreiko:1969, comment}
 \printbibliography
 
 %% --
