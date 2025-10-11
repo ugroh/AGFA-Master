@@ -37,9 +37,9 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 ├── content/               	# Inhalts-Dateien
 │   ├── 0-AGFA-title.tex  	# Titelseite
 │   ├── AGFA-Einleitung.tex	# etc
-│   └── AGFA-Section-*.tex
+│   └── AGFA-Section-*.tex	# und weitere
 ├── ReadMe
-│	├── AGFA-Master.pdf, AGFA-Light.pdf
+│	├── AGFA-Master.pdf und AGFA-Light.pdf als Muster und Test
 │	├── zbMATH-Nutzung.pdf / BibTeX-DB-Uebersicht.pdf (TODO für mich)
 │	└── AGFA-Readme.pdf
 ├── bib/                   # Literaturverzeichnis
@@ -56,12 +56,9 @@ Wähle den bevorzugten Bibliographie-Stil in der Hauptdatei:
 ```latex
 \usepackage[%
     , numeric      % Standard: [1], [2], [3]
-%   , alphabetic   % [GR80], [Knu84]  
-%   , philosophy   % Spezieller Stil für Philosophie
-%   , urldoi       % DOI-Links in Titeln
 ]{./preamble/agfa-art}
 ```
-Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und `textcite[]{}`.
+Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und `textcite[]{}`. Wer es unbedingt anders haben will – bitte Mail  an mich. 
 
 #### Mathematische Umgebungen
 Das Template bietet umfassende mathematische Umgebungen:
@@ -126,7 +123,7 @@ Vordefinierte Abkürzungen mit intelligentem Leerzeichen:
 
 **Empfohlener Workflow:**
 1. Suche in [zbMath](https://zbmath.org) nach deiner Literatur
-2. Kopiere den BibTeX-Eintrag in `./bib/agfa-bib.bib` (bitte aber diese Datei umbenennen)
+2. Kopiere den BibTeX-Eintrag in `./bib/agfa-bib.bib` (bitte aber dieser Datei einen eigenen Namen geben). 
 3. Nutze [bibtool](https://ctan.org/pkg/bibtool) zur Bearbeitung der Datei. Siehe hierzu auch `zbMATH-Nutzung.pdf`im Unterordner `ReadMe`. Gern helfe ich hier mit.
 
 **DOI-Integration:**
