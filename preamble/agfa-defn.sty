@@ -9,39 +9,49 @@
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% -- var-Symbole für griechisches Alphabet
+%% -- var-Symbole  
 %% --
 \AtBeginDocument{%
-\let\ORGvarepsilon=\varepsilon
-\let\varepsilon=\epsilon
-\let\epsilon=\ORGvarepsilon
-%
-\let\ORGvarrho=\varrho
-\let\varrho=\rho
-\let\rho=\ORGvarrho
-%
-\let\ORGvartheta=\vartheta
-\let\vartheta=\theta
-\let\theta=\ORGvartheta
-%
-\let\ORGvarphi=\varphi
-\let\varphi=\phi
-\let\phi=\ORGvarphi
-%
-\let\ORGvarleq=\leqslant
-\let\leqslant=\leq
-\let\leq=\ORGvarleq
-%
-\let\ORGvargeq=\geqslant
-\let\geqslant=\geq
-\let\geq=\ORGvargeq
-%
-\let\ORGvarpreccurlyeq=\preccurlyeq
-\let\preccurlyeq=\preceq
-\let\preceq=\ORGvarpreccurlyeq
-%
-\let\setminus\smallsetminus			% A - B fuer Mengen
-\renewcommand{\P}{\mathfrak{P}}		% Achtung: \P hat andere Bedeutung in LaTeX
+%% -- Griechische Buchstaben
+
+\let\ORGvarepsilon\varepsilon
+\let\varepsilon\epsilon
+\let\epsilon\ORGvarepsilon
+
+\let\ORGvarrho\varrho
+\let\varrho\rho
+\let\rho\ORGvarrho
+
+\let\ORGvartheta\vartheta
+\let\vartheta\theta
+\let\theta\ORGvartheta
+
+\let\ORGvarphi\varphi
+\let\varphi\phi
+\let\phi\ORGvarphi
+
+%% -- Vergleichsoperatoren
+
+\let\ORGvarleq\leqslant
+\let\leqslant\leq
+\let\leq\ORGvarleq
+
+\let\ORGvargeq\geqslant
+\let\geqslant\geq
+\let\geq\ORGvargeq
+
+\let\ORGvarpreccurlyeq\preccurlyeq
+\let\preccurlyeq\preceq
+\let\preceq\ORGvarpreccurlyeq
+
+%% -- Mengenoperationen
+
+\let\setminus\smallsetminus
+\renewcommand{\P}{\mathfrak{P}}
+
+%% -- Operator L(E,F)
+\let\ORGL\L
+\DeclareRobustCommand{\L}[1]{\mathcal{L}(#1)}%
 }
 
 %% -- Eins einer Algebra
