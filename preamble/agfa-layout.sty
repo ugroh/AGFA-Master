@@ -7,7 +7,10 @@
 \NeedsTeXFormat{LaTeX2e}	%
 \ProvidesPackage{./preamble/agfa-layout}
 %% --
-\RequirePackage{ifthen} 
+\RequirePackage{ifthen}
+\provideboolean{english}
+\DeclareOption{english}{\setboolean{english}{true}}
+\ProcessOptions\relax
 
 \setkomafont{sectioning}{\rmfamily\bfseries} 
 \addtokomafont{titlehead}{\normalfont}

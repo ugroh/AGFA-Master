@@ -1,7 +1,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Querverweise und hyperref
 %% agfa-hyperref.sty
-%% Stand: 2025-10-09
+%% Stand: 2025-10-14
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{./preamble/agfa-hyperref}[2025-10-09 v1.3 Hyperref and cross-reference configuration]
@@ -14,6 +14,9 @@
     \setboolean{english}{true}%
     \setboolean{german}{false}}
 \DeclareOption{german}{%
+    \setboolean{english}{false}%
+    \setboolean{german}{true}}
+\DeclareOption{ngerman}{%
     \setboolean{english}{false}%
     \setboolean{german}{true}}
 \ProcessOptions\relax
