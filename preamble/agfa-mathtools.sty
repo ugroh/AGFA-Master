@@ -63,34 +63,34 @@
 \newcommand{\interior}[1]{%
 	\accentset{\smash{\raisebox{-0.12ex}{$\scriptstyle\circ$}}}{{#1}}\rule{0pt}{2.3ex}}
 	
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Tippfaul DTK 1/2011 & Mail H Voss
-%% Die Greosse der Klammern werden automatisch angepasst
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\makeatletter
-\gdef\resetMathstrut@{%
- \setbox\z@\hbox{%
-   \mathchardef\@tempa\mathcode`\!\relax%
-   \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
-   \expandafter\@tempb\meaning\@tempa \relax
- }%
-\ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
-\makeatother
-%
-\begingroup
- \catcode`(\active \xdef({\left\string(}
- \catcode`)\active \xdef){\right\string)}
- \catcode`[\active \xdef[{\left\string[}
- \catcode`]\active \xdef]{\right\string]}
-% \catcode`|\active \xdef|{\middle\string|}
-\endgroup
-\mathcode`(="8000 \mathcode`)="8000
-\mathcode`[="8000 \mathcode`]="8000
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% sonst gehen Klammern nicht
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\DeclareRobustCommand{\{}{\ifmmode\left\lbrace\else\textbraceleft\fi}
-\DeclareRobustCommand{\}}{\ifmmode\right\rbrace\else\textbraceright\fi}
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Tippfaul DTK 1/2011 & Mail H Voss
+%%% Die Greosse der Klammern werden automatisch angepasst
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\makeatletter
+%\gdef\resetMathstrut@{%
+% \setbox\z@\hbox{%
+%   \mathchardef\@tempa\mathcode`\!\relax%
+%   \def\@tempb##1"##2##3{\the\textfont"##3\char"}%
+%   \expandafter\@tempb\meaning\@tempa \relax
+% }%
+%\ht\Mathstrutbox@\ht\z@ \dp\Mathstrutbox@\dp\z@}
+%\makeatother
+%%
+%\begingroup
+% \catcode`(\active \xdef({\left\string(}
+% \catcode`)\active \xdef){\right\string)}
+% \catcode`[\active \xdef[{\left\string[}
+% \catcode`]\active \xdef]{\right\string]}
+%% \catcode`|\active \xdef|{\middle\string|}
+%\endgroup
+%\mathcode`(="8000 \mathcode`)="8000
+%\mathcode`[="8000 \mathcode`]="8000
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% sonst gehen Klammern nicht
+%%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\DeclareRobustCommand{\{}{\ifmmode\left\lbrace\else\textbraceleft\fi}
+%\DeclareRobustCommand{\}}{\ifmmode\right\rbrace\else\textbraceright\fi}
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

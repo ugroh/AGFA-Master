@@ -1,47 +1,68 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Querverweise und hyperref für AGFA-Master
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Querverweise und hyperref
 %% agfa-hyperref.sty
-%% Stand: 2025/09/14
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-hyperref}
+%% Stand: 2025-10-09
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{./preamble/agfa-hyperref}[2025-10-09 v1.3 Hyperref and cross-reference configuration]
 
 \RequirePackage{ifthen}
- 	\provideboolean{english}
-	\DeclareOption{english}{\setboolean{english}{true}}
+\provideboolean{english}
+\provideboolean{german}
+
+\DeclareOption{english}{%
+    \setboolean{english}{true}%
+    \setboolean{german}{false}}
+\DeclareOption{german}{%
+    \setboolean{english}{false}%
+    \setboolean{german}{true}}
 \ProcessOptions\relax
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Pakete
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\ifthenelse{\boolean{english}}
-{%% -- if
-	\RequirePackage[english,nospace]{varioref}	
-	\RequirePackage[breaklinks = true]{hyperref}   
-	\RequirePackage{cleveref}
-		\crefname{exercise}{Exercise}{Exercises}
-		\crefname{item}{item}{item}
-		\crefname{thm}{Theorem}{Theorem}
-		\crefname{cor}{Corollary}{Corollary}
-		\crefname{prop}{Proposition}{Proposition}
-		\crefname{defn}{Definition}{Definitions}  
-		\crefname{lemma}{Lemma}{Lemmas}         
-		\crefname{rem}{Remark}{Remarks}
+
+%% Pakete laden
+\ifthenelse{\boolean{english}}{%
+    \RequirePackage[english,nospace]{varioref}
+}{%
+    \RequirePackage[ngerman,nospace]{varioref}
 }
-%%
-{%% -- else
-	\RequirePackage[ngerman,nospace]{varioref}			
-	\RequirePackage[breaklinks = true]{hyperref}   
-	\RequirePackage{cleveref}	
-		\crefname{exercise}{Aufgabe}{Aufgaben}
-		\crefname{aufgabe}{Aufgabe}{Aufgaben}
-		\crefname{item}{Punkt}{Punkte}
-		\crefname{thm}{Theorem}{Theorem}
-		\crefname{lemma}{Lemma}{Lemmata}
-		\crefname{lem}{Lemma}{Lemmata}
-		\crefname{cor}{Korollar}{Korollare}
-		\crefname{prop}{Satz}{Sätze}
-		\crefname{defn}{Definition}{Definitionen}
-		\crefname{rem}{Anmerkung}{Anmerkungen}
-}
+\RequirePackage[breaklinks=true]{hyperref}
+\RequirePackage{cleveref}
+
+
+    \ifthenelse{\boolean{english}}{%
+        %% Englische Namen
+        \crefname{theorem}{Theorem}{Theorems}
+        \crefname{thm}{Theorem}{Theorems}
+        \crefname{exercise}{Exercise}{Exercise}
+        \crefname{lemma}{Lemma}{Lemmas}
+        \crefname{lem}{Lemma}{Lemmas}
+        \crefname{proposition}{Proposition}{Propositions}
+        \crefname{prop}{Proposition}{Propositions}
+    	\crefname{corollary}{Corollary}{Corollaries}
+    	\crefname{cor}{Corollary}{Corollaries}
+        \crefname{conjecture}{Conjecture}{Conjectures}
+        \crefname{definition}{Definition}{Definitions}
+        \crefname{defn}{Definition}{Definitions}
+        \crefname{example}{Example}{Examples}
+        \crefname{item}{item}{items}
+    }{%
+        %% Deutsche Namen
+        \crefname{theorem}{Theorem}{Theoreme}
+        \crefname{thm}{Theorem}{Theoreme}
+        \crefname{lemma}{Lemma}{Lemmata}
+        \crefname{lem}{Lemma}{Lemmata}
+        \crefname{proposition}{Satz}{Sätze}
+        \crefname{prop}{Satz}{Sätze}
+        \crefname{corollary}{Korollar}{Korollare}
+        \crefname{cor}{Korollar}{Korollare}
+        \crefname{conjecture}{Vermutung}{Vermutungen}
+        \crefname{definition}{Definition}{Definitionen}
+        \crefname{defn}{Definition}{Definitionen}
+        \crefname{example}{Beispiel}{Beispiele}
+        \crefname{remark}{Anmerkung}{Anmerkungen}
+        \crefname{rem}{Anmerkung}{Anmerkungen}
+        \crefname{exercise}{Aufgabe}{Aufgaben}
+        \crefname{item}{Punkt}{Punkte}
+    }%
+
 
 \endinput

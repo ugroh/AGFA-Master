@@ -1,42 +1,56 @@
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Englisch/Deutsch für AGFA-Master
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Unterstützung Deutsch bzw. Englisch
 %% agfa-babel.sty
-%% Stand: 2025/09/14
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Stand: 2025/10/07
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-babel}  
+\ProvidesPackage{./preamble/agfa-babel}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
  	\provideboolean{english}
  	\provideboolean{ngerman}
-	\DeclareOption{english}{\setboolean{english}{true}} 
+  	\provideboolean{german}
+	\DeclareOption{english}{%
+		\setboolean{english}{true}
+		\setboolean{ngerman}{false} 
+		\setboolean{german}{false}
+		} 
 	\DeclareOption{ngerman}{%
 		\setboolean{english}{false}
-		\setboolean{ngerman}{true}} 
+		\setboolean{ngerman}{true} 
+		\setboolean{german}{true}
+		} 
+	\DeclareOption{german}{%
+		\setboolean{english}{false}
+		\setboolean{ngerman}{true}
+		\setboolean{german}{true}
+		} 
 %% -- Abarbeiten
 \ProcessOptions\relax
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Pakete
+%% Dies kann bei Bedarf 1:1 gegen polyglossia ausgetauscht werden, 
+%% wenn man auf LuaLaTeX umsteigt
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{english}}
 {% --> Englisch
 	\RequirePackage[ngerman,main=english]{babel}
+	\RequirePackage[english=american]{csquotes}
 }{}
-\ifthenelse{\boolean{ngerman}}
-{% --> Deutsch
+
+\ifthenelse{\boolean{ngerman}\OR\boolean{german}}{%
+	% --> Deutsch
 	\RequirePackage[english,main=ngerman]{babel}
-%	\babelprovide[hyphenrules=ngerman-x-latest]{ngerman}
-}
+	\RequirePackage[german=guillemets]{csquotes}
+}{}
 
 %% -- Anführungszeichen
-\RequirePackage[autostyle,german=guillemets,english=american]{csquotes}
+%% -- \RequirePackage[autostyle,german=guillemets,english=american]{csquotes}
 
  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Ausführung
-%% Dies kann bei Bedarf 1:1 gegen polyglossia ausgetauscht werden, 
-%% wenn man auf LuaLaTeX umsteigt
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \ifthenelse{\boolean{english}}
@@ -57,7 +71,7 @@
 \newcommand{\myquestion}[1]{\todo[inline,size=\small]{\myquestiontext #1}}
 \newcommand{\myanswer}[1]{\todo[inline,size=\small]{\myanswertext #1}}
 
-
-
 %% 
 \endinput
+
+
