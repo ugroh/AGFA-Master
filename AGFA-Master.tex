@@ -27,7 +27,7 @@
 	
 %% -- Literatur-DB durch eigene ersetzen 
 %% --
-\addbibresource{./bib/agfa-bib.bib}		% agfa-bib.bib -> abcd-bib.bib	
+\addbibresource{./bib/agfa-bib-neu.bib}		% agfa-bib-neu.bib -> abcd-bib.bib	
 
 \ExecuteBibliographyOptions{%
 	,backref		= true	% Auf was ist verwiesen; Rest muss weg
@@ -137,8 +137,10 @@
 %\nocite{}		% für Literatur, die nicht zitiert wurde; 
 				% wenig sinnvoll dieses zu tun; siehe ReadMe.pdf
 				
-\RaggedRight		% Kein Blocksatz
-\nocite{kahle:2018,zabreiko:1969, comment}
+%% -- Literatur
+%% --	
+\RaggedRight
+\nocite{voss:2012a,lamport:1986,urysohn:1925a,aigner:2010,axler:2015,lamport:dmv,kahle:2018,zabreiko:1969, comment}
 \printbibliography
 
 %% --

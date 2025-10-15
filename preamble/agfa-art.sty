@@ -12,9 +12,10 @@
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{ifthen}
-	\provideboolean{numeric}
-	\provideboolean{alphabetic}     
-	\provideboolean{philosophy}      
+	%\provideboolean{numeric}
+	%\provideboolean{alphabetic}     
+	%\provideboolean{philosophy}      
+	%\provideboolean{urldoi}
  	\provideboolean{english}
  	\provideboolean{german}
 	\provideboolean{refenglish}
@@ -23,7 +24,7 @@
 	\provideboolean{thmframed}
 	\provideboolean{framed}
 	\provideboolean{review}
-	\provideboolean{urldoi}
+
 %%
 
 %% -- Deklaration von Optionen
@@ -57,10 +58,10 @@
 %% -- Bibliographie-Stile
 %% --
 
-\DeclareOption{numeric}{\PassOptionsToPackage{numeric}{./preamble/agfa-biblio}}
-\DeclareOption{alphabetic}{\PassOptionsToPackage{alphabetic}{./preamble/agfa-biblio}}
-\DeclareOption{philosophy}{\PassOptionsToPackage{philosophy}{./preamble/agfa-biblio}}
-\DeclareOption{urldoi}{\PassOptionsToPackage{urldoi}{./preamble/agfa-biblio}}
+%\DeclareOption{numeric}{\PassOptionsToPackage{numeric}{./preamble/agfa-biblio}}
+%\DeclareOption{alphabetic}{\PassOptionsToPackage{alphabetic}{./preamble/agfa-biblio}}
+%\DeclareOption{philosophy}{\PassOptionsToPackage{philosophy}{./preamble/agfa-biblio}}
+%\DeclareOption{urldoi}{\PassOptionsToPackage{urldoi}{./preamble/agfa-biblio}}
 
 %% -- Zeilenabstand verdoppelt
 %% --
@@ -132,8 +133,6 @@
 %% Geschweifte Klammern: Funktionieren sowohl in Mathe als auch Text
 \DeclareRobustCommand{\{}{\ifmmode\left\lbrace\else\textbraceleft\fi}
 \DeclareRobustCommand{\}}{\ifmmode\right\rbrace\else\textbraceright\fi}
-
-%\RequirePackage{ablatt-swap-symbols}
 
 \endinput
 
