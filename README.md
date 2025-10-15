@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2025-10-11)
+### AGFA-Templates (Stand: 2025-10-15)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setzte ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -241,6 +241,8 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2025/10/15) An `TeXlive2025` angepasst (`\vref` etc.). Korrektur der automatischen Änderung der Klammergrößen. 
 
 * (2025/10/10) Bitte `agfa-theorem.sty` austauschen, da dieses komplett auf Basis `AMSTeX` neu gemacht wurde. Die ursprüngliche Lösung mit `ntheorem` funktioniert ab `TeXlive 2025` nicht mehr mit `cleveref` und `varioref`.
 
