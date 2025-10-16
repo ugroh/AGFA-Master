@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2025-10-15)
+### AGFA-Templates (Stand: 2025-10-16)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setzte ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -132,9 +132,9 @@ Mit der `urldoi`-Option werden Titel automatisch zu klickbaren DOI-Links.
 #### Schriftarten
 
 ```latex
-% In agfa-art.sty:
-\usepackage[lmodern]{./preamble/agfa-art}      % Latin Modern
-\usepackage[libertinus]{./preamble/agfa-art}   % Libertinus
+% Beim Auruf von agfa-art.sty eine Alternative angeben:
+	\usepackage[lmodern]{./preamble/agfa-art}      % Latin Modern
+	\usepackage[libertinus]{./preamble/agfa-art}   % Libertinus
 % Ohne Option: Times New Roman (Standard)
 ```
 
@@ -173,6 +173,7 @@ Für das Korrekturlesen aktiviere den doppelten Zeilenabstand:
 
 ##### Selektive Kompilierung
 Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
+
 ```latex
 \includeonly{%
     ./content/AGFA-Section-1,
@@ -181,6 +182,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 ```
 
 ##### Review und Finale Version
+
 ```latex
 % Für Korrekturen:
 \usepackage[review]{./preamble/agfa-art}
@@ -191,6 +193,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 ```
 
 ##### Erweiterte Listen
+
 ```latex
 % Spezielle gerahmte Umgebungen
 \begin{synopsis}
@@ -203,6 +206,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 ```
 
 ##### Mathematische Tools
+
 ```latex
 % Automatische Klammergrößen (einfach schreiben):
 ( \frac{1}{1+x^2} )     % passt sich automatisch an
@@ -215,7 +219,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 \interior{A}           % °A (topologisches Inneres)
 ```
 
-#### Literaturverwaltung mit zbMath
+#### Literaturverwaltung mit zbMath (TODO von mir)
 
 **Empfohlener Workflow:**
 1. Suche deine Referenz auf [zbMath](https://zbmath.org)
@@ -223,7 +227,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 3. Füge ihn in `./bib/agfa-bib.bib` ein
 4. Nutze `\textcite{}` oder `\cite{}` zum Zitieren
 
-**DOI-Integration:** Mit der `urldoi`-Option werden Titel automatisch zu klickbaren Links.
+**DOI-Integration:** Es werden die `doi` Titel des Artikels oder Buchs automatisch zu klickbaren Links.
 
 #### Typografische Hinweise
 
@@ -241,6 +245,19 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2025/10/16) Da es immer noch Unverbesserliche gibt die den Stil `alphabetic` wollen (= [Gr18]) habe ich es schweren Herzens eingebaut. Einfach 
+
+``` latex
+	\usepackage[%
+		%	,libertinus			% font libertinus
+		%	,lmodern			% font lmodern, das Original von Knuth
+		%	,thmframed			% wer Theoreme etc. gerahmt haben will
+		%   ,numeric			% bevorzugt [7]
+ 		,alphabetic			% wer es unbedingt haben will [Gr18]
+	]{./preamble/agfa-art}
+```
+in der Präambel nutzen. Vorher aber `agfa-art.sty` und `agfa-biblio.sty` austauschen (von `GitHub` herunterladen und in `./preamble` kopieren).
 
 * (2025/10/15) An `TeXlive2025` angepasst (`\vref` etc.). Korrektur der automatischen Änderung der Klammergrößen. 
 

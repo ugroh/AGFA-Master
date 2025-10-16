@@ -1,32 +1,51 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ablatt-biblio.sty für iPad -> BibTeX nicht Biber
+%% agfa-biblio.sty 
 %% Für die Darstellung des Literaturverzeichnisses
 %% Eingabe von URL etc. möglich
 %% Stand: 2025-10-15
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{./preamble/ablatt-biblio}
+\ProvidesPackage{agfa-biblio}
 %%
 \RequirePackage{ifthen}	
 \provideboolean{english}
 \provideboolean{ngerman}
 \provideboolean{german}
+\provideboolean{numeric}
+\provideboolean{alphabetic}
 \DeclareOption{english}{\setboolean{english}{true}}
 \DeclareOption{ngerman}{\setboolean{ngerman}{true}}
 \DeclareOption{german}{\setboolean{ngerman}{true}}
+\DeclareOption{numeric}{\setboolean{numeric}{true}}
+\DeclareOption{alphabetic}{\setboolean{alphabetic}{true}}
 \ProcessOptions\relax
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Biblatex mit Biber
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifthenelse{\boolean{numeric}\OR\boolean{alphabetic}}{}{%
+  \setboolean{numeric}{true}%
+}
+%% --
+\ifthenelse{\boolean{numeric}}{%
+	\RequirePackage[%
+		style		= numeric,
+		sorting		= nyt,
+		hyperref	= true,
+		giveninits	= true,
+		backend		= biber,
+		uniquename	= false
+	]{biblatex}}{}
+%% --
+\ifthenelse{\boolean{alphabetic}}{%
 \RequirePackage[%
-	style		= numeric,
+	style		= alphabetic,
 	sorting		= nyt,
 	hyperref	= true,
 	giveninits	= true,
 	backend		= biber,
 	uniquename	= false
-]{biblatex}
-%%
+	]{biblatex}}{}
+%% --
 \setlength{\bibhang}{1em}
 \setlength{\bibnamesep}{.5\normalbaselineskip}
 \setlength{\biblabelsep}{.75em}
