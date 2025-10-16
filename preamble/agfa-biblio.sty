@@ -22,10 +22,16 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Biblatex mit Biber
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Fallback + Priorität: numeric als Standard
 \ifthenelse{\boolean{numeric}\OR\boolean{alphabetic}}{}{%
   \setboolean{numeric}{true}%
 }
 %% --
+%% Fallback + Priorität: numeric als Standard
+%\ifthenelse{\boolean{numeric}\OR\boolean{alphabetic}}{}{%
+%  \setboolean{numeric}{true}%
+%}
+%% 
 \ifthenelse{\boolean{numeric}}{%
 	\RequirePackage[%
 		style		= numeric,
@@ -34,17 +40,17 @@
 		giveninits	= true,
 		backend		= biber,
 		uniquename	= false
-	]{biblatex}}{}
-%% --
+		]{biblatex}}{}%
+	
 \ifthenelse{\boolean{alphabetic}}{%
-\RequirePackage[%
-	style		= alphabetic,
-	sorting		= nyt,
-	hyperref	= true,
-	giveninits	= true,
-	backend		= biber,
-	uniquename	= false
-	]{biblatex}}{}
+	\RequirePackage[%
+		style		= alphabetic,
+		sorting		= nyt,
+		hyperref	= true,
+		giveninits	= true,
+		backend		= biber,
+		uniquename	= false
+		]{biblatex}}{}
 %% --
 \setlength{\bibhang}{1em}
 \setlength{\bibnamesep}{.5\normalbaselineskip}
