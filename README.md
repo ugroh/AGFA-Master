@@ -56,7 +56,7 @@ Wähle den bevorzugten Bibliographie-Stil in der Hauptdatei:
 ```latex
 \usepackage[%
     , numeric      % Standard: [1], [2], [3]
-]{./preamble/agfa-art}
+]agfa-art}
 ```
 Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und `textcite[]{}`. Wer es unbedingt anders haben will – bitte Mail  an mich. 
 
@@ -65,7 +65,7 @@ Das Template bietet umfassende mathematische Umgebungen:
 
 **Mit/ohne Rahmen:**
 ```latex
-\usepackage[thmframed]{./preamble/agfa-art}  % Für gerahmte Theoreme
+\usepackage[thmframed]agfa-art}  % Für gerahmte Theoreme
 ```
 
 **Verfügbare Umgebungen:**
@@ -133,8 +133,8 @@ Mit der `urldoi`-Option werden Titel automatisch zu klickbaren DOI-Links.
 
 ```latex
 % Beim Auruf von agfa-art.sty eine Alternative angeben:
-	\usepackage[lmodern]{./preamble/agfa-art}      % Latin Modern
-	\usepackage[libertinus]{./preamble/agfa-art}   % Libertinus
+	\usepackage[lmodern]agfa-art}      % Latin Modern
+	\usepackage[libertinus]agfa-art}   % Libertinus
 % Ohne Option: Times New Roman (Standard)
 ```
 
@@ -156,7 +156,7 @@ Für die finale Version aktiviere:
 
 Für das Korrekturlesen aktiviere den doppelten Zeilenabstand:
 ```latex
-\usepackage[review]{./preamble/agfa-art}
+\usepackage[review]agfa-art}
 ```
 
 #### Wichtige Hinweise
@@ -185,7 +185,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 
 ```latex
 % Für Korrekturen:
-\usepackage[review]{./preamble/agfa-art}
+\usepackage[review]agfa-art}
 
 % Für finalen Druck:
 \KOMAoptions{BCOR=12mm}  % Bindekorrektur
@@ -255,7 +255,7 @@ Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 		%	,thmframed			% wer Theoreme etc. gerahmt haben will
 		%   ,numeric			% bevorzugt [7]
  		,alphabetic			% wer es unbedingt haben will [Gr18]
-	]{./preamble/agfa-art}
+	]agfa-art}
 ```
 in der Präambel nutzen. Vorher aber `agfa-art.sty` und `agfa-biblio.sty` austauschen (von `GitHub` herunterladen und in `./preamble` kopieren).
 
