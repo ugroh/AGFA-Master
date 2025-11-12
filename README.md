@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2025-10-16)
+### AGFA-Templates (Stand: 2025-11-12)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setzte ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -56,17 +56,12 @@ Wähle den bevorzugten Bibliographie-Stil in der Hauptdatei:
 ```latex
 \usepackage[%
     , numeric      % Standard: [1], [2], [3]
-]agfa-art}
+]{agfa-art}
 ```
-Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und `textcite[]{}`. Wer es unbedingt anders haben will – bitte Mail  an mich. 
+Ich empfehle, nicht das Unsinnige `alphabetic` zu nehmen, sondern `numeric` und `textcite[wo-genau]{label}`. Wer es unbedingt anders haben will – bitte Mail  an mich. 
 
 #### Mathematische Umgebungen
 Das Template bietet umfassende mathematische Umgebungen:
-
-**Mit/ohne Rahmen:**
-```latex
-\usepackage[thmframed]agfa-art}  % Für gerahmte Theoreme
-```
 
 **Verfügbare Umgebungen:**
 - `theorem`, `thm` - Theoreme
@@ -78,7 +73,14 @@ Das Template bietet umfassende mathematische Umgebungen:
 - `remark`, `rem` - Anmerkungen
 - `proof` - Beweise (mit QED-Symbol)
 
+also etwa 
+
+	\begin{theorem}\label{thm:referenz}
+	...
+	\end{theorem}
+
 #### Spezielle Listen-Umgebungen
+
 ```latex
 \begin{myenumerate}    % (i), (ii), (iii)
 \begin{myequivalent}   % (a), (b), (c)  
@@ -96,7 +98,9 @@ Das Template bietet umfassende mathematische Umgebungen:
 
 #### Mathematische Hilfsmittel
 ```latex
-% Automatische Klammergrößen (einfach ( ) verwenden)
+% Automatische Klammergrößen (einfach schreiben):
+( \frac{1}{1+x^2} )     % passt sich automatisch an
+
 % Normen und Beträge
 \norm{x}         % ||x||
 \abs{x}          % |x|
@@ -111,7 +115,7 @@ Das Template bietet umfassende mathematische Umgebungen:
 ```
 
 #### Abkürzungen
-Vordefinierte Abkürzungen mit intelligentem Leerzeichen:
+Vordefinierte Abkürzungen mit dem richtigen Leerzeichen:
 ```latex
 \zB    % z. B.    \dh     % d. h.
 \ua    % u. a.    \etc    % etc.
@@ -133,9 +137,9 @@ Mit der `urldoi`-Option werden Titel automatisch zu klickbaren DOI-Links.
 
 ```latex
 % Beim Auruf von agfa-art.sty eine Alternative angeben:
-	\usepackage[lmodern]agfa-art}      % Latin Modern
-	\usepackage[libertinus]agfa-art}   % Libertinus
-% Ohne Option: Times New Roman (Standard)
+	\usepackage[lmodern]{agfa-art}      % Latin Modern
+	\usepackage[libertinus]{agfa-art}   % Libertinus
+% Ohne Option: Times New Roman (Standard) – empfohlen
 ```
 
 #### Für Overleaf-Nutzer
@@ -185,7 +189,7 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 
 ```latex
 % Für Korrekturen:
-\usepackage[review]agfa-art}
+\usepackage[review]{agfa-art}
 
 % Für finalen Druck:
 \KOMAoptions{BCOR=12mm}  % Bindekorrektur
@@ -205,29 +209,6 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 \end{content}
 ```
 
-##### Mathematische Tools
-
-```latex
-% Automatische Klammergrößen (einfach schreiben):
-( \frac{1}{1+x^2} )     % passt sich automatisch an
-
-% Spezielle Funktionen:
-\norm{x}                % ||x||
-\abs{x}                 % |x|  
-\dualp{x}{y}           % ⟨x,y⟩
-\interval{a,b}         % [a,b]
-\interior{A}           % °A (topologisches Inneres)
-```
-
-#### Literaturverwaltung mit zbMath (TODO von mir)
-
-**Empfohlener Workflow:**
-1. Suche deine Referenz auf [zbMath](https://zbmath.org)
-2. Kopiere den BibTeX-Eintrag
-3. Füge ihn in `./bib/agfa-bib.bib` ein
-4. Nutze `\textcite{}` oder `\cite{}` zum Zitieren
-
-**DOI-Integration:** Es werden die `doi` Titel des Artikels oder Buchs automatisch zu klickbaren Links.
 
 #### Typografische Hinweise
 
