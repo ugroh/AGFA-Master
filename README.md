@@ -8,7 +8,7 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 
 1. **Download:** Klicke auf den grünen `Code`-Button und lade das ZIP-File herunter
 2. **Installation:** Entpacke das Archiv lokal oder lade es (ZIP-File) als neues Projekt auf Overleaf hoch
-3. **Anpassung:** Benenne  `AGFA-Master.tex` um (z.B. `abef-master.tex` für den Namen "Abcd Efgh")
+3. **Anpassung:** Benenne  `AGFA-Master.tex` um (z.B. `abef-master.tex` für den Namen "abcd efgh"; etwa Ulrich Groh -> `ulgr-master.tex`)
 4. **Inhalt:** Ersetze  die Beispielinhalte durch eigene Texte
 
 #### Varianten
