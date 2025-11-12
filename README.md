@@ -156,7 +156,7 @@ Für die finale Version aktiviere:
 
 Für das Korrekturlesen aktiviere den doppelten Zeilenabstand:
 ```latex
-\usepackage[review]agfa-art}
+\usepackage[review]{agfa-art}
 ```
 
 #### Wichtige Hinweise
