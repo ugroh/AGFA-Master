@@ -235,10 +235,10 @@ Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 		%	,lmodern			% font lmodern, das Original von Knuth
 		%	,thmframed			% wer Theoreme etc. gerahmt haben will
 		%   ,numeric			% bevorzugt [7]
- 		,alphabetic			% wer es unbedingt haben will [Gr18]
+ 			,alphabetic			% wer es unbedingt haben will [Gr18]
 	]agfa-art}
 ```
-in der Präambel nutzen. Vorher aber `agfa-art.sty` und `agfa-biblio.sty` austauschen (von `GitHub` herunterladen und in `./preamble` kopieren).
+in der Präambel nutzen. Vorher aber `agfa-art.sty` und `agfa-biblio.sty` austauschen (von `GitHub` herunterladen und in `./preamble` kopieren). Bei einer Neuinstallation ist dieses nicht erforderlich (auch bei den folgenden Änderungen).
 
 * (2025/10/15) An `TeXlive2025` angepasst (`\vref` etc.). Korrektur der automatischen Änderung der Klammergrößen. 
 
