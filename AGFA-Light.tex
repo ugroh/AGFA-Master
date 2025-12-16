@@ -1,7 +1,7 @@
 % !TEX TS-program = pdflatexmk
 %% --
 %% -- Vorlage AGFA-Light
-%% -- Stand:	2025-20-10
+%% -- Stand:	2025-12-16
 %% --
 \documentclass[%
 	,ngerman
@@ -20,14 +20,14 @@
 %	,libertinus			% font libertinus
 %	,lmodern			% font lmodern, das Original von Knuth
 %	,thmframed			% wer Theoreme etc. gerahmt haben will
-   ,numeric			% bevorzugt [7]
+    ,numeric			% bevorzugt [7]
 % 	,alphabetic			% wer es unbedingt haben will [Gr18]
-	]agfa-art}
+	]{./preamble/agfa-art}
 
 %% -- Literatur-DB durch eigene ersetzen 
 %% --
-\addbibresource{./bib/agfa-bib-neu.bib}		% agfa-bib-neu.bib; ändern in abcd-bib.bib
-											% und eigene nutzen
+\addbibresource{./bib/agfa-bib.bib}		% agfa-bib.bib; ändern in abcd-bib.bib
+										% und eigene nutzen
 
 \ExecuteBibliographyOptions{%
 	,backref		= true	% Auf was ist verwiesen; Rest muss weg

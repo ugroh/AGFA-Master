@@ -1,13 +1,13 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Startpaket für AGFA-Master
 %% agfa-art.sty
-%% Stand: 2025-10-16
+%% Stand: 2025-12-16
 %% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kenndaten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackageagfa-art}
+\ProvidesPackage{agfa-art}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -38,30 +38,30 @@
 \DeclareOption{english}{%
 	\setboolean{english}{true}%
 	\setboolean{refenglish}{true}%
-	\PassOptionsToPackage{english}agfa-babel}%
-	\PassOptionsToPackage{english}agfa-hyperef}%
-	\PassOptionsToPackage{english}agfa-theorem}%
-	\PassOptionsToPackage{english}agfa-biblio}%  
+	\PassOptionsToPackage{english}{agfa-babel}%
+	\PassOptionsToPackage{english}{agfa-hyperef}%
+	\PassOptionsToPackage{english}{agfa-theorem}%
+	\PassOptionsToPackage{english}{agfa-biblio}%  
 }
 
 %% -- mathematische Umgebungen mit/ohne Rahmen
 %% --
 
-\DeclareOption{thmframed}{\PassOptionsToPackage{framed}agfa-theorem}}
+\DeclareOption{thmframed}{\PassOptionsToPackage{framed}{agfa-theorem}}
 
 %% -- Schrift
 %% --
 
-\DeclareOption{lmodern}{\PassOptionsToPackage{lmodern}agfa-font}}
-\DeclareOption{libertinus}{\PassOptionsToPackage{libertinus}agfa-font}}
+\DeclareOption{lmodern}{\PassOptionsToPackage{lmodern}{agfa-font}}
+\DeclareOption{libertinus}{\PassOptionsToPackage{libertinus}{agfa-font}}
 
 %% -- Bibliographie-Stile  
 %% --
 
-\DeclareOption{numeric}{\PassOptionsToPackage{numeric}agfa-biblio}}
-\DeclareOption{alphabetic}{\PassOptionsToPackage{alphabetic}agfa-biblio}}
-%\DeclareOption{philosophy}{\PassOptionsToPackage{philosophy}agfa-biblio}}
-%\DeclareOption{urldoi}{\PassOptionsToPackage{urldoi}agfa-biblio}}
+\DeclareOption{numeric}{\PassOptionsToPackage{numeric}{agfa-biblio}}
+\DeclareOption{alphabetic}{\PassOptionsToPackage{alphabetic}{agfa-biblio}}
+%\DeclareOption{philosophy}{\PassOptionsToPackage{philosophy}{agfa-biblio}}
+%\DeclareOption{urldoi}{\PassOptionsToPackage{urldoi}{agfa-biblio}}
 
 %% -- Zeilenabstand verdoppelt
 %% --
@@ -78,21 +78,21 @@
 \RequirePackage{etex,etoolbox,letltxmacro,metalogo}
 
 %% -- 
-\RequirePackageagfa-font}
-\RequirePackageagfa-layout}
-\RequirePackageagfa-pakete}
-\RequirePackageagfa-babel}
-\RequirePackageagfa-listen}
+\RequirePackage{agfa-font}
+\RequirePackage{agfa-layout}
+\RequirePackage{agfa-pakete}
+\RequirePackage{agfa-babel}
+\RequirePackage{agfa-listen}
 %% --
-\RequirePackageagfa-mathtools}
-\RequirePackageagfa-theorem}
+\RequirePackage{agfa-mathtools}
+\RequirePackage{agfa-theorem}
 %% --
-\RequirePackageagfa-defn}
-\RequirePackageagfa-biblio}
+\RequirePackage{agfa-defn}
+\RequirePackage{agfa-biblio}
 %% --
-\RequirePackageagfa-hyperref}
+\RequirePackage{agfa-hyperref}
 %% --
-\RequirePackageagfa-abkuerz}	
+\RequirePackage{agfa-abkuerz}	
 
 %% -- Zeilenabstand für review
 %% --
