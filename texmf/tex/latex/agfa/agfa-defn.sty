@@ -1,47 +1,57 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Definitionen für AGFA-Master
 %% agfa-defn.sty
-%% Stand: 2025/09/14
+%% Stand: 2025-10-14
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{agfa-defn}
+\ProvidesPackage{./preamble/agfa-defn}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% -- var-Symbole für griechisches Alphabet
+%% -- var-Symbole  
 %% --
 \AtBeginDocument{%
-\let\ORGvarepsilon=\varepsilon
-\let\varepsilon=\epsilon
-\let\epsilon=\ORGvarepsilon
-%
-\let\ORGvarrho=\varrho
-\let\varrho=\rho
-\let\rho=\ORGvarrho
-%
-\let\ORGvartheta=\vartheta
-\let\vartheta=\theta
-\let\theta=\ORGvartheta
-%
-\let\ORGvarphi=\varphi
-\let\varphi=\phi
-\let\phi=\ORGvarphi
-%
-\let\ORGvarleq=\leqslant
-\let\leqslant=\leq
-\let\leq=\ORGvarleq
-%
-\let\ORGvargeq=\geqslant
-\let\geqslant=\geq
-\let\geq=\ORGvargeq
-%
-\let\ORGvarpreccurlyeq=\preccurlyeq
-\let\preccurlyeq=\preceq
-\let\preceq=\ORGvarpreccurlyeq
-%
-\let\setminus\smallsetminus			% A - B fuer Mengen
-\renewcommand{\P}{\mathfrak{P}}		% Achtung: \P hat andere Bedeutung in LaTeX
+%% -- Griechische Buchstaben
+
+\let\ORGvarepsilon\varepsilon
+\let\varepsilon\epsilon
+\let\epsilon\ORGvarepsilon
+
+\let\ORGvarrho\varrho
+\let\varrho\rho
+\let\rho\ORGvarrho
+
+\let\ORGvartheta\vartheta
+\let\vartheta\theta
+\let\theta\ORGvartheta
+
+\let\ORGvarphi\varphi
+\let\varphi\phi
+\let\phi\ORGvarphi
+
+%% -- Vergleichsoperatoren
+
+\let\ORGvarleq\leqslant
+\let\leqslant\leq
+\let\leq\ORGvarleq
+
+\let\ORGvargeq\geqslant
+\let\geqslant\geq
+\let\geq\ORGvargeq
+
+\let\ORGvarpreccurlyeq\preccurlyeq
+\let\preccurlyeq\preceq
+\let\preceq\ORGvarpreccurlyeq
+
+%% -- Mengenoperationen
+
+\let\setminus\smallsetminus
+\renewcommand{\P}{\mathfrak{P}}
+
+%% -- Operator L(E,F)
+\let\ORGL\L
+\DeclareRobustCommand{\L}[1]{\mathcal{L}(#1)}%
 }
 
 %% -- Eins einer Algebra
@@ -60,34 +70,35 @@
 
 
 %% -- Differential Allgemeine Abkuerzungen
-\newcommand*{\diff}[1]{\mathop{}\!\mathrm{d}{#1}}	% \diff{s} = ds, 
-\renewcommand*{\d}[1]{\mathop{}\!\mathrm{d}{#1}}	% \d{\mu} = d.., 
-\newcommand*{\ds}{\mathop{}\!\mathrm{d}{s}}       	% \ds = ds, 
-\newcommand*{\dg}{\mathop{}\!\mathrm{d}{g}}       	% \dg = dg, 
-\newcommand*{\dt}{\mathop{}\!\mathrm{d}{t}}       	% \dt = dt, 
-\newcommand*{\dx}{\mathop{}\!\mathrm{d}{x}}       	% \dx = dx, 
-\newcommand*{\dy}{\mathop{}\!\mathrm{d}{y}}       	% \dy = dy, 
-\newcommand*{\dr}{\mathop{}\!\mathrm{d}{r}}       	% \dx = dr, 
+\newcommand*{\diff}[1]{\mathop{}\;\mathrm{d}{#1}}	% \diff{s} = ds, 
+\renewcommand*{\d}[1]{\mathop{}\;\mathrm{d}{#1}}	% \d{\mu} = d.., 
+\newcommand*{\ds}{\mathop{}\;\mathrm{d}{s}}       	% \ds = ds, 
+\newcommand*{\dg}{\mathop{}\;\mathrm{d}{g}}       	% \dg = dg, 
+\newcommand*{\dt}{\mathop{}\;\mathrm{d}{t}}       	% \dt = dt, 
+\newcommand*{\dx}{\mathop{}\;\mathrm{d}{x}}       	% \dx = dx, 
+\newcommand*{\dy}{\mathop{}\;\mathrm{d}{y}}       	% \dy = dy, 
+\newcommand*{\dr}{\mathop{}\;\mathrm{d}{r}}       	% \dx = dr, 
 
 %% -- Inverse fuer Mengenfunktionen
 \newcommand{\finv}[1]{\stackrel{-1}{#1}}  % 
 
 %% -- Eulersche Zahl und imaginäre Einheit
 \newcommand{\im}{\ensuremath{\mathrm{i}}}
-\newcommand{\eu}{\ensuremath{\mathrm{e\;\!}}}
+\newcommand{\eu}{\ensuremath{\mathrm{e}}}
+\newcommand{\iu}{\ensuremath{\mathrm{i}}}
 
 %% -- Bezeichnungen
-\newcommand*{\sig}{\mathop{}\!\mathrm{sign}\,}  % \sign
-\newcommand*{\lin}{\mathop{}\!\mathrm{lin}}		%  Linearer Aufspann
-\newcommand*{\conv}{\mathop{}\!\mathrm{conv}}	% Konvex
+\newcommand*{\sig}{\operatorname{sign}}
+\newcommand*{\lin}{\operatorname{lin}}
+\newcommand*{\conv}{\operatorname{conv}}
 
 %% -- Operatoren
 
-\newcommand*{\pr}{\mathop{}\!\mathrm{pr}}   		% Projektion
-\newcommand{\tr}[1]{\mathop{}\mathrm{Tr}(#1)}		% Spur
-\newcommand{\Kern}[1]{\mathop{}\mathrm{ker}(#1)\,}	
-\newcommand{\Bild}[1]{\mathop{}\mathrm{im}(#1)\,}	 % Bild
-\newcommand{\Fix}[1]{\mathop{}\mathrm{Fix}(#1)}
+\DeclareMathOperator{\pr}{pr}      % Projektion
+\DeclareMathOperator{\tr}{Tr}      % Spur
+\DeclareMathOperator{\Kern}{ker}   % Kern
+\DeclareMathOperator{\Bild}{im}    % Bild
+\DeclareMathOperator{\Fix}{Fix}    % Fixpunktmenge Fix(T)
 %
 \DeclareMathOperator{\dom}{dom} 					% Definitionsbereich
 \DeclareMathOperator{\ran}{ran} 					% Bildbereich
