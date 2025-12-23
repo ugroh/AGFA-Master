@@ -210,6 +210,17 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 ```
 
 
+##### HINWEIS: Klammern über mehrere Zeilen
+
+Für mehrzeilige Formeln mit Klammern:
+
+
+- Verwende `\left. ... \right\}` am Ende der ersten Zeile
+- Verwende `\left\{ ... \right.` am Anfang der nächsten Zeile
+- Nutze `\vphantom{}` für konsistente Klammergrößen
+
+Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange.com/questions/21290)
+
 #### Typografische Hinweise
 
 **Mathematische Texte:** Beachte die Regeln in [Voss-Mathmode](https://www.ctan.org/pkg/voss-mathmode).
