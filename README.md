@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2025-11-12)
+### AGFA-Templates (Stand: 2026.01-31)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setzte ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -171,6 +171,8 @@ Für das Korrekturlesen aktiviere den doppelten Zeilenabstand:
 
 - **Originaldateien nicht ändern** - erschwert Fehlersuche
 
+- **Biber und nicht BibTex** Für die Erstellung des Literaturverzeichnis im Editor unbedingt `biber` einstellen und nicht ` bibtex`.
+
 - Bei Problemen: alle eigenen Änderungen sichern vor Updates
 
 #### Erweiterte Features
@@ -237,6 +239,8 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2026/01/31) Um Ausdrücke der Form A/B besser eingeben zu können (d.h. nichtnur eine Linie) gibt es für den Textmodus den Befehl `\sfrac{E}{F}` und für den Mathematikmodus den Befehl `\mfrac{E}{F}` (wichtig: Im Mathematikmodus) Will man also `\sfrac` auch im Mathematikmodus nutzen, dann via `\text{\sfrac{E}{F}}`.
 
 * (2025/10/16) Da es immer noch Unverbesserliche gibt die den Stil `alphabetic` wollen (= [Gr18]) habe ich es schweren Herzens eingebaut. Einfach 
 
