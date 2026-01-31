@@ -38,22 +38,17 @@
 \newcommand{\rointerval}[1]{\left[ #1 \right[}
 \newcommand{\lointerval}[1]{\left] #1 \right]} 
 
-%% -- Angepasstes E/F und 1/3
-%% -- 1/3
-%\newcommand*{\sfrac}[2]{\raisebox{-0.33ex}{${}^{#1}$\kern-0.2em}/\kern0.0em{{\raisebox{0.34ex}{$_{#2}$}}}}
-
+%% -- Angepasstes E/F und 1/3     
+%% -- E/F im Textmodus: \sfrac{E}{F}
+%% -- E/F in Mathmodus: \mfrac{E}{F}
+%% -- 
+\newcommand{\mfrac}[2]{{\raise0.5ex\hbox{$#1$}}\kern.025em\big/\kern.025em{\raise-0.5ex\hbox{$#2$}}}
+%% --
 \newcommand*{\sfrac}[2]{\leavevmode\kern.1em%
-       \raise.5ex\hbox{\scriptsize #1}%
-       \kern-.1em/\kern-.15em%
-       \lower.25ex\hbox{\scriptsize #2}}
-       
-%% -- E/F
-\renewcommand{\tfrac}[2]{\raisebox{0.5ex}{#1}\big/\raisebox{-0.5ex}{#2}}
-%%
-\newcommand{\nfrac}[2]{\leavevmode\kern.1em%
-       \raise.5ex\hbox{\scriptsize #1}%
-       \kern-.1em/\kern-.15em%
-       \lower.25ex\hbox{\scriptsize #2}}
+       \raise.5ex\hbox{\small #1}%
+       \kern.025em/\kern.025em%
+       \lower.25ex\hbox{\small #2}}
+%%}
 %
 \RequirePackage{accents}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
