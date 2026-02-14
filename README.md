@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2026.01-31)
+### AGFA-Templates (Stand: 2026-02-14)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setzte ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -216,7 +216,6 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 
 Für mehrzeilige Formeln mit Klammern:
 
-
 - Verwende `\left. ... \right\}` am Ende der ersten Zeile
 - Verwende `\left\{ ... \right.` am Anfang der nächsten Zeile
 - Nutze `\vphantom{}` für konsistente Klammergrößen
@@ -239,6 +238,8 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2026/02/14) das Paket `mleftright` zugefügt und aktiv gemacht (`\mleftright`), damit die automatische Klammergrößenanpassung korrekt funktioniert im Fall von `$X(O)$`.
 
 * (2026/01/31) Um Ausdrücke der Form A/B besser eingeben zu können (d.h. nichtnur eine Linie) gibt es für den Textmodus den Befehl `\sfrac{E}{F}` und für den Mathematikmodus den Befehl `\mfrac{E}{F}` (wichtig: Im Mathematikmodus) Will man also `\sfrac` auch im Mathematikmodus nutzen, dann via `\text{\sfrac{E}{F}}`.
 
