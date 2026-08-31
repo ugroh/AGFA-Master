@@ -2,10 +2,11 @@
 %% Theoremumgebungen für AGFA-Master
 %% Mit amsthm + thmtools (modern und cleveref-kompatibel)
 %% agfa-theorem.sty
-%% Stand: 2025-10-10
+%% Stand: 2026-08-31 (v2.1: Workaround fuer den TeX Live 2026 /
+%%                     thmtools-sharenumber-Bug)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{./preamble/agfa-theorem}[2025-10-10 v2.0 AGFA theorem environments with amsthm]
+\ProvidesPackage{./preamble/agfa-theorem}[2026-08-31 v2.1 AGFA theorem environments with amsthm, TL2026-safe]
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
@@ -27,6 +28,23 @@
 \RequirePackage{amsthm}
 \RequirePackage{thmtools}
 \RequirePackage{empheq}
+
+%% --- Workaround für TeX Live 2026 / thmtools-Bug ------------------------
+%% Der LaTeX-Kernel 2026 fuehrt einen neuen \newcounteralias-Mechanismus
+%% fuer Theorem-Umgebungen ein. thmtools 0.76 ist damit noch nicht
+%% kompatibel: JEDES \declaretheorem[..., sibling=... bzw. sharenumber=...
+%% bzw. numberlike=...]{...} bricht mit "Command \c@<name> already
+%% defined" ab (offizieller Bug, siehe
+%% https://github.com/muzimuzhi/thmtools/issues/75). Offizieller
+%% Workaround (TeX Live 2026 Release Notes / Overleaf-Blog): vor den
+%% \declaretheorem-Aufrufen \thmt@autorefsetup so umdefinieren, dass es
+%% den neuen Kernel-Mechanismus nicht anstoesst.
+\makeatletter
+\@ifundefined{newcounteralias}{}{%
+    \renewcommand\thmt@autorefsetup{\@xa\def\csname\thmt@envname autorefname\@xa\endcsname\@xa{\thmt@thmname}}%
+}
+\makeatother
+%% -------------------------------------------------------------------------
 
 %% Für gerahmte Varianten
 \ifthenelse{\boolean{framed}}{%
