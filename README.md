@@ -2,6 +2,8 @@
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setzte ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
+Wer sich in `LaTeX` einarbeiten will: [LearnLaTeX](https://www.learnlatex.org/de/) hilft dabei.
+
 Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 
 #### Schnellstart
@@ -238,6 +240,8 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2026/08/31) Anpassung von `agfa-theorem.sty` and `TeXLive 2026`. 
 
 * (2026/02/14) das Paket `mleftright` zugefügt und aktiv gemacht (`\mleftright`), damit die automatische Klammergrößenanpassung korrekt funktioniert im Fall von `$X(O)$`.
 
