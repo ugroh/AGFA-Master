@@ -1,10 +1,10 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Querverweise und hyperref
 %% agfa-hyperref.sty
-%% Stand: 2025-10-14
+%% Stand: 2026-09-20
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{./preamble/agfa-hyperref}[2025-10-09 v1.3 Hyperref and cross-reference configuration]
+\ProvidesPackage{agfa-hyperref}[2026-09-20 v1.4 Hyperref and cross-reference configuration]
 
 \RequirePackage{ifthen}
 \provideboolean{english}
@@ -20,6 +20,17 @@
     \setboolean{english}{false}%
     \setboolean{german}{true}}
 \ProcessOptions\relax
+
+%% Workaround fuer varioref >= 1.6h (TeX Live 2026):
+%% varioref legt beim Laden \extras<Sprache> mit \csname an und haengt dann
+%% seine Strings an. Existiert das Makro noch nicht (kein babel, z.B. bei
+%% polyglossia), enthaelt es sich danach selbst -> Endlosrekursion
+%% "input stack size" bei \begin{document}.
+%% Loesung: die Makros vorher (leer) definieren; babel-Definitionen bleiben
+%% unberuehrt, da \providecommand nur Undefiniertes anlegt.
+\providecommand*{\extrasenglish}{}
+\providecommand*{\extrasngerman}{}
+\providecommand*{\extrasgerman}{}
 
 %% Pakete laden
 \ifthenelse{\boolean{english}}{%
@@ -47,8 +58,6 @@
         \crefname{defn}{Definition}{Definitions}
         \crefname{example}{Example}{Examples}
         \crefname{item}{item}{items}
-        \crefname{remark}{Remark}{Remarks}
-        \crefname{rem}{Remark}{Remarks}
     }{%
         %% Deutsche Namen
         \crefname{theorem}{Theorem}{Theoreme}
