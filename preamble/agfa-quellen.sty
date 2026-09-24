@@ -1,0 +1,70 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- Rom-Quellen.sty
+%% -- Verzeichnis der Bildquellen: \quelle{URL} bei einer Abbildung,
+%% -- \druckequellen gibt die gesammelten Angaben aus.
+%% -- Bitte diese Datei nicht verändern.
+%% -- Stand: 2026-09-24
+%% --   2026-09-24: \quelle liest die URL jetzt mit geänderten
+%% --               Catcodes ein, damit auch %, #, &, _, ~, ^, $
+%% --               unverändert (ohne Backslash) angegeben werden
+%% --               können, z. B. prozentkodierte Adressen (%C3%B6).
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{agfa-quellen}
+
+\RequirePackage{etoolbox}
+
+\makeatletter
+
+%% -- Sammelstelle fuer die Bildquellen; wird pro refsection geleert
+\newcommand{\bildquellen}{}
+\newcounter{quellenr}
+
+%% -- Aufruf: \quelle{URL} direkt bei/unter der jeweiligen Abbildung
+%% -- (innerhalb der figure-Umgebung, nach \caption).
+%% -- Erzeugt an der Stelle selbst keine sichtbare Ausgabe, sondern
+%% -- sammelt den Eintrag fuer \druckequellen.
+%% -- Die URL wird wie bei \url unverändert übernommen: Sonderzeichen
+%% -- wie %, #, &, _, ~ muessen NICHT escaped werden.
+%% -- Einschränkung: \quelle darf nicht im Argument eines anderen
+%% -- Befehls stehen (etwa in \caption{...}), da die Catcodes dort
+%% -- bereits festgelegt sind.
+\newcommand{\quelle}{%
+  \begingroup
+  \catcode`\%=12 \catcode`\#=12 \catcode`\&=12 \catcode`\_=12
+  \catcode`\~=12 \catcode`\^=12 \catcode`\$=12
+  \Rom@quelle
+}
+\newcommand{\Rom@quelle}[1]{%
+  \endgroup
+  \stepcounter{quellenr}%
+  \phantomsection
+  \label{quelle:\thequellenr}%
+  \edef\@tempa{%
+    \noexpand\g@addto@macro\noexpand\bildquellen{%
+      \noexpand\item Abb.~\thefigure, S.~\noexpand\pageref{quelle:\thequellenr}:
+      \noexpand\url{\unexpanded{#1}}}%
+  }%
+  \@tempa
+}
+
+%% -- Aufruf: \druckequellen am Ende des eigenen Beitrags aufrufen
+%% -- (nach \printbibliography, vor \end{refsection}).
+%% -- Gibt nichts aus, wenn keine \quelle{...} verwendet wurde.
+\newcommand{\druckequellen}{%
+  \ifdefempty{\bildquellen}{}{%
+    \subsection*{Bildquellen}
+    \begin{enumerate}[label={[\arabic*]}]
+    \bildquellen
+    \end{enumerate}
+  }%
+  \global\let\bildquellen\@empty
+}
+
+%% -- Verzeichnis pro refsection zuruecksetzen, damit sich die
+%% -- Bildquellen verschiedener Beitraege nicht vermischen.
+\BeforeBeginEnvironment{refsection}{\global\let\bildquellen\@empty}
+\AfterEndEnvironment{refsection}{\global\let\bildquellen\@empty}
+
+\makeatother
+%% -- Ende Rom-Quellen.sty

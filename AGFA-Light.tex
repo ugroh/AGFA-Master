@@ -1,0 +1,97 @@
+% !TEX TS-program = lualatexmk
+%% --
+%% -- Vorlage AGFA-Light
+%% -- Stand:	2026-09-24
+%% --
+\documentclass[%
+	,ngerman
+	,fontsize		= 12pt 
+	,toc			= bib
+	,abstract		= true	% oder auskommentieren
+	,parskip		= half+
+%	,BCOR 			= 12mm	% Bindekorrektur
+	]{scrartcl}
+
+%% -- Nutze die AGFA-Pakete
+
+\usepackage[%
+%	, libertinus		% font libertinus
+%	, lmodern			% font lmodern, das Original von Knuth
+%	, thmframed			% wer es gerahmt haben will
+	]{./preamble/agfa-art}
+
+%% -- Literatur-DB durch eigene ersetzen 
+%% --
+\addbibresource{./bib/agfa-bib.bib}		% agfa-bib.bib; ändern in abcd-bib.bib
+										% und eigene nutzen
+
+\ExecuteBibliographyOptions{%
+	,backref		= true	% Auf was ist verwiesen; Rest muss weg
+  	,url			= true	% false: URL wird nicht angezeigt 
+  	,doi			= false	% true: URLDOI wird separat angezeigt
+	,eprint			= false	% true: wird separat angezeigt
+	,maxcitenames  	= 2 	% viele Autoren -> nur die ersten beiden   
+    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf
+	}
+
+%% -- Links farbig
+%% --
+
+\hypersetup{
+	,colorlinks	= true    			%   onlineversion true                                                           
+	,urlcolor	= blue       		%                                                              
+	,citecolor	= blue      		%                                                          
+	,linkcolor	= blue			 	% oder black
+%  	,hidelinks 						% Vor dem Druck % entfernen
+	}
+	
+%% -- Titelseite
+%% --
+\title{Die Vorlage \textsc{AGFA-Light.tex}}
+\subtitle{-- Erläuterungen --}
+\date{\today}
+\author{U. Groh}
+
+%% -- TOC zweispaltig 
+%% --
+\BeforeStartingTOC[toc]{\begin{multicols}{2}\raggedcolumns}
+\AfterStartingTOC[toc]{\end{multicols}}
+
+%% -- Start des Dokuments
+%% --	
+\begin{document}
+
+%% -- Titel  
+%% --
+
+%% \begin{comment}
+\maketitle
+\thispagestyle{empty}	% keine Seitenzahl auf der ersten Seite
+\tableofcontents
+%% \end{comment}
+
+%% -- Dictum
+%% -- 
+\dictum[\href{https://de.wikipedia.org/wiki/Friedrich_Dürrenmatt}{F. Dürrenmatt}]{Das Rationale am Menschen sind seine Einsichten, das Irrationale, dass er nicht danach handelt.}
+
+%% -- Zusammenfassung
+%% --
+\begin{abstract}
+Dies ist eine kleine Übersicht zu \TeX{}, der Nutzung von \LaTeX{} und Erläuterungen zu den Vorlagen.
+Dies ist keine vollständige Ausarbeitung; sie soll nur den Einstieg erleichtern.
+Gern helfe ich, wenn es Probleme oder Fragen zur Nutzung von \LaTeX{} gibt.
+\end{abstract}
+
+%% -- Die Abschnitte
+%% --
+\input{./content-light/AGFA-Section-1-Light}
+\input{./content-light/AGFA-Section-2-Light}
+
+%% -- Literatur
+%% --	
+\RaggedRight
+%% TODO: voss:2012a in agfa-bib.bib klären
+\nocite{voss:2012a,lamport:1986,urysohn:1925a,aigner:2010,axler:2015,lamport:dmv}
+\printbibliography
+%
+\end{document}
