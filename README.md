@@ -26,6 +26,7 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 ```
 ├── AGFA-Master.tex        	# Hauptvorlage
 ├── AGFA-Light.tex         	# Minimale Variante
+├── Test-Schriften.tex    	# Test der Schriftoptionen (lucida, japanese)
 ├── seminar/               	# Einstieg für Anfänger
 │   └── AGFA-Seminar.tex  	# eine Datei, alles kommentiert
 ├── preamble/              	# Paket-Definitionen
@@ -191,8 +192,22 @@ Am Ende (nach `\printbibliography`) gibt `\druckequellen` das Verzeichnis „Bil
 % Beim Aufruf von agfa-art.sty eine Alternative angeben:
 	\usepackage[lmodern]{agfa-art}      % Latin Modern
 	\usepackage[libertinus]{agfa-art}   % Libertinus
+	\usepackage[lucida]{agfa-art}       % Lucida OpenType (nur LuaLaTeX, kommerziell)
 % Ohne Option: Times (Standard) – empfohlen
 ```
+
+**Lucida:** Die Option `lucida` lädt das Paket `lucida-otf`. Sie setzt die (kostenpflichtigen) Lucida-OpenType-Schriften voraus, die über [TUG](https://tug.org/store/lucida/) bezogen werden können, und funktioniert nur mit LuaLaTeX.
+
+**Japanischer Text:** Mit der Option `japanese` wird `luatexja` geladen; japanische Zeichen können dann direkt im Text stehen (Standardschrift: Harano Aji, in TeX Live enthalten). Nur mit LuaLaTeX. Kombinierbar mit jeder Schriftoption:
+
+```latex
+\usepackage[japanese]{agfa-art}           % Times + Japanisch
+\usepackage[lucida,japanese]{agfa-art}    % Lucida + Japanisch
+```
+
+Eine andere japanische Schrift wählt man (bei `lucida` oder `libertinus`) im Dokument z. B. mit `\setmainjfont{Hiragino Mincho ProN}`. Mit pdfLaTeX werden `lucida` und `japanese` mit einer Warnung ignoriert.
+
+Zum Ausprobieren liegt `Test-Schriften.tex` im Hauptordner.
 
 #### Für Overleaf-Nutzer
 
@@ -300,6 +315,7 @@ Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
   - Option `thmframed` funktioniert wieder (Stil `mdfstyle` war nicht definiert); Option `english` erreicht jetzt auch `agfa-hyperref`.
   - `libertinus` unter LuaLaTeX: `amsmath`/`amssymb` werden in der richtigen Reihenfolge geladen.
   - Ohne Sprachoption wird Deutsch verwendet; keine Warnung von `todonotes` mehr.
+  - Neue Optionen `lucida` (Lucida OpenType) und `japanese` (japanischer Text mit `luatexja`), beide nur mit LuaLaTeX; Testdatei `Test-Schriften.tex`.
   - Neu: `agfa-quellen.sty` mit `\quelle{URL}` (in der `figure`-Umgebung nach `\caption`) und `\druckequellen` für ein Bildquellenverzeichnis.
 
 * (2026/08/31) Anpassung von `agfa-theorem.sty` an `TeXLive 2026`. 

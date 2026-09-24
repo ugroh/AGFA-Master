@@ -1,7 +1,9 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Schriftarten für AGFA-Master
 %% agfa-font.sty
-%% Stand: 2026-09-24 (libertinus unter LuaLaTeX: amsmath/amssymb vor unicode-math, kein T1)
+%% Stand: 2026-09-24 (libertinus unter LuaLaTeX: amsmath/amssymb vor unicode-math, kein T1;
+%%                    neue Optionen lucida und japanese -- nur LuaLaTeX;
+%%                    lucida mit Skalierung und Mathe-Alphabeten wie ablatt-font-lua)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
@@ -13,12 +15,28 @@
 \RequirePackage{ifthen}
 \provideboolean{lmodern}
 \provideboolean{libertinus}
+\provideboolean{lucida}
+\provideboolean{japanese}
 
 \DeclareOption{lmodern}{\setboolean{lmodern}{true}}
 \DeclareOption{libertinus}{\setboolean{libertinus}{true}}
+%% -- lucida: Lucida OpenType (kommerziell, Paket lucida-otf), nur LuaLaTeX/XeLaTeX
+\DeclareOption{lucida}{\setboolean{lucida}{true}}
+%% -- japanese: japanischer Text mit luatexja, nur LuaLaTeX
+\DeclareOption{japanese}{\setboolean{japanese}{true}}
 \ProcessOptions\relax
 
 \RequirePackage{iftex}
+
+%% -- lucida und japanese gibt es nur mit LuaLaTeX
+\ifPDFTeX
+  \ifthenelse{\boolean{lucida}}{%
+    \PackageWarning{agfa-font}{Option lucida nur mit LuaLaTeX -- wird ignoriert}%
+    \setboolean{lucida}{false}}{}
+  \ifthenelse{\boolean{japanese}}{%
+    \PackageWarning{agfa-font}{Option japanese nur mit LuaLaTeX -- wird ignoriert}%
+    \setboolean{japanese}{false}}{}
+\fi
 
 %% Modern LaTeX - UTF8 ist Standard
 %% -- libertinus laedt unter LuaLaTeX/XeLaTeX fontspec + unicode-math:
@@ -26,6 +44,7 @@
 %%    werden (sonst z.B. "Command \eth already defined").
 \newif\ifagfa@unicodefont
 \ifthenelse{\boolean{libertinus}}{\ifPDFTeX\else\agfa@unicodefonttrue\fi}{}
+\ifthenelse{\boolean{lucida}}{\agfa@unicodefonttrue}{}
 \ifagfa@unicodefont
     \RequirePackage{amsmath,amssymb}
     \RequirePackage[tbtags]{mathtools}
@@ -43,16 +62,46 @@
     \RequirePackage{libertinus}
 }{}
 
+\ifthenelse{\boolean{lucida}}{%
+    %% -- Lucida mit angepasster Skalierung (wie ablatt-font-lua.sty)
+    \RequirePackage[
+        TT={Scale=0.88,FakeStretch=0.9},
+        SS={Scale=0.9},
+        RM={Scale=0.9},
+        DefaultFeatures={Ligatures=TeX}
+    ]{lucida-otf}
+    %% -- Spezialisierte mathematische Alphabete (z. B. \mathcal{L}, \mathfrak{P}):
+    %%    Kalligrafie und Skript aus STIX Two Math, Fraktur aus Asana Math
+    %%    (beide in TeX Live enthalten)
+    \setmathfont[range={\mathcal,\mathbfcal},Scale=MatchUppercase]{STIX Two Math}
+    \setmathfont[range={\mathfrak,\mathbffrak},Scale=MatchUppercase]{Asana Math}
+    \setmathfont[range=\mathscr]{STIX Two Math}
+    %% -- Behebung bekannter Probleme: fehlendes underbracket-Symbol
+    \let\underbracket\underbrace
+}{}
+
 %% Default: Times (falls keine Option gewählt)
 \newif\ifanyfont
 \anyfontfalse
 \ifthenelse{\boolean{lmodern}}{\anyfonttrue}{}
 \ifthenelse{\boolean{libertinus}}{\anyfonttrue}{}
+\ifthenelse{\boolean{lucida}}{\anyfonttrue}{}
 
 \ifanyfont\else
     \RequirePackage{mathptmx}
     \RequirePackage[scaled=.90]{helvet}
     \RequirePackage{courier}
 \fi
+
+%% -- Japanischer Text (luatexja): nach der Schriftwahl laden.
+%%    Standardschrift Harano Aji (in TeX Live enthalten); eigene Schrift z. B.
+%%    \setmainjfont{Hiragino Mincho ProN} im Dokument (bei Unicode-Schrift).
+\ifthenelse{\boolean{japanese}}{%
+    \ifagfa@unicodefont
+        \RequirePackage{luatexja-fontspec}
+    \else
+        \RequirePackage{luatexja}
+    \fi
+}{}
 
 \endinput
