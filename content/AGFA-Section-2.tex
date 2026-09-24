@@ -1,111 +1,145 @@
 % !TEX root = ../AGFA-Master.tex
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ./content/AGFA-Section-2.tex
-%% Abschnitt 2 der Arbeit
-%% Stand: 2022/10/10
-%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% -- ./content/AGFA-Section-2.tex
+%% -- Abschnitt 2 der Arbeit
+%% -- Stand: 2026-09-24
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \thispagestyle{empty}
 \section{Mein zweiter Abschnitt}\label{sec:zweiter-abschnitt}
 \subsection{Test der Listen}\label{subsec:listen}
 %%
+Die Vorlage stellt mehrere Listenumgebungen bereit.
+Der Name der Umgebung steht jeweils im ersten Eintrag.
+%%
 \begin{myenumerate}
 \item
-Aufzählung
+Aufzählung mit \verb|myenumerate|
 \item
-Aufzählung
+zweiter Eintrag
 \end{myenumerate}
 %%
 \begin{myequivalent}
 \item
-Äquivalent
+Äquivalenzen mit \verb|myequivalent|
 \item
-Äquivalent
+zweite Aussage
 \end{myequivalent}
 %%
 \begin{myitemize}
 \item
-Punkte
+Punkte mit \verb|myitemize|
 \item
-Punkte
+zweiter Punkt
 \end{myitemize}
 %%
 \begin{mynumber}
 \item
-Nummeriert
+Nummeriert mit \verb|mynumber|
 \item
-Nummeriert
+zweiter Eintrag
 \end{mynumber}
 %%
+Auch im laufenden Text ist eine Aufzählung möglich,
+\begin{myinlinea}
+\item
+etwa mit \verb|myinlinea|
+\item
+wie hier,
+\end{myinlinea}
+wie dieses Beispiel zeigt.
+%% --
 \subsection{Test der mathematischen Umgebungen}\label{subsec:mumgebungen}
-Schon seit vielen hundert Jahren eines der schönsten Ergebnisse der Mathematik.
+Seit über zweitausend Jahren gilt der Satz des Pythagoras als eines der schönsten Ergebnisse der Mathematik.
+Wir beginnen mit einer kleinen Vorbereitung.
 %
-\begin{theorem}\label{thm:theorem1}
-In einem rechtwinkligen Dreiecke mit den Seiten $ a $, $ b $ und der Hypothenuse $ c $ gilt stets
+\begin{lemma}\label{lem:lemma1}
+Ein rechtwinkliges Dreieck mit den Katheten $ a $ und $ b $ hat den Flächeninhalt $ \frac{ab}{2} $.
+\end{lemma}
+%
+\begin{proof}
+Zwei Exemplare des Dreiecks lassen sich entlang der Hypotenuse zu einem Rechteck mit den Seiten $ a $ und $ b $ zusammensetzen.
+\end{proof}
+%
+\begin{theorem}[Pythagoras]\label{thm:theorem1}
+In einem rechtwinkligen Dreieck mit den Katheten $ a $, $ b $ und der Hypotenuse $ c $ gilt stets
 \begin{equation}\label{eq:pythagoras}
-a^{ 2 } +b^{ 2 } = c^{ 2 }
+	a^{ 2 } + b^{ 2 } = c^{ 2 } .
 \end{equation}
-
-$	a^{ 2 } +b^{ 2 } = c^{ 2 } $.
 \end{theorem}
 %
 \begin{proof}
-Für den Beweis verweisen wir auf die Literatur, etwa \textcite{efhn:2016}
+Man legt vier Exemplare des Dreiecks so in ein Quadrat der Seitenlänge $ a + b $, dass die Hypotenusen ein inneres Quadrat der Seitenlänge $ c $ begrenzen.
+Vergleicht man die Flächeninhalte, so folgt mit \cref{lem:lemma1}
+%
+\[
+	(a + b)^{ 2 } = c^{ 2 } + 4 \cdot \frac{ab}{2} ,
+\]
+%
+also $ a^{ 2 } + 2ab + b^{ 2 } = c^{ 2 } + 2ab $ und damit \eqref{eq:pythagoras}.
 \end{proof}
 %%
 \begin{corollary}\label{cor:folgerung}
-Hieraus folgt dann 
-%
-\[
-	a^{ 2 } + b^{ 2 } = c^{ 2 } \, .
-\]
-%
+Die Diagonale eines Quadrats mit der Seitenlänge $ 1 $ hat die Länge $ \sqrt{2} $.
 \end{corollary}
 %
-\begin{proposition}\label{prop:prop}
-Und nun ein kleiner Satz als Ergänzung 
+\begin{proof}
+Die Diagonale ist die Hypotenuse eines rechtwinkligen Dreiecks mit $ a = b = 1 $; nach \eqref{eq:pythagoras} gilt also $ c^{ 2 } = 2 $.
+\end{proof}
+%
+\begin{proposition}[Umkehrung]\label{prop:prop}
+Gilt für die Seiten $ a $, $ b $, $ c $ eines Dreiecks $ a^{ 2 } + b^{ 2 } = c^{ 2 } $, so ist das Dreieck rechtwinklig, und der rechte Winkel liegt der Seite $ c $ gegenüber.
 \end{proposition}
 %
-\begin{lemma}\label{lem:lemma1}
-Zuvor aber ein Lemma
-\end{lemma}
-%
 \begin{remark}\label{rem:remark}
-Eine Anmerkung
+Der Satz des Pythagoras ist ein Spezialfall des Kosinussatzes
+%
+\[
+	c^{ 2 } = a^{ 2 } + b^{ 2 } - 2ab \cos \gamma ,
+\]
+%
+wobei $ \gamma $ der Winkel gegenüber der Seite $ c $ ist.
+Für $ \gamma = \frac{\pi}{2} $ ergibt sich \eqref{eq:pythagoras}.
 \end{remark}
 %%
 \begin{lem}\label{lem:lemma2}
-Und noch ein Lemma zum Testen ob \texttt{lem} funktioniert
+Und noch ein Lemma, um zu testen, ob \texttt{lem} funktioniert.
 \end{lem}
 %%
-Mal sehen, wie die Eulersche Zahl und die imaginäre Einheit aussehen.
-
-\verb|$\eu$| $=\eu$ \\
-\verb|$\iu$| $=\iu$ \\
-\verb|$\eu^{2\pi\iu} = -1$| ergibt dann  
+Nun zur Eulerschen Zahl und zur imaginären Einheit:
 %%
-\begin{theorem}\label{thm:eim}
-$ \eu^{ 2 \pi \im } = -1 $
+\begin{center}
+\begin{tabular}{ll}
+	\verb|$\eu$| 					& $ \eu $ \\
+	\verb|$\iu$| 					& $ \iu $ \\
+	\verb|$\eu^{\pi\iu} + 1 = 0$| 	& $ \eu^{ \pi \iu } + 1 = 0 $
+\end{tabular}
+\end{center}
+%%
+Die letzte Zeile ist die berühmte Eulersche Identität, die die fünf wichtigsten Konstanten der Mathematik verbindet:
+%%
+\begin{theorem}[Euler]\label{thm:eim}
+Es gilt $ \eu^{ \pi \iu } + 1 = 0 $.
 \end{theorem}
 %%
-Alles andere kann jeder selbst mal testen.
+Alles andere kann jeder selbst testen.
 %
 %%
 \subsection{Querverweise}\label{subsec:referenzen}
 \myquestion{Funktionieren alle Querverweise?}
 %
-Zunächst auf die Eulersche Zahl \vref{thm:eim} und dann auf Gleichung~\eqref{eq:pythagoras} in \vref{thm:theorem1}.
+Zunächst ein Verweis auf die Eulersche Identität mit \verb|\vref{thm:eim}|: \vref{thm:eim}.
+Dann auf Gleichung~\eqref{eq:pythagoras} in \vref{thm:theorem1}.
 
-Oder auch möglich: \ldots \cref{thm:theorem1}, \vref{eq:pythagoras} \ldots.
+Alternativ mit \verb|\cref|: \ldots \cref{thm:theorem1}, \cref{prop:prop}, \vref{eq:pythagoras} \ldots
 
-Weitere Links: etwa auf \vref{lem:lemma1}, \vref{lem:lemma2} oder auf \vref{rem:remark} oder auf \vref{subsec:mumgebungen}.
+Weitere Verweise: etwa auf \vref{lem:lemma1}, \vref{lem:lemma2}, \vref{cor:folgerung}, \vref{rem:remark} oder auf \vref{subsec:mumgebungen}.
 
-Bitte in das \LaTeX-File reinsehen, wie dies gemacht ist.
+Wie dies gemacht ist, sieht man in der \LaTeX-Datei.
 %
 \subsection{Sinnvolle Literatur zu \LaTeX}
 %
-Mal ansehen: \textcite{l2tabu} und \textcite{lshort-german} \bzw \textcite{latex-refsheet} für all die Befehle und Möglichkeiten.
-Wie man sieht, sind die Links auf die Dokumente hinterlegt.
+Zum Nachschlagen aller Befehle und Möglichkeiten: \textcite{lshort-german} für den Einstieg, \textcite{latex-refsheet} als kompakte Übersicht und \textcite{l2tabu} für veraltete Befehle und Pakete, die man meiden sollte.
+Die Links auf die Dokumente sind hinterlegt.
 
-Weiter zu empfehlen: \textcite{graetzer:2007}.
-
+Weiter zu empfehlen sind \textcite{graetzer:2007} für den mathematischen Satz und \textcite{kohm:2014} für KOMA-Script, auf dem diese Vorlage aufbaut.

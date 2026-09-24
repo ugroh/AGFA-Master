@@ -1,7 +1,7 @@
-% !TEX TS-program = pdflatexmk
+% !TEX TS-program = lualatexmk
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Das Masterefile: AGFA-Master.tex  
-%% Stand:	2025-10-14
+%% Das Masterfile: AGFA-Master.tex
+%% Stand:	2026-09-24
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass[%	 -- siehe KOMA-Script 
 	,toc		= bib 		 
@@ -70,11 +70,8 @@
 \cofoot{Stand der Arbeit:}
 \rofoot{\today}
 
-%% -- Paket comment
-%% -- siehe Literaturverzeichnis
-%% --
-
-\usepackage{comment}
+%% -- Paket comment (\begin{comment} ... \end{comment}) wird bereits
+%% -- von agfa-art geladen; siehe Literaturverzeichnis
 
 %% -- Start
 %% --
@@ -107,7 +104,7 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%
 
 \pagenumbering{arabic}
-\setcounter{page}{0}
+\setcounter{page}{1}
 \setcounter{section}{0}
 
 %% -- Die einzelnen Abschnitte werden über \includeonly eingebaut 
@@ -142,6 +139,8 @@
 \RaggedRight
 \nocite{voss:2025a,lamport:1986,urysohn:1925a,aigner:2010,axler:2015,lamport:dmv,kahle:2018,zabreiko:1969, comment}
 \printbibliography
+%% -- Bildquellen (nur wenn \quelle{...} verwendet wurde)
+\druckequellen
 
 %% --
 
