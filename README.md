@@ -26,7 +26,6 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 ```
 ├── AGFA-Master.tex        	# Hauptvorlage
 ├── AGFA-Light.tex         	# Minimale Variante
-├── Test-Schriften.tex    	# Test der Schriftoptionen (lucida, japanese)
 ├── seminar/               	# Einstieg für Anfänger
 │   └── AGFA-Seminar.tex  	# eine Datei, alles kommentiert
 ├── preamble/              	# Paket-Definitionen
@@ -47,10 +46,6 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 │   ├── 0-AGFA-title.tex  	# Titelseite
 │   ├── AGFA-Einleitung.tex	# etc
 │   └── AGFA-Section-*.tex	# und weitere
-├── ReadMe
-│	├── AGFA-Master.pdf und AGFA-Light.pdf als Muster und Test
-│	├── zbMATH-Nutzung.pdf / BibTeX-DB-Uebersicht.pdf (TODO für mich)
-│	└── AGFA-Readme.pdf
 ├── bib/                   # Literaturverzeichnis
 │   └── agfa-bib.bib
 └── texmf/                 # texmf-Unterverzeichnis für bib- und sty-Dateien
@@ -207,8 +202,6 @@ Am Ende (nach `\printbibliography`) gibt `\druckequellen` das Verzeichnis „Bil
 
 Eine andere japanische Schrift wählt man (bei `lucida` oder `libertinus`) im Dokument z. B. mit `\setmainjfont{Hiragino Mincho ProN}`. Mit pdfLaTeX werden `lucida` und `japanese` mit einer Warnung ignoriert.
 
-Zum Ausprobieren liegt `Test-Schriften.tex` im Hauptordner.
-
 #### Für Overleaf-Nutzer
 
 Lade das gesamte ZIP-File als neues Projekt hoch. Alle Verzeichnisse werden automatisch korrekt erstellt. Danach sollte man aber alles bereinigen und auch umbenennen!
@@ -315,7 +308,7 @@ Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
   - Option `thmframed` funktioniert wieder (Stil `mdfstyle` war nicht definiert); Option `english` erreicht jetzt auch `agfa-hyperref`.
   - `libertinus` unter LuaLaTeX: `amsmath`/`amssymb` werden in der richtigen Reihenfolge geladen.
   - Ohne Sprachoption wird Deutsch verwendet; keine Warnung von `todonotes` mehr.
-  - Neue Optionen `lucida` (Lucida OpenType) und `japanese` (japanischer Text mit `luatexja`), beide nur mit LuaLaTeX; Testdatei `Test-Schriften.tex`.
+  - Neue Optionen `lucida` (Lucida OpenType) und `japanese` (japanischer Text mit `luatexja`), beide nur mit LuaLaTeX.
   - Neu: `agfa-quellen.sty` mit `\quelle{URL}` (in der `figure`-Umgebung nach `\caption`) und `\druckequellen` für ein Bildquellenverzeichnis.
 
 * (2026/08/31) Anpassung von `agfa-theorem.sty` an `TeXLive 2026`. 

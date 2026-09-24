@@ -1,10 +1,13 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Querverweise und hyperref
 %% agfa-hyperref.sty
-%% Stand: 2026-09-20
+%% Stand: 2026-09-24 (Paketname mit Pfad)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{agfa-hyperref}[2026-09-20 v1.4 Hyperref and cross-reference configuration]
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-hyperref.sty}%
+  {\ProvidesPackage{./preamble/agfa-hyperref}[2026-09-23 v1.5 Hyperref and cross-reference configuration]}%
+  {\ProvidesPackage{agfa-hyperref}[2026-09-23 v1.5 Hyperref and cross-reference configuration]}
 
 \RequirePackage{ifthen}
 \provideboolean{english}
@@ -33,31 +36,38 @@
 \providecommand*{\extrasgerman}{}
 
 %% Pakete laden
+%% Reihenfolge: varioref -> hyperref -> (amsthm) -> cleveref -> \newtheorem
+%% cleveref braucht die Sprache als eigene Option: babel-Optionen sieht es
+%% nicht. Ohne sie kommen englische Standardnamen ("eq.", "section", "item").
 \ifthenelse{\boolean{english}}{%
     \RequirePackage[english,nospace]{varioref}
+    \RequirePackage[breaklinks=true]{hyperref}
+    \RequirePackage[english,noabbrev,nameinlink]{cleveref}
 }{%
     \RequirePackage[ngerman,nospace]{varioref}
+    \RequirePackage[breaklinks=true]{hyperref}
+    \RequirePackage[ngerman,noabbrev,nameinlink]{cleveref}
 }
-\RequirePackage[breaklinks=true]{hyperref}
-\RequirePackage{cleveref}
 
 
     \ifthenelse{\boolean{english}}{%
         %% Englische Namen
         \crefname{theorem}{Theorem}{Theorems}
         \crefname{thm}{Theorem}{Theorems}
-        \crefname{exercise}{Exercise}{Exercise}
+        \crefname{exercise}{Exercise}{Exercises}
         \crefname{lemma}{Lemma}{Lemmas}
         \crefname{lem}{Lemma}{Lemmas}
         \crefname{proposition}{Proposition}{Propositions}
         \crefname{prop}{Proposition}{Propositions}
-    	\crefname{corollary}{Corollary}{Corollaries}
-    	\crefname{cor}{Corollary}{Corollaries}
+        \crefname{corollary}{Corollary}{Corollaries}
+        \crefname{cor}{Corollary}{Corollaries}
         \crefname{conjecture}{Conjecture}{Conjectures}
         \crefname{definition}{Definition}{Definitions}
         \crefname{defn}{Definition}{Definitions}
         \crefname{example}{Example}{Examples}
-        \crefname{item}{item}{items}
+        \crefname{remark}{Remark}{Remarks}
+        \crefname{rem}{Remark}{Remarks}
+        \crefname{enumi}{item}{items}% Aufzaehlungspunkte: Zaehler heisst enumi
     }{%
         %% Deutsche Namen
         \crefname{theorem}{Theorem}{Theoreme}
@@ -75,7 +85,7 @@
         \crefname{remark}{Anmerkung}{Anmerkungen}
         \crefname{rem}{Anmerkung}{Anmerkungen}
         \crefname{exercise}{Aufgabe}{Aufgaben}
-        \crefname{item}{Punkt}{Punkte}
+        \crefname{enumi}{Punkt}{Punkte}% Aufzaehlungspunkte: Zaehler heisst enumi
     }%
 
 

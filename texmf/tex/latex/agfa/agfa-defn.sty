@@ -1,10 +1,15 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Definitionen für AGFA-Master
 %% agfa-defn.sty
-%% Stand: 2025-10-14
+%% Stand: 2026-09-24 (\P, \L, \d nur im Mathemodus umdefiniert; Text bleibt nutzbar;
+%%                    \d wurde bisher von hyperref ueberschrieben;
+%%                    dsfont statt bbm fuer \1)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{./preamble/agfa-defn}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-defn.sty}%
+  {\ProvidesPackage{./preamble/agfa-defn}}%
+  {\ProvidesPackage{agfa-defn}}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -47,17 +52,25 @@
 %% -- Mengenoperationen
 
 \let\setminus\smallsetminus
-\renewcommand{\P}{\mathfrak{P}}
+%% -- Potenzmenge: \P im Mathemodus; im Text bleibt \P das Absatzzeichen
+\DeclareRobustCommand{\P}{\ifmmode\mathfrak{P}\else\textparagraph\fi}
 
 %% -- Operator L(E,F)
+%% -- Im Text bleibt \L das polnische \L (z.B. {\L}ojasiewicz)
 \let\ORGL\L
-\DeclareRobustCommand{\L}[1]{\mathcal{L}(#1)}%
+\DeclareRobustCommand{\L}{\ifmmode\expandafter\agfa@LinMath\else\expandafter\ORGL\fi}%
+
+%% -- Differential: \d im Mathemodus; im Text bleibt \d der Unterpunkt-Akzent
+\let\ORGd\d
+\DeclareRobustCommand{\d}{\ifmmode\expandafter\agfa@dmath\else\expandafter\ORGd\fi}%
 }
 
-%% -- Eins einer Algebra
-\RequirePackage{bbm}
-\newcommand{\1}{\mathbbm{1}}
-\newcommand{\e}{\mathbbm{1}}
+\newcommand{\agfa@LinMath}[1]{\mathcal{L}(#1)}
+
+%% -- Eins einer Algebra (dsfont: Vektorschrift statt Bitmap-Schrift von bbm)
+\RequirePackage{dsfont}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\e}{\mathds{1}}
 
 %% -- Zahlen
 \newcommand{\N}{\mathbb{N}}		% Natuerliche Zahlen
@@ -71,7 +84,9 @@
 
 %% -- Differential Allgemeine Abkuerzungen
 \newcommand*{\diff}[1]{\mathop{}\;\mathrm{d}{#1}}	% \diff{s} = ds, 
-\renewcommand*{\d}[1]{\mathop{}\;\mathrm{d}{#1}}	% \d{\mu} = d.., 
+%% -- \d{\mu} = d\mu: siehe \AtBeginDocument oben (hyperref definiert \d
+%%    beim Laden neu, deshalb erst bei \begin{document} umdefinieren)
+\newcommand*{\agfa@dmath}[1]{\mathop{}\;\mathrm{d}{#1}}
 \newcommand*{\ds}{\mathop{}\;\mathrm{d}{s}}       	% \ds = ds, 
 \newcommand*{\dg}{\mathop{}\;\mathrm{d}{g}}       	% \dg = dg, 
 \newcommand*{\dt}{\mathop{}\;\mathrm{d}{t}}       	% \dt = dt, 

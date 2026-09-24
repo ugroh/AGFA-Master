@@ -1,21 +1,28 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Mathematische Werkzeuge für AGFA-Master
 %% agfa-mathtools.sty
-%% Stand: 2025-10-14
+%% Stand: 2026-09-24 (amssymb mit libertinus unter pdfLaTeX)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Kenndaten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{./preamble/agfa-mathtools}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-mathtools.sty}%
+  {\ProvidesPackage{./preamble/agfa-mathtools}}%
+  {\ProvidesPackage{agfa-mathtools}}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \RequirePackage{%
 	ifthen,
 	etoolbox,
-	amsmath,
-	amssymb}
+	amsmath}
+%% -- libertinust1math (pdfLaTeX) definiert \digamma schon; unter LuaLaTeX
+%%    ist amssymb bereits in agfa-font.sty geladen.
+\@ifpackageloaded{amssymb}{}{%
+	\let\digamma\relax
+	\RequirePackage{amssymb}}
 \RequirePackage[tbtags]{mathtools}
 \RequirePackage{mleftright}
 
