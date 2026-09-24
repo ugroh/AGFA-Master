@@ -19,11 +19,15 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 
 - **AGFA-Light.tex** - Minimale Variante für kleinere Arbeiten, etwa Bachelorarbeit, Seminarausarbeitungen etc. (nur Inhaltsverzeichnis)
 
+- **seminar/AGFA-Seminar.tex** - Einstieg für absolute Anfänger: eine einzige, vollständig kommentierte Datei ohne `agfa-art` (siehe [Für Anfänger](#für-anfänger-seminaragfa-seminartex))
+
 #### Verzeichnisstruktur
 
 ```
 ├── AGFA-Master.tex        	# Hauptvorlage
 ├── AGFA-Light.tex         	# Minimale Variante
+├── seminar/               	# Einstieg für Anfänger
+│   └── AGFA-Seminar.tex  	# eine Datei, alles kommentiert
 ├── preamble/              	# Paket-Definitionen
 │   ├── agfa-art.sty      	# Hauptpaket
 │   ├── agfa-font.sty     	# Schriftarten (lmodern, libertinus, times)
@@ -50,6 +54,23 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 │   └── agfa-bib.bib
 └── texmf/                 # texmf-Unterverzeichnis für bib- und sty-Dateien
 ```
+
+### Für Anfänger: `seminar/AGFA-Seminar.tex`
+
+Wer noch nie mit LaTeX gearbeitet hat, beginnt am besten hier. Die Datei ist in sich abgeschlossen (keine Ordner `preamble/` oder `content/`) und jede Zeile ist kommentiert. Sie zeigt in drei Teilen:
+
+- **Teil 0 – Literaturdatenbank:** zwei Beispieleinträge, aus denen LaTeX beim Übersetzen selbst die Datei `AGFA-Seminar.bib` erzeugt.
+- **Teil 1 – Präambel:** jedes Paket einzeln geladen und erklärt (babel, csquotes, amsmath/amsthm, graphicx, biblatex, hyperref) – bewusst ohne `agfa-art`, damit man sieht, was eine Präambel leistet.
+- **Teil 2 – Text:** Absätze, Hervorhebung, Anführungszeichen, Striche, Listen, Formeln (`$…$`, `\[…\]`, `equation`, `align*`), Sätze und Beweise, Querverweise, Abbildung, Tabelle, Zitate und Literaturverzeichnis.
+
+Übersetzen mit LuaLaTeX (pdfLaTeX geht auch) und **biber**; beim ersten Mal zwei- bis dreimal übersetzen.
+
+**Wichtig zur Literaturdatenbank:** Die Datei `AGFA-Seminar.bib` wird bei *jedem* Übersetzen aus Teil 0 neu geschrieben. Änderungen direkt in der `.bib`-Datei gehen dabei verloren. Also entweder
+
+1. Einträge nur in Teil 0 der `.tex`-Datei bearbeiten, oder
+2. auf eine eigene Datei umsteigen: den Block `\begin{filecontents*} … \end{filecontents*}` löschen, die Einträge in z. B. `abcd-seminar.bib` speichern und in der Präambel `\addbibresource{abcd-seminar.bib}` eintragen.
+
+Wer die Grundlagen beherrscht, wechselt zu `AGFA-Light.tex` – dort erledigt `agfa-art` die Präambel.
 
 ### Wichtige Features
 
@@ -269,6 +290,8 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2026/09/24) Neu: `seminar/AGFA-Seminar.tex` als kommentierter Einstieg für Anfänger (siehe oben).
 
 * (2026/09/24) Durchsicht aller Pakete in `./preamble` – bitte alle `agfa-*.sty` austauschen:
   - `\d{\mu}` (Differential) funktioniert jetzt; es wurde bisher von `hyperref` überschrieben. `\P`, `\L`, `\d` wirken nur im Mathemodus, im Text bleiben ¶, Ł und der Unterpunkt-Akzent erhalten.

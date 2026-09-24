@@ -23,7 +23,7 @@
 %% -- Literatur-DB durch eigene ersetzen 
 %% --
 \addbibresource{./bib/agfa-bib.bib}		% agfa-bib.bib; ändern in abcd-bib.bib
-										% und eigene nutzen
+											% und eigene nutzen
 
 \ExecuteBibliographyOptions{%
 	,backref		= true	% Auf was ist verwiesen; Rest muss weg
@@ -90,8 +90,9 @@ Gern helfe ich, wenn es Probleme oder Fragen zur Nutzung von \LaTeX{} gibt.
 %% -- Literatur
 %% --	
 \RaggedRight
-%% TODO: voss:2012a in agfa-bib.bib klären
-\nocite{voss:2012a,lamport:1986,urysohn:1925a,aigner:2010,axler:2015,lamport:dmv}
+\nocite{voss:2025a,lamport:1986,urysohn:1925a,aigner:2010,axler:2015,lamport:dmv}
 \printbibliography
+%% -- Bildquellen (nur wenn \quelle{...} verwendet wurde)
+\druckequellen
 %
 \end{document}

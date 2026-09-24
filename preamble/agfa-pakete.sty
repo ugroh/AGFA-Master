@@ -1,11 +1,14 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Pakete für AGFA-Master
 %% agfa-pakete.sty
-%% Stand: 2026-01-16
+%% Stand: 2026-09-24 (Paketname mit Pfad; Farben mit \colorlet)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{agfa-pakete}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-pakete.sty}%
+  {\ProvidesPackage{./preamble/agfa-pakete}}%
+  {\ProvidesPackage{agfa-pakete}}
 %%
 
 \RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}
@@ -42,9 +45,9 @@
 %% -- Farbe
 \RequirePackage[x11names,svgnames]{xcolor}	
 	\providecolor{myblue}{rgb}{0,0,1}
-	\definecolor{myred}{named}{Red}
-	\providecolor{mydarkblue}{named}{DarkBlue}
-	\providecolor{mygrey}{named}{Grey} 
+	\colorlet{myred}{Red}
+	\colorlet{mydarkblue}{DarkBlue}
+	\colorlet{mygrey}{Grey}
 	\providecolor{LGrey}{gray}{.89} 
 
 %% -- Kennzeichnung von Änderungen

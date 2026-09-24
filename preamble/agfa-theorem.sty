@@ -2,11 +2,15 @@
 %% Theoremumgebungen für AGFA-Master
 %% Mit amsthm + thmtools (modern und cleveref-kompatibel)
 %% agfa-theorem.sty
-%% Stand: 2026-08-31 (v2.1: Workaround fuer den TeX Live 2026 /
+%% Stand: 2026-09-24 (v2.2: Stil mdfstyle definiert; Paketname mit Pfad)
+%% vorher: 2026-08-31 (v2.1: Workaround fuer den TeX Live 2026 /
 %%                     thmtools-sharenumber-Bug)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{agfa-theorem}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-theorem.sty}%
+  {\ProvidesPackage{./preamble/agfa-theorem}}%
+  {\ProvidesPackage{agfa-theorem}}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
@@ -55,6 +59,8 @@
         splittopskip    = 15pt,
         splitbottomskip = 10pt
     }
+    %% -- Stil fuer die gerahmten Theoreme (wurde verwendet, war aber nicht definiert)
+    \mdfdefinestyle{mdfstyle}{}
 }{}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

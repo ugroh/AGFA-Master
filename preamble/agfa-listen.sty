@@ -5,7 +5,10 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-listen}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-listen.sty}%
+  {\ProvidesPackage{./preamble/agfa-listen}}%
+  {\ProvidesPackage{agfa-listen}}
 \RequirePackage[inline,shortlabels]{enumitem}	
 
 % gemeinsame Definitionen

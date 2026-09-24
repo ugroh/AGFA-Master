@@ -1,10 +1,13 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Unterstützung Deutsch bzw. Englisch
 %% agfa-babel.sty
-%% Stand: 2025-10-14
+%% Stand: 2026-09-24 (Deutsch als Voreinstellung; marginparwidth fuer todonotes)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-babel}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-babel.sty}%
+  {\ProvidesPackage{./preamble/agfa-babel}}%
+  {\ProvidesPackage{agfa-babel}}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -29,6 +32,9 @@
 		} 
 %% -- Abarbeiten
 \ProcessOptions\relax
+%% -- Voreinstellung Deutsch, falls keine Sprache angegeben ist
+\ifthenelse{\boolean{english}\OR\boolean{ngerman}\OR\boolean{german}}{}{%
+	\setboolean{ngerman}{true}\setboolean{german}{true}}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Pakete
 %% Dies kann bei Bedarf 1:1 gegen polyglossia ausgetauscht werden, 
@@ -53,6 +59,8 @@
 %% Ausführung
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% -- todonotes verlangt mindestens 2cm Randbreite (sonst Warnung)
+\ifdim\marginparwidth<2cm \setlength{\marginparwidth}{2cm}\fi
 \ifthenelse{\boolean{english}}
 {%
     \RequirePackage[english,backgroundcolor=white]{todonotes}

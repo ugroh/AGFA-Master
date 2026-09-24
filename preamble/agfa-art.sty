@@ -1,13 +1,25 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Startpaket für AGFA-Master
 %% agfa-art.sty
-%% Stand: 2025-12-16
+%% Stand: 2026-09-24 (auch aus texmf nutzbar: \usepackage{agfa-art};
+%%                    Tippfehler agfa-hyperef; etex entfernt; agfa-quellen geladen;
+%%                    unbekannte Optionen werden gemeldet)
 %% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kenndaten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-\ProvidesPackage{./preamble/agfa-art}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-art.sty}%
+  {\ProvidesPackage{./preamble/agfa-art}}%
+  {\ProvidesPackage{agfa-art}}
+%% -- Laden der Teilpakete: aus ./preamble (Projektordner) oder, falls dort
+%%    nicht vorhanden, ueber den TeX-Suchpfad (z. B. ~/Library/texmf).
+\newcommand*{\agfa@load}[1]{%
+  \IfFileExists{./preamble/#1.sty}{\RequirePackage{./preamble/#1}}{\RequirePackage{#1}}}
+%% -- Optionen an beide moeglichen Paketnamen weitergeben
+\newcommand*{\agfa@pass}[2]{%
+  \PassOptionsToPackage{#1}{./preamble/#2}\PassOptionsToPackage{#1}{#2}}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,7 +42,9 @@
 %% -- Deklaration von Optionen
 %% --
 
-\DeclareOption*{\expandafter\PassOptionsToClass\expandafter{\CurrentOption}{scrartcl}}
+%% -- Die Klasse ist beim Laden dieses Pakets schon geladen; Klassenoptionen
+%%    koennen hier nicht mehr weitergereicht werden -> nur melden.
+\DeclareOption*{\PackageWarning{agfa-art}{Unbekannte Option `\CurrentOption' wird ignoriert}}
 
 %% -- Sprache (alle english-bezogenen Aktionen zusammen)
 %% --
@@ -38,30 +52,30 @@
 \DeclareOption{english}{%
 	\setboolean{english}{true}%
 	\setboolean{refenglish}{true}%
-	\PassOptionsToPackage{english}{./preamble/agfa-babel}%
-	\PassOptionsToPackage{english}{./preamble/agfa-hyperef}%
-	\PassOptionsToPackage{english}{./preamble/agfa-theorem}%
-	\PassOptionsToPackage{english}{./preamble/agfa-biblio}%  
+	\agfa@pass{english}{agfa-babel}%
+	\agfa@pass{english}{agfa-hyperref}%
+	\agfa@pass{english}{agfa-theorem}%
+	\agfa@pass{english}{agfa-biblio}%  
 }
 
 %% -- mathematische Umgebungen mit/ohne Rahmen
 %% --
 
-\DeclareOption{thmframed}{\PassOptionsToPackage{framed}{./preamble/agfa-theorem}}
+\DeclareOption{thmframed}{\agfa@pass{framed}{agfa-theorem}}
 
 %% -- Schrift
 %% --
 
-\DeclareOption{lmodern}{\PassOptionsToPackage{lmodern}{./preamble/agfa-font}}
-\DeclareOption{libertinus}{\PassOptionsToPackage{libertinus}{./preamble/agfa-font}}
+\DeclareOption{lmodern}{\agfa@pass{lmodern}{agfa-font}}
+\DeclareOption{libertinus}{\agfa@pass{libertinus}{agfa-font}}
 
 %% -- Bibliographie-Stile  
 %% --
 
-\DeclareOption{numeric}{\PassOptionsToPackage{numeric}{./preamble/agfa-biblio}}
-\DeclareOption{alphabetic}{\PassOptionsToPackage{alphabetic}{./preamble/agfa-biblio}}
-%\DeclareOption{philosophy}{\PassOptionsToPackage{philosophy}{./preamble/agfa-biblio}}
-%\DeclareOption{urldoi}{\PassOptionsToPackage{urldoi}{./preamble/agfa-biblio}}
+\DeclareOption{numeric}{\agfa@pass{numeric}{agfa-biblio}}
+\DeclareOption{alphabetic}{\agfa@pass{alphabetic}{agfa-biblio}}
+%\DeclareOption{philosophy}{\agfa@pass{philosophy}{agfa-biblio}}
+%\DeclareOption{urldoi}{\agfa@pass{urldoi}{agfa-biblio}}
 
 %% -- Zeilenabstand verdoppelt
 %% --
@@ -75,24 +89,25 @@
 
 \RequirePackage[all]{onlyamsmath}			% Fehler bei Eingabe Mathematik
 \RequirePackage[l2tabu,orthodox]{nag}
-\RequirePackage{etex,etoolbox,letltxmacro,metalogo}
+\RequirePackage{etoolbox,letltxmacro,metalogo}
 
 %% -- 
-\RequirePackage{./preamble/agfa-font}
-\RequirePackage{./preamble/agfa-layout}
-\RequirePackage{./preamble/agfa-pakete}
-\RequirePackage{./preamble/agfa-babel}
-\RequirePackage{./preamble/agfa-listen}
+\agfa@load{agfa-font}
+\agfa@load{agfa-layout}
+\agfa@load{agfa-pakete}
+\agfa@load{agfa-babel}
+\agfa@load{agfa-listen}
 %% --
-\RequirePackage{./preamble/agfa-mathtools}
-\RequirePackage{./preamble/agfa-theorem}
+\agfa@load{agfa-mathtools}
+\agfa@load{agfa-theorem}
 %% --
-\RequirePackage{./preamble/agfa-defn}
-\RequirePackage{./preamble/agfa-biblio}
+\agfa@load{agfa-defn}
+\agfa@load{agfa-biblio}
 %% --
-\RequirePackage{./preamble/agfa-hyperref}
+\agfa@load{agfa-hyperref}
 %% --
-\RequirePackage{./preamble/agfa-abkuerz}	
+\agfa@load{agfa-abkuerz}
+\agfa@load{agfa-quellen}	% \quelle{URL}, \druckequellen
 
 %% -- Zeilenabstand für review
 %% --

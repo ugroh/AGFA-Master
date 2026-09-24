@@ -1,11 +1,14 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Layout und Überschriften für AGFA-Master
 %% agfa-layout.sty
-%% Stand: 2025/09/14
+%% Stand: 2026-09-24 (tocdepth absolut)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
-\ProvidesPackage{./preamble/agfa-layout}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-layout.sty}%
+  {\ProvidesPackage{./preamble/agfa-layout}}%
+  {\ProvidesPackage{agfa-layout}}
 %% --
 \RequirePackage{ifthen}
 \provideboolean{english}
@@ -20,7 +23,7 @@
 \addtokomafont{publishers}{\large}
 
 %% -- 
-\addtocounter{tocdepth}{-1}% Keine \subsubsection im TOC
+\setcounter{tocdepth}{\subsectiontocdepth}% Keine \subsubsection im TOC
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- section

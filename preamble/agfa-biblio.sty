@@ -2,10 +2,13 @@
 %% agfa-biblio.sty 
 %% Für die Darstellung des Literaturverzeichnisses
 %% Eingabe von URL etc. möglich
-%% Stand: 2025-10-15
+%% Stand: 2026-09-24 (Leerzeichen in Strings; Buecher ohne URL/Abrufdatum; doi.org per https)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{./preamble/agfa-biblio}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-biblio.sty}%
+  {\ProvidesPackage{./preamble/agfa-biblio}}%
+  {\ProvidesPackage{agfa-biblio}}
 %%
 \RequirePackage{ifthen}	
 \provideboolean{english}
@@ -75,17 +78,17 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \ifthenelse{\boolean{english}}{%
 	\DefineBibliographyStrings{english}{%
-		urlfrom		= {online },
+		urlfrom		= {online},
 		andothers	= {et al\adddot},
-		urlseen		= {visited on },
+		urlseen		= {visited on},
 	}
 }{}
 \ifthenelse{\boolean{ngerman}}{%
 	\DefineBibliographyStrings{ngerman}{%
 		andothers	= {et al\adddot},
 		and			= {u\adddot},
-		urlseen		= {aufgerufen am },
-		urlfrom		= {URL },
+		urlseen		= {aufgerufen am},
+		urlfrom		= {URL},
 	}
 }{}
 \DeclareFieldFormat{url}{\bibstring{urlfrom}\addcolon\space\url{#1}}
@@ -108,6 +111,12 @@
 \AtEveryBibitem{\clearlist{language}}
 \AtEveryBibitem{\clearlist{location}}
 \AtEveryBibitem{\clearfield{pagetotal}}
+%% -- Buecher: URL samt Abrufdatum ganz entfernen (ein leeres Feldformat
+%%    liesse "(Aufgerufen am ...)" ohne URL stehen)
+%%    Das Abrufdatum steckt in urlyear/urlmonth/urlday (ein Feld urldate
+%%    gibt es nach biber nicht).
+\AtEveryBibitem{\ifentrytype{book}{%
+    \clearfield{url}\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}}{}}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Kein Komma nach Verlag bei Büchern
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -149,7 +158,6 @@
 \DeclareFieldFormat[book]{date}{\mkbibparens{#1}}
 \DeclareFieldFormat[book]{pages}{}
 \DeclareFieldFormat[book]{pagetotal}{}
-\DeclareFieldFormat[book]{url}{}
 \DeclareFieldFormat[book]{language}{}
 \DeclareFieldFormat[book]{isbn}{}
 \DeclareFieldFormat[book]{series}{}
@@ -211,7 +219,7 @@
 %% und https://bit.ly/2YghEHH
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newbibmacro{string+doi}[1]{%
-	\iffieldundef{doi}{#1}{\href{http://dx.doi.org/\thefield{doi}}{#1}}
+	\iffieldundef{doi}{#1}{\href{https://doi.org/\thefield{doi}}{#1}}
 }
 \DeclareFieldFormat{title}{%
 	\usebibmacro{string+doi}{\mkbibemph{#1}}

@@ -1,11 +1,14 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Schriftarten für AGFA-Master
 %% agfa-font.sty
-%% Stand: 2025/09/14
+%% Stand: 2026-09-24 (libertinus unter LuaLaTeX: amsmath/amssymb vor unicode-math, kein T1)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{./preamble/agfa-font}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-font.sty}%
+  {\ProvidesPackage{./preamble/agfa-font}}%
+  {\ProvidesPackage{agfa-font}}
 
 \RequirePackage{ifthen}
 \provideboolean{lmodern}
@@ -15,8 +18,20 @@
 \DeclareOption{libertinus}{\setboolean{libertinus}{true}}
 \ProcessOptions\relax
 
+\RequirePackage{iftex}
+
 %% Modern LaTeX - UTF8 ist Standard
-\RequirePackage[T1]{fontenc}
+%% -- libertinus laedt unter LuaLaTeX/XeLaTeX fontspec + unicode-math:
+%%    dann kein T1, und amsmath/amssymb/mathtools muessen VORHER geladen
+%%    werden (sonst z.B. "Command \eth already defined").
+\newif\ifagfa@unicodefont
+\ifthenelse{\boolean{libertinus}}{\ifPDFTeX\else\agfa@unicodefonttrue\fi}{}
+\ifagfa@unicodefont
+    \RequirePackage{amsmath,amssymb}
+    \RequirePackage[tbtags]{mathtools}
+\else
+    \RequirePackage[T1]{fontenc}
+\fi
 \RequirePackage{textcomp}
 
 %% Font-Auswahl

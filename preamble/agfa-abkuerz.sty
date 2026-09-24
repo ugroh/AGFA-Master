@@ -1,10 +1,13 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Abkürzungen 
 %% agfa-abkuerz.sty
-%% Stand: 2025-10-07
+%% Stand: 2026-09-24 (\providecommand statt \newcommand wie in Rom-Abkuerzungen)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{./preamble/agfa-abkuerz}
+%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
+\IfFileExists{./preamble/agfa-abkuerz.sty}%
+  {\ProvidesPackage{./preamble/agfa-abkuerz}}%
+  {\ProvidesPackage{agfa-abkuerz}}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,29 +20,29 @@
 \AtBeginDocument{%
 %% -- Abkürzungen
 %% -- Englisch
-\newcommand{\eg}{\mbox{e.g.}\xspace}
-\newcommand{\ie}{\mbox{i.e.}\xspace}
+\providecommand{\eg}{\mbox{e.g.}\xspace}
+\providecommand{\ie}{\mbox{i.e.}\xspace}
 
 %% -- Deutsch
-\newcommand{\zB}{\mbox{z.\,B.}\xspace}
-\newcommand{\iA}{\mbox{i.\,A.}\xspace}
-\newcommand{\iAllg}{\mbox{i.\,Allg.}\xspace}
+\providecommand{\zB}{\mbox{z.\,B.}\xspace}
+\providecommand{\iA}{\mbox{i.\,A.}\xspace}
+\providecommand{\iAllg}{\mbox{i.\,Allg.}\xspace}
 \renewcommand{\dh}{\mbox{d.\,h.}\xspace}
-\newcommand{\oAe}{\mbox{o.\,Ä.}\xspace}
-\newcommand{\uAe}{\mbox{u.\,Ä.}\xspace}
-\newcommand{\og}{\mbox{o.\,g.}\xspace}
-\newcommand{\ua}{\mbox{u.\,a.}\xspace}
-\newcommand{\inkl}{inkl.\xspace}
-\newcommand{\sog}{sog.\xspace}
-\newcommand{\bzgl}{bzgl.\xspace}
-\newcommand{\fue}{\mbox{f.\,ü.}\xspace}
-\newcommand{\vs}{vs.\xspace}
-\newcommand{\ca}{ca.\xspace}
-\newcommand{\bzw}{bzw.\xspace}
-\newcommand{\etc}{etc.\xspace}
-\newcommand{\usw}{usw.\xspace}
-\newcommand{\ggf}{ggf.\xspace}
-\newcommand{\evtl}{evtl.\xspace}
-\newcommand{\vgl}{vgl.\xspace}
+\providecommand{\oAe}{\mbox{o.\,Ä.}\xspace}
+\providecommand{\uAe}{\mbox{u.\,Ä.}\xspace}
+\providecommand{\og}{\mbox{o.\,g.}\xspace}
+\providecommand{\ua}{\mbox{u.\,a.}\xspace}
+\providecommand{\inkl}{inkl.\xspace}
+\providecommand{\sog}{sog.\xspace}
+\providecommand{\bzgl}{bzgl.\xspace}
+\providecommand{\fue}{\mbox{f.\,ü.}\xspace}
+\providecommand{\vs}{vs.\xspace}
+\providecommand{\ca}{ca.\xspace}
+\providecommand{\bzw}{bzw.\xspace}
+\providecommand{\etc}{etc.\xspace}
+\providecommand{\usw}{usw.\xspace}
+\providecommand{\ggf}{ggf.\xspace}
+\providecommand{\evtl}{evtl.\xspace}
+\providecommand{\vgl}{vgl.\xspace}
 } %% Ende \AtBeginDocument
 \endinput
