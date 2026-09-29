@@ -13,7 +13,7 @@
 %% --
 \usepackage[all]{onlyamsmath}		% Fehler wie etwa $$ ... $$, eqnarray usw.; korrigieren
 %% -- 
-\usepackage[libertinus]{agfa-font}	% libertinus in TeX Live enthalten
+\usepackage[libertinus]{./preamble/agfa-font}	% libertinus in TeX Live enthalten
 %% --
 \usepackage{./preamble/agfa-listen}
 \usepackage{./preamble/agfa-mathtools}
@@ -25,7 +25,7 @@
 %% --
 \usepackage{./preamble/agfa-biblio}
 \ExecuteBibliographyOptions{%
-	,backref		= true	% Auf was ist verwiesen; Rest muss weg
+	,backref		= true	% zeigt im Verzeichnis, auf welchen Seiten zitiert 			wurde
   	,url			= true	% false: URL wird nicht angezeigt 
   	,doi			= false	% true: URLDOI wird separat angezeigt
 	,eprint			= false	% true: wird separat angezeigt
