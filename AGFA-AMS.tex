@@ -13,31 +13,30 @@
 %% --
 \usepackage[all]{onlyamsmath}		% Fehler wie etwa $$ ... $$, eqnarray usw.; korrigieren
 %% -- 
-%\usepackage[lucida]{agfa-font}		% nur mit gekauften Lucida-Schriften
-\usepackage[libertinus]{agfa-font}	% in TeX Live enthalten
+\usepackage[libertinus]{agfa-font}	% libertinus in TeX Live enthalten
 %% --
-\usepackage{agfa-listen}
-\usepackage{agfa-mathtools}
-\usepackage{agfa-theorem}
-\usepackage{agfa-abkuerz}
-\usepackage{agfa-pakete}
-\usepackage{agfa-babel}
-\usepackage{agfa-defn}
+\usepackage{./preamble/agfa-listen}
+\usepackage{./preamble/agfa-mathtools}
+\usepackage{./preamble/agfa-theorem}
+\usepackage{./preamble/agfa-abkuerz}
+\usepackage{./preamble/agfa-pakete}
+\usepackage{./preamble/agfa-babel}
+\usepackage{./preamble/agfa-defn}
 %% --
-\usepackage{agfa-biblio}
+\usepackage{./preamble/agfa-biblio}
 \ExecuteBibliographyOptions{%
 	,backref		= true	% Auf was ist verwiesen; Rest muss weg
   	,url			= true	% false: URL wird nicht angezeigt 
-  	,doi			= true	% true: URLDOI wird separat angezeigt
+  	,doi			= false	% true: URLDOI wird separat angezeigt
 	,eprint			= false	% true: wird separat angezeigt
 	,maxcitenames  	= 1 	% viele Autoren -> nur der erste erscheint  
-    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf; Auskommentieren für philosphy 
+    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf; 
 	}
-\addbibresource{buecher.bib} % ersetzen durch eigene bib-Dateien
-\addbibresource{artikel.bib}
+\addbibresource{bib/agfa-bib.bib} % ersetzen durch eigene bib-Dateien
+
 %% --
 \PassOptionsToPackage{pdfusetitle}{hyperref}	% Titel/Autor in die PDF-Eigenschaften
-\usepackage{agfa-hyperref}
+\usepackage{./preamble/agfa-hyperref}
 \hypersetup{
 	,colorlinks	= true    			%   onlineversion true                                                           
 	,urlcolor	= blue       		%                                                              
