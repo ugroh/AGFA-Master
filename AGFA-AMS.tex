@@ -1,0 +1,83 @@
+% !TEX TS-program = lualatexmk
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%% Was: Vorlage für AMS Dokumente
+%% Stand: 2026/09/29
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\RequirePackage[l2tabu,orthodox]{nag}	% vor \documentclass: prüft auch Klasse/Pakete
+\documentclass[%
+	,a4paper 
+	,12pt 
+	,oneside
+	,english % oder ngerman	- wird an agfa-babel/-theorem/-biblio/-hyperref durchgereicht
+	]{amsart}
+%% --
+\usepackage[all]{onlyamsmath}		% Fehler wie etwa $$ ... $$, eqnarray usw.; korrigieren
+%% -- 
+%\usepackage[lucida]{agfa-font}		% nur mit gekauften Lucida-Schriften
+\usepackage[libertinus]{agfa-font}	% in TeX Live enthalten
+%% --
+\usepackage{agfa-listen}
+\usepackage{agfa-mathtools}
+\usepackage{agfa-theorem}
+\usepackage{agfa-abkuerz}
+\usepackage{agfa-pakete}
+\usepackage{agfa-babel}
+\usepackage{agfa-defn}
+%% --
+\usepackage{agfa-biblio}
+\ExecuteBibliographyOptions{%
+	,backref		= true	% Auf was ist verwiesen; Rest muss weg
+  	,url			= true	% false: URL wird nicht angezeigt 
+  	,doi			= true	% true: URLDOI wird separat angezeigt
+	,eprint			= false	% true: wird separat angezeigt
+	,maxcitenames  	= 1 	% viele Autoren -> nur der erste erscheint  
+    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf; Auskommentieren für philosphy 
+	}
+\addbibresource{buecher.bib} % ersetzen durch eigene bib-Dateien
+\addbibresource{artikel.bib}
+%% --
+\PassOptionsToPackage{pdfusetitle}{hyperref}	% Titel/Autor in die PDF-Eigenschaften
+\usepackage{agfa-hyperref}
+\hypersetup{
+	,colorlinks	= true    			%   onlineversion true                                                           
+	,urlcolor	= blue       		%                                                              
+	,citecolor	= blue      		%                                                          
+	,linkcolor	= blue			 	% oder black
+%  	,hidelinks 						% Vor dem Druck % entfernen
+}
+%% --
+\title{-- Titel --} 
+\date{\today}
+%% --
+\author{Ulrich Groh}
+\address{%
+	Mathematisches Institut \\
+	Universität Tübingen \\
+	Auf der Morgenstelle 10 \\
+	72076 Tübingen 
+	(Germany)
+	}
+\email{ulgr@math.uni-tuebingen.de}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Abstract / TOC 
+%% amsart: abstract VOR \maketitle
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+ -- Abstract
+\end{abstract}
+\maketitle
+\thispagestyle{empty}
+%% --
+\tableofcontents
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Inhalt ab hier
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{}\label{sec:xyz}
+\subsection{}\label{subsec:xyz}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nocite{}
+\printbibliography
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}
