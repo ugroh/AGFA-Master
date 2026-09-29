@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2026-09-24)
+### AGFA-Templates (Stand: 2026-09-29)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setze ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -298,6 +298,8 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2026/09/29) Neu: `AGFA-AMS.tex`-Vorlage (englisch ald Default) und eine `AGFA-Light.tex`-Version erstellt. Alles komplett überarbeitet und an `TeXLive2026` angepasst. Bitte daher alles austauschen, was in der `./preamble` enthalten ist.
 
 * (2026/09/24) Neu: `seminar/AGFA-Seminar.tex` als kommentierter Einstieg für Anfänger (siehe oben).
 
