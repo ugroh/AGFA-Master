@@ -3,6 +3,7 @@
 %% agfa-hyperref.sty
 %% Stand: 2026-09-24 (Paketname mit Pfad)
 %%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
+%%        2026-09-30: eindeutige hyperref-Anker fuer Theoreme (\theH...)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 %% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
@@ -87,5 +88,17 @@
         \crefname{enumi}{Punkt}{Punkte}% Aufzaehlungspunkte: Zaehler heisst enumi
     }%
 
+
+%% -- Eindeutige Sprungziele fuer die Theoremumgebungen:
+%%    hyperref benutzt sonst u. U. nur die laufende Nummer (theorem.1), so dass
+%%    Theorem 3.1 und 4.1 dasselbe Ziel haben und Links falsch springen.
+%%    \theH<zaehler> = angezeigte Nummer (z. B. 3.1), die ist eindeutig.
+\AtBeginDocument{%
+  \@for\agfa@c:=theorem,proposition,lemma,corollary,conjecture,%
+      thm,prop,lem,cor,conj,definition,defn,example,examples,%
+      remark,remarks,rem,anmerkung,anmerkungen,exercise,aufgabe\do{%
+    \@ifundefined{c@\agfa@c}{}{%
+      \expandafter\edef\csname theH\agfa@c\endcsname
+        {\noexpand\csname the\agfa@c\noexpand\endcsname}}}}
 
 \endinput

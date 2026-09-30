@@ -305,13 +305,19 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 
 #### Support
 
-**Dokumentation:** Das vollständige `AGFA-ReadMe.pdf` im `./ReadMe` Ordner enthält detaillierte Erklärungen aller Features.
+**Dokumentation:** Das vollständige `AGFA-ReadMe.pdf` im `./ReadMe` Ordner enthält detaillierte Erklärungen aller Features. Des Weiteren habe ich meine `LaTeX`-Tipps beigefügt. 
 
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
 
-* (2026/09/30) Alle `agfa-*.sty` austauschen (in `./preamble` bzw. im texmf-Baum): Die Pakete erkennen jetzt selbst, ob sie über `./preamble/agfa-art` oder über `agfa-art` (texmf) geladen wurden, und holen alle Teilpakete vom selben Ort. Alte und neue Dateien können sich so nicht mehr mischen. Die veraltete Datei `agfa-hyperef.sty` (Tippfehler im Namen) bitte löschen. Der Ordner `./texmf` enthält jetzt auch `agfa-bib.bib`.
+* (2026/09/30) Alle `agfa-*.sty` austauschen (in `./preamble` bzw. im texmf-Baum):
+  - Die Pakete erkennen jetzt selbst, ob sie über `./preamble/agfa-art` oder über `agfa-art` (texmf) geladen wurden, und holen alle Teilpakete vom selben Ort. Alte und neue Dateien können sich so nicht mehr mischen.
+  - Die veraltete Datei `agfa-hyperef.sty` (Tippfehler im Namen) bitte löschen. Der Ordner `./texmf` enthält jetzt auch `agfa-bib.bib`.
+  - LuaLaTeX: Ohne Schriftoption bzw. mit `lmodern` werden jetzt OpenType-Schriften verwendet (TeX Gyre Termes/Heros/Cursor bzw. Latin Modern, jeweils mit passender Mathematikschrift). Bisher wurde dort z. B. `ß` als `SS` gesetzt, ebenso waren Guillemets, `¶` und `Ł` falsch. Unter pdfLaTeX bleibt alles wie bisher.
+  - Links auf Theoreme, Lemmata usw. springen jetzt an die richtige Stelle; bisher konnte ein Link auf Theorem 4.1 bei Theorem 3.1 landen.
+  - Literaturverzeichnis: URLs werden nicht mehr gesperrt gesetzt (`https : / / ctan . org`). Ein Standardwerk mit Kürzel (Feld `shorthand`, etwa `[EFHN]`) lässt sich mit `\printbiblist{shorthand}` getrennt ausgeben und im übrigen Verzeichnis mit `check=noshorthand` ausschließen; Beispiel im `AGFA-ReadMe.pdf`.
+  - Im Inhaltsverzeichnis haben zweistellige Abschnittsnummern (10., 11., …) jetzt genug Platz.
 
 * (2026/09/29) Neu: `AGFA-AMS.tex`-Vorlage (englisch als Default) und eine `AGFA-Light.tex`-Version erstellt. Alles komplett überarbeitet und an `TeXLive2026` angepasst. Bitte daher alles austauschen, was in der `./preamble` enthalten ist.
 

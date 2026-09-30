@@ -3,6 +3,8 @@
 %% agfa-font.sty
 %% Stand: 2026-09-24 (libertinus unter LuaLaTeX: amsmath/amssymb vor unicode-math, kein T1;
 %%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
+%%        2026-09-30: unter LuaLaTeX/XeLaTeX nie T1 + Type1-Schriften (ss -> SS!),
+%%                    sondern OpenType: TeX Gyre Termes/Heros/Cursor bzw. Latin Modern
 %%                    neue Optionen lucida und japanese -- nur LuaLaTeX;
 %%                    lucida mit Skalierung und Mathe-Alphabeten wie ablatt-font-lua)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -41,9 +43,10 @@
 %% -- libertinus laedt unter LuaLaTeX/XeLaTeX fontspec + unicode-math:
 %%    dann kein T1, und amsmath/amssymb/mathtools muessen VORHER geladen
 %%    werden (sonst z.B. "Command \eth already defined").
+%% -- Unter LuaLaTeX/XeLaTeX IMMER Unicode-Schriften: T1 mit 8-Bit-Schriften
+%%    setzt dort z. B. ss als SS, Guillemets und Zeichen wie Paragraph falsch.
 \newif\ifagfa@unicodefont
-\ifthenelse{\boolean{libertinus}}{\ifPDFTeX\else\agfa@unicodefonttrue\fi}{}
-\ifthenelse{\boolean{lucida}}{\agfa@unicodefonttrue}{}
+\ifPDFTeX\else\agfa@unicodefonttrue\fi
 \ifagfa@unicodefont
     \RequirePackage{amsmath,amssymb}
     \RequirePackage[tbtags]{mathtools}
@@ -54,7 +57,13 @@
 
 %% Font-Auswahl
 \ifthenelse{\boolean{lmodern}}{%
+  \ifagfa@unicodefont
+    %% -- fontspec nimmt Latin Modern als Textschrift von selbst
+    \RequirePackage{unicode-math}
+    \setmathfont{latinmodern-math.otf}
+  \else
     \RequirePackage{lmodern}
+  \fi
 }{}
 
 \ifthenelse{\boolean{libertinus}}{%
@@ -87,9 +96,24 @@
 \ifthenelse{\boolean{lucida}}{\anyfonttrue}{}
 
 \ifanyfont\else
+  \ifagfa@unicodefont
+    %% -- Times, Helvetica, Courier als OpenType (TeX Gyre, in TeX Live enthalten)
+    \RequirePackage{unicode-math}
+    \setmainfont{texgyretermes}[Extension=.otf,
+        UprightFont=*-regular, BoldFont=*-bold,
+        ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+    \setsansfont{texgyreheros}[Extension=.otf, Scale=0.9,
+        UprightFont=*-regular, BoldFont=*-bold,
+        ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+    \setmonofont{texgyrecursor}[Extension=.otf,
+        UprightFont=*-regular, BoldFont=*-bold,
+        ItalicFont=*-italic, BoldItalicFont=*-bolditalic]
+    \setmathfont{texgyretermes-math.otf}
+  \else
     \RequirePackage{mathptmx}
     \RequirePackage[scaled=.90]{helvet}
     \RequirePackage{courier}
+  \fi
 \fi
 
 %% -- Japanischer Text (luatexja): nach der Schriftwahl laden.

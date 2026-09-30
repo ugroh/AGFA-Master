@@ -3,6 +3,7 @@
 %% agfa-layout.sty
 %% Stand: 2026-09-24 (tocdepth absolut)
 %%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
+%%        2026-09-30: tocnumwidth der subsection 2em (zweistellige Nummern im TOC)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
@@ -52,7 +53,7 @@
 	beforeskip	= -1.75\baselineskip,
 	afterskip	= 0.25\baselineskip,
 	font		= \itshape,
-	tocnumwidth	= 1em
+	tocnumwidth	= 2em	% Platz fuer zweistellige Nummern (10. usw.)
 ]{subsection}
 %% -- Eintrag in das TOC
 \renewcommand*{\addsubsectiontocentry}[2]{%

@@ -4,6 +4,7 @@
 %% Eingabe von URL etc. möglich
 %% Stand: 2026-09-24 (Leerzeichen in Strings; Buecher ohne URL/Abrufdatum; doi.org per https)
 %%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
+%%        2026-09-30: kein Dehnraum in URLs des Literaturverzeichnisses
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
 %% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
@@ -229,4 +230,11 @@
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Literaturverzeichnisse
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- URLs im Literaturverzeichnis: keinen Dehnraum an / . - usw.,
+%%    sonst wird bei \RaggedRight u. U. "https : / / ctan . org" gesperrt gesetzt
+\biburlbigskip=0mu\relax
+\biburlnumskip=0mu\relax
+\biburlucskip=0mu\relax
+\biburllcskip=0mu\relax
+
 \endinput
