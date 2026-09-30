@@ -2,13 +2,12 @@
 %% Listen für AGFA-Master
 %% agfa-listen.sty
 %% Stand: 2025/09/14
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-listen.sty}%
-  {\ProvidesPackage{./preamble/agfa-listen}}%
-  {\ProvidesPackage{agfa-listen}}
+%% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
+\ProvidesPackage{\@currpath\@currname}
 \RequirePackage[inline,shortlabels]{enumitem}	
 
 % gemeinsame Definitionen

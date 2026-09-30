@@ -2,13 +2,12 @@
 %% Pakete für AGFA-Master
 %% agfa-pakete.sty
 %% Stand: 2026-09-24 (Paketname mit Pfad; Farben mit \colorlet)
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-pakete.sty}%
-  {\ProvidesPackage{./preamble/agfa-pakete}}%
-  {\ProvidesPackage{agfa-pakete}}
+%% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
+\ProvidesPackage{\@currpath\@currname}
 %%
 
 \RequirePackage[newcommands,footnotes,raggedrightboxes]{ragged2e}

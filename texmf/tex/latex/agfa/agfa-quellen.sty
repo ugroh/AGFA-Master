@@ -4,16 +4,15 @@
 %% -- \druckequellen gibt die gesammelten Angaben aus.
 %% -- Bitte diese Datei nicht verändern.
 %% -- Stand: 2026-09-24
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %% --   2026-09-24: \quelle liest die URL jetzt mit geänderten
 %% --               Catcodes ein, damit auch %, #, &, _, ~, ^, $
 %% --               unverändert (ohne Backslash) angegeben werden
 %% --               können, z. B. prozentkodierte Adressen (%C3%B6).
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-quellen.sty}%
-  {\ProvidesPackage{./preamble/agfa-quellen}}%
-  {\ProvidesPackage{agfa-quellen}}
+%% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
+\ProvidesPackage{\@currpath\@currname}
 
 \RequirePackage{etoolbox}
 

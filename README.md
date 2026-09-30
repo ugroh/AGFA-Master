@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2026-09-29)
+### AGFA-Templates (Stand: 2026-09-30)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setze ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -19,6 +19,8 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 
 - **AGFA-Light.tex** - Minimale Variante für kleinere Arbeiten, etwa Bachelorarbeit, Seminarausarbeitungen etc. (nur Inhaltsverzeichnis)
 
+- **AGFA-AMS.tex** - Variante auf Basis der Klasse `amsart`, Englisch als Voreinstellung. Sie lädt die `agfa-*`-Pakete einzeln.
+
 - **seminar/AGFA-Seminar.tex** - Einstieg für absolute Anfänger: eine einzige, vollständig kommentierte Datei ohne `agfa-art` (siehe [Für Anfänger](#für-anfänger-seminaragfa-seminartex))
 
 #### Verzeichnisstruktur
@@ -26,6 +28,7 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 ```
 ├── AGFA-Master.tex        	# Hauptvorlage
 ├── AGFA-Light.tex         	# Minimale Variante
+├── AGFA-AMS.tex           	# Variante mit amsart (englisch)
 ├── seminar/               	# Einstieg für Anfänger
 │   └── AGFA-Seminar.tex  	# eine Datei, alles kommentiert
 ├── preamble/              	# Paket-Definitionen
@@ -41,6 +44,7 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 │   ├── agfa-hyperref.sty 	# Querverweise
 │   ├── agfa-pakete.sty   	# Allgemeine Pakete (Tabellen, Grafik, Farben)
 │   ├── agfa-quellen.sty  	# Bildquellen: \quelle, \druckequellen
+│   ├── agfa-ablatt-titelei.sty # Titelei für kleinere Arbeiten
 │   └── agfa-abkuerz.sty  	# Abkürzungen
 ├── content/               	# Inhalts-Dateien
 │   ├── 0-AGFA-title.tex  	# Titelseite
@@ -48,7 +52,9 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 │   └── AGFA-Section-*.tex	# und weitere
 ├── bib/                   # Literaturverzeichnis
 │   └── agfa-bib.bib
-└── texmf/                 # texmf-Unterverzeichnis für bib- und sty-Dateien
+└── texmf/                 # dieselben Dateien, fertig für den texmf-Baum
+    ├── tex/latex/agfa/    # alle agfa-*.sty (wie preamble/)
+    └── bibtex/bib/        # agfa-bib.bib
 ```
 
 ### Für Anfänger: `seminar/AGFA-Seminar.tex`
@@ -160,7 +166,6 @@ Vordefinierte Abkürzungen mit dem richtigen Leerzeichen:
 **Empfohlener Workflow:**
 1. Suche in [zbMath](https://zbmath.org) nach deiner Literatur
 2. Kopiere den BibTeX-Eintrag in `./bib/agfa-bib.bib` (bitte aber dieser Datei einen eigenen Namen geben). 
-3. Nutze [bibtool](https://ctan.org/pkg/bibtool) zur Bearbeitung der Datei. Siehe hierzu auch `zbMATH-Nutzung.pdf`im Unterordner `ReadMe`. Gern helfe ich hier mit.
 
 **DOI-Integration:**
 Hat ein Eintrag ein `doi`-Feld, wird sein Titel automatisch zu einem klickbaren DOI-Link (keine Option nötig).
@@ -227,7 +232,14 @@ Für das Korrekturlesen aktiviere den doppelten Zeilenabstand:
 
 - **Eigene Definitionen** in separate Datei auslagern und per `\input` einbinden. Der Name dieser Datei sollte `abef-defn.tex` sein.
 
-- **texmf-Verzeichnis nutzen:** Für systemweite Verfügbarkeit die Pakete aus `./texmf/` in dein lokales texmf-Verzeichnis kopieren. Details siehe [TUG texmf Guide](https://tug.org/texlive/doc/texlive-en/texlive-en.html#x1-110002.3) und [Overleaf Kpathsea Guide](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files) sowie `AGFA-ReadMe.pdf`. 
+- **texmf-Verzeichnis nutzen:** Damit Pakete und Literaturdatei allen Dokumenten zur Verfügung stehen, den *Inhalt* von `./texmf/` in das eigene texmf-Verzeichnis kopieren (macOS: `~/Library/texmf`, Linux: `~/texmf`, Windows: `C:\Users\<Name>\texmf`; der genaue Ort steht in der Ausgabe von `kpsewhich -var-value TEXMFHOME`). Auf dem Mac z. B.:
+
+  ```bash
+  mkdir -p ~/Library/texmf
+  cp -R ~/Downloads/AGFA-Master/texmf/. ~/Library/texmf/
+  ```
+
+  Danach in der Vorlage den Pfad weglassen, also `\usepackage{agfa-art}` statt `\usepackage{./preamble/agfa-art}` und `\addbibresource{agfa-bib.bib}` statt `\addbibresource{./bib/agfa-bib.bib}` (in `AGFA-AMS.tex` bei jedem `agfa-*`-Paket). Die Ordner `preamble/` und `bib/` neben dem Dokument werden dann nicht mehr gebraucht. Details siehe [TUG texmf Guide](https://tug.org/texlive/doc/texlive-en/texlive-en.html#x1-110002.3) und [Overleaf Kpathsea Guide](https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files) sowie `AGFA-ReadMe.pdf`. Auf Overleaf gibt es keinen texmf-Ordner; dort bleibt es bei `preamble/`.
 
 - **Originaldateien nicht ändern** - erschwert Fehlersuche
 
@@ -287,7 +299,7 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 **Mathematische Texte:** Beachte die Regeln in [Voss-Mathmode](https://www.ctan.org/pkg/voss-mathmode).
 
 **Deutsche Texte:** 
-- Nutze `\enquote{}` für korrekte Anführungszeichen
+- Nutze `\enquote{}` für korrekte Anführungszeichen (gilt auch für englischen Text)
 - Verwende die vordefinierten Abkürzungen: `\zB`, `\dh`, `\ua`, etc.
 - Unterscheide Binde- (`-`) und Gedankenstriche (`--`)
 
@@ -299,7 +311,9 @@ Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
 
-* (2026/09/29) Neu: `AGFA-AMS.tex`-Vorlage (englisch ald Default) und eine `AGFA-Light.tex`-Version erstellt. Alles komplett überarbeitet und an `TeXLive2026` angepasst. Bitte daher alles austauschen, was in der `./preamble` enthalten ist.
+* (2026/09/30) Alle `agfa-*.sty` austauschen (in `./preamble` bzw. im texmf-Baum): Die Pakete erkennen jetzt selbst, ob sie über `./preamble/agfa-art` oder über `agfa-art` (texmf) geladen wurden, und holen alle Teilpakete vom selben Ort. Alte und neue Dateien können sich so nicht mehr mischen. Die veraltete Datei `agfa-hyperef.sty` (Tippfehler im Namen) bitte löschen. Der Ordner `./texmf` enthält jetzt auch `agfa-bib.bib`.
+
+* (2026/09/29) Neu: `AGFA-AMS.tex`-Vorlage (englisch als Default) und eine `AGFA-Light.tex`-Version erstellt. Alles komplett überarbeitet und an `TeXLive2026` angepasst. Bitte daher alles austauschen, was in der `./preamble` enthalten ist.
 
 * (2026/09/24) Neu: `seminar/AGFA-Seminar.tex` als kommentierter Einstieg für Anfänger (siehe oben).
 

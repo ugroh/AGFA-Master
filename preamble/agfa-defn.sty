@@ -2,14 +2,13 @@
 %% Definitionen für AGFA-Master
 %% agfa-defn.sty
 %% Stand: 2026-09-24 (\P, \L, \d nur im Mathemodus umdefiniert; Text bleibt nutzbar;
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %%                    \d wurde bisher von hyperref ueberschrieben;
 %%                    dsfont statt bbm fuer \1)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-defn.sty}%
-  {\ProvidesPackage{./preamble/agfa-defn}}%
-  {\ProvidesPackage{agfa-defn}}
+%% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
+\ProvidesPackage{\@currpath\@currname}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

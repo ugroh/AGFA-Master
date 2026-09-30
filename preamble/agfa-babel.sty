@@ -2,12 +2,11 @@
 %% Unterstützung Deutsch bzw. Englisch
 %% agfa-babel.sty
 %% Stand: 2026-09-24 (Deutsch als Voreinstellung; marginparwidth fuer todonotes)
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}	%
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-babel.sty}%
-  {\ProvidesPackage{./preamble/agfa-babel}}%
-  {\ProvidesPackage{agfa-babel}}
+%% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
+\ProvidesPackage{\@currpath\@currname}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

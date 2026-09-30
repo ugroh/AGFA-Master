@@ -2,15 +2,14 @@
 %% Schriftarten für AGFA-Master
 %% agfa-font.sty
 %% Stand: 2026-09-24 (libertinus unter LuaLaTeX: amsmath/amssymb vor unicode-math, kein T1;
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %%                    neue Optionen lucida und japanese -- nur LuaLaTeX;
 %%                    lucida mit Skalierung und Mathe-Alphabeten wie ablatt-font-lua)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-font.sty}%
-  {\ProvidesPackage{./preamble/agfa-font}}%
-  {\ProvidesPackage{agfa-font}}
+%% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
+\ProvidesPackage{\@currpath\@currname}
 
 \RequirePackage{ifthen}
 \provideboolean{lmodern}

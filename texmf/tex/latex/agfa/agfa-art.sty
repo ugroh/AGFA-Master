@@ -2,6 +2,7 @@
 %% Startpaket für AGFA-Master
 %% agfa-art.sty
 %% Stand: 2026-09-24 (auch aus texmf nutzbar: \usepackage{agfa-art};
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %%                    Tippfehler agfa-hyperef; etex entfernt; agfa-quellen geladen;
 %%                    unbekannte Optionen werden gemeldet)
 %% Literatur: Der LaTeX-Begleiter, A.4, Seite 910 ff
@@ -9,17 +10,17 @@
 %% Kenndaten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}											
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-art.sty}%
-  {\ProvidesPackage{./preamble/agfa-art}}%
-  {\ProvidesPackage{agfa-art}}
-%% -- Laden der Teilpakete: aus ./preamble (Projektordner) oder, falls dort
-%%    nicht vorhanden, ueber den TeX-Suchpfad (z. B. ~/Library/texmf).
-\newcommand*{\agfa@load}[1]{%
-  \IfFileExists{./preamble/#1.sty}{\RequirePackage{./preamble/#1}}{\RequirePackage{#1}}}
-%% -- Optionen an beide moeglichen Paketnamen weitergeben
+%% -- Paketname so, wie er geladen wurde (./preamble/agfa-art oder agfa-art)
+\ProvidesPackage{\@currpath\@currname}
+%% -- Teilpakete auf demselben Weg laden wie agfa-art selbst:
+%%    \usepackage{./preamble/agfa-art} -> alles aus ./preamble,
+%%    \usepackage{agfa-art}            -> alles ueber den TeX-Suchpfad (texmf).
+%%    So werden nie Dateien aus beiden Orten gemischt.
+\edef\agfa@dir{\@currpath}	% "./preamble/" oder leer
+\newcommand*{\agfa@load}[1]{\RequirePackage{\agfa@dir#1}}
+%% -- Optionen an das Teilpaket unter demselben Namen weitergeben
 \newcommand*{\agfa@pass}[2]{%
-  \PassOptionsToPackage{#1}{./preamble/#2}\PassOptionsToPackage{#1}{#2}}
+  \edef\agfa@tmp{\noexpand\PassOptionsToPackage{#1}{\agfa@dir#2}}\agfa@tmp}
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

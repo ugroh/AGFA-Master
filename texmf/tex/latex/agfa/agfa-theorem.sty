@@ -3,14 +3,13 @@
 %% Mit amsthm + thmtools (modern und cleveref-kompatibel)
 %% agfa-theorem.sty
 %% Stand: 2026-09-24 (v2.2: Stil mdfstyle definiert; Paketname mit Pfad)
+%%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %% vorher: 2026-08-31 (v2.1: Workaround fuer den TeX Live 2026 /
 %%                     thmtools-sharenumber-Bug)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \NeedsTeXFormat{LaTeX2e}
-%% -- Paketname mit Pfad (Projektordner) oder ohne (texmf)
-\IfFileExists{./preamble/agfa-theorem.sty}%
-  {\ProvidesPackage{./preamble/agfa-theorem}}%
-  {\ProvidesPackage{agfa-theorem}}
+%% -- Paketname so, wie er geladen wurde (mit ./preamble/ oder ohne)
+\ProvidesPackage{\@currpath\@currname}
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Initialisierungen
