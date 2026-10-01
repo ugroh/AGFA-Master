@@ -1,0 +1,29 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% AGFA-Book-Kapitel-2.tex -- Kapitel II
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Anwendungen}
+\label{chap:anwendungen}
+
+\section{Differentialgleichungen}
+\label{sec:dgl}
+
+Wir wenden \cref{thm:banach} aus \cref{subsec:kontraktion} an
+(siehe auch \cref{sec:vollstaendig} und \cref{cor:eindeutig}).
+Mit \eqref{eq:apriori} erhält man eine Fehlerschranke.
+
+\begin{theorem}[Picard--Lindelöf]
+\label{thm:picard}
+Ist $f$ Lipschitz-stetig, so hat das Anfangswertproblem genau eine Lösung.
+\end{theorem}
+
+\begin{proof}
+\Cref{thm:banach} auf den Integraloperator anwenden; die Metrik aus
+\cref{def:metrik} ist dabei die Supremumsmetrik.
+\end{proof}
+
+\begin{exercise}
+\label{ex:picard}
+Man führe die Abschätzung in \cref{thm:picard} aus.
+\end{exercise}
+
+Verweise auf mehrere Ergebnisse: \cref{lem:cauchy,thm:banach,thm:picard}.

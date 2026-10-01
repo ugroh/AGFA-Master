@@ -4,6 +4,8 @@
 %% agfa-theorem.sty
 %% Stand: 2026-09-24 (v2.2: Stil mdfstyle definiert; Paketname mit Pfad)
 %%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
+%%        2026-10-01: Buchklassen (scrbook/scrreprt): Nummer 2.1 = Section.Nr,
+%%                    Verweis I.2.1 = Kapitel.Section.Nr; Gleichungen ebenso
 %% vorher: 2026-08-31 (v2.1: Workaround fuer den TeX Live 2026 /
 %%                     thmtools-sharenumber-Bug)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -42,11 +44,11 @@
 %% Workaround (TeX Live 2026 Release Notes / Overleaf-Blog): vor den
 %% \declaretheorem-Aufrufen \thmt@autorefsetup so umdefinieren, dass es
 %% den neuen Kernel-Mechanismus nicht anstoesst.
-\makeatletter
+%% (Kein \makeatletter/\makeatother: in einer .sty ist @ ohnehin ein
+%%  Buchstabe; \makeatother wuerde @ fuer den Rest der Datei abschalten.)
 \@ifundefined{newcounteralias}{}{%
     \renewcommand\thmt@autorefsetup{\@xa\def\csname\thmt@envname autorefname\@xa\endcsname\@xa{\thmt@thmname}}%
 }
-\makeatother
 %% -------------------------------------------------------------------------
 
 %% Für gerahmte Varianten
@@ -197,6 +199,49 @@
 }{%
     \renewcommand{\proofname}{Beweis}
     %\renewcommand{\qedsymbol}{$\square$}
+}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Buchklassen (scrbook, scrreprt): Zaehlung pro Kapitel und Section
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- Abfrage ueber \chapter statt ueber den Klassennamen: so greift der
+%%    Block bei scrbook und scrreprt, bei scrartcl/amsart bleibt alles beim Alten.
+%% -- Angezeigt wird  Theorem 2.1   (Section 2, erstes Theorem),
+%%    verwiesen wird  Theorem I.2.1 (Kapitel I, Section 2, erstes Theorem).
+%%    Das Kapitel steckt im Verweis-Praefix \p@<zaehler>; \ref, \cref,
+%%    \vref und \eqref uebernehmen es automatisch.
+%% -- Theoreme vor der ersten Section eines Kapitels heissen 1, 2, ...
+%%    (Verweis I.1), nicht 0.1.
+\@ifundefined{chapter}{}{%
+  %% -- Theoreme und Aufgaben: zusaetzlich bei jedem Kapitel auf 0
+  %%    (sonst laufen Saetze vor der ersten Section einfach weiter)
+  \counterwithin*{theorem}{chapter}%
+  \counterwithin*{exercise}{chapter}%
+  \renewcommand*{\thetheorem}{%
+    \ifnum\value{section}>\z@ \thesection.\fi\arabic{theorem}}%
+  \renewcommand*{\theexercise}{%
+    \ifnum\value{section}>\z@ \thesection.\fi\arabic{exercise}}%
+  %% -- Gleichungen: (2.1) in der Section, Verweis (I.2.1)
+  \counterwithin*{equation}{section}%
+  \renewcommand*{\theequation}{%
+    \ifnum\value{section}>\z@ \thesection.\fi\arabic{equation}}%
+  %% -- Verweis-Praefix: Kapitelnummer vor die angezeigte Nummer
+  %%    (fuer alle Umgebungen, auch die mit gemeinsamem Zaehler)
+  \@for\agfa@c:=theorem,proposition,lemma,corollary,conjecture,%
+      thm,prop,lem,cor,conj,definition,defn,example,examples,%
+      remark,remarks,rem,anmerkung,anmerkungen,exercise,aufgabe,%
+      equation\do{%
+    \@ifundefined{c@\agfa@c}{}{%
+      \expandafter\def\csname p@\agfa@c\endcsname{\thechapter.}}}%
+  %% -- Neuere Kernel (ab 2025/26) legen fuer Umgebungen mit gemeinsamem
+  %%    Zaehler einen Alias-Zaehler an; dessen Nummer an theorem bzw.
+  %%    exercise koppeln (bei aelteren Kernen gibt es c@lemma usw. nicht).
+  \@for\agfa@c:=proposition,lemma,corollary,conjecture,%
+      thm,prop,lem,cor,conj,definition,defn,example,examples,%
+      remark,remarks,rem,anmerkung,anmerkungen\do{%
+    \@ifundefined{c@\agfa@c}{}{%
+      \expandafter\def\csname the\agfa@c\endcsname{\thetheorem}}}%
+  \@ifundefined{c@aufgabe}{}{\def\theaufgabe{\theexercise}}%
 }
 
 \endinput

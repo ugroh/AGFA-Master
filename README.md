@@ -1,4 +1,4 @@
-### AGFA-Templates (Stand: 2026-09-30)
+### AGFA-Templates (Stand: 2026-10-01)
 
 LaTeX-Vorlagen zur Erstellung von Bachelor- und Masterarbeiten in der AGFA. Diese eignen sich auch, um sich intensiver in die Möglichkeiten von LaTeX einzuarbeiten. Dabei setze ich voraus, dass jeder eine aktuelle und vollständige `TeX`-Installation hat, d.h.  [https://tug.org/texlive/](https://tug.org/texlive/) nutzt (siehe hierzu die Erläuterungen unter `Concise instructions, per platform`).
 
@@ -10,27 +10,30 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 
 1. **Download:** Klicke auf den grünen `Code`-Button und lade das ZIP-File herunter
 2. **Installation:** Entpacke das Archiv lokal oder lade es (ZIP-File) als neues Projekt auf Overleaf hoch
-3. **Anpassung:** Benenne  `AGFA-Master.tex` um (z.B. `abef-master.tex` für den Namen "abcd efgh"; etwa Ulrich Groh -> `ulgr-master.tex`). Analog für `AGFA-Light.tex`
+3. **Anpassung:** Benenne  `AGFA-Master.tex` um (z.B. `abef-master.tex` für den Namen "abcd efgh"; etwa Ulrich Groh -> `ulgr-master.tex`). Analog für `AGFA-Master-Book.tex` und `AGFA-Light.tex`
 4. **Inhalt:** Ersetze  die Beispielinhalte durch eigene Texte
 
 #### Varianten
 
-- **AGFA-Master.tex** - Vollständige Vorlage mit Titelseite, Danksagung, etc. für die Masterarbeit oder mehr. Man braucht kein book-Format und ähnliches dazu.
+- **AGFA-Master.tex** - **Die Standardvorlage.** Vollständig mit Titelseite, Danksagung etc. für die Masterarbeit oder mehr (Klasse `scrartcl`). Für fast alle Arbeiten ausreichend – ein Buchformat braucht man dafür nicht.
+
+- **AGFA-Master-Book.tex** - Buchfassung von `AGFA-Master.tex` (Klasse `scrbook`) für alle, die unbedingt Kapitel brauchen, etwa bei sehr umfangreichen Arbeiten. Gleiche Pakete, aber Kapitel I, II, …, zweiseitiger Druck und Verweise der Form „Theorem I.2.1“ (siehe [Buchfassung](#buchfassung-agfa-master-booktex)).
 
 - **AGFA-Light.tex** - Minimale Variante für kleinere Arbeiten, etwa Bachelorarbeit, Seminarausarbeitungen etc. (nur Inhaltsverzeichnis)
 
-- **AGFA-AMS.tex** - Variante auf Basis der Klasse `amsart`, Englisch als Voreinstellung. Sie lädt die `agfa-*`-Pakete einzeln.
-
 - **seminar/AGFA-Seminar.tex** - Einstieg für absolute Anfänger: eine einzige, vollständig kommentierte Datei ohne `agfa-art` (siehe [Für Anfänger](#für-anfänger-seminaragfa-seminartex))
+
+- **AGFA-AMS.tex** - Variante auf Basis der Klasse `amsart`, Englisch als Voreinstellung. Sie lädt die `agfa-*`-Pakete einzeln.
 
 #### Verzeichnisstruktur
 
 ```
-├── AGFA-Master.tex        	# Hauptvorlage
+├── AGFA-Master.tex        	# Hauptvorlage (Standard)
+├── AGFA-Master-Book.tex   	# Buchfassung mit Kapiteln (scrbook)
 ├── AGFA-Light.tex         	# Minimale Variante
-├── AGFA-AMS.tex           	# Variante mit amsart (englisch)
 ├── seminar/               	# Einstieg für Anfänger
 │   └── AGFA-Seminar.tex  	# eine Datei, alles kommentiert
+├── AGFA-AMS.tex           	# Variante mit amsart (englisch)
 ├── preamble/              	# Paket-Definitionen
 │   ├── agfa-art.sty      	# Hauptpaket
 │   ├── agfa-font.sty     	# Schriftarten (lmodern, libertinus, times)
@@ -50,12 +53,30 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 │   ├── 0-AGFA-title.tex  	# Titelseite
 │   ├── AGFA-Einleitung.tex	# etc
 │   └── AGFA-Section-*.tex	# und weitere
+├── content-book/          	# Beispielkapitel für AGFA-Master-Book.tex
+│   ├── AGFA-Book-Einleitung.tex	# Kapitel ohne Nummer (\addchap)
+│   └── AGFA-Book-Kapitel-*.tex	# Kapitel I, II, ...
 ├── bib/                   # Literaturverzeichnis
 │   └── agfa-bib.bib
 └── texmf/                 # dieselben Dateien, fertig für den texmf-Baum
     ├── tex/latex/agfa/    # alle agfa-*.sty (wie preamble/)
     └── bibtex/bib/        # agfa-bib.bib
 ```
+
+### Buchfassung: `AGFA-Master-Book.tex`
+
+Wer unbedingt Kapitel braucht, nimmt statt `AGFA-Master.tex` die Buchfassung. Sie lädt **dieselben** `agfa-*`-Pakete; diese erkennen die Buchklasse selbst. Es gibt also keine eigenen Pakete und nichts doppelt zu pflegen.
+
+Unterschiede zu `AGFA-Master.tex`:
+
+- **Klasse und Druck:** `scrbook`, zweiseitig (`twoside = true`), Kapitel beginnen auf einer rechten Seite (`open = right`), eingeschobene Leerseiten bleiben ganz leer.
+- **Gliederung:** `\chapter` (I, II, …) > `\section` (1, 2, …) > `\subsection`. Im Anhang (nach `\appendix`) heißen die Kapitel A, B, …. Eine Einleitung ohne Nummer mit `\addchap{Einleitung}`.
+- **Seitenzählung:** `\frontmatter` (Titelei, römisch), `\mainmatter` (arabisch ab 1), `\backmatter` (Literatur, Seitenzahlen laufen weiter) – kein `\pagenumbering` von Hand.
+- **Inhaltsverzeichnis:** Kapitel fett mit Seitenzahl, Sections und Subsections darunter eingerückt.
+- **Kolumnentitel:** links das Kapitel („I Grundlagen“), rechts die Section („I.2 Vollständigkeit“). Kapitelanfangsseiten tragen die Seitenzahl außen im Fuß.
+- **Nummerierung:** siehe [Mathematische Umgebungen](#mathematische-umgebungen).
+
+Jedes Kapitel ist eine eigene Datei, die mit `\chapter{…}` beginnt; die Beispiele in `content-book/` zeigen Aufbau und Verweise. Die Titelei-Dateien (`content/0-AGFA-*.tex`) werden von beiden Vorlagen gemeinsam benutzt.
 
 ### Für Anfänger: `seminar/AGFA-Seminar.tex`
 
@@ -105,6 +126,8 @@ Das Template bietet umfassende mathematische Umgebungen:
 - `proof` - Beweise (mit QED-Symbol)
 
 Alle nummerierten Umgebungen teilen sich einen Zähler (z. B. Theorem 2.1, Lemma 2.2). Verweise am besten mit `\cref{…}` bzw. `\vref{…}` – der Name („Lemma“, „Satz“ …) wird dann automatisch gesetzt.
+
+**In der Buchfassung** (`AGFA-Master-Book.tex`) zählen Theoreme und Gleichungen pro Section und beginnen in jeder Section neu: Im Text steht „Theorem 2.1“ bzw. „(2.1)“. Bei Verweisen mit `\cref`, `\ref`, `\vref` oder `\eqref` wird das Kapitel automatisch vorangestellt, etwa „Theorem I.2.1“, „Korollar II.1.3“, „(I.2.1)“ oder „Abschnitt I.2“. So ist jeder Verweis eindeutig, egal aus welchem Kapitel er kommt. Abbildungen und Tabellen werden pro Kapitel gezählt („Abbildung I.3“).
 
 also etwa 
 
@@ -213,7 +236,7 @@ Lade das gesamte ZIP-File als neues Projekt hoch. Alle Verzeichnisse werden auto
 
 #### Zweiseitiger Druck
 
-Für die finale Version aktiviere:
+`AGFA-Master-Book.tex` ist bereits zweiseitig eingestellt. Bei `AGFA-Master.tex` für die finale Version aktivieren:
 ```latex
 \documentclass[%
     , twoside = true     % Zweiseitiges Layout
@@ -258,6 +281,8 @@ Für große Arbeiten können Abschnitte einzeln bearbeitet werden:
 %   ./content/AGFA-Section-2,    % auskommentiert
 }
 ```
+
+In der Buchfassung entsprechend mit den Kapiteldateien aus `./content-book/`.
 
 ##### Review und Finale Version
 
@@ -310,6 +335,11 @@ Siehe: [https://tex.stackexchange.com/questions/21290](https://tex.stackexchange
 Bei Fragen: Mail an ulgr@math.uni-tuebingen.de
 
 #### Korrekturen
+
+* (2026/10/01) Neu: `AGFA-Master-Book.tex` (Buchfassung mit `scrbook`) samt Beispielkapiteln in `./content-book/` (siehe [Buchfassung](#buchfassung-agfa-master-booktex)). Dazu bitte `agfa-theorem.sty`, `agfa-layout.sty` und `agfa-hyperref.sty` austauschen (in `./preamble` bzw. im texmf-Baum):
+  - Die drei Pakete erkennen die Buchklasse selbst (Abfrage über `\chapter`, greift also auch bei `scrreprt`). Mit `AGFA-Master.tex`, `AGFA-Light.tex` und `AGFA-AMS.tex` bleibt alles wie bisher.
+  - Buch: Kapitel I, II, …; Theoreme und Gleichungen pro Section (2.1), Verweise mit Kapitel (I.2.1); eindeutige Sprungziele für Links; Inhaltsverzeichnis, Kolumnentitel und Seitenzahl auf Kapitelanfangsseiten angepasst.
+  - `agfa-theorem.sty`: überflüssiges `\makeatletter`/`\makeatother` entfernt.
 
 * (2026/09/30) Alle `agfa-*.sty` austauschen (in `./preamble` bzw. im texmf-Baum):
   - Die Pakete erkennen jetzt selbst, ob sie über `./preamble/agfa-art` oder über `agfa-art` (texmf) geladen wurden, und holen alle Teilpakete vom selben Ort. Alte und neue Dateien können sich so nicht mehr mischen.

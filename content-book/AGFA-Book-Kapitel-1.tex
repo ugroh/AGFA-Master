@@ -1,0 +1,57 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% AGFA-Book-Kapitel-1.tex -- Kapitel I
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Grundlagen}
+\label{chap:grundlagen}
+
+Ein kurzer Überblick über das Kapitel steht vor der ersten Section.
+
+\section{Metrische Räume}
+\label{sec:metrisch}
+
+\begin{definition}
+\label{def:metrik}
+Eine Abbildung $d\colon X\times X\to\mathbb{R}$ heißt \emph{Metrik}, wenn
+für alle $x,y,z\in X$ gilt
+\begin{equation}
+\label{eq:dreieck}
+  d(x,z)\le d(x,y)+d(y,z).
+\end{equation}
+\end{definition}
+
+\begin{example}
+Der Betrag liefert die Metrik $d(x,y)=\abs{x-y}$ auf $\mathbb{R}$.
+\end{example}
+
+\section{Vollständigkeit}
+\label{sec:vollstaendig}
+
+\begin{lemma}
+\label{lem:cauchy}
+Jede konvergente Folge ist eine Cauchy-Folge.
+\end{lemma}
+
+\begin{proof}
+Folgt aus der Dreiecksungleichung \eqref{eq:dreieck}.
+\end{proof}
+
+\subsection{Kontraktionen}
+\label{subsec:kontraktion}
+
+\begin{theorem}[Banach]
+\label{thm:banach}
+Ist $(X,d)$ vollständig und $T\colon X\to X$ eine Kontraktion, so hat $T$
+genau einen Fixpunkt.
+\end{theorem}
+
+\begin{corollary}
+\label{cor:eindeutig}
+Die Fixpunktiteration konvergiert für jeden Startwert.
+\end{corollary}
+
+Die Abschätzung
+\begin{equation}
+\label{eq:apriori}
+  d(x_n,x^*)\le\frac{q^n}{1-q}\,d(x_1,x_0)
+\end{equation}
+zeigt die Geschwindigkeit.

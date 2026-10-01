@@ -1,0 +1,152 @@
+% !TEX TS-program = lualatexmk
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Das Masterfile für die Buchfassung: AGFA-Master-Book.tex
+%% Stand:	2026-10-01
+%% --
+%% Unterschiede zu AGFA-Master.tex (scrartcl):
+%%   - Klasse scrbook, zweiseitig, Kapitel beginnen rechts
+%%   - Gliederung: \chapter (I, II, ...) > \section (1, 2, ...) > \subsection
+%%   - Theoreme und Gleichungen: im Text  Theorem 2.1  bzw. (2.1),
+%%     im Verweis (\cref, \ref, \eqref)  Theorem I.2.1  bzw. (I.2.1)
+%%   - \frontmatter / \mainmatter / \backmatter statt Handarbeit
+%%     mit \pagenumbering
+%% Die Pakete in ./preamble sind dieselben wie bei AGFA-Master.tex;
+%% sie erkennen die Buchklasse selbst.
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[%	 -- siehe KOMA-Script 
+	,toc		= bib 		 
+	,parskip	= half-		 
+	,headings	= normal	 		 	 		 
+%	,headings	= chapterprefix	% "Kapitel I" als eigene Zeile über dem Titel
+	,numbers	= noenddot		
+	,BCOR 		= 12mm
+	,twoside 	= true			% Buch: zweiseitig
+	,open		= right			% Kapitel beginnen auf einer rechten Seite
+	,cleardoublepage = empty	% eingeschobene Leerseiten ganz leer
+	,version 	= last
+ 	,titlepage	= true   
+	,ngerman	
+%	,english	
+% 	,review					% für das Korrekturlesen % wegmachen	 
+	]{scrbook}			 
+
+%% -- Nutze die AGFA-Pakete
+%% --
+\usepackage[%
+%	, libertinus		% font libertinus
+%	, lmodern			% font lmodern, das Original von Knuth
+%	, thmframed			% wer es gerahmt haben will
+	]{./preamble/agfa-art}
+	
+%% -- Literatur-DB durch eigene ersetzen 
+%% --
+\addbibresource{./bib/agfa-bib.bib}		% agfa-bib-neu.bib -> abcd-bib.bib	
+
+\ExecuteBibliographyOptions{%
+	,backref		= true	% Auf was ist verwiesen; Rest muss weg
+  	,url			= true	% false: URL wird nicht angezeigt 
+  	,doi			= false	% true: URLDOI wird separat angezeigt
+	,eprint			= false	% true: wird separat angezeigt
+	,maxcitenames  	= 2 	% viele Autoren -> nur die ersten beiden erscheinen  
+    ,maxbibnames   	= 10 	% im Verzeichnis tauchen alle auf
+	}
+
+%% -- Links farbig
+%% --
+\hypersetup{
+	,colorlinks	= true    			%   onlineversion true
+	,urlcolor	= blue       		%
+	,citecolor	= blue      		%
+	,linkcolor	= blue			 	% oder black
+%  	,hidelinks 						% Vor dem Druck % entfernen
+	}
+	
+
+%% == Ab hier eigene Angaben ==
+	
+%% -- Was soll aktuell bearbeitet werden
+%% -- Mittels % entsprechend steuern
+%% --
+\includeonly{%
+	./content-book/AGFA-Book-Einleitung,
+	./content-book/AGFA-Book-Kapitel-1,
+	./content-book/AGFA-Book-Kapitel-2,
+	}
+
+
+%% -- Ausfüllen aber für die finale Version mit % auskommentieren
+%% -- (zweiseitig: i = innen, c = Mitte, o = außen)
+%% --
+\KOMAoptions{footsepline}
+\ifoot{Name}
+\cfoot{Stand der Arbeit:}
+\ofoot{\today}
+
+%% -- Paket comment (\begin{comment} ... \end{comment}) wird bereits
+%% -- von agfa-art geladen; siehe Literaturverzeichnis
+
+%% -- Start
+%% --
+\begin{document}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+%% Frontmatter: römische Seitenzahlen, Kapitel ohne Nummer
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+\frontmatter
+
+%% -- Bei einer Arbeit zum Schluss bei \begin{comment} und \end{comment}
+%% -- ein % hinzufügen und nicht vergessen, titlepage = true setzen
+%% --
+%\begin{comment}
+%%
+\begingroup 
+	\input{./content/0-AGFA-title}			% Titelseite
+	\pagestyle{empty}
+	\input{./content/0-AGFA-EigenErkl}		% Eigenständigkeitserklärung
+	\input{./content/0-AGFA-thanks}			% Danksagung
+	\input{./content/0-AGFA-summary}		% Zusammenfassung
+	\tableofcontents 
+	\thispagestyle{empty}
+\endgroup
+%%
+%\end{comment}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+%% Mainmatter: arabische Seitenzahlen ab 1, Kapitel I, II, ...
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter
+
+%% -- Jedes Kapitel ist eine eigene Datei mit \chapter{...} am Anfang;
+%% -- \include beginnt ohnehin auf einer neuen (rechten) Seite.
+%% -- Die Einleitung ist ein Kapitel ohne Nummer: \addchap{Einleitung}
+%% --
+\include{./content-book/AGFA-Book-Einleitung}		% Einleitung, ohne Nummer
+\include{./content-book/AGFA-Book-Kapitel-1}		% Kapitel I
+\include{./content-book/AGFA-Book-Kapitel-2}		% Kapitel II
+% \include{name}								% etc; bitte den Aufbau beachten
+
+%% -- Anhang: Kapitel heißen dann A, B, ...; Verweise A.1.2
+% \appendix
+% \include{./content-book/AGFA-Book-Anhang}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+%% Backmatter: Kapitel ohne Nummer, Seitenzahlen laufen weiter
+%% %%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+%% -- Literaturverzeichnis
+%%
+%\nocite{}		% für Literatur, die nicht zitiert wurde; 
+				% wenig sinnvoll dieses zu tun; siehe ReadMe.pdf
+				
+%% -- Literatur
+%% --	
+\RaggedRight
+\nocite{voss:2025a,lamport:1986,urysohn:1925a,aigner:2010,axler:2015,lamport:dmv,kahle:2018,zabreiko:1969, comment}
+\printbibliography
+%% -- Bildquellen (nur wenn \quelle{...} verwendet wurde)
+\druckequellen
+
+%% --
+
+\end{document}

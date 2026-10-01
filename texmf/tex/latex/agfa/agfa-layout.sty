@@ -4,6 +4,8 @@
 %% Stand: 2026-09-24 (tocdepth absolut)
 %%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
 %%        2026-09-30: tocnumwidth der subsection 2em (zweistellige Nummern im TOC)
+%%        2026-10-01: Buchklassen (scrbook/scrreprt): Kapitel I, II, ...;
+%%                    TOC, Kolumnentitel und Seitenzahl auf Kapitelseiten
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}	%
@@ -25,6 +27,31 @@
 %% -- 
 \setcounter{tocdepth}{\subsectiontocdepth}% Keine \subsubsection im TOC
 
+%% -- Buch oder Artikel? Abfrage ueber \chapter (scrbook, scrreprt)
+\newif\ifagfa@chapter
+\@ifundefined{chapter}{\agfa@chapterfalse}{\agfa@chaptertrue}
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- chapter (nur Buchklassen)
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% -- Kapitel I, II, ... (im Anhang setzt \appendix A, B, ...)
+%%    Sections heissen im Kapitel 1, 2, ...; Verweise darauf I.2,
+%%    auf Subsections I.2.3
+\ifagfa@chapter
+  \renewcommand*{\thechapter}{\Roman{chapter}}
+  \renewcommand*{\p@section}{\thechapter.}
+  \renewcommand*{\p@subsection}{\thechapter.\thesection.}
+  %% -- TOC: Kapitel fett mit Seitenzahl, Nummer mit Punkt (I.)
+  \RedeclareSectionCommand[tocnumwidth=2.5em]{chapter}
+  \renewcommand*{\addchaptertocentry}[2]{%
+    \Ifstr{#1}{}{%
+      \addtocentrydefault{chapter}{#1}{#2}%
+    }{%
+      \addtocentrydefault{chapter}{#1.}{#2}%
+    }%
+  }
+\fi
+
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- section
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -32,16 +59,25 @@
 
 %% -- TOC
 \RedeclareSectionCommand[tocnumwidth=2em]{section} % TOC
+%% -- Buch: Section unter den Kapiteltitel einruecken
+\ifagfa@chapter
+  \RedeclareSectionCommand[tocindent=2.5em]{section}
+\fi
 \renewcommand*{\addsectiontocentry}[2]{% Eintrag in TOC
-  \addtocontents{toc}{\protect\addvspace{\protect.5\baselineskip}}% Halbe LZ
+  %% -- Halbe LZ vor jeder Section; im Buch uebernimmt das das Kapitel
+  \ifagfa@chapter\else
+    \addtocontents{toc}{\protect\addvspace{\protect.5\baselineskip}}%
+  \fi
   \Ifstr{#1}{}{%
     \addtocentrydefault{section}{#1}{#2}%
   }{%
     \addtocentrydefault{section}{\kern1pt#1.}{\itshape #2}
   }%
 }
-%% --  Seitenangabe unnötig 
-\addtokomafont{sectionentrypagenumber}{\color{white}}
+%% --  Seitenangabe unnötig (Artikel); im Buch bleibt sie stehen
+\ifagfa@chapter\else
+  \addtokomafont{sectionentrypagenumber}{\color{white}}
+\fi
 
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% -- subsection
@@ -55,6 +91,9 @@
 	font		= \itshape,
 	tocnumwidth	= 2em	% Platz fuer zweistellige Nummern (10. usw.)
 ]{subsection}
+\ifagfa@chapter
+  \RedeclareSectionCommand[tocindent=4.5em]{subsection}% unter die Section
+\fi
 %% -- Eintrag in das TOC
 \renewcommand*{\addsubsectiontocentry}[2]{%
   \Ifstr{#1}{}{%
@@ -89,6 +128,13 @@
 \KOMAoptions{headsepline=0.8pt}
 \renewcommand*{\sectionmarkformat}{}	% keine Abschnittsnummer
 \renewcommand*{\subsectionmarkformat}{}	% keine UnterAbschnittsnummer
+%% -- Buch: links Kapitel (I Titel), rechts Section (I.2 Titel); die
+%%    Nummern helfen beim Auffinden von Verweisen wie Theorem I.2.1
+\ifagfa@chapter
+  \automark[section]{chapter}
+  \renewcommand*{\chaptermarkformat}{\thechapter\enskip}
+  \renewcommand*{\sectionmarkformat}{\thechapter.\thesection\enskip}
+\fi
 
 %% ---------------------------
 %% Zweiseitig und Einseitig nach Abfrage
@@ -127,6 +173,11 @@
   }}
 }%% <-- Ende Zweiseitig
 %%
+%% -- Buch: Kapitelanfangsseiten (Seitenstil plain) bekommen die
+%%    Seitenzahl aussen im Fuss; sonst haetten sie gar keine
+\ifagfa@chapter
+  \ofoot[\pagemark]{}
+\fi
 \pagestyle{scrheadings}
 
 %% --Fußnoten Nach KOMA 3.14 
