@@ -30,10 +30,10 @@ Bitte den Abschnitt [Korrekturen](#Korrekturen) beachten.
 ```
 ├── AGFA-Master.tex        	# Hauptvorlage (Standard)
 ├── AGFA-Master-Book.tex   	# Buchfassung mit Kapiteln (scrbook)
-├── AGFA-Light.tex         	# Minimale Variante
+├── AGFA-Light.tex         	# Für kleinere Arbeiten
+├── AGFA-AMS.tex           	# Variante mit amsart (englisch)
 ├── seminar/               	# Einstieg für Anfänger
 │   └── AGFA-Seminar.tex  	# eine Datei, alles kommentiert
-├── AGFA-AMS.tex           	# Variante mit amsart (englisch)
 ├── preamble/              	# Paket-Definitionen
 │   ├── agfa-art.sty      	# Hauptpaket
 │   ├── agfa-font.sty     	# Schriftarten (lmodern, libertinus, times)
@@ -70,7 +70,7 @@ Wer unbedingt Kapitel braucht, nimmt statt `AGFA-Master.tex` die Buchfassung. Si
 Unterschiede zu `AGFA-Master.tex`:
 
 - **Klasse und Druck:** `scrbook`, zweiseitig (`twoside = true`), Kapitel beginnen auf einer rechten Seite (`open = right`), eingeschobene Leerseiten bleiben ganz leer.
-- **Gliederung:** `\chapter` (I, II, …) > `\section` (1, 2, …) > `\subsection`. Im Anhang (nach `\appendix`) heißen die Kapitel A, B, …. Eine Einleitung ohne Nummer mit `\addchap{Einleitung}`.
+- **Gliederung:** `\chapter` (I, II, …) > `\section` (1, 2, …) > `\subsection`. Im Anhang (nach `\appendix`) heißen die Kapitel A, B, …. Eine Einleitung ohne Nummer mit `\addchap{Einleitung}`. Wer arabische Kapitelnummern (1, 2, …) möchte, nimmt in `AGFA-Master-Book.tex` das `%` vor `\renewcommand*{\thechapter}{\arabic{chapter}}` weg (die Zeile muss nach `agfa-art` stehen); Verweise lauten dann „Theorem 1.2.1“.
 - **Seitenzählung:** `\frontmatter` (Titelei, römisch), `\mainmatter` (arabisch ab 1), `\backmatter` (Literatur, Seitenzahlen laufen weiter) – kein `\pagenumbering` von Hand.
 - **Inhaltsverzeichnis:** Kapitel fett mit Seitenzahl, Sections und Subsections darunter eingerückt.
 - **Kolumnentitel:** links das Kapitel („I Grundlagen“), rechts die Section („I.2 Vollständigkeit“). Kapitelanfangsseiten tragen die Seitenzahl außen im Fuß.
