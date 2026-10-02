@@ -1,0 +1,80 @@
+% !TEX TS-program = lualatexmk
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Test-Schriften.tex -- Test der Schriftoptionen von agfa-art
+%% Liegt in ./ReadMe (nur lokal); agfa-art wird ueber texmf geladen.
+%% Stand: 2026-09-24
+%%
+%% Mit LuaLaTeX uebersetzen. Genau EINE der \usepackage-Zeilen
+%% unten aktivieren (die anderen mit % auskommentieren).
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[ngerman,fontsize=12pt,parskip=half]{scrartcl}
+
+%% -- agfa-art ueber den texmf-Link (~/Library/texmf/tex/latex/agfa)
+%\usepackage{agfa-art}					% Times (Standard)
+%\usepackage[japanese]{agfa-art}			% Times + Japanisch
+%\usepackage[lucida]{agfa-art}			% Lucida
+\usepackage[lucida,japanese]{agfa-art}	% Lucida + Japanisch
+
+\addbibresource{../bib/agfa-bib.bib}
+
+%% -- Welche Optionen sind aktiv? (fuer die Ausgabe unten)
+\newcommand{\zeigeoption}[1]{\ifthenelse{\boolean{#1}}{\textbf{an}}{aus}}
+
+\title{Test der Schriften}
+\subtitle{agfa-art: Optionen \texttt{lucida} und \texttt{japanese}}
+\author{AGFA}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Aktive Optionen}
+
+\begin{tabular}{ll}
+	\texttt{lucida}     & \zeigeoption{lucida} \\
+	\texttt{japanese}   & \zeigeoption{japanese} \\
+	\texttt{libertinus} & \zeigeoption{libertinus} \\
+	\texttt{lmodern}    & \zeigeoption{lmodern}
+\end{tabular}
+
+Welche Schriften tatsächlich verwendet werden, zeigt im PDF-Betrachter
+\enquote{Dokumenteigenschaften -- Schriften} (Vorschau: \enquote{Informationen einblenden}).
+
+\section{Text}
+
+Zwölf Boxkämpfer jagen Viktor quer über den großen Sylter Deich.
+\emph{Kursiv: Falsches Üben von Xylophonmusik quält jeden größeren Zwerg.}
+\textbf{Fett: Franz jagt im komplett verwahrlosten Taxi quer durch Bayern.}
+\textsc{Kapitälchen: Heizölrückstoßabdämpfung.}
+
+\texttt{Schreibmaschine: \textbackslash usepackage\{agfa-art\}}
+
+Ziffern und Zeichen: 0123456789 -- „Anführungszeichen“ \enquote{mit enquote} -- § 12, € 3,50, 5\,\% -- ß, ä, ö, ü, Ä, Ö, Ü.
+
+\section{Mathematik}
+
+Im Text: Für $f \in L^1(\R)$ gilt $\norm{f}_1 = \int_{\R} \abs{f(t)} \dt$, ferner $\1_A$, $\P(X)$ und $\L{E,F}$.
+
+\[
+	\sum_{n=0}^{\infty} \frac{x^n}{n!} = \eu^{x}, \qquad
+	\int f \d{\mu} \leq \norm*{\frac{1}{1+t^2}}, \qquad
+	\alpha, \beta, \gamma, \varepsilon, \varphi, \vartheta, \Omega
+\]
+
+\begin{theorem}[Euler]\label{thm:euler}
+Es gilt $\eu^{\pi\iu} + 1 = 0$.
+\end{theorem}
+
+\section{Japanisch}
+
+%% Nur sinnvoll mit der Option japanese; ohne sie fehlen die Zeichen.
+\ifthenelse{\boolean{japanese}}{%
+Das Kanzufu (官子譜) wurde von Go Seigen (呉清源) kommentiert.
+Wichtige Begriffe: 碁 (Go), 定石 (J\={o}seki), 手筋 (Tesuji), 死活 (Shikatsu).
+
+囲碁は二人で行うボードゲームです。黒と白の石を交互に置き、地の多さを競います。
+}{%
+\emph{Option \texttt{japanese} ist nicht aktiv -- japanischer Text wird übersprungen.}
+}
+
+\end{document}
