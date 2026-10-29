@@ -3,6 +3,7 @@
 %% agfa-mathtools.sty
 %% Stand: 2026-09-24 (amssymb mit libertinus unter pdfLaTeX)
 %%        2026-09-30: \ProvidesPackage{\@currpath\@currname} (Projektordner und texmf)
+%%        2026-10-29: accents nur unter pdfLaTeX (unvertraeglich mit unicode-math)
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Kenndaten
@@ -56,13 +57,23 @@
        \lower.25ex\hbox{\small #2}}
 %%
 %
-\RequirePackage{accents}
+%% -- accents nur unter pdfLaTeX: mit unicode-math (LuaLaTeX/XeLaTeX)
+%%    zerstoert es \hat, \widehat usw. ("Missing number, treated as zero")
+\RequirePackage{iftex}
+\ifPDFTeX
+  \RequirePackage{accents}
+\fi
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Topologisches
 %% \interior{A} -> gibt o ueber A
 % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\interior}[1]{%
+\ifPDFTeX
+  \newcommand{\interior}[1]{%
 	\accentset{\smash{\raisebox{-0.12ex}{$\scriptstyle\circ$}}}{{#1}}\rule{0pt}{2.3ex}}
+\else
+  \newcommand{\interior}[1]{%
+	\overset{\smash{\raisebox{-0.12ex}{$\scriptstyle\circ$}}}{#1}\rule{0pt}{2.3ex}}
+\fi
 	
 %%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%% Tippfaul DTK 1/2011 & Mail H Voss
