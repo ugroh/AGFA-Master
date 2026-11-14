@@ -56,7 +56,7 @@
 %% -- section
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\thesection}{\arabic{section}} 
-
+\renewcommand*{\sectionformat}{\thesection\enskip}% Kein Punkt nach Nr. 
 %% -- TOC
 \RedeclareSectionCommand[tocnumwidth=2em]{section} % TOC
 %% -- Buch: Section unter den Kapiteltitel einruecken
@@ -83,7 +83,7 @@
 %% -- subsection
 %% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \renewcommand*{\thesubsection}{\arabic{subsection}}
-\renewcommand*{\subsectionformat}{\thesubsection.\enskip}% Nr. in Überschrift
+\renewcommand*{\subsectionformat}{\thesubsection\enskip}% Kein Punkt nach Nr. 
 % 
 \RedeclareSectionCommand[%
 	beforeskip	= -1.75\baselineskip,
